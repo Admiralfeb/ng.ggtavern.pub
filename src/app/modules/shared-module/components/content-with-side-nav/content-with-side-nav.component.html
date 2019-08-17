@@ -1,0 +1,20 @@
+<div class="z-container" [class.mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()" [matTooltip]="burgerTip" matTooltipPosition="below"><mat-icon>menu</mat-icon></button>
+    <h1 class="app-name">{{headerText}}</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [class.mobile]="mobileQuery.matches"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" autosize="true">
+      <mat-nav-list>
+        <a class="navItem" mat-list-item [routerLink]="navItem.link" routerLinkActive="active" *ngFor="let navItem of navItems" (click)="navClick()">{{navItem.text}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
