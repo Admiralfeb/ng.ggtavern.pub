@@ -1,0 +1,369 @@
+{
+    "specialties": [
+        {
+            "name": "Aquaman",
+            "price": "7.00",
+            "ingredients": "Island Punch Pucker, Pineapple Juice, Sprite",
+            "Note": ""
+        },
+        {
+            "name": "Cthulhu’s Call",
+            "price": "10.00",
+            "ingredients": "Melon Liqueur, Kraken Rum, Blue Curacao, Grenadine, Sprite",
+            "Note": ""
+        },
+        {
+            "name": "Estus",
+            "price": "7.00",
+            "ingredients": "Vodka and Sunny D",
+            "Note": ""
+        },
+        {
+            "name": "Fairy Blood",
+            "price": "10.00",
+            "ingredients": "Red White and Berry Vodka, Luster Blue Curacao, Pineapple, Sprite",
+            "Note": "Yes, fairies were harmed to make this…"
+        },
+        {
+            "name": "Health Potion",
+            "price": "7.00",
+            "ingredients": "Tequila, Grenadine, Sprite",
+            "Note": ""
+        },
+        {
+            "name": "Kingdom Heart",
+            "price": "10.50",
+            "ingredients": "Moscato, Watermelon Schnapps, Sprite",
+            "Note": ""
+        },
+        {
+            "name": "Klingon Blood Wine",
+            "price": "8.00",
+            "ingredients": "",
+            "Note": "Just the way Worf likes it. STRONG"
+        },
+        {
+            "name": "Kobayashi Maru",
+            "price": "9.00",
+            "ingredients": "Gin, Vodka, Peach Schnapps, Triple Sec, Sour, Cranberry",
+            "Note": ""
+        },
+        {
+            "name": "Krusty Love",
+            "price": "8.50",
+            "ingredients": "Tequila, Orange Juice, Grenadine, Triple Sec, Sugar",
+            "Note": "It’s icky and it will leave your hands sticky…"
+        },
+        {
+            "name": "Little Drunk People",
+            "price": "18.00",
+            "ingredients": "Black Raspberry, Sour Apple, Peach, Vodka, Sour Mix, Sour Patch Kids",
+            "Note": ""
+        },
+        {
+            "name": "Mana Potion",
+            "price": "6.00",
+            "ingredients": "Vodka, Gin, Blue Curacao, Sprite",
+            "Note": ""
+        },
+        {
+            "name": "Pac-Man",
+            "price": "9.00",
+            "ingredients": "Amaretto, Vodka, Lime Juice, Sour Mix",
+            "Note": ""
+        },
+        {
+            "name": "Princess Peach",
+            "price": "7.00",
+            "ingredients": "Rum, Peach Schnapps, Grenadine, Pineapple Juice",
+            "Note": ""
+        },
+        {
+            "name": "The Basic",
+            "price": "8.00",
+            "ingredients": "Pumpkin Spice Cream Liqueur, Kahlua, Milk",
+            "Note": ""
+        },
+        {
+            "name": "The Cake is a Lie",
+            "price": "7.50",
+            "ingredients": "Vanilla Vodka, Cranberry, Grenadine",
+            "Note": ""
+        },
+        {
+            "name": "The Horde",
+            "price": "9.00",
+            "ingredients": "Rum, Kraken, Grenadine, Red Bull",
+            "Note": ""
+        },
+        {
+            "name": "Time Warp",
+            "price": "8.50",
+            "ingredients": "Midori, Malibu, Blue Curacao, Pineapple",
+            "Note": ""
+        },
+        {
+            "name": "Witches Brew",
+            "price": "10.50",
+            "ingredients": "Pineapple, Cranberry, Malibu, Sprite",
+            "Note": ""
+        }
+    ],
+    "tap": [
+        {
+            "name": "Blue Moon",
+            "ABV": "5.4%",
+            "pricepint": "$5.00",
+            "pricemug": "$9.00"
+        },
+        {
+            "name": "Dogfish Head Sour Session",
+            "ABV": "4.9%",
+            "pricepint": "$5.00",
+            "pricemug": "$9.00"
+        },
+        {
+            "name": "Free State Oatmeal Stout",
+            "ABV": "6.1%",
+            "pricepint": "$5.50",
+            "pricemug": "$10.00"
+        },
+        {
+            "name": "Stella Artois Cidre",
+            "ABV": "4.5%",
+            "pricepint": "$5.75",
+            "pricemug": "$10.50"
+        },
+        {
+            "name": "Sweetwater Peach Love & Happiness",
+            "ABV": "4.7%",
+            "pricepint": "$5.00",
+            "pricemug": "$9.00"
+        },
+        {
+            "name": "Walnut River Warbeard",
+            "ABV": "5.5%",
+            "pricepint": "$5.00",
+            "pricemug": "$9.00"
+        }
+    ],
+    "shots": [
+        {
+            "name": "Chocolate Cake",
+            "price": "7.50",
+            "ingredients": "Vodka, Frangelico, Sugar Coated Lemon",
+            "Note": ""
+        },
+        {
+            "name": "Diddy Kong",
+            "price": "6.00",
+            "ingredients": "Creme de Banana, RumChata, Heavy Cream",
+            "Note": ""
+        },
+        {
+            "name": "Donkey Kong",
+            "price": "6.00",
+            "ingredients": "Creme de Banana, Vanilla Vodka, Whipped Cream",
+            "Note": ""
+        },
+        {
+            "name": "Ninja Turtle",
+            "price": "4.00",
+            "ingredients": "Midori, Malibu, Sour Mix, Sprite",
+            "Note": ""
+        },
+        {
+            "name": "Peanut Butter & Jelly",
+            "price": "5.25",
+            "ingredients": "Frangelico, Butterscotch Schnapps, Black Raspberry Liqueur",
+            "Note": ""
+        },
+        {
+            "name": "Pickle Rick",
+            "price": "2.00",
+            "ingredients": "Vodka, Pickle Juice",
+            "Note": ""
+        },
+        {
+            "name": "Shipwreck Shot",
+            "price": "6.00",
+            "ingredients": "Loconut, Rum, Pineapple Juice, Lime",
+            "Note": ""
+        },
+        {
+            "name": "The Basic",
+            "price": "7.00",
+            "ingredients": "Pumpkin Spice Cream Liqueur, Kahlua, Whipped Cream",
+            "Note": ""
+        }
+    ],
+    "wines": [
+        {
+            "name": "Wyldwood Mead",
+            "price": "7.50",
+            "types": "Honey, Elderberry, Elderberry Blackberry Blend"
+        }
+    ],
+    "bits": [
+        {
+            "name": "Bacon Jalapeño Deviled Eggs",
+            "price": "3.00",
+            "note": "Includes 4 halves",
+            "types": ""
+        },
+        {
+            "name": "Boozy Ice Cream",
+            "price": "6.00",
+            "note": "",
+            "types": "Strawberry, Chai"
+        },
+        {
+            "name": "Cheesecake - Plain",
+            "price": "5.50",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Cheesecake - with topping",
+            "price": "6.00",
+            "note": "",
+            "types": "Chocolate, Cherry, Blueberry"
+        },
+        {
+            "name": "Chips and Pico",
+            "price": "5.00",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Cinnamon Roll",
+            "price": "6.00",
+            "note": "Seasonal - Currently out of season",
+            "types": ""
+        },
+        {
+            "name": "Fried Pickles",
+            "price": "4.50",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Fries - Regular",
+            "price": "3.00",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Fries - Sweet Potato",
+            "price": "4.50",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Mozzarella Sticks",
+            "price": "5.50",
+            "note": "",
+            "types": ""
+        }
+    ],
+    "bites": [
+        {
+            "name": "Add",
+            "price": "1.00",
+            "description": "",
+            "types": "Chili, Cheese, an Egg",
+            "includesFries": false
+        },
+        {
+            "name": "Add Bacon",
+            "price": "1.50",
+            "description": "",
+            "types": "",
+            "includesFries": false
+        },
+        {
+            "name": "BBQ Pork Burger",
+            "price": "8.50",
+            "description": "Shredded pork, BBQ sauce, beef patty",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Cheese Burger",
+            "price": "7.25",
+            "description": "beef patty, sliced cheese, lettuce tomato, onion, pickle, ketchup",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Chicken Sandwich",
+            "price": "6.50",
+            "description": "Chicken patty, lettuce, tomato, pickle, onion, house sauce",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Chili Cheese Burger",
+            "price": "7.50",
+            "description": "Chili, nacho cheese, beef patty",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Cinnamon Roll and Chili",
+            "price": "9.00",
+            "description": "House chili with cinnamon roll",
+            "types": "",
+            "includesFries": false
+        },
+        {
+            "name": "Eggers Can't Be Cheesers w/ Bacon",
+            "price": "9.50",
+            "description": "Beef patty, cheese, egg, bacon, lettuce, tomato, onion, pickle, ketchup",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Leela's Popplers",
+            "price": "9.00",
+            "description": "Popcorn Chicken",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Not Your Fries",
+            "price": "7.00",
+            "description": "Fries topped with BBQ sauce or nacho cheese, shredded pork, diced tomatoes, and jalapeños",
+            "types": "",
+            "includesFries": false
+        },
+        {
+            "name": "Pork Sliders",
+            "price": "8.50",
+            "description": "Hawaiian Bun, Shredded Pork, BBQ Sauce, Sweet Pickles",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Pork Tacos",
+            "price": "7.50",
+            "description": "Pork, Flour Tortilla, Tomatoes, Onions, House Sauce",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Scotch Egg",
+            "price": "8.00",
+            "description": "Egg wrapped in sausage, bread, and deep fried",
+            "types": "",
+            "includesFries": true
+        },
+        {
+            "name": "Vegan Black Bean Burger",
+            "price": "10.00",
+            "description": "Spicy black bean burger with all the vegan friendly fixins",
+            "types": "",
+            "includesFries": true
+        }
+    ]
+}
