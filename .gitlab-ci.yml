@@ -1,0 +1,51 @@
+image: node:11
+
+stages:
+  - install
+  - build
+  - deploy-lab
+
+install-dependencies:
+  stage: install
+  cache:
+    policy: push
+    paths:
+      - node_modules/
+  script:
+    - npm install
+  only:
+    changes:
+      - package.json
+
+build:
+  stage: build
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+  script:
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist/
+
+pages:
+  stage: deploy-lab
+  only: 
+    - develop
+    - release
+    - hotfix
+    - master
+  script:
+  - mv dist/* public/
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+  artifacts:
+    expire_in: 1 week 
+    paths:
+    - public
+  dependencies: 
+    - build
