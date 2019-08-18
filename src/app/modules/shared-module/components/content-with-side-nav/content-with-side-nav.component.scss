@@ -1,3 +1,6 @@
+@import '~@angular/material/theming';
+@import 'src/theme_variables.scss';
+
 .z-container {
   display: flex;
   flex-direction: column;
@@ -29,7 +32,7 @@ mat-sidenav-container.is-mobile {
 
 a.active,
 .active {
-  background-color: rgb(163, 73, 164) !important;
+  background-color: #16A90A !important;
   color: white !important;
 }
 a:hover,

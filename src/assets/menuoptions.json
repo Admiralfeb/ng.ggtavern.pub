@@ -93,7 +93,7 @@
         {
             "name": "The Horde",
             "price": "9.00",
-            "ingredients": "Rum, Kraken, Grenadine, Red Bull",
+            "ingredients": "Rum, Kraken Rum, Grenadine, Red Bull",
             "Note": ""
         },
         {
@@ -113,38 +113,32 @@
         {
             "name": "Blue Moon",
             "ABV": "5.4%",
-            "pricepint": "$5.00",
-            "pricemug": "$9.00"
+            "pricepint": "5.00",
+            "pricemug": "9.00"
         },
         {
             "name": "Dogfish Head Sour Session",
             "ABV": "4.9%",
-            "pricepint": "$5.00",
-            "pricemug": "$9.00"
+            "pricepint": "5.00",
+            "pricemug": "9.00"
         },
         {
             "name": "Free State Oatmeal Stout",
             "ABV": "6.1%",
-            "pricepint": "$5.50",
-            "pricemug": "$10.00"
+            "pricepint": "5.50",
+            "pricemug": "10.00"
         },
         {
             "name": "Stella Artois Cidre",
             "ABV": "4.5%",
-            "pricepint": "$5.75",
-            "pricemug": "$10.50"
-        },
-        {
-            "name": "Sweetwater Peach Love & Happiness",
-            "ABV": "4.7%",
-            "pricepint": "$5.00",
-            "pricemug": "$9.00"
+            "pricepint": "5.75",
+            "pricemug": "10.50"
         },
         {
             "name": "Walnut River Warbeard",
             "ABV": "5.5%",
-            "pricepint": "$5.00",
-            "pricemug": "$9.00"
+            "pricepint": "5.00",
+            "pricemug": "9.00"
         }
     ],
     "shots": [
@@ -201,83 +195,86 @@
         {
             "name": "Wyldwood Mead",
             "price": "7.50",
-            "types": "Honey, Elderberry, Elderberry Blackberry Blend"
+            "types": "Honey, Elderberry, or Elderberry Blackberry Blend"
         }
     ],
     "bits": [
         {
             "name": "Bacon Jalapeño Deviled Eggs",
             "price": "3.00",
+            "description": "House-made deviled eggs",
             "note": "Includes 4 halves",
             "types": ""
         },
         {
             "name": "Boozy Ice Cream",
             "price": "6.00",
+            "description": "House-made ice cream with booze",
             "note": "",
-            "types": "Strawberry, Chai"
+            "types": "Strawberry or Chai"
         },
         {
             "name": "Cheesecake - Plain",
             "price": "5.50",
+            "description": "Cake of cheese",
             "note": "",
             "types": ""
         },
         {
             "name": "Cheesecake - with topping",
             "price": "6.00",
+            "description": "Cake of cheese with a topping",
             "note": "",
             "types": "Chocolate, Cherry, Blueberry"
         },
         {
             "name": "Chips and Pico",
             "price": "5.00",
+            "description": "House-made chips and pico",
             "note": "",
-            "types": ""
-        },
-        {
-            "name": "Cinnamon Roll",
-            "price": "6.00",
-            "note": "Seasonal - Currently out of season",
             "types": ""
         },
         {
             "name": "Fried Pickles",
             "price": "4.50",
+            "description": "Pickles breaded and fried",
             "note": "",
             "types": ""
         },
         {
             "name": "Fries - Regular",
             "price": "3.00",
+            "description": "Crinkle-cut deliciousness",
             "note": "",
             "types": ""
         },
         {
             "name": "Fries - Sweet Potato",
             "price": "4.50",
+            "description": "Aren't they sweet?",
             "note": "",
             "types": ""
         },
         {
             "name": "Mozzarella Sticks",
             "price": "5.50",
+            "description": "Sticks of Mozzarella. Also called Mott Sticks",
             "note": "",
             "types": ""
         }
     ],
-    "bites": [
+    "bytes": [
         {
             "name": "Add",
             "price": "1.00",
             "description": "",
-            "types": "Chili, Cheese, an Egg",
+            "types": "Chili, Cheese, or an Egg",
             "includesFries": false
         },
         {
             "name": "Add Bacon",
             "price": "1.50",
-            "description": "",
+            "description": "The kitchen goblin will upgrade your item with delicious fried hog.",
             "types": "",
             "includesFries": false
         },
@@ -296,7 +293,7 @@
             "includesFries": true
         },
         {
-            "name": "Chicken Sandwich",
+            "name": "Chicken Burger",
             "price": "6.50",
             "description": "Chicken patty, lettuce, tomato, pickle, onion, house sauce",
             "types": "",

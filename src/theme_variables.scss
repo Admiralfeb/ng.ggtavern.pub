@@ -1,0 +1,118 @@
+@import '~@angular/material/theming';
+
+//16A90A
+//9D0AA9
+//7D0F22
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-gabbygreen: (
+    50 : #e3f5e2,
+    100 : #b9e5b6,
+    200 : #8bd485,
+    300 : #5cc354,
+    400 : #39b62f,
+    500 : #16a90a,
+    600 : #13a209,
+    700 : #109807,
+    800 : #0c8f05,
+    900 : #067e03,
+    A100 : #adffac,
+    A200 : #7aff79,
+    A400 : #48ff46,
+    A700 : #2eff2c,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-accent: (
+    50 : #f3e2f5,
+    100 : #e2b6e5,
+    200 : #ce85d4,
+    300 : #ba54c3,
+    400 : #ac2fb6,
+    500 : #9d0aa9,
+    600 : #9509a2,
+    700 : #8b0798,
+    800 : #81058f,
+    900 : #6f037e,
+    A100 : #f3acff,
+    A200 : #ec79ff,
+    A400 : #e546ff,
+    A700 : #e12cff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$md-warn: (
+    50 : #efe2e4,
+    100 : #d8b7bd,
+    200 : #be8791,
+    300 : #a45764,
+    400 : #913343,
+    500 : #7d0f22,
+    600 : #750d1e,
+    700 : #6a0b19,
+    800 : #600814,
+    900 : #4d040c,
+    A100 : #ff8089,
+    A200 : #ff4d59,
+    A400 : #ff1a29,
+    A700 : #ff0111,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$primary: mat-palette($md-gabbygreen);
+$accent: mat-palette($md-accent);
+
+// The warn palette is optional (defaults to red).
+$warn: mat-palette($md-warn);

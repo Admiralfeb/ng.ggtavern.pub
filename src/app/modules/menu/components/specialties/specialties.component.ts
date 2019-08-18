@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import menu from 'src/assets/menuoptions.json';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  selector: 'menu-specialties',
+  templateUrl: './specialties.component.html',
+  styleUrls: ['./specialties.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class SpecialtiesComponent implements OnInit {
   specialties = menu.specialties;
 
   constructor() { }

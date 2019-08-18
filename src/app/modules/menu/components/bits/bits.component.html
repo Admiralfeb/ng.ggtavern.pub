@@ -1,0 +1,21 @@
+<div class="menucard">
+    <mat-accordion>
+        <ng-container *ngFor="let bit of bits">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header class="mat-expansion-panel-header-description">
+                    <mat-panel-title>{{bit.name}}</mat-panel-title>
+                    <mat-panel-description>
+                        {{bit.price | currency:'USD' }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-panel-description>
+                    <div>
+                        <p>{{bit.description}}</p>
+                        <p *ngIf="bit.types">Choice of: {{bit.types}}</p>
+                        <p>{{bit.note}}</p>
+                    </div>
+                </mat-panel-description>
+            </mat-expansion-panel>
+        </ng-container>
+    </mat-accordion>
+</div>

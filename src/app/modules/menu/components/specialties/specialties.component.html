@@ -1,15 +1,3 @@
-<ng-container *ngFor="let specialty of specialties">
-    <mat-card class="menucard">
-        <mat-card-header>
-            <mat-card-title>{{specialty.name}}</mat-card-title>
-            <mat-card-subtitle>{{specialty.price | currency:'USD' }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <p>{{specialty.ingredients}}</p>
-            <p>{{specialty.Note}}</p>
-        </mat-card-content>
-    </mat-card>
-</ng-container>
 <div class="menucard">
     <mat-accordion>
         <mat-expansion-panel *ngFor="let specialty of specialties">

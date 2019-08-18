@@ -1,0 +1,16 @@
+<div class="menucard">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let wine of wines">
+            <mat-expansion-panel-header class="mat-expansion-panel-header-description">
+                <mat-panel-title>{{wine.name}}</mat-panel-title>
+                <mat-panel-description>
+                    {{wine.price | currency:'USD' }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                <p>{{wine.ingredients}}</p>
+                <p>{{wine.Note}}</p>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
