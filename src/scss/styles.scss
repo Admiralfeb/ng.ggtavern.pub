@@ -9,6 +9,10 @@ a {
   color: mat-color($primary);
 }
 
+.container {
+  padding: 5px;
+}
+
 .right-aligned-header > .mat-content {
     justify-content: space-between;
 }

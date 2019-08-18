@@ -24,7 +24,7 @@ const menuRoutes: Routes = [
             { path: 'shots', component: ShotsComponent },
             { path: 'wine', component: WineComponent },
             { path: '', redirectTo: 'main', pathMatch: 'full' },
-            // { path: '**', component: ErrorNotFoundComponent },
+            { path: '**', component: ErrorNotFoundComponent },
         ]
     },
     { path: '', redirectTo: '_', pathMatch: 'full' },
