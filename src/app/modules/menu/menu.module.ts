@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared-module/shared-module.module';
-import { MainComponent } from './components/main/main.component';
+import { MainComponent } from './components/_main/main.component';
 import { MenuComponent } from './menu.component';
 import { RouterModule } from '@angular/router';
 import { MenuRoutingModule } from './menu.routing';
@@ -11,6 +11,7 @@ import { BitsComponent } from './components/bits/bits.component';
 import { TapComponent } from './components/tap/tap.component';
 import { WineComponent } from './components/wine/wine.component';
 import { ShotsComponent } from './components/shots/shots.component';
+import { BottledComponent } from './components/bottled/bottled.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ShotsComponent } from './components/shots/shots.component';
     BitsComponent,
     TapComponent,
     WineComponent,
-    ShotsComponent
+    ShotsComponent,
+    BottledComponent
   ],
   imports: [
     CommonModule,

@@ -1,11 +1,9 @@
-<div>
-    <mat-card *ngFor="let wine of wines" class="menucard">
-        <mat-card-title>{{wine.name}}</mat-card-title>
-        <mat-card-subtitle>
-            <div>
-                <p>{{wine.price | currency:'USD'}}</p>
-                <p>Choice of: {{wine.types}}</p>
-            </div>
-        </mat-card-subtitle>
-    </mat-card>
-</div>
+<mat-card *ngFor="let wine of wines" class="menuoption">
+    <mat-card-title><span class="title">{{wine.name}}</span><span class="price">{{wine.price | currency:'USD'}}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+        <div>
+            Choice of: {{wine.types}}
+        </div>
+    </mat-card-subtitle>
+</mat-card>

@@ -1,16 +1,14 @@
-<div class="menucard">
-    <mat-accordion>
-        <mat-expansion-panel *ngFor="let specialty of specialties">
-            <mat-expansion-panel-header class="mat-expansion-panel-header-description">
-                <mat-panel-title>{{specialty.name}}</mat-panel-title>
-                <mat-panel-description>
-                    {{specialty.price | currency:'USD' }}
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let specialty of specialties" class="menuoption">
+        <mat-expansion-panel-header class="mat-expansion-panel-header-description">
+            <mat-panel-title>{{specialty.name}}</mat-panel-title>
             <mat-panel-description>
-                <p>{{specialty.ingredients}}</p>
-                <p>{{specialty.Note}}</p>
+                {{specialty.price | currency:'USD' }}
             </mat-panel-description>
-        </mat-expansion-panel>
-    </mat-accordion>
-</div>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+            <p>{{specialty.ingredients}}</p>
+            <p>{{specialty.Note}}</p>
+        </mat-panel-description>
+    </mat-expansion-panel>
+</mat-accordion>

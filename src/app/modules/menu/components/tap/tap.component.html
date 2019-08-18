@@ -1,10 +1,8 @@
-<div>
-    <mat-card *ngFor="let tap of taps" class="menucard">
-        <mat-card-title>{{tap.name}} - {{tap.ABV}}</mat-card-title>
-        <mat-card-subtitle>
-            <div>
-                <p><span>16 oz - {{tap.pricepint | currency:'USD'}}</span> 32 oz - {{tap.pricemug | currency:'USD'}}</p>
-            </div>
-        </mat-card-subtitle>
-    </mat-card>
-</div>
+<mat-card *ngFor="let tap of taps" class="menuoption">
+    <mat-card-title>{{tap.name}} - {{tap.ABV}}</mat-card-title>
+    <mat-card-subtitle>
+        <div>
+            <span>16 oz - {{tap.pricepint | currency:'USD'}}</span> 32 oz - {{tap.pricemug | currency:'USD'}}
+        </div>
+    </mat-card-subtitle>
+</mat-card>
