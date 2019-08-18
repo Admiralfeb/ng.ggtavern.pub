@@ -1,0 +1,20 @@
+<mat-accordion>
+    <ng-container *ngFor="let byte of bytes">
+        <mat-expansion-panel class="menuoption">
+            <mat-expansion-panel-header>
+                <mat-panel-title>{{byte.name}}</mat-panel-title>
+                <mat-panel-description>
+                    {{byte.price | currency:'USD' }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                <div>
+                    <p *ngIf="byte.types">Choice of: {{byte.types}}</p>
+                    <p>{{byte.description}}</p>
+                    <p>{{byte.Note}}</p>
+                    <p *ngIf="byte.includesFries">Includes your choice of sweet potato or regular fries</p>
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>
