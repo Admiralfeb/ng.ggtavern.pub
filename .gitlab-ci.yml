@@ -38,11 +38,8 @@ pages:
     - hotfix
     - master
   script:
+  - mkdir public
   - mv dist/* public/
-  cache:
-    policy: pull
-    paths:
-      - node_modules/
   artifacts:
     expire_in: 1 week 
     paths:
