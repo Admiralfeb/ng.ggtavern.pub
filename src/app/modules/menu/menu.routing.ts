@@ -13,9 +13,9 @@ import { BottledComponent } from './components/bottled/bottled.component';
 
 const menuRoutes: Routes = [
     {
-        path: '_', component: MenuComponent,
+        path: '', component: MenuComponent,
         children: [
-            { path: 'main', component: MainComponent },
+            { path: 'home', component: MainComponent },
             { path: 'specialties', component: SpecialtiesComponent },
             { path: 'bits', component: BitsComponent },
             { path: 'bottled', component: BottledComponent },
@@ -24,11 +24,10 @@ const menuRoutes: Routes = [
             { path: 'shots', component: ShotsComponent },
             { path: 'wine', component: WineComponent },
             { path: '404', component: ErrorNotFoundComponent },
-            { path: '', redirectTo: 'main', pathMatch: 'full' },
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: '**', redirectTo: '404', pathMatch: 'full' }
         ]
-    },
-    { path: '', redirectTo: '_', pathMatch: 'full' },
+    }
 ];
 
 @NgModule({

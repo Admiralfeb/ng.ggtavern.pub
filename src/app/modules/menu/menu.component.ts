@@ -8,7 +8,7 @@ import { NavigationModel } from '../shared-module/models/navigationModel';
 export class MenuComponent implements OnInit {
   title = 'Grinning Goblin Menu';
   navItems: NavigationModel[] = [
-    { text: 'Menu Home', link: 'main' },
+    { text: 'Menu Home', link: 'home' },
     { text: 'Specialty Drinks', link: 'specialties' },
     { text: 'Drinks on Tap', link: 'tap' },
     { text: 'Bottled Drinks', link: 'bottled' },
