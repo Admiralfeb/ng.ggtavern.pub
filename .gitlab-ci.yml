@@ -33,9 +33,9 @@ build:
 ggtavern:
   stage: deploy
   cache:
-    policy: pull
     paths:
       - node_modules/
+      - .firebase/
   only: 
     - develop
     - release
