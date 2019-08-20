@@ -23,8 +23,9 @@ const menuRoutes: Routes = [
             { path: 'tap', component: TapComponent },
             { path: 'shots', component: ShotsComponent },
             { path: 'wine', component: WineComponent },
+            { path: '404', component: ErrorNotFoundComponent },
             { path: '', redirectTo: 'main', pathMatch: 'full' },
-            { path: '**', component: ErrorNotFoundComponent },
+            { path: '**', redirectTo: '404', pathMatch: 'full' }
         ]
     },
     { path: '', redirectTo: '_', pathMatch: 'full' },

@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'underconstruction', component: UnderConstructionComponent },
   { path: 'menu', loadChildren: () => import('./modules/menu/menu.module').then(m => m.MenuModule) },
-  { path: '**', component: ErrorNotFoundComponent },
+  { path: '404', component: ErrorNotFoundComponent },
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({

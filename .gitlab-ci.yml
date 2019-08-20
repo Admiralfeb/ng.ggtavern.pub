@@ -4,6 +4,7 @@ stages:
   - install
   - build
   - deploy-lab
+  - deploy-ggtavern
 
 install-dependencies:
   stage: install
@@ -45,4 +46,15 @@ pages:
     paths:
     - public
   dependencies: 
+    - build
+
+ggtavern:
+  stage: deploy-ggtavern
+  only: 
+    - develop
+    - release
+    - hotfix
+    - master
+  script: npm deploy
+  dependencies:
     - build
