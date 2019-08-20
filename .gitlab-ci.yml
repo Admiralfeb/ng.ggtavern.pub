@@ -3,8 +3,7 @@ image: node:11
 stages:
   - install
   - build
-  - deploy-lab
-  - deploy-ggtavern
+  - deploy
 
 install-dependencies:
   stage: install
@@ -32,7 +31,7 @@ build:
       - dist/
 
 pages:
-  stage: deploy-lab
+  stage: deploy
   only: 
     - develop
     - release
@@ -41,6 +40,9 @@ pages:
   script:
   - mkdir public
   - mv dist/* public/
+  environment:
+    name: lab
+    url: https://admiralfeb.gitlab.io/ggtavern.pub
   artifacts:
     expire_in: 1 week 
     paths:
@@ -49,12 +51,15 @@ pages:
     - build
 
 ggtavern:
-  stage: deploy-ggtavern
+  stage: deploy
   only: 
     - develop
     - release
     - hotfix
     - master
-  script: npm deploy
+  script: npm run deploy
+  environment:
+    name: production
+    url: https://ggtavern.admiralfeb.net
   dependencies:
     - build
