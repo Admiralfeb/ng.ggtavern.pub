@@ -30,26 +30,6 @@ build:
     paths:
       - dist/
 
-pages:
-  stage: deploy
-  only: 
-    - develop
-    - release
-    - hotfix
-    - master
-  script:
-  - mkdir public
-  - mv dist/* public/
-  environment:
-    name: lab
-    url: https://admiralfeb.gitlab.io/ggtavern.pub
-  artifacts:
-    expire_in: 1 week 
-    paths:
-    - public
-  dependencies: 
-    - build
-
 ggtavern:
   stage: deploy
   cache:
