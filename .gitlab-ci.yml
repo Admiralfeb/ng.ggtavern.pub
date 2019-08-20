@@ -52,6 +52,10 @@ pages:
 
 ggtavern:
   stage: deploy
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
   only: 
     - develop
     - release
