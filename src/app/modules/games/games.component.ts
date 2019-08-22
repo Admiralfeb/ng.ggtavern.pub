@@ -16,7 +16,7 @@ export class GamesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.loadSystems()
+    this.loadSystems();
   }
 
   private loadSystems() {
