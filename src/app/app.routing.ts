@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'underconstruction', component: UnderConstructionComponent },
   { path: 'menu', loadChildren: () => import('./modules/menu/menu.module').then(m => m.MenuModule) },
+  { path: 'games', loadChildren: () => import('./modules/games/games.module').then(m => m.GamesModule) },
   { path: '404', component: ErrorNotFoundComponent },
   { path: '**', redirectTo: '404' },
 ];

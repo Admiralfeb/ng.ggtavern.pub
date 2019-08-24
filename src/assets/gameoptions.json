@@ -1,5 +1,6 @@
-{
-    "atari": {
+[
+    {
+        "short": "atari",
         "system": "Atari",
         "games": [
             {
@@ -304,7 +305,8 @@
             }
         ]
     },
-    "arcade": {
+    {
+        "short": "arcade",
         "system": "Arcade",
         "games": [
             {
@@ -333,7 +335,8 @@
             }
         ]
     },
-    "board": {
+    {
+        "short": "board",
         "system": "Board Games",
         "games": [
             {
@@ -702,7 +705,8 @@
             }
         ]
     },
-    "gamecube": {
+    {
+        "short": "gamecube",
         "system": "Gamecube",
         "games": [
             {
@@ -787,7 +791,8 @@
             }
         ]
     },
-    "nintendo": {
+    {
+        "short": "nintendo",
         "system": "Nintendo",
         "games": [
             {
@@ -908,7 +913,8 @@
             }
         ]
     },
-    "snes": {
+    {
+        "short": "snes",
         "system": "Super Nintendo",
         "games": [
             {
@@ -921,7 +927,8 @@
             }
         ]
     },
-    "n64": {
+    {
+        "short": "n64",
         "system": "Nintendo 64",
         "games": [
             {
@@ -1014,11 +1021,13 @@
             }
         ]
     },
-    "ps1": {
+    {
+        "short": "ps1",
         "system": "Playstation",
         "games": []
     },
-    "ps2": {
+    {
+        "short": "ps2",
         "system": "Playstation 2",
         "games": [
             {
@@ -1135,108 +1144,110 @@
             }
         ]
     },
-    "ps3": {
+    {
+        "short": "ps3",
         "system": "Playstation 3",
         "games": [
             {
                 "name": "Aquapazza Aquaplus Dream Match",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Call of Duty: Black Ops",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Call of Duty: Black Ops 2",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Dead Island: riptide",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "FIFA Soccer 10",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "FIFA Soccer 13",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Fighting Climax",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Killzone 2",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Killzone 3",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Little Big Planet",
-                "player": "1-4"
+                "players": "1-4"
             },
             {
                 "name": "Madden 2004",
-                "player": "1-6"
+                "players": "1-6"
             },
             {
                 "name": "Mercenaries 2",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Motorsports Adrenaline",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Need for Speed: Hot Pursuit",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Pro Evolution Soccer 13",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Ratchet & Clank Future: A Crack in Time",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "SEGA Superstars Tennis",
-                "player": "1-4"
+                "players": "1-4"
             },
             {
                 "name": "Sports Champions",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Sports Champions 2",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "The Last of Us",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Uncharted: Drake's Fortune",
-                "player": 1
+                "players": 1
             },
             {
                 "name": "Uncharted 2: Among Thieves",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Uncharted 3: Drake's Deception",
-                "player": "1-2"
+                "players": "1-2"
             },
             {
                 "name": "Under Night In-Birth",
-                "player": "1-2"
+                "players": "1-2"
             }
         ]
     },
-    "ps4": {
+    {
+        "short": "ps4",
         "system": "Playstation 4",
         "games": [
             {
@@ -1301,7 +1312,8 @@
             }
         ]
     },
-    "vr": {
+    {
+        "short": "vr",
         "system": "Virtual Reality",
         "games": [
             {
@@ -1346,7 +1358,8 @@
             }
         ]
     },
-    "wii": {
+    {
+        "short": "wii",
         "system": "Wii",
         "games": [
             {
@@ -1467,7 +1480,8 @@
             }
         ]
     },
-    "wiiu": {
+    {
+        "short": "wiiu",
         "system": "Wii U",
         "games": [
             {
@@ -1544,7 +1558,8 @@
             }
         ]
     },
-    "xb": {
+    {
+        "short": "xb",
         "system": "Xbox",
         "games": [
             {
@@ -1605,7 +1620,8 @@
             }
         ]
     },
-    "xb360": {
+    {
+        "short": "xb360",
         "system": "Xbox 360",
         "games": [
             {
@@ -1722,7 +1738,8 @@
             }
         ]
     },
-    "xb1": {
+    {
+        "short": "xb1",
         "system": "Xbox One",
         "games": [
             {
@@ -1779,4 +1796,4 @@
             }
         ]
     }
-}
+]

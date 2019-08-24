@@ -1,8 +1,11 @@
-export interface GameSystem {
-    system: string;
-    games: Games[];
-}
-export interface Games {
+
+export interface Game {
     name: string;
     players: number | string;
+}
+
+export interface GameSystem {
+    short: string;
+    system: string;
+    games: Game[];
 }
