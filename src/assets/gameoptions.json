@@ -1024,6 +1024,7 @@
     {
         "short": "ps1",
         "system": "Playstation",
+        "note": "While no games are listed for PS1, we do have them. Ask your bartender until this list is updated.",
         "games": []
     },
     {
@@ -1561,6 +1562,7 @@
     {
         "short": "xb",
         "system": "Xbox",
+        "note": "We only have one Xbox controller for this system.",
         "games": [
             {
                 "name": "Atari Anthrology",
