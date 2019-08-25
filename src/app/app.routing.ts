@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ErrorNotFoundComponent } from './modules/shared-module/components/error-not-found/error-not-found.component';
-import { UnderConstructionComponent } from './modules/shared-module/components/under-construction/under-construction.component';
+import { ErrorNotFoundComponent, UnderConstructionComponent } from '@shared/components';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [

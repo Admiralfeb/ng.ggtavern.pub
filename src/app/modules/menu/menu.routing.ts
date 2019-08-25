@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ErrorNotFoundComponent } from '../shared-module/components/error-not-found/error-not-found.component';
-import { MainComponent } from './components/_main/main.component';
+
+import { ErrorNotFoundComponent } from '@shared/components';
+
 import { MenuComponent } from './menu.component';
-import { SpecialtiesComponent } from './components/specialties/specialties.component';
-import { BytesComponent } from './components/bytes/bytes.component';
-import { BitsComponent } from './components/bits/bits.component';
-import { TapComponent } from './components/tap/tap.component';
-import { ShotsComponent } from './components/shots/shots.component';
-import { WineComponent } from './components/wine/wine.component';
-import { BottledComponent } from './components/bottled/bottled.component';
+
+import {
+    MainComponent,
+    BitsComponent,
+    BottledComponent,
+    BytesComponent,
+    ShotsComponent,
+    SpecialtiesComponent,
+    TapComponent,
+    WineComponent,
+} from './components';
 
 const menuRoutes: Routes = [
     {

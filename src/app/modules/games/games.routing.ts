@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { ErrorNotFoundComponent } from '@shared/components';
+
 import { GamesComponent } from './games.component';
-import { GameOptionsComponent } from './components/game-options/game-options.component';
-import { MainComponent } from './components/main/main.component';
-import { ErrorNotFoundComponent } from '../shared-module/components/error-not-found/error-not-found.component';
+import { GameOptionsComponent, MainComponent } from './components';
 
 const routes: Routes = [
   {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observer } from 'rxjs';
-import gamesystems from 'src/assets/gameoptions.json';
+import gamesystems from 'assets/gameoptions.json';
 import { GameSystem, Game } from '../../models/model';
 
 

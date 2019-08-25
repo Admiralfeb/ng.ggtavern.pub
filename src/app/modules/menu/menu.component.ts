@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationModel } from '../shared-module/models/navigationModel';
+import { NavigationModel } from '@shared/models/navigationModel';
 
 @Component({
   selector: 'menu-main',

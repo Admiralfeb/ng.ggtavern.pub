@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationModel } from '../shared-module/models/navigationModel';
-import gameoptions from 'src/assets/gameoptions.json';
+import { NavigationModel } from '@shared/models/navigationModel';
+import gameoptions from 'assets/gameoptions.json';
 import { GameSystem, Game } from './models/model';
 
 @Component({
