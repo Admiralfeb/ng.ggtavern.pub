@@ -47,7 +47,24 @@
     display: none;
   }
   .mobile {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
     text-align: center;
+  }
+  #item0,
+  #item1,
+  #item2,
+  #item3,
+  #item4,
+  #item5,
+  #item6 {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+  }
+  .logo {
+    grid-column: 1;
+    grid-row: 1;
   }
 }
