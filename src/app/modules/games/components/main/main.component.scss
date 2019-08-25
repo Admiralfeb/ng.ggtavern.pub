@@ -1,0 +1,17 @@
+@import "~@angular/material/theming";
+@import "variables";
+
+.rules {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.rule {
+  border: 3px solid mat-color($accent);
+}
+
+@media (max-width: 768px) {
+  .rules {
+    grid-template-columns: 1fr;
+  }
+}

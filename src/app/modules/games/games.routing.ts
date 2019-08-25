@@ -10,7 +10,9 @@ const routes: Routes = [
     path: '', component: GamesComponent, children: [
       { path: 'home', component: MainComponent },
       { path: '404', component: ErrorNotFoundComponent },
-      { path: ':id', component: GameOptionsComponent }
+      { path: ':id', component: GameOptionsComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '**', redirectTo: '404', pathMatch: 'full' }
     ]
   }
 ];

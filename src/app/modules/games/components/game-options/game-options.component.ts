@@ -35,6 +35,8 @@ export class GameOptionsComponent implements OnInit {
       }
       this.games = system.games;
       this.games = this.games.sort((a, b) => a.name.localeCompare(b.name));
+      const contentContainer = document.querySelector('.mat-sidenav-container') || window;
+      contentContainer.scrollTo(0, 0);
     } else {
       this.router.navigate(['games', '404']);
     }
