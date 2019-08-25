@@ -1,8 +1,16 @@
-<div style="text-align:center">
-    <h1>
-        Welcome to {{ title }}!
-    </h1>
-    <img width="300" alt="Goblin Logo" src="assets/img/ggTavern.png">
-    <a routerLink="/menu">Food Menu</a>
+<div class="old-style title">
+    <h1> {{ title }} </h1>
 </div>
-<router-outlet></router-outlet>
+<div class="doorway old-style">
+    <ng-container *ngFor="let offer of offerings">
+        <a mat-button [id]="offer.id" class="griditem old-style" (click)="navClick(offer.id)">{{offer.text}}</a>
+    </ng-container>
+    <img class="logo griditem" width="300" alt="Goblin Logo" src="assets/img/ggTavern.png">
+</div>
+<div class="mobile">
+    <img class="logo griditem" width="300" alt="Goblin Logo" src="assets/img/ggTavern.png">
+    <ng-container *ngFor="let offer of offerings">
+        <a mat-raised-button color="primary" [id]="offer.id" class="griditem old-style"
+            (click)="navClick(offer.id)">{{offer.text}}</a>
+    </ng-container>
+</div>

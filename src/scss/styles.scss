@@ -1,22 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 a {
   color: mat-color($primary);
 }
 
 .container {
-  padding: 5px;
+  padding: 10px;
+}
+
+.old-style {
+  font-family: "Press Start 2P", cursive;
 }
 
 .right-aligned-header > .mat-content {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
-.mat-content > mat-panel-title, .mat-content > mat-panel-description {
+.mat-content > mat-panel-title,
+.mat-content > mat-panel-description {
   flex: 0 0 auto;
 }
