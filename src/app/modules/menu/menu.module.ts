@@ -1,29 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '../shared-module/shared-module.module';
-import { MainComponent } from './components/_main/main.component';
-import { MenuComponent } from './menu.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '@shared/shared-module.module';
+
+import { MenuComponent } from './menu.component';
 import { MenuRoutingModule } from './menu.routing';
-import { SpecialtiesComponent } from './components/specialties/specialties.component';
-import { BytesComponent } from './components/bytes/bytes.component';
-import { BitsComponent } from './components/bits/bits.component';
-import { TapComponent } from './components/tap/tap.component';
-import { WineComponent } from './components/wine/wine.component';
-import { ShotsComponent } from './components/shots/shots.component';
-import { BottledComponent } from './components/bottled/bottled.component';
+
+import {
+  MainComponent,
+  BitsComponent,
+  BottledComponent,
+  BytesComponent,
+  ShotsComponent,
+  SpecialtiesComponent,
+  TapComponent,
+  WineComponent,
+} from './components';
 
 @NgModule({
   declarations: [
-    MainComponent,
     MenuComponent,
-    SpecialtiesComponent,
-    BytesComponent,
+
+    MainComponent,
     BitsComponent,
+    BottledComponent,
+    BytesComponent,
+    ShotsComponent,
+    SpecialtiesComponent,
     TapComponent,
     WineComponent,
-    ShotsComponent,
-    BottledComponent
   ],
   imports: [
     CommonModule,

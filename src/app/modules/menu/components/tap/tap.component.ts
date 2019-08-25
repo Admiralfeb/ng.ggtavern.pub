@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import menu from 'src/assets/menuoptions.json';
+import menu from 'assets/menuoptions.json';
 
 @Component({
   selector: 'tap',
