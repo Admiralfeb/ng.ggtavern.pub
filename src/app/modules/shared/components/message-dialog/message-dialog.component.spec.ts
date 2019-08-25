@@ -9,27 +9,47 @@ import { MaterialModule } from '../../material/material.module';
 
 import { MessageDialogComponent } from './message-dialog.component';
 
+// Noop component is only a workaround to trigger change detection
+@Component({
+  template: ''
+})
+class NoopComponent { }
+
+const TEST_DIRECTIVES = [
+  MessageDialogComponent,
+  NoopComponent
+];
+
+@NgModule({
+  imports: [MatDialogModule, NoopAnimationsModule],
+  exports: TEST_DIRECTIVES,
+  declarations: TEST_DIRECTIVES,
+  entryComponents: [
+    MessageDialogComponent
+  ],
+})
+class DialogTestModule { }
+
 describe('MessageDialogComponent', () => {
   let dialog: MatDialog;
   let overlayContainerElement: HTMLElement;
 
-  let noop: ComponentFixture<NoopComponent>;
+  const noop = TestBed.createComponent(NoopComponent);
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ DialogTestModule ],
+      imports: [DialogTestModule],
       providers: [
-        { provide: OverlayContainer, useFactory: () => {
-          overlayContainerElement = document.createElement('div');
-          return { getContainerElement: () => overlayContainerElement };
-        }}
+        {
+          provide: OverlayContainer, useFactory: () => {
+            overlayContainerElement = document.createElement('div');
+            return { getContainerElement: () => overlayContainerElement };
+          }
+        }
       ]
     });
 
     dialog = TestBed.get(MatDialog);
-
-    noop = TestBed.createComponent(NoopComponent);
-
   });
 
   it('shows information without details', () => {
@@ -50,25 +70,4 @@ describe('MessageDialogComponent', () => {
     expect(button.textContent).toBe('Close');
   });
 });
-
-// Noop component is only a workaround to trigger change detection
-@Component({
-  template: ''
-})
-class NoopComponent {}
-
-const TEST_DIRECTIVES = [
-  MessageDialogComponent,
-  NoopComponent
-];
-
-@NgModule({
-  imports: [MatDialogModule, NoopAnimationsModule],
-  exports: TEST_DIRECTIVES,
-  declarations: TEST_DIRECTIVES,
-  entryComponents: [
-    MessageDialogComponent
-  ],
-})
-class DialogTestModule { }
 

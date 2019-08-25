@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Component, Input, ChangeDetectorRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, OnDestroy, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NavigationModel } from '../../models/navigationModel';
 import { SelectControlValueAccessor } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -9,35 +9,34 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './content-with-side-nav.component.html',
   styleUrls: ['./content-with-side-nav.component.scss']
 })
-export class ContentwithSideNavComponent implements OnDestroy, OnInit {
+export class ContentwithSideNavComponent implements OnInit {
   @Input() navheaderText = 'Navigation';
   @Input() navItems: NavigationModel = null;
   @Input() headerText = '';
   @ViewChild('snav', { static: true }) sidenav: MatSidenav;
-  mobileQuery: MediaQueryList;
   burgerTip = 'Show/Hide the Navigation Pane';
 
-  private _mobileQueryListener: () => void;
+  innerWidth = 0;
+  minWidth = 768;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+  constructor() {
   }
 
   ngOnInit(): void {
-    if (this.mobileQuery.matches === false) {
-      console.log('nav should open');
+    this.innerWidth = window.innerWidth;
+
+    if (this.innerWidth > this.minWidth) {
       this.sidenav.open();
     }
   }
 
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+  @HostListener('window:resize')
+  onResize() {
+    this.innerWidth = window.innerWidth;
   }
 
   navClick() {
-    if (this.mobileQuery.matches === true) {
+    if (this.innerWidth < this.minWidth) {
       this.sidenav.close();
     }
   }
