@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   rules = [
     'Playing games, unless otherwise stated, is free.',
-    'VR costs $10/hour. $5/hr on Sundays',
+    'VR costs $10/hour. $1/hr on Sundays',
     'You can bring your own games or systems.',
     `We ask you not to bring Xbox One or Playstation 4 games as they require installation on the system.`,
     'We have 3 Wii U systems, but only one of each of the others.',

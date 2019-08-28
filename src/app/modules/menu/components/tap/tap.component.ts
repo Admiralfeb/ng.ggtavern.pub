@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import menu from 'assets/menuoptions.json';
 
 @Component({
-  selector: 'tap',
+  selector: 'menu-tap',
   templateUrl: './tap.component.html',
   styleUrls: ['./tap.component.scss']
 })

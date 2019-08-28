@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationModel } from '@shared/models/navigationModel';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'menu-main',
@@ -17,11 +18,15 @@ export class MenuComponent implements OnInit {
     { text: 'Bits', link: 'bits' },
     { text: 'Bytes', link: 'bytes' },
   ];
-  constructor() { }
+  constructor(private titleService: Title) { }
 
   ngOnInit() {
+    this.setTitle();
   }
 
+  private setTitle() {
+    this.titleService.setTitle(this.title);
+  }
 
 
 }

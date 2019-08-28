@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationModel } from '@shared/models/navigationModel';
 import gameoptions from 'assets/gameoptions.json';
 import { GameSystem, Game } from './models/model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'games',
@@ -9,14 +10,19 @@ import { GameSystem, Game } from './models/model';
     `<content-with-side-nav [headerText]="title" [navItems]="navItems"></content-with-side-nav>`
 })
 export class GamesComponent implements OnInit {
-  title = 'Game Menu';
+  title = 'GG Game Menu';
   navItems: NavigationModel[] = [
     { text: 'Menu Home', link: 'home' }
   ];
-  constructor() { }
+  constructor(private titleService: Title) { }
 
   ngOnInit() {
+    this.setTitle();
     this.loadSystems();
+  }
+
+  private setTitle() {
+    this.titleService.setTitle(this.title);
   }
 
   private loadSystems() {

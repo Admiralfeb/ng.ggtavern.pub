@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import menu from 'assets/menuoptions.json';
 
 @Component({
-  selector: 'shots',
+  selector: 'menu-shots',
   templateUrl: './shots.component.html',
   styleUrls: ['./shots.component.scss']
 })

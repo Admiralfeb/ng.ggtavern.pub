@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import menu from 'assets/menuoptions.json';
 
 @Component({
-  selector: 'bits',
+  selector: 'menu-bits',
   templateUrl: './bits.component.html',
   styleUrls: ['./bits.component.scss']
 })

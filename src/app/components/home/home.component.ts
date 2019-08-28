@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +18,14 @@ export class HomeComponent implements OnInit {
     { id: 'item5', text: 'Virtual Reality', link: '/games/vr' },
     { id: 'item6', text: 'Liquor', link: '/menu/specialties' }
   ];
-  constructor(private router: Router) { }
+  constructor(private router: Router, private titleService: Title) { }
 
   ngOnInit() {
+    this.setTitle();
+  }
+
+  private setTitle() {
+    this.titleService.setTitle(this.title);
   }
 
   navClick(id: string): void {

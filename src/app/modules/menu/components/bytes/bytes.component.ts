@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import menu from 'assets/menuoptions.json';
 
 @Component({
-  selector: 'bytes',
+  selector: 'menu-bytes',
   templateUrl: './bytes.component.html',
   styleUrls: ['./bytes.component.scss']
 })
