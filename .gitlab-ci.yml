@@ -2,6 +2,7 @@ image: node:11
 
 stages:
   - install
+  - test
   - build
   - deploy
 
@@ -16,6 +17,16 @@ install-dependencies:
   only:
     changes:
       - package.json
+
+lint:
+  stage: test
+  allow_failure: true
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+  script:
+    - npm run lint
 
 build:
   stage: build
