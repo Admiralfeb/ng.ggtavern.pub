@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.daysofWeek {
+  align-self: center;
+  text-align: center;
+  padding: 1px auto;
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+}
