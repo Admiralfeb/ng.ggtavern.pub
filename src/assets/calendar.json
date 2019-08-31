@@ -1,6 +1,8 @@
 {
-    "2019/August": {
-        "name": "August 2019",
+    "2019/9 ": {
+        "name": "September 2019",
+        "month": 9,
+        "year": 2019,
         "weeklies": [
             {
                 "day": 0,
@@ -24,26 +26,56 @@
             },
             {
                 "day": 4,
-                "event": "Quickdraw Trivia/Critical Roll Stream",
+                "event": "Critical Roll Stream",
                 "img": ""
             }
         ],
         "events": [
             {
-                "day": 3,
-                "event": "Oktoberfest Beer Tasting",
+                "day": 6,
+                "event": "Overwatch",
+                "time": "",
+                "img": ""
+            },
+            {
+                "day": 13,
+                "event": "Vodka Tasting",
                 "time": "20:00",
                 "img": ""
             },
             {
-                "day": 24,
-                "event": "Mystery Beer Tasting",
+                "day": 14,
+                "event": "Learn to Play",
                 "time": "20:00",
                 "img": ""
             },
             {
-                "day": 30,
-                "event": "White Wine Tasting",
+                "day": 19,
+                "event": "$2 off all Rum if you talk like a pirate",
+                "time": "",
+                "img": ""
+            },
+            {
+                "day": 20,
+                "event": "Pirate Cocktail Tasting",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 21,
+                "event": "Learn to Play: The Resistance",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 27,
+                "event": "Pumpkin Beer Tasting",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 28,
+                "event": "Super Smash Bros Ultimate Tournament",
                 "time": "20:00",
                 "img": ""
             }
