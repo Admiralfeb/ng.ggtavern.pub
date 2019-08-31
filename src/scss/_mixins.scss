@@ -1,0 +1,6 @@
+@import './variables';
+@import '~@angular/material/theming';
+@include mat-core();
+
+$z-theme: mat-dark-theme($primary, $accent, $warn);
+@include angular-material-theme($z-theme);

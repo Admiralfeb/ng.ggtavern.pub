@@ -1,0 +1,6 @@
+<mat-card *ngFor="let bottle of bottles" class="menuoption">
+    <mat-card-title>{{bottle.name}} - {{bottle.ABV}}</mat-card-title>
+    <mat-card-subtitle>
+        {{bottle.price | currency:'USD'}}
+    </mat-card-subtitle>
+</mat-card>

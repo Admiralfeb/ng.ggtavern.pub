@@ -1,0 +1,10 @@
+<div class="container">
+    <div *ngIf="note">
+        Note: {{note}}
+    </div>
+    <ng-container *ngIf="games">
+        <mat-list *ngFor="let game of games">
+            <mat-list-item>{{game.name}}</mat-list-item>
+        </mat-list>
+    </ng-container>
+</div>
