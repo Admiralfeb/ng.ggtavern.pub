@@ -1,5 +1,4 @@
-#image: node:11
-image: alekzonder/puppeteer:latest
+image: node:11
 
 stages:
   - install
