@@ -33,8 +33,7 @@ class DialogTestModule { }
 describe('MessageDialogComponent', () => {
   let dialog: MatDialog;
   let overlayContainerElement: HTMLElement;
-
-  const noop = TestBed.createComponent(NoopComponent);
+  let noop: ComponentFixture<NoopComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -49,6 +48,7 @@ describe('MessageDialogComponent', () => {
       ]
     });
 
+    noop = TestBed.createComponent(NoopComponent);
     dialog = TestBed.get(MatDialog);
   });
 
