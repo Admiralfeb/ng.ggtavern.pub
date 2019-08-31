@@ -2,6 +2,7 @@ image: node:11
 
 stages:
   - install
+  - test
   - build
   - deploy
 
@@ -16,6 +17,34 @@ install-dependencies:
   only:
     changes:
       - package.json
+
+lint:
+  stage: test
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+  allow_failure: true
+  script:
+    - npm run lint
+
+unit_test:
+  stage: test
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+  script:
+    - npm run test-ci
+
+e2e_test:
+  stage: test
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+  script:
+    - npm run e2e-ci
 
 build:
   stage: build

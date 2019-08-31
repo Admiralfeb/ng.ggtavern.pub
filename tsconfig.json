@@ -8,6 +8,9 @@
       ],
       "@core/*": [
         "app/modules/core/*"
+      ],
+      "@test/*": [
+        "test/*"
       ]
     },
     "outDir": "./dist/out-tsc",
