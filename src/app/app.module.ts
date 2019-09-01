@@ -10,6 +10,7 @@ import { SharedModule } from '@shared/shared-module.module';
 
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { OpenSignComponent } from './components/open-sign/open-sign.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppComponent,
     HomeComponent,
     NavbarComponent,
+    OpenSignComponent,
   ],
   imports: [
     AppRoutingModule,
