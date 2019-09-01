@@ -1,4 +1,4 @@
-image: node:11
+image: registry.gitlab.com/admiralfeb/ggtavern.pub:latest
 
 stages:
   - install
@@ -20,13 +20,31 @@ install-dependencies:
 
 lint:
   stage: test
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
   allow_failure: true
+  script:
+    - npm run lint
+
+unit_test:
+  stage: test
   cache:
     policy: pull
     paths:
       - node_modules/
   script:
-    - npm run lint
+    - npm run test-ci
+
+e2e_test:
+  stage: test
+  cache:
+    policy: pull
+    paths:
+      - node_modules/
+  script:
+    - npm run e2e-ci
 
 build:
   stage: build

@@ -1,0 +1,12 @@
+{
+	"name": "Node",
+	"context": "..",
+	"dockerFile": "Dockerfile",
+	"runArgs": [
+		"-u",
+		"1000"
+	],
+	"appPort": 4200,
+	"extensions": [],
+	"postCreateCommand": "npm install",
+}

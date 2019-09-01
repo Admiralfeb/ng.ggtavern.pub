@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShotsComponent } from './shots.component';
+import { SharedModule } from '@shared/shared-module.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ShotsComponent', () => {
   let component: ShotsComponent;
@@ -8,9 +10,11 @@ describe('ShotsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShotsComponent ]
+      declarations: [ShotsComponent],
+      imports: [SharedModule, BrowserAnimationsModule]
+
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

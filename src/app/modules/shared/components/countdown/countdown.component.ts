@@ -1,15 +1,15 @@
-import { Component, ElementRef, OnInit, OnDestroy, Input, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output } from '@angular/core';
 import { Observable, Subscription, interval } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-countdown',
-  template: `<span>{{ message }}</span>`,
+  template: `<span>{{ messageString }}</span>`,
   styles: []
 })
 export class CountdownComponent implements OnInit, OnDestroy {
   @Input() inputDate: string;
-  @Output() message: string;
+  @Output() messageString: string;
   @Output() passed = false;
 
   private future: Date;
@@ -17,10 +17,32 @@ export class CountdownComponent implements OnInit, OnDestroy {
   private counter$: Observable<number>;
   private subscription: Subscription;
 
-  constructor() {  }
+  constructor() { }
+
+  ngOnInit() {
+    this.futureString = this.inputDate;
+    this.future = new Date(this.futureString);
+    this.counter$ = interval(1000).pipe(
+      map((x) => {
+        this.passed = (this.future.getTime() < new Date().getTime()) ? true : false;
+        return Math.floor((this.future.getTime() - new Date().getTime()) / 1000);
+      }));
+    this.subscription = this.counter$.subscribe((x) => {
+      const temp = this.dhms(x);
+
+      this.messageString = (temp.search('NaN') === -1) ? temp : `ERR: 'Counter' failed`;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   dhms(t) {
-    let days, hours, minutes, seconds;
+    let days: number;
+    let hours: number;
+    let minutes: number;
+    let seconds: number;
     days = Math.floor(t / 86400);
     t -= days * 86400;
     hours = Math.floor(t / 3600) % 24;
@@ -36,25 +58,4 @@ export class CountdownComponent implements OnInit, OnDestroy {
       seconds + 's'
     ].join(' ');
   }
-
-
-  ngOnInit() {
-    this.futureString = this.inputDate;
-    this.future = new Date(this.futureString);
-    this.counter$ = interval(1000).pipe(
-      map((x) => {
-        this.passed = (this.future.getTime() < new Date().getTime()) ? true : false;
-        return Math.floor((this.future.getTime() - new Date().getTime()) / 1000);
-      }));
-    this.subscription = this.counter$.subscribe((x) => {
-      const temp = this.dhms(x);
-
-      this.message = (temp.search('NaN') === -1) ? temp : `ERR: 'Counter' failed`;
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
 }
