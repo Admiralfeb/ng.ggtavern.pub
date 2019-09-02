@@ -23,7 +23,7 @@ export class OpenSignComponent implements OnInit, OnDestroy {
   timeSubscription: Subscription;
   currentDay: number;
   signMessage: string;
-  isOpen: boolean;
+  isOpen = true;
 
   constructor(private dialog: MatDialog) { }
 
