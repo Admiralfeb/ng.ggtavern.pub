@@ -40,9 +40,6 @@ unit_test:
   artifacts:
     paths:
       - coverage/
-  tags:
-    - docker
-    - karma
 
 e2e_test:
   stage: test
@@ -52,9 +49,6 @@ e2e_test:
       - node_modules/
   script:
     - npm run e2e-ci
-  tags:
-    - docker
-    - protractor
 
 build:
   stage: build
@@ -68,8 +62,6 @@ build:
     expire_in: 1 week
     paths:
       - dist/
-  tags:
-    - docker
 
 ggtavern:
   stage: deploy
@@ -88,6 +80,3 @@ ggtavern:
     url: https://ggtavern.admiralfeb.net
   dependencies:
     - build
-  tags:
-    - firebase
-    - docker
