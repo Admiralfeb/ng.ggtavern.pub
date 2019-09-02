@@ -1,0 +1,84 @@
+{
+    "2019/9 ": {
+        "name": "September 2019",
+        "month": 9,
+        "year": 2019,
+        "weeklies": [
+            {
+                "day": 0,
+                "event": "$1 VR and $2 Domestics",
+                "img": ""
+            },
+            {
+                "day": 1,
+                "event": "Closed",
+                "img": ""
+            },
+            {
+                "day": 2,
+                "event": "D&D",
+                "img": ""
+            },
+            {
+                "day": 3,
+                "event": "D&D",
+                "img": ""
+            },
+            {
+                "day": 4,
+                "event": "Critical Roll Stream",
+                "img": ""
+            }
+        ],
+        "events": [
+            {
+                "day": 6,
+                "event": "Overwatch",
+                "time": "",
+                "img": ""
+            },
+            {
+                "day": 13,
+                "event": "Vodka Tasting",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 14,
+                "event": "Learn to Play",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 19,
+                "event": "$2 off all Rum if you talk like a pirate",
+                "time": "",
+                "img": ""
+            },
+            {
+                "day": 20,
+                "event": "Pirate Cocktail Tasting",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 21,
+                "event": "Learn to Play: The Resistance",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 27,
+                "event": "Pumpkin Beer Tasting",
+                "time": "20:00",
+                "img": ""
+            },
+            {
+                "day": 28,
+                "event": "Super Smash Bros Ultimate Tournament",
+                "time": "20:00",
+                "img": ""
+            }
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+<div class="container" [ngClass]="{'open': isOpen, 'closed': !isOpen}" (click)="showHours()">
+    <div class="sign">
+        <h2>{{signMessage}}</h2>
+    </div>
+    <div>
+        Click to View Hours
+    </div>
+</div>

@@ -36,6 +36,10 @@ unit_test:
       - node_modules/
   script:
     - npm run test-ci
+  coverage: '/Lines \W+: (\d+\.\d+)%.*/'
+  artifacts:
+    paths:
+      - coverage/
 
 e2e_test:
   stage: test

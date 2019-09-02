@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content>
+    {{message}}
+    <div class="grid">
+        <div class="griditem tableheader">Day</div>
+        <div class="griditem tableheader">Open</div>
+        <div class="griditem tableheader">Close</div>
+        <ng-container *ngFor="let hour of hours">
+            <div class="griditem">{{hour.name}}</div>
+            <ng-container *ngIf="hour.open; else closedTemplate">
+                <div class="griditem hour">{{ hour.open }}</div>
+                <div class="griditem hour">{{ hour.close }}</div>
+            </ng-container>
+            <ng-template #closedTemplate>
+                <div class="griditem closed">Closed</div>
+            </ng-template>
+
+        </ng-container>
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="right">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

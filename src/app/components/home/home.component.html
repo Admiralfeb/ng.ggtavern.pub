@@ -2,13 +2,15 @@
     <h1> {{ title }} </h1>
 </div>
 <div class="doorway old-style">
+    <open-sign class="opensign"></open-sign>
     <ng-container *ngFor="let offer of offerings">
         <a mat-button [id]="offer.id" class="griditem old-style" (click)="navClick(offer.id)">{{offer.text}}</a>
     </ng-container>
-    <img class="logo griditem" width="300" alt="Goblin Logo" src="assets/img/ggTavern.png">
+    <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png">
 </div>
 <div class="mobile">
-    <img class="logo griditem" width="300" alt="Goblin Logo" src="assets/img/ggTavern.png">
+    <open-sign class="opensign old-style griditem"></open-sign>
+    <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png">
     <ng-container *ngFor="let offer of offerings">
         <a mat-raised-button color="primary" [id]="offer.id" class="griditem old-style"
             (click)="navClick(offer.id)">{{offer.text}}</a>

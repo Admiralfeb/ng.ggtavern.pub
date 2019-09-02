@@ -1,0 +1,14 @@
+@import "~@angular/material/theming";
+@import "variables";
+
+.container {
+  border-radius: 15px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  cursor: pointer;
+}
+.closed {
+  background-color: mat-color($warn);
+}
+.open {
+  background-color: mat-color($accent);
+}
