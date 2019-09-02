@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import moment from 'moment-timezone';
 import { Subscription, interval } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HoursDialogComponent } from '../hours-dialog/hours-dialog.component';
 
 @Component({
   selector: 'open-sign',
@@ -21,15 +23,17 @@ export class OpenSignComponent implements OnInit, OnDestroy {
   timeSubscription: Subscription;
   currentDay: number;
   signMessage: string;
+  isOpen: boolean;
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
     const time$ = interval(1000).pipe(
       map(() => moment().utc())
     );
     this.timeSubscription = time$.subscribe((currentMoment) => {
-      this.signMessage = this.checkIsOpen(currentMoment) ? 'Open' : 'Closed';
+      this.isOpen = this.checkIsOpen(currentMoment);
+      this.signMessage = this.isOpen ? 'Open' : 'Closed';
     });
   }
 
@@ -74,5 +78,12 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     }
 
     return false;
+  }
+
+  showHours() {
+    const dialogRef = this.dialog.open(HoursDialogComponent, {
+      width: '400px',
+      data: this.hours
+    });
   }
 }

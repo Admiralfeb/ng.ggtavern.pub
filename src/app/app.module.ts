@@ -11,6 +11,7 @@ import { SharedModule } from '@shared/shared-module.module';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OpenSignComponent } from './components/open-sign/open-sign.component';
+import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { OpenSignComponent } from './components/open-sign/open-sign.component';
     HomeComponent,
     NavbarComponent,
     OpenSignComponent,
+    HoursDialogComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -28,6 +30,7 @@ import { OpenSignComponent } from './components/open-sign/open-sign.component';
     SharedModule,
   ],
   providers: [Title],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [HoursDialogComponent]
 })
 export class AppModule { }

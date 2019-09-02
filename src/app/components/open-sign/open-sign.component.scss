@@ -1,2 +1,9 @@
 @import "~@angular/material/theming";
 @import "variables";
+
+.closed {
+  color: mat-color($warn);
+}
+.open {
+  color: mat-color($accent);
+}
