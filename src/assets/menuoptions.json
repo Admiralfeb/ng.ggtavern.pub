@@ -195,7 +195,7 @@
         {
             "name": "Wyldwood Mead",
             "price": "7.50",
-            "types": "Honey, Elderberry, or Elderberry Blackberry Blend"
+            "types": "Honey or Elderberry"
         }
     ],
     "bits": [
@@ -263,6 +263,43 @@
             "types": ""
         }
     ],
+    "treats": [
+        {
+            "name": "Apple Fries",
+            "price": "5.50",
+            "description": "Apples sliced, fried, and coated in cinnamon and sugar. Served with caramel dipping sauce",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Boozy Ice Cream",
+            "price": "6.00",
+            "description": "House-made ice cream with booze",
+            "note": "",
+            "types": "Strawberry or Chai"
+        },
+        {
+            "name": "Cheesecake - Plain",
+            "price": "5.50",
+            "description": "Cake of cheese",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Cheesecake - with topping",
+            "price": "6.00",
+            "description": "Cake of cheese with a topping",
+            "note": "",
+            "types": "Chocolate, Cherry, Blueberry"
+        },
+        {
+            "name": "Chocolate Chip Cookie Brownie",
+            "price": "5.00",
+            "description": "Fresh cookie brownie. Topped with vanilla bean ice cream",
+            "note": "",
+            "types": ""
+        }
+    ],
     "bytes": [
         {
             "name": "Add",
@@ -305,13 +342,6 @@
             "description": "Chili, nacho cheese, beef patty",
             "types": "",
             "includesFries": true
-        },
-        {
-            "name": "Cinnamon Roll and Chili",
-            "price": "9.00",
-            "description": "House chili with cinnamon roll",
-            "types": "",
-            "includesFries": false
         },
         {
             "name": "Eggers Can't Be Cheesers w/ Bacon",
@@ -435,11 +465,6 @@
             "price": "7.00"
         },
         {
-            "name": "Not Your Father's Mountain Ale",
-            "ABV": "5.0%",
-            "price": "5.50"
-        },
-        {
             "name": "Not Your Father's Root Beer",
             "ABV": "5.9%",
             "price": "5.50"
@@ -448,6 +473,11 @@
             "name": "Paulaner Hefweizen",
             "ABV": "5.0%",
             "price": "4.75"
+        },
+        {
+            "name": "Pseudo Sue Pale Ale",
+            "ABV": "6.8%",
+            "price": "8.75"
         },
         {
             "name": "Rekorderlig Strawberry-Lime Cider",

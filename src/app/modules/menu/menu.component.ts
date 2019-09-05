@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
     { text: 'Wines', link: 'wine' },
     { text: 'Bits', link: 'bits' },
     { text: 'Bytes', link: 'bytes' },
+    { text: 'Treats', link: 'treats' },
   ];
   constructor(private titleService: Title) { }
 

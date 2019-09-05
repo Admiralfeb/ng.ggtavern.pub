@@ -15,6 +15,7 @@ import {
   SpecialtiesComponent,
   TapComponent,
   WineComponent,
+  TreatsComponent,
 } from './components';
 
 @NgModule({
@@ -28,6 +29,7 @@ import {
     ShotsComponent,
     SpecialtiesComponent,
     TapComponent,
+    TreatsComponent,
     WineComponent,
   ],
   imports: [

@@ -4,5 +4,6 @@ export * from './bottled/bottled.component';
 export * from './bytes/bytes.component';
 export * from './shots/shots.component';
 export * from './specialties/specialties.component';
+export * from './treats/treats.component';
 export * from './tap/tap.component';
 export * from './wine/wine.component';
