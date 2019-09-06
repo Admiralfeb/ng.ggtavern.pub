@@ -6,6 +6,7 @@
 variables:
   NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
 
+
 stages:
 - stage: build
   jobs:
@@ -38,4 +39,10 @@ stages:
         PathtoPublish: 'dist'
         ArtifactName: 'dist'
         publishLocation: 'Container'
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'run deploy'
+      env:
+        FIREBASE_TOKEN: $(FIREBASE_TOKEN)
 
