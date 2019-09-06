@@ -20,18 +20,22 @@ stages:
          key: npm | $(Agent.OS) | package-lock.json
          path: $(NPM_CACHE_FOLDER)
     - task: Npm@1
+      displayName: CI
       inputs:
         command: 'custom'
         customCommand: 'ci'
     - task: Npm@1
+      displayName: Test
       inputs:
         command: 'custom'
         customCommand: 'run test-ci'
     - task: Npm@1
+      displayName: e2e
       inputs:
         command: 'custom'
         customCommand: 'run e2e-ci'
     - task: Npm@1
+      displayName: Build
       inputs:
         command: 'custom'
         customCommand: 'run build'
