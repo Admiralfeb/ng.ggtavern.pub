@@ -20,10 +20,9 @@ stages:
          key: npm | $(Agent.OS) | package-lock.json
          path: $(NPM_CACHE_FOLDER)
     - task: Npm@1
-      displayName: CI
+      displayName: Install
       inputs:
-        command: 'custom'
-        customCommand: 'ci'
+        command: 'install'
     - task: Npm@1
       displayName: Test
       inputs:
