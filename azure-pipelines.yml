@@ -26,11 +26,11 @@ stages:
     - task: Npm@1
       inputs:
         command: 'custom'
-        customCommand: 'test-ci'
+        customCommand: 'run test-ci'
     - task: Npm@1
       inputs:
         command: 'custom'
-        customCommand: 'e2e-ci'
+        customCommand: 'run e2e-ci'
     - task: Npm@1
       inputs:
         command: 'custom'
