@@ -7,18 +7,13 @@ variables:
   NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
 
 stages:
-- stage: install
-  displayName: Project Install
+- stage: build
   jobs:
   - job:
     displayName: Install, Build, Test
     pool: Default
-    container: admiralfeb/dev:angular
+    #container: admiralfeb/dev:angular
     steps:
-    - task: CacheBeta@0
-      inputs:
-         key: npm | $(Agent.OS) | package-lock.json
-         path: $(NPM_CACHE_FOLDER)
     - task: Npm@1
       displayName: Install
       inputs:
