@@ -3,32 +3,36 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+variables:
+  NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
+
 stages:
 - stage: install
   displayName: Project Install
   jobs:
-   - job:
-     displayName: Install
-     pool: Default
-     container: admiralfeb/dev:angular
-     steps:
-       - task: Npm@1
-         inputs:
-           command: 'install'
-       - task: PublishPipelineArtifact@1
-         inputs:
-           targetPath: 'node_modules'
-           artifact: 'node_modules'
-- stage: build
-  displayName: Project Build
-  jobs:
-   - job:
-     steps:
-       - script: 'npm build'
-         displayName: Build
-       - task: PublishBuildArtifacts@1
-         inputs:
-           PathtoPublish: 'dist'
-           ArtifactName: 'dist'
-           publishLocation: 'Container'
+  - job:
+    displayName: Install, Build, Test
+    pool: Default
+    container: admiralfeb/dev:angular
+    steps:
+    - task: CacheBeta@0
+      inputs:
+         key: npm | $(Agent.OS) | package-lock.json
+         path: $(NPM_CACHE_FOLDER)
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'ci'
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'test-ci'
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'e2e-ci'
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'run build'
 
