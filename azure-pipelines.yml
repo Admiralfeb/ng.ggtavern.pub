@@ -24,6 +24,9 @@ stages:
      steps:
        - script: 'npm build'
          displayName: Build
-       - publish: dist/*
-         artifact: build
+       - task: PublishBuildArtifacts@1
+         inputs:
+           PathtoPublish: '$(Pipeline.Workspace)/dist'
+           ArtifactName: 'dist'
+           publishLocation: 'Container'
 
