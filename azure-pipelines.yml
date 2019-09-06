@@ -13,8 +13,10 @@ stages:
      container: admiralfeb/dev:angular
      steps:
        - script: npm install
-       - publish: node_modules
-         artifact: node_modules
+       - task: PublishPipelineArtifact@1
+         inputs:
+           targetPath: '$(Pipeline.Workspace)/node_modules'
+           artifact: 'node_modules'
 - stage: build
   displayName: Project Build
   jobs:
