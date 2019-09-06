@@ -3,20 +3,25 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-pool: Default
-
-container: 'admiralfeb/dev:angular'
-
 stages:
 - stage: install
   displayName: Project Install
   jobs:
-   - job: 
-      script: npm install
-      displayName: Install
+   - job:
+     displayName: Install
+     pool: Default
+     container: admiralfeb/dev:angular
+     steps:
+       - script: npm install
+       - publish: node_modules
+         artifact: node_modules
 - stage: build
+  displayName: Project Build
   jobs:
    - job:
-      script: npm build
-      displayName: Build
+     steps:
+       - script: 'npm build'
+         displayName: Build
+       - publish: dist/*
+         artifact: build
 
