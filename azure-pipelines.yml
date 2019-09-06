@@ -33,4 +33,9 @@ stages:
       inputs:
         command: 'custom'
         customCommand: 'run build'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: 'dist'
+        ArtifactName: 'dist'
+        publishLocation: 'Container'
 
