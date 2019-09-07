@@ -21,7 +21,19 @@ stages:
         command: 'install'
 - stage: Test
   jobs:
-  - job:
+  - job: lint
+    displayName: Lint
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - checkout: self
+      clean: false
+    - task: Npm@1
+      displayName: Lint
+      inputs:
+        command: 'custom'
+        customCommand: 'run lint'
+  - job: spec
     displayName: Unit Test
     pool: Default
     #container: admiralfeb/dev:angular
@@ -39,6 +51,14 @@ stages:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: 'coverage/ggtavern/cobertura-coverage.xml'
         failIfCoverageEmpty: true
+    - task: PublishTestResults@2
+      displayName: Publish Unit Test Results
+      condition: succeededOrFailed()
+      inputs:
+        searchFolder: tests/spec
+        testRunTitle: Angular
+        testResultsFormat: JUnit
+        testResultsFiles: '**/TESTS*.xml'
   - job:
     displayName: e2e Test
     workspace:
@@ -57,6 +77,14 @@ stages:
       inputs:
         command: 'custom'
         customCommand: 'run e2e-ci'
+    - task: PublishTestResults@2
+      displayName: Publish e2e Test Results
+      condition: succeededOrFailed()
+      inputs:
+        searchFolder: tests/e2e
+        testRunTitle: Angular_e2e
+        testResultsFormat: JUnit
+        testResultsFiles: '**/junit*.xml'
 - stage: Build
   jobs:
   - job:
@@ -118,4 +146,3 @@ stages:
                 customCommand: 'run deploy'
               env:
                 FIREBASE_TOKEN: $(FIREBASE_TOKEN)
-
