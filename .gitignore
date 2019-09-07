@@ -6,6 +6,7 @@
 /tmp
 /out-tsc
 TESTS*.xml
+/tests
 
 # dependencies
 /node_modules
