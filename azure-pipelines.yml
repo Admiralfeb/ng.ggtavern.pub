@@ -8,10 +8,10 @@ variables:
 
 
 stages:
-- stage: build
+- stage: Install
   jobs:
   - job:
-    displayName: Install, Build, Test
+    displayName: Install
     pool: Default
     #container: admiralfeb/dev:angular
     steps:
@@ -19,16 +19,52 @@ stages:
       displayName: Install
       inputs:
         command: 'install'
+    - task: PublishPipelineArtifact@1
+      displayName: Save node_modules
+      inputs:
+        targetPath: 'node_modules'
+        artifact: 'node_modules'
+- stage: Test
+  jobs:
+  - job:
+    displayName: Unit Test
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        targetPath: '$(Pipeline.Workspace)'
     - task: Npm@1
       displayName: Test
       inputs:
         command: 'custom'
         customCommand: 'run test-ci'
+  - job:
+    displayName: e2e Test
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        targetPath: '$(Pipeline.Workspace)'
     - task: Npm@1
       displayName: e2e
       inputs:
         command: 'custom'
         customCommand: 'run e2e-ci'
+- stage: Build
+  jobs:
+  - job:
+    displayName: Build
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        targetPath: '$(Pipeline.Workspace)'
     - task: Npm@1
       displayName: Build
       inputs:
@@ -39,26 +75,31 @@ stages:
       inputs:
         SourceFolder: 'dist'
         Contents: '**'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/stage/dist'
-    - task: CopyFiles@2
-      displayName: Copy package.json to stage
-      inputs:
-        Contents: 'package.json'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/stage'
-    - task: CopyFiles@2
-      displayName: Copy firebase.json to stage
-      inputs:
-        Contents: 'firebase.json'
-        TargetFolder: '$(Build.ArtifactStagingDirectory)/stage'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/dist'
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
+        ArtifactName: 'dist'
         publishLocation: 'Container'
-    # - task: Npm@1
-    #   inputs:
-    #     command: 'custom'
-    #     customCommand: 'run deploy'
-    #   env:
-    #     FIREBASE_TOKEN: $(FIREBASE_TOKEN)
+- stage: Deploy
+  jobs:
+    - deployment:
+      displayName: Deploy to Firebase
+      pool: Default
+      environment: ggtavern-admiralfeb
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - task: DownloadPipelineArtifact@2
+              inputs:
+                artifactName: 'dist'
+                buildType: 'current'
+                targetPath: '$(Pipeline.Workspace)'
+            - task: Npm@1
+              inputs:
+                command: 'custom'
+                customCommand: 'run deploy'
+              env:
+                FIREBASE_TOKEN: $(FIREBASE_TOKEN)
 
