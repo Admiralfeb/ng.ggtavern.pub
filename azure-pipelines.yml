@@ -34,15 +34,31 @@ stages:
       inputs:
         command: 'custom'
         customCommand: 'run build'
+    - task: CopyFiles@2
+      displayName: Copy build files to stage
+      inputs:
+        SourceFolder: 'dist'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/stage/dist'
+    - task: CopyFiles@2
+      displayName: Copy package.json to stage
+      inputs:
+        Contents: 'package.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/stage'
+    - task: CopyFiles@2
+      displayName: Copy firebase.json to stage
+      inputs:
+        Contents: 'firebase.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/stage'
     - task: PublishBuildArtifacts@1
       inputs:
-        PathtoPublish: 'dist'
-        ArtifactName: 'dist'
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
         publishLocation: 'Container'
-    - task: Npm@1
-      inputs:
-        command: 'custom'
-        customCommand: 'run deploy'
-      env:
-        FIREBASE_TOKEN: $(FIREBASE_TOKEN)
+    # - task: Npm@1
+    #   inputs:
+    #     command: 'custom'
+    #     customCommand: 'run deploy'
+    #   env:
+    #     FIREBASE_TOKEN: $(FIREBASE_TOKEN)
 
