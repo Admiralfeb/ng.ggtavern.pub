@@ -68,10 +68,6 @@ stages:
     steps:
     - checkout: self
       clean: false
-    - task: DownloadPipelineArtifact@2
-      inputs:
-        buildType: 'current'
-        targetPath: '$(Pipeline.Workspace)'
     - task: Npm@1
       displayName: Build
       inputs:
@@ -113,17 +109,8 @@ stages:
         runOnce:
           deploy:
             steps:
-            - task: DownloadPipelineArtifact@2
-              displayName: Download Build files
-              inputs:
-                artifactName: 'build'
-                buildType: 'current'
-                targetPath: '$(Pipeline.Workspace)'
-            - task: Npm@1
-              displayName: Install node_modules
-              inputs:
-                command: 'install'
-                workingDir: 'build'
+            - checkout: self
+              clean: false
             - task: Npm@1
               displayName: Deploy
               inputs:
