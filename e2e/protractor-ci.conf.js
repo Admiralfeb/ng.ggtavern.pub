@@ -1,6 +1,4 @@
-const config = require('./protractor.conf').config;
-const junitReporter = require('jasmine-reporters').JUnitXmlReporter;
-
+const { JUnitXmlReporter } = require('jasmine-reporters');
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 /**
@@ -31,10 +29,10 @@ exports.config = {
             project: require('path').join(__dirname, './tsconfig.json')
         });
         jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
-        var junitReporter = new JUnitXmlReporter({
-            savePath: require('path').join(__dirname, './tests/e2e'),
+        var junitreporter = new JUnitXmlReporter({
+            savePath: require('path').join(__dirname, '../tests/e2e'),
             consolidateAll: true
         });
-        jasmine.getEnv().addReporter(junitReporter);
+        jasmine.getEnv().addReporter(junitreporter);
     }
 };

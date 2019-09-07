@@ -55,7 +55,6 @@ stages:
       displayName: Publish Unit Test Results
       condition: succeededOrFailed()
       inputs:
-        searchFolder: tests/spec
         testRunTitle: Angular
         testResultsFormat: JUnit
         testResultsFiles: '**/TESTS*.xml'
@@ -81,7 +80,6 @@ stages:
       displayName: Publish e2e Test Results
       condition: succeededOrFailed()
       inputs:
-        searchFolder: tests/e2e
         testRunTitle: Angular_e2e
         testResultsFormat: JUnit
         testResultsFiles: '**/junit*.xml'
