@@ -23,11 +23,11 @@ stages:
   jobs:
   - job:
     displayName: Unit Test
-    workspace:
-      clean: outputs
     pool: Default
     #container: admiralfeb/dev:angular
     steps:
+    - checkout: self
+      clean: false
     - task: Npm@1
       displayName: Test
       inputs:
@@ -46,6 +46,8 @@ stages:
     pool: Default
     #container: admiralfeb/dev:angular
     steps:
+    - checkout: self
+      clean: false
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'current'
@@ -64,6 +66,8 @@ stages:
     pool: Default
     #container: admiralfeb/dev:angular
     steps:
+    - checkout: self
+      clean: false
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'current'
