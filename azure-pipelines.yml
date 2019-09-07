@@ -37,7 +37,7 @@ stages:
       displayName: Publish Code Coverage Results
       inputs:
         codeCoverageTool: 'Cobertura'
-        summaryFileLocation: '/coverage/ggtavern/cobertura-coverage.xml'
+        summaryFileLocation: 'coverage/ggtavern/cobertura-coverage.xml'
         failIfCoverageEmpty: true
   - job:
     displayName: e2e Test
