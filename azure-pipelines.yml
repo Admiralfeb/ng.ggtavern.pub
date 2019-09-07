@@ -129,6 +129,7 @@ stages:
   jobs:
     - deployment:
       displayName: Deploy to Firebase
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
       pool: Default
       environment: ggtavern-admiralfeb
       strategy:
