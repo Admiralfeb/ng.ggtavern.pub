@@ -1,0 +1,22 @@
+<div class="radiogroup">
+    <mat-radio-group (change)="onSortChange($event)">
+        <mat-radio-button value="name" checked>Name</mat-radio-button>
+        <mat-radio-button value="alcohol">Alcohol Type</mat-radio-button>
+    </mat-radio-group>
+</div>
+<div class="list">
+    <mat-card *ngFor="let item of items" class="menuoption">
+        <ng-container *ngIf="sortSelect==='name'; else typeTemplate">
+            <mat-card-title>{{item.name}} <ng-container *ngIf="item.type">- {{item.type}}</ng-container>
+            </mat-card-title>
+        </ng-container>
+        <ng-template #typeTemplate>
+            <mat-card-title>
+                <ng-container *ngIf="item.type">{{item.type}} -</ng-container> {{item.name}}
+            </mat-card-title>
+        </ng-template>
+        <mat-card-subtitle>
+            {{item.ABV}} <ng-container *ngIf="item.description">- {{item.description}}</ng-container>
+        </mat-card-subtitle>
+    </mat-card>
+</div>

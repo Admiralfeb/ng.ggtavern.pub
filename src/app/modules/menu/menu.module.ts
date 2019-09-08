@@ -17,6 +17,7 @@ import {
   WineComponent,
   TreatsComponent,
 } from './components';
+import { LiquorsComponent } from './components/liquors/liquors.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {
     TapComponent,
     TreatsComponent,
     WineComponent,
+    LiquorsComponent,
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ export * from './_main/main.component';
 export * from './bits/bits.component';
 export * from './bottled/bottled.component';
 export * from './bytes/bytes.component';
+export * from './liquors/liquors.component';
 export * from './shots/shots.component';
 export * from './specialties/specialties.component';
 export * from './treats/treats.component';
