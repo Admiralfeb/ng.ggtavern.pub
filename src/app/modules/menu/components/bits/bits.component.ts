@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import menu from 'assets/menuoptions.json';
+import { MenuService } from '../../services/menu.service';
+import { MiscFoodItem } from '../../menu.models';
 
 @Component({
   selector: 'menu-bits',
@@ -7,11 +8,12 @@ import menu from 'assets/menuoptions.json';
   styleUrls: ['./bits.component.scss']
 })
 export class BitsComponent implements OnInit {
-  bits = menu.bits;
+  bits: MiscFoodItem[] = [];
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+    this.bits = this.menuService.getMenuItems('bits') as MiscFoodItem[];
   }
 
 }

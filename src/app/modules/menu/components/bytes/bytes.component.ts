@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import menu from 'assets/menuoptions.json';
+import { MenuService } from '../../services/menu.service';
+import { BytesItem } from '../../menu.models';
 
 @Component({
   selector: 'menu-bytes',
@@ -7,11 +8,12 @@ import menu from 'assets/menuoptions.json';
   styleUrls: ['./bytes.component.scss']
 })
 export class BytesComponent implements OnInit {
-  bytes = menu.bytes;
+  bytes: BytesItem[] = []
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+    this.bytes = this.menuService.getMenuItems('bytes') as BytesItem[];
   }
 
 }

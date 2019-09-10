@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import menu from 'assets/menuoptions.json';
 import { MatRadioChange } from '@angular/material/radio';
+import { MenuService } from '../../services/menu.service';
+import { LiquorItem } from '../../menu.models';
 
 @Component({
   selector: 'liquors',
@@ -8,24 +9,29 @@ import { MatRadioChange } from '@angular/material/radio';
   styleUrls: ['./liquors.component.scss']
 })
 export class LiquorsComponent implements OnInit {
-  items = menu.liquors;
+  liquors: LiquorItem[] = []
   sortSelect = 'name';
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+    this.liquors = this.menuService.getMenuItems('liquors') as LiquorItem[];
+    this.sortLiquors(this.sortSelect);
   }
 
   onSortChange(event: MatRadioChange) {
     const newValue = event.value as string;
+    this.sortLiquors(newValue);
+  }
 
-    switch (newValue) {
+  private sortLiquors(sort: string) {
+    switch (sort) {
       case 'name':
         this.sortSelect = 'name';
-        this.items.sort((a, b) => a.name.localeCompare(b.name));
+        this.liquors.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case 'alcohol':
         this.sortSelect = 'type';
-        this.items.sort((a, b) => a.type.localeCompare(b.type));
+        this.liquors.sort((a, b) => a.type.localeCompare(b.type));
         break;
       default:
         break;

@@ -591,7 +591,7 @@
             "ABV": ""
         }
     ],
-    "tap": [
+    "taps": [
         {
             "name": "Blue Moon",
             "ABV": "5.4%",
@@ -693,27 +693,6 @@
             "description": "House-made deviled eggs",
             "note": "Includes 4 halves",
             "types": ""
-        },
-        {
-            "name": "Boozy Ice Cream",
-            "price": "6.00",
-            "description": "House-made ice cream with booze",
-            "note": "",
-            "types": "Strawberry or Chai"
-        },
-        {
-            "name": "Cheesecake - Plain",
-            "price": "5.50",
-            "description": "Cake of cheese",
-            "note": "",
-            "types": ""
-        },
-        {
-            "name": "Cheesecake - with topping",
-            "price": "6.00",
-            "description": "Cake of cheese with a topping",
-            "note": "",
-            "types": "Chocolate, Cherry, Blueberry"
         },
         {
             "name": "Chips and Pico",

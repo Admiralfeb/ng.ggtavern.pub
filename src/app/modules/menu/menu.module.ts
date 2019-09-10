@@ -11,13 +11,14 @@ import {
   BitsComponent,
   BottledComponent,
   BytesComponent,
+  LiquorsComponent,
   ShotsComponent,
   SpecialtiesComponent,
   TapComponent,
   WineComponent,
   TreatsComponent,
 } from './components';
-import { LiquorsComponent } from './components/liquors/liquors.component';
+import { MenuService } from './services/menu.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LiquorsComponent } from './components/liquors/liquors.component';
     SharedModule,
     RouterModule,
     MenuRoutingModule,
-  ]
+  ],
+  providers: [MenuService]
 })
 export class MenuModule { }

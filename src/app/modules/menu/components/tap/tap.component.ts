@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import menu from 'assets/menuoptions.json';
+import { TapItem } from '../../menu.models';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'menu-tap',
@@ -7,10 +8,11 @@ import menu from 'assets/menuoptions.json';
   styleUrls: ['./tap.component.scss']
 })
 export class TapComponent implements OnInit {
-  taps = menu.tap;
-  constructor() { }
+  taps: TapItem[] = []
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+    this.taps = this.menuService.getMenuItems('taps') as TapItem[];
   }
 
 }

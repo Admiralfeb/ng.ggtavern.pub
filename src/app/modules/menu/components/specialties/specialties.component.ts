@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import menu from 'assets/menuoptions.json';
+import { MenuService } from '../../services/menu.service';
+import { SpecialtyItem } from '../../menu.models';
 
 @Component({
   selector: 'menu-specialties',
@@ -7,11 +8,12 @@ import menu from 'assets/menuoptions.json';
   styleUrls: ['./specialties.component.scss']
 })
 export class SpecialtiesComponent implements OnInit {
-  specialties = menu.specialties;
+  specialties: SpecialtyItem[] = []
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+    this.specialties = this.menuService.getMenuItems('specialties') as SpecialtyItem[];
   }
 
 }
