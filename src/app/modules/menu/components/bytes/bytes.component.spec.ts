@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BytesComponent } from './bytes.component';
 import { SharedModule } from '@shared/shared-module.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuService } from '../../services/menu.service';
 
 describe('BytesComponent', () => {
   let component: BytesComponent;
@@ -11,7 +12,9 @@ describe('BytesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BytesComponent],
-      imports: [SharedModule, BrowserAnimationsModule]
+      imports: [SharedModule, BrowserAnimationsModule],
+      providers: [MenuService]
+
 
     })
       .compileComponents();

@@ -1,0 +1,13 @@
+@import "../../menu.module.scss";
+
+.radiogroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+mat-radio-button,
+.radioLabel {
+  margin: 10px;
+  align-self: center;
+  text-align: center;
+}
