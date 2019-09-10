@@ -1,17 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottledComponent } from './bottled.component';
+import { TreatsComponent } from './treats.component';
 import { SharedModule } from '@shared/shared-module.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuService } from '../../services/menu.service';
 
-describe('BottledComponent', () => {
-  let component: BottledComponent;
-  let fixture: ComponentFixture<BottledComponent>;
+describe('TreatsComponent', () => {
+  let component: TreatsComponent;
+  let fixture: ComponentFixture<TreatsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BottledComponent],
+      declarations: [TreatsComponent],
       imports: [SharedModule, BrowserAnimationsModule],
       providers: [MenuService]
 
@@ -20,7 +20,7 @@ describe('BottledComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BottledComponent);
+    fixture = TestBed.createComponent(TreatsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

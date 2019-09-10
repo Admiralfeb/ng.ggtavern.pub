@@ -10,9 +10,11 @@ import {
     BitsComponent,
     BottledComponent,
     BytesComponent,
+    LiquorsComponent,
     ShotsComponent,
     SpecialtiesComponent,
     TapComponent,
+    TreatsComponent,
     WineComponent,
 } from './components';
 
@@ -25,7 +27,9 @@ const menuRoutes: Routes = [
             { path: 'bits', component: BitsComponent },
             { path: 'bottled', component: BottledComponent },
             { path: 'bytes', component: BytesComponent },
+            { path: 'liquors', component: LiquorsComponent },
             { path: 'tap', component: TapComponent },
+            { path: 'treats', component: TreatsComponent },
             { path: 'shots', component: ShotsComponent },
             { path: 'wine', component: WineComponent },
             { path: '404', component: ErrorNotFoundComponent },

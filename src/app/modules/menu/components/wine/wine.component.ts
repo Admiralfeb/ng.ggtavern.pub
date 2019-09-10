@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import menu from 'assets/menuoptions.json';
+import { WineItem } from '../../menu.models';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'menu-wine',
@@ -7,11 +8,12 @@ import menu from 'assets/menuoptions.json';
   styleUrls: ['./wine.component.scss']
 })
 export class WineComponent implements OnInit {
-  wines = menu.wines;
+  wines: WineItem[] = [];
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+    this.wines = this.menuService.getMenuItems('wines') as WineItem[];
   }
 
 }

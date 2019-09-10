@@ -10,6 +10,7 @@ export class MenuComponent implements OnInit {
   title = 'Grinning Goblin Menu';
   navItems: NavigationModel[] = [
     { text: 'Menu Home', link: 'home' },
+    { text: 'Available Liquors', link: 'liquors' },
     { text: 'Specialty Drinks', link: 'specialties' },
     { text: 'Drinks on Tap', link: 'tap' },
     { text: 'Bottled Drinks', link: 'bottled' },
@@ -17,6 +18,7 @@ export class MenuComponent implements OnInit {
     { text: 'Wines', link: 'wine' },
     { text: 'Bits', link: 'bits' },
     { text: 'Bytes', link: 'bytes' },
+    { text: 'Treats', link: 'treats' },
   ];
   constructor(private titleService: Title) { }
 

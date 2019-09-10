@@ -1,0 +1,19 @@
+<mat-accordion>
+    <ng-container *ngFor="let treat of treats">
+        <mat-expansion-panel class="menuoption">
+            <mat-expansion-panel-header class="mat-expansion-panel-header-description">
+                <mat-panel-title>{{treat.name}}</mat-panel-title>
+                <mat-panel-description>
+                    {{treat.price | currency:'USD' }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                <div>
+                    <p>{{treat.description}}</p>
+                    <p *ngIf="treat.types">Choice of: {{treat.types}}</p>
+                    <p>{{treat.note}}</p>
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>

@@ -109,7 +109,489 @@
             "Note": ""
         }
     ],
-    "tap": [
+    "liquors": [
+        {
+            "type": "brandy",
+            "name": "Hennessy",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "gin",
+            "name": "Barton Gin",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "gin",
+            "name": "Seagram's",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Baileys Irish Creme",
+            "description": "",
+            "ABV": "17.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Blue Curacao",
+            "description": "",
+            "ABV": "24.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Bohls Amaretto",
+            "description": "",
+            "ABV": "28.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Bohls Blask Raspberry",
+            "description": "",
+            "ABV": "17.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Bohls Crème de cacao",
+            "description": "",
+            "ABV": "24.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Bohls Crème de menthe",
+            "description": "",
+            "ABV": "30.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Bohls Melon",
+            "description": "",
+            "ABV": "17.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Bohls Triple Sec",
+            "description": "",
+            "ABV": "15.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Disaronno",
+            "description": "",
+            "ABV": "28.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Frangelico",
+            "description": "",
+            "ABV": "20.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Heritage Hills Pumpkin Spice",
+            "description": "",
+            "ABV": "12.50%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Jägermeister",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Jepson's Malört",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Kahlu'a",
+            "description": "",
+            "ABV": "20.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Midori",
+            "description": "",
+            "ABV": "20.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Solerno Blood Orange Liqueur",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Absente Absinthe",
+            "description": "US Version",
+            "ABV": "55.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Damiana",
+            "description": "",
+            "ABV": "30.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Caravella Lemon",
+            "description": "",
+            "ABV": "28.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "St Elder",
+            "description": "",
+            "ABV": "20.00%"
+        },
+        {
+            "type": "liqueur",
+            "name": "Bols Crème de Banana",
+            "description": "",
+            "ABV": "17.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Bacardí Lime",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Bacardí Superior",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Black Roberts Silver Rum",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Black Roberts Spiced Rum",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Captain Morgan Loco Nut",
+            "description": "",
+            "ABV": "20.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Captain Morgan Spiced Rum",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Flor de Caña",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Gustoso Aguardiente",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Malibu",
+            "description": "",
+            "ABV": "21.00%"
+        },
+        {
+            "type": "rum",
+            "name": "RumChata",
+            "description": "",
+            "ABV": "13.75%"
+        },
+        {
+            "type": "rum",
+            "name": "The Real McCoy",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Zacapa 23",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "rum",
+            "name": "Kraken Spiced Rum",
+            "description": "",
+            "ABV": "47.00%"
+        },
+        {
+            "type": "schnapps",
+            "name": "De Kuyper Butterscotch",
+            "description": "",
+            "ABV": "15.00%"
+        },
+        {
+            "type": "schnapps",
+            "name": "De Kuyper Peach",
+            "description": "",
+            "ABV": "15.00%"
+        },
+        {
+            "type": "schnapps",
+            "name": "De Kuyper Sour Apple Pucker",
+            "description": "",
+            "ABV": "15.00%"
+        },
+        {
+            "type": "schnapps",
+            "name": "De Kuyper Watermelon Pucker",
+            "description": "",
+            "ABV": "15.00%"
+        },
+        {
+            "type": "schnapps",
+            "name": "De Kuyper Island Punch Pucker",
+            "description": "",
+            "ABV": "15.00%"
+        },
+        {
+            "type": "tequila",
+            "name": "Cazadores",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "tequila",
+            "name": "Corralejo",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "tequila",
+            "name": "Creyente",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "tequila",
+            "name": "el Jimador",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "tequila",
+            "name": "Jose Cuervo",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "tequila",
+            "name": "Juárez Tequila Silver",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "tequila",
+            "name": "Milagro",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Barton Vodka",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Burnetts Vanilla",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Grey Goose",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Kinky",
+            "description": "",
+            "ABV": "17.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Milo",
+            "description": "gluten free",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Smirnoff Red White and Berry",
+            "description": "gluten free",
+            "ABV": "30.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Smirnoff Sour Berry Lemon",
+            "description": "gluten free",
+            "ABV": "30.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Tito's Handmade",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "Tuaca",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "vodka",
+            "name": "UV Cake - White Cake",
+            "description": "",
+            "ABV": "30.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Bird Dog Peach",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Caribou Crossing",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Crown",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Crown Apple",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Crown Peach",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Crown Vanilla",
+            "description": "",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Dewar's Blended Scotch Whiskey White Label",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Fireball Cinnamon",
+            "description": "",
+            "ABV": "33.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "High West Whiskey Bourbon",
+            "description": "",
+            "ABV": "46.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Iwai",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Jack Daniels",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Jameson",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Jim Beam Bourbon",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "JW Scotch",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Kentucky Gentlemen",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Macallan 18",
+            "description": "$35 a shot",
+            "ABV": "43.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Screwball",
+            "description": "Contains peanuts!",
+            "ABV": "35.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "The Balvenie 12",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "whiskey",
+            "name": "Tullamore Dew",
+            "description": "",
+            "ABV": "40.00%"
+        },
+        {
+            "type": "",
+            "name": "Grenadine",
+            "description": "",
+            "ABV": ""
+        },
+        {
+            "type": "",
+            "name": "Sweet and Sour Mix",
+            "description": "",
+            "ABV": ""
+        }
+    ],
+    "taps": [
         {
             "name": "Blue Moon",
             "ABV": "5.4%",
@@ -125,6 +607,12 @@
         {
             "name": "Free State Oatmeal Stout",
             "ABV": "6.1%",
+            "pricepint": "5.50",
+            "pricemug": "10.00"
+        },
+        {
+            "name": "Sam Adams Octoberfest",
+            "ABV": "5.3%",
             "pricepint": "5.50",
             "pricemug": "10.00"
         },
@@ -195,7 +683,7 @@
         {
             "name": "Wyldwood Mead",
             "price": "7.50",
-            "types": "Honey, Elderberry, or Elderberry Blackberry Blend"
+            "types": "Honey or Elderberry"
         }
     ],
     "bits": [
@@ -205,27 +693,6 @@
             "description": "House-made deviled eggs",
             "note": "Includes 4 halves",
             "types": ""
-        },
-        {
-            "name": "Boozy Ice Cream",
-            "price": "6.00",
-            "description": "House-made ice cream with booze",
-            "note": "",
-            "types": "Strawberry or Chai"
-        },
-        {
-            "name": "Cheesecake - Plain",
-            "price": "5.50",
-            "description": "Cake of cheese",
-            "note": "",
-            "types": ""
-        },
-        {
-            "name": "Cheesecake - with topping",
-            "price": "6.00",
-            "description": "Cake of cheese with a topping",
-            "note": "",
-            "types": "Chocolate, Cherry, Blueberry"
         },
         {
             "name": "Chips and Pico",
@@ -259,6 +726,43 @@
             "name": "Mozzarella Sticks",
             "price": "5.50",
             "description": "Sticks of Mozzarella. Also called Mott Sticks",
+            "note": "",
+            "types": ""
+        }
+    ],
+    "treats": [
+        {
+            "name": "Apple Fries",
+            "price": "5.50",
+            "description": "Apples sliced, fried, and coated in cinnamon and sugar. Served with caramel dipping sauce",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Boozy Ice Cream",
+            "price": "6.00",
+            "description": "House-made ice cream with booze",
+            "note": "",
+            "types": "Strawberry or Chai"
+        },
+        {
+            "name": "Cheesecake - Plain",
+            "price": "5.50",
+            "description": "Cake of cheese",
+            "note": "",
+            "types": ""
+        },
+        {
+            "name": "Cheesecake - with topping",
+            "price": "6.00",
+            "description": "Cake of cheese with a topping",
+            "note": "",
+            "types": "Chocolate, Cherry, Blueberry"
+        },
+        {
+            "name": "Chocolate Chip Cookie Brownie",
+            "price": "5.00",
+            "description": "Fresh cookie brownie. Topped with vanilla bean ice cream",
             "note": "",
             "types": ""
         }
@@ -305,13 +809,6 @@
             "description": "Chili, nacho cheese, beef patty",
             "types": "",
             "includesFries": true
-        },
-        {
-            "name": "Cinnamon Roll and Chili",
-            "price": "9.00",
-            "description": "House chili with cinnamon roll",
-            "types": "",
-            "includesFries": false
         },
         {
             "name": "Eggers Can't Be Cheesers w/ Bacon",
@@ -435,11 +932,6 @@
             "price": "7.00"
         },
         {
-            "name": "Not Your Father's Mountain Ale",
-            "ABV": "5.0%",
-            "price": "5.50"
-        },
-        {
             "name": "Not Your Father's Root Beer",
             "ABV": "5.9%",
             "price": "5.50"
@@ -448,6 +940,11 @@
             "name": "Paulaner Hefweizen",
             "ABV": "5.0%",
             "price": "4.75"
+        },
+        {
+            "name": "Pseudo Sue Pale Ale",
+            "ABV": "6.8%",
+            "price": "8.75"
         },
         {
             "name": "Rekorderlig Strawberry-Lime Cider",

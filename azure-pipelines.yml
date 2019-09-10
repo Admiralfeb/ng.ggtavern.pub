@@ -1,0 +1,147 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+variables:
+  NPM_CACHE_FOLDER: $(Pipeline.Workspace)/.npm
+
+
+stages:
+- stage: Install
+  jobs:
+  - job:
+    displayName: Install
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - task: Npm@1
+      displayName: Install
+      inputs:
+        command: 'install'
+- stage: Test
+  jobs:
+  - job: lint
+    displayName: Lint
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - checkout: self
+      clean: false
+    - task: Npm@1
+      displayName: Lint
+      inputs:
+        command: 'custom'
+        customCommand: 'run lint'
+  - job: spec
+    displayName: Unit Test
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - checkout: self
+      clean: false
+    - task: Npm@1
+      displayName: Test
+      inputs:
+        command: 'custom'
+        customCommand: 'run test-ci'
+    - task: PublishCodeCoverageResults@1
+      displayName: Publish Code Coverage Results
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: 'coverage/ggtavern/cobertura-coverage.xml'
+        failIfCoverageEmpty: true
+    - task: PublishTestResults@2
+      displayName: Publish Unit Test Results
+      condition: succeededOrFailed()
+      inputs:
+        testRunTitle: Angular
+        testResultsFormat: JUnit
+        testResultsFiles: '**/TESTS*.xml'
+  - job:
+    displayName: e2e Test
+    workspace:
+      clean: outputs
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - checkout: self
+      clean: false
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        targetPath: '$(Pipeline.Workspace)'
+    - task: Npm@1
+      displayName: e2e
+      inputs:
+        command: 'custom'
+        customCommand: 'run e2e-ci'
+    - task: PublishTestResults@2
+      displayName: Publish e2e Test Results
+      condition: succeededOrFailed()
+      inputs:
+        testRunTitle: Angular_e2e
+        testResultsFormat: JUnit
+        testResultsFiles: '**/junit*.xml'
+- stage: Build
+  jobs:
+  - job:
+    displayName: Build
+    workspace:
+      clean: outputs
+    pool: Default
+    #container: admiralfeb/dev:angular
+    steps:
+    - checkout: self
+      clean: false
+    - task: Npm@1
+      displayName: Build
+      inputs:
+        command: 'custom'
+        customCommand: 'run build'
+    - task: CopyFiles@2
+      displayName: Copy build files to stage
+      inputs:
+        SourceFolder: 'dist'
+        Contents: '**'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)/dist'
+    - task: CopyFiles@2
+      displayName: Copy package.json to stage
+      inputs:
+        Contents: 'package.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: CopyFiles@2
+      displayName: Copy package-lock.json to stage
+      inputs:
+        Contents: 'package-lock.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: CopyFiles@2
+      displayName: Copy firebase.json to stage
+      inputs:
+        Contents: 'firebase.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'stage'
+        publishLocation: 'Container'
+- stage: Deploy
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  jobs:
+    - deployment:
+      displayName: Deploy to Firebase
+      pool: Default
+      environment: ggtavern-admiralfeb
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - checkout: self
+              clean: false
+            - task: Npm@1
+              displayName: Deploy
+              inputs:
+                command: 'custom'
+                customCommand: 'run deploy'
+              env:
+                FIREBASE_TOKEN: $(FIREBASE_TOKEN)
