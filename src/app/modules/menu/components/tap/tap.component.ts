@@ -8,7 +8,7 @@ import { MenuService } from '../../services/menu.service';
   styleUrls: ['./tap.component.scss']
 })
 export class TapComponent implements OnInit {
-  taps: TapItem[] = []
+  taps: TapItem[] = [];
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {

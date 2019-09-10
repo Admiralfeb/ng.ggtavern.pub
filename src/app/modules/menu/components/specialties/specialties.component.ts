@@ -8,7 +8,7 @@ import { SpecialtyItem } from '../../menu.models';
   styleUrls: ['./specialties.component.scss']
 })
 export class SpecialtiesComponent implements OnInit {
-  specialties: SpecialtyItem[] = []
+  specialties: SpecialtyItem[] = [];
 
   constructor(private menuService: MenuService) { }
 

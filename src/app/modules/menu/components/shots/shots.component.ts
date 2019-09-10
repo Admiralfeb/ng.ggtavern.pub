@@ -8,7 +8,7 @@ import { MenuService } from '../../services/menu.service';
   styleUrls: ['./shots.component.scss']
 })
 export class ShotsComponent implements OnInit {
-  shots: ShotsItem[] = []
+  shots: ShotsItem[] = [];
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {

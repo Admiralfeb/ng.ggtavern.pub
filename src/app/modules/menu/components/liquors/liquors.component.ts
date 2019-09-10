@@ -9,7 +9,7 @@ import { LiquorItem } from '../../menu.models';
   styleUrls: ['./liquors.component.scss']
 })
 export class LiquorsComponent implements OnInit {
-  liquors: LiquorItem[] = []
+  liquors: LiquorItem[] = [];
   sortSelect = 'name';
   constructor(private menuService: MenuService) { }
 

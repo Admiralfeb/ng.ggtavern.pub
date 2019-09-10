@@ -8,7 +8,7 @@ import { BytesItem } from '../../menu.models';
   styleUrls: ['./bytes.component.scss']
 })
 export class BytesComponent implements OnInit {
-  bytes: BytesItem[] = []
+  bytes: BytesItem[] = [];
 
   constructor(private menuService: MenuService) { }
 

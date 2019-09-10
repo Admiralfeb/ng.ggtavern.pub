@@ -8,7 +8,7 @@ import { MenuService } from '../../services/menu.service';
   styleUrls: ['./treats.component.scss']
 })
 export class TreatsComponent implements OnInit {
-  treats: MiscFoodItem[] = []
+  treats: MiscFoodItem[] = [];
 
   constructor(private menuService: MenuService) { }
 

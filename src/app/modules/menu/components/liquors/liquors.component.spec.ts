@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LiquorsComponent } from './liquors.component';
 import { SharedModule } from '@shared/shared-module.module';
+import { MenuService } from '../../services/menu.service';
 
 describe('LiquorsComponent', () => {
   let component: LiquorsComponent;
@@ -10,7 +11,9 @@ describe('LiquorsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LiquorsComponent],
-      imports: [SharedModule]
+      imports: [SharedModule],
+      providers: [MenuService]
+
     })
       .compileComponents();
   }));
