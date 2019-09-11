@@ -4,109 +4,109 @@
             "name": "Aquaman",
             "price": "7.00",
             "ingredients": "Island Punch Pucker, Pineapple Juice, Sprite",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Cthulhu’s Call",
             "price": "10.00",
             "ingredients": "Melon Liqueur, Kraken Rum, Blue Curacao, Grenadine, Sprite",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Estus",
             "price": "7.00",
             "ingredients": "Vodka and Sunny D",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Fairy Blood",
             "price": "10.00",
             "ingredients": "Red White and Berry Vodka, Luster Blue Curacao, Pineapple, Sprite",
-            "Note": "Yes, fairies were harmed to make this…"
+            "note": "Yes, fairies were harmed to make this…"
         },
         {
             "name": "Health Potion",
             "price": "7.00",
             "ingredients": "Tequila, Grenadine, Sprite",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Kingdom Heart",
             "price": "10.50",
             "ingredients": "Moscato, Watermelon Schnapps, Sprite",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Klingon Blood Wine",
             "price": "8.00",
             "ingredients": "",
-            "Note": "Just the way Worf likes it. STRONG"
+            "note": "Just the way Worf likes it. STRONG"
         },
         {
             "name": "Kobayashi Maru",
             "price": "9.00",
             "ingredients": "Gin, Vodka, Peach Schnapps, Triple Sec, Sour, Cranberry",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Krusty Love",
             "price": "8.50",
             "ingredients": "Tequila, Orange Juice, Grenadine, Triple Sec, Sugar",
-            "Note": "It’s icky and it will leave your hands sticky…"
+            "note": "It’s icky and it will leave your hands sticky…"
         },
         {
             "name": "Little Drunk People",
             "price": "18.00",
             "ingredients": "Black Raspberry, Sour Apple, Peach, Vodka, Sour Mix, Sour Patch Kids",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Mana Potion",
             "price": "6.00",
             "ingredients": "Vodka, Gin, Blue Curacao, Sprite",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Pac-Man",
             "price": "9.00",
             "ingredients": "Amaretto, Vodka, Lime Juice, Sour Mix",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Princess Peach",
             "price": "7.00",
             "ingredients": "Rum, Peach Schnapps, Grenadine, Pineapple Juice",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "The Basic",
             "price": "8.00",
             "ingredients": "Pumpkin Spice Cream Liqueur, Kahlua, Milk",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "The Cake is a Lie",
             "price": "7.50",
             "ingredients": "Vanilla Vodka, Cranberry, Grenadine",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "The Horde",
             "price": "9.00",
             "ingredients": "Rum, Kraken Rum, Grenadine, Red Bull",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Time Warp",
             "price": "8.50",
             "ingredients": "Midori, Malibu, Blue Curacao, Pineapple",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Witches Brew",
             "price": "10.50",
             "ingredients": "Pineapple, Cranberry, Malibu, Sprite",
-            "Note": ""
+            "note": ""
         }
     ],
     "liquors": [
@@ -634,49 +634,49 @@
             "name": "Chocolate Cake",
             "price": "7.50",
             "ingredients": "Vodka, Frangelico, Sugar Coated Lemon",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Diddy Kong",
             "price": "6.00",
             "ingredients": "Creme de Banana, RumChata, Heavy Cream",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Donkey Kong",
             "price": "6.00",
             "ingredients": "Creme de Banana, Vanilla Vodka, Whipped Cream",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Ninja Turtle",
             "price": "4.00",
             "ingredients": "Midori, Malibu, Sour Mix, Sprite",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Peanut Butter & Jelly",
             "price": "5.25",
             "ingredients": "Frangelico, Butterscotch Schnapps, Black Raspberry Liqueur",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Pickle Rick",
             "price": "2.00",
             "ingredients": "Vodka, Pickle Juice",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "Shipwreck Shot",
             "price": "6.00",
             "ingredients": "Loconut, Rum, Pineapple Juice, Lime",
-            "Note": ""
+            "note": ""
         },
         {
             "name": "The Basic",
             "price": "7.00",
             "ingredients": "Pumpkin Spice Cream Liqueur, Kahlua, Whipped Cream",
-            "Note": ""
+            "note": ""
         }
     ],
     "wines": [
