@@ -1818,17 +1818,17 @@ menu.forEach(function (system) {
     const short = system.short;
     const games = system.games;
 
-    db.collection(`menus/games/systems`).doc(short).set({
+    db.collection(`games`).doc(short).set({
         system: systemName,
         short: short
-    }).then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+    }).then(_ => {
+        console.log("Document written with ID: ", short);
     }).catch(function (error) {
         console.error("Error adding document: ", error);
     });
 
     games.forEach((game) => {
-        db.collection(`menu/games/${short}/games`).add({
+        db.collection(`games/${short}/games`).add({
             game: game.name,
             players: game.players
         }).then(docref2 => console.log("Document written with ID: ", docref2.id)).catch(function (error) {
