@@ -13,7 +13,9 @@ export class TreatsComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.treats = this.menuService.getMenuItems('treats') as MiscFoodItem[];
+    this.menuService.getMenuItems('treats').then(value => {
+      this.treats = value as MiscFoodItem[];
+    });
   }
 
 }
