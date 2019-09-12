@@ -16,9 +16,10 @@ export class MenuService {
             const data = doc.data();
             items = [...items, doc.data()];
           });
+          this.sortMenuItems(items, 'name');
+          resolve(items);
         }
-        this.sortMenuItems(items, 'name');
-        resolve(items);
+        reject();
       }).catch(err => {
         console.error('Error retrieving documents', err);
         reject(err);

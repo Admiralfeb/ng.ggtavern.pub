@@ -4,6 +4,10 @@ import { BitsComponent } from './bits.component';
 import { SharedModule } from '@shared/shared-module.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuService } from '../../services/menu.service';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 describe('BitsComponent', () => {
   let component: BitsComponent;
@@ -12,8 +16,16 @@ describe('BitsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BitsComponent],
-      imports: [SharedModule, BrowserAnimationsModule],
-      providers: [MenuService]
+      imports: [
+        SharedModule,
+        BrowserAnimationsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
+        AngularFireAuthModule],
+      providers: [
+        MenuService,
+        AngularFirestore
+      ]
 
     })
       .compileComponents();
@@ -26,6 +38,8 @@ describe('BitsComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    fixture.whenStable().then(() =>
+      expect(component).toBeTruthy()
+    );
   });
 });
