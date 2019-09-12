@@ -1817,10 +1817,12 @@ menu.forEach(function (system) {
     const systemName = system.system;
     const short = system.short;
     const games = system.games;
+    const note = system.note ? system.note : '';
 
     db.collection(`games`).doc(short).set({
         system: systemName,
-        short: short
+        short: short,
+        note: note
     }).then(_ => {
         console.log("Document written with ID: ", short);
     }).catch(function (error) {
@@ -1829,7 +1831,7 @@ menu.forEach(function (system) {
 
     games.forEach((game) => {
         db.collection(`games/${short}/games`).add({
-            game: game.name,
+            name: game.name,
             players: game.players
         }).then(docref2 => console.log("Document written with ID: ", docref2.id)).catch(function (error) {
             console.error("Error adding document: ", error);
