@@ -28,11 +28,11 @@ export class LiquorsComponent implements OnInit {
     switch (sort) {
       case 'name':
         this.sortSelect = 'name';
-        this.liquors = this.menuService.sortMenuItems(this.liquors, this.sortSelect);
+        this.liquors = this.menuService.sortItems(this.liquors, this.sortSelect);
         break;
       case 'alcohol':
         this.sortSelect = 'type';
-        this.liquors = this.menuService.sortMenuItems(this.liquors, this.sortSelect);
+        this.liquors = this.menuService.sortItems(this.liquors, this.sortSelect);
         break;
       default:
         break;

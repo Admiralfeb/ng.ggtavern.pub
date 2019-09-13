@@ -8,5 +8,5 @@ export interface GameSystem {
     short: string;
     system: string;
     note?: string;
-    games: Game[];
+    games?: Game[];
 }

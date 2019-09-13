@@ -6,28 +6,27 @@ export class MenuService {
 
   constructor(private db: DatabaseService) { }
 
-  getMenuItems(itemType: string) {
+  async getMenuItems(itemType: string): Promise<any[]> {
     const pathString = `menus/food-and-drink/${itemType}`;
-    return new Promise<any[]>((resolve, reject) => {
-      let items = [];
-      this.db.getItems(pathString).then(collection => {
-        if (!collection.empty) {
-          collection.forEach(doc => {
-            const data = doc.data();
-            items = [...items, doc.data()];
-          });
-          this.sortMenuItems(items, 'name');
-          resolve(items);
+    let items = [];
+    try {
+      const collection = await this.db.getItems(pathString);
+      if (!collection.empty) {
+        for (const item of collection.docs) {
+          const data = item.data();
+          items = [...items, data];
         }
-        reject();
-      }).catch(err => {
-        console.error('Error retrieving documents', err);
-        reject(err);
-      });
-    });
+        items = this.sortItems(items, 'name');
+      }
+      return items;
+
+    } catch (err) {
+      console.error(err);
+      alert('There was an error, please check your console.');
+    }
   }
 
-  sortMenuItems(items: any[], sortField: string) {
+  sortItems(items: any[], sortField: string) {
     return items.sort((a, b) => a[sortField].localeCompare(b[sortField]));
   }
 }

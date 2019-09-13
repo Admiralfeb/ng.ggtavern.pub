@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observer } from 'rxjs';
-import gamesystems from 'assets/gameoptions.json';
 import { GameSystem, Game } from '../../models/model';
+import { GamesService } from '../../services/games.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class GameOptionsComponent implements OnInit {
   note = '';
   games = [];
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: GamesService) { }
 
   ngOnInit() {
     const locationobserver: Observer<Params> = {
@@ -25,18 +25,18 @@ export class GameOptionsComponent implements OnInit {
     this.route.params.subscribe(locationobserver);
   }
 
-  onLocationChange(params: Params) {
-    const system: GameSystem = gamesystems.find(x => x.short === params.id);
+  async onLocationChange(params: Params) {
+    const system: GameSystem = this.dataService.Systems.find(x => x.short === params.id);
     if (system) {
       if (system.note != null) {
         this.note = system.note;
       } else {
         this.note = '';
       }
-      this.games = system.games;
-      this.games = this.games.sort((a, b) => a.name.localeCompare(b.name));
-      const contentContainer = document.querySelector('.mat-sidenav-container') || window;
+      this.games = await this.dataService.getGames(system.short);
+      const contentContainer = document.querySelector('game-options') || window;
       contentContainer.scrollTo(0, 0);
+      contentContainer.scroll(0, 0);
     } else {
       this.router.navigate(['games', '404']);
     }
