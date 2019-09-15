@@ -13,7 +13,9 @@ export class WineComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.wines = this.menuService.getMenuItems('wines') as WineItem[];
+    this.menuService.getMenuItems('wines').then(value => {
+      this.wines = value as WineItem[];
+    });
   }
 
 }

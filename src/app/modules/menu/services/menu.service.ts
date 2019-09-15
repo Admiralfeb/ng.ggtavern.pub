@@ -1,12 +1,32 @@
 import { Injectable } from '@angular/core';
-import menu from 'assets/menuoptions.json';
+import { DatabaseService } from '@core/services/database.service';
 
 @Injectable()
 export class MenuService {
 
-  constructor() { }
+  constructor(private db: DatabaseService) { }
 
-  getMenuItems(itemType: string) {
-    return menu[itemType];
+  async getMenuItems(itemType: string): Promise<any[]> {
+    const pathString = `menus/food-and-drink/${itemType}`;
+    let items = [];
+    try {
+      const collection = await this.db.getItems(pathString);
+      if (!collection.empty) {
+        for (const item of collection.docs) {
+          const data = item.data();
+          items = [...items, data];
+        }
+        items = this.sortItems(items, 'name');
+      }
+      return items;
+
+    } catch (err) {
+      console.error(err);
+      alert('There was an error getting the Menu Items.');
+    }
+  }
+
+  sortItems(items: any[], sortField: string) {
+    return items.sort((a, b) => a[sortField].localeCompare(b[sortField]));
   }
 }

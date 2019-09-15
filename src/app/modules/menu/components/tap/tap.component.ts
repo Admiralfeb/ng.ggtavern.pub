@@ -12,7 +12,9 @@ export class TapComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.taps = this.menuService.getMenuItems('taps') as TapItem[];
+    this.menuService.getMenuItems('taps').then(value => {
+      this.taps = value as TapItem[];
+    });
   }
 
 }

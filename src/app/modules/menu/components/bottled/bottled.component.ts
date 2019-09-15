@@ -12,7 +12,9 @@ export class BottledComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.bottles = this.menuService.getMenuItems('bottles') as BottleItem[];
+    this.menuService.getMenuItems('bottles').then(value => {
+      this.bottles = value as BottleItem[];
+    });
   }
 
 }

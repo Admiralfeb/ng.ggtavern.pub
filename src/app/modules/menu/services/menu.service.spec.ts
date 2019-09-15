@@ -1,26 +1,35 @@
-import { TestBed } from '@angular/core/testing';
-
 import { MenuService } from './menu.service';
 
 describe('MenuService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    providers: [MenuService],
-  }));
+  let menuService: MenuService;
+
+  const mockService = jasmine.createSpyObj('DatabaseService', ['getItems']);
+
+  beforeEach(() => {
+    menuService = new MenuService(mockService);
+  });
 
   it('should be created', () => {
-    const service: MenuService = TestBed.get(MenuService);
-    expect(service).toBeTruthy();
+    expect(menuService).toBeTruthy();
   });
 
-  it('should return data when given a proper value', () => {
-    const service: MenuService = TestBed.get(MenuService);
-    const returnValue = service.getMenuItems('bits');
-    expect(returnValue).toBeTruthy();
+  it('should return a promise', () => {
+    const returnValue = menuService.getMenuItems('bits');
+    expect(returnValue).toEqual(jasmine.any(Promise));
   });
 
-  it('should return undefined when given a non-existent value', () => {
-    const service: MenuService = TestBed.get(MenuService);
-    const returnValue = service.getMenuItems('rabbits');
-    expect(returnValue).toBeUndefined();
+  it('should pass information to the database service for query', async (done) => {
+    const returnPromise = menuService.getMenuItems('bits');
+    expect(mockService.getItems).toHaveBeenCalledWith('menus/food-and-drink/bits');
+    done();
   });
+
+  it('should return an empty array if the collection returns empty', async (done) => {
+    const mockCollection = { empty: true };
+    mockService.getItems.and.returnValue(Promise.resolve(mockCollection));
+    const returnValue = await menuService.getMenuItems('');
+    expect(returnValue.length).toBe(0);
+    done();
+  });
+
 });

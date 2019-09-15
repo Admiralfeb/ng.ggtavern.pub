@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: '***REMOVED***',
+    authDomain: 'gg-tavern.firebaseapp.com',
+    databaseURL: 'https://gg-tavern.firebaseio.com',
+    projectId: 'gg-tavern',
+    storageBucket: 'gg-tavern.appspot.com',
+    messagingSenderId: '770177405846',
+    appId: '1:770177405846:web:e3b9b6dcc4b1808be3c3b7'
+  }
 };
 
 /*

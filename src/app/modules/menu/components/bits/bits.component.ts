@@ -13,7 +13,9 @@ export class BitsComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.bits = this.menuService.getMenuItems('bits') as MiscFoodItem[];
+    this.menuService.getMenuItems('bits').then(value => {
+      this.bits = value as MiscFoodItem[];
+    });
   }
 
 }

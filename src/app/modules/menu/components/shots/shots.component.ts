@@ -12,7 +12,9 @@ export class ShotsComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.shots = this.menuService.getMenuItems('shots') as ShotsItem[];
+    this.menuService.getMenuItems('shots').then(value => {
+      this.shots = value as ShotsItem[];
+    });
   }
 
 }
