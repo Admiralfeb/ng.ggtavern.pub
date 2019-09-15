@@ -11,9 +11,11 @@ import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestor
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GamesService } from '../../services/games.service';
 
-describe('GameOptionsComponent', () => {
+describe('GameOptionsComponent (unit)', () => {
   let component: GameOptionsComponent;
   let fixture: ComponentFixture<GameOptionsComponent>;
+  const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames']);
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,19 +23,21 @@ describe('GameOptionsComponent', () => {
       imports: [SharedModule,
         RouterTestingModule,
         BrowserAnimationsModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule,
-        AngularFireAuthModule
+        // AngularFireModule.initializeApp(environment.firebase),
+        // AngularFirestoreModule,
+        // AngularFireAuthModule
       ],
       providers: [
-        GamesService,
-        AngularFirestore
+        { provide: GamesService, useValue: mockService }
+        // GamesService,
+        // AngularFirestore
       ]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
+
     fixture = TestBed.createComponent(GameOptionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

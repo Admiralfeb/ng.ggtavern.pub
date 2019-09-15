@@ -4,30 +4,24 @@ import { BytesComponent } from './bytes.component';
 import { SharedModule } from '@shared/shared-module.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuService } from '../../services/menu.service';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from 'environments/environment';
-import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 
 describe('BytesComponent', () => {
   let component: BytesComponent;
   let fixture: ComponentFixture<BytesComponent>;
 
   beforeEach(async(() => {
+    let menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
+    menuServiceStub.getMenuItems.and.returnValue(Promise.resolve())
+
     TestBed.configureTestingModule({
       declarations: [BytesComponent],
       imports: [
         SharedModule,
         BrowserAnimationsModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFirestoreModule,
-        AngularFireAuthModule],
+      ],
       providers: [
-        MenuService,
-        AngularFirestore
+        { provide: MenuService, useValue: menuServiceStub }
       ]
-
-
     })
       .compileComponents();
   }));

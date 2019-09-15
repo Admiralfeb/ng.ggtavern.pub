@@ -26,7 +26,7 @@ export class GameOptionsComponent implements OnInit {
   }
 
   async onLocationChange(params: Params) {
-    const system: GameSystem = this.dataService.Systems.find(x => x.short === params.id);
+    const system: GameSystem = this.dataService.getSystem(params.id);
     if (system) {
       if (system.note != null) {
         this.note = system.note;

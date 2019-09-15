@@ -8,7 +8,11 @@ export class DatabaseService {
 
   constructor(private db: AngularFirestore) { }
 
-  async getItems(path: string): Promise<firebase.firestore.QuerySnapshot> {
-    return this.db.collection(path).get().toPromise();
+  /**
+   * Gets all documents on the path specified. Does not retrieve sub-collections.
+   * @param queryPath document path for location to query
+   */
+  async getItems(queryPath: string): Promise<firebase.firestore.QuerySnapshot> {
+    return this.db.collection(queryPath).get().toPromise();
   }
 }

@@ -22,7 +22,7 @@ export class MenuService {
 
     } catch (err) {
       console.error(err);
-      alert('There was an error, please check your console.');
+      alert('There was an error getting the Menu Items.');
     }
   }
 
