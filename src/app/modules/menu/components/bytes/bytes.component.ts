@@ -13,7 +13,9 @@ export class BytesComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.bytes = this.menuService.getMenuItems('bytes') as BytesItem[];
+    this.menuService.getMenuItems('bytes').then(value => {
+      this.bytes = value as BytesItem[];
+    });
   }
 
 }

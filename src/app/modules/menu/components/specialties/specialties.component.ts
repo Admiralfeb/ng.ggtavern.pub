@@ -13,7 +13,9 @@ export class SpecialtiesComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.specialties = this.menuService.getMenuItems('specialties') as SpecialtyItem[];
+    this.menuService.getMenuItems('specialties').then(value => {
+      this.specialties = value as SpecialtyItem[];
+    });
   }
 
 }

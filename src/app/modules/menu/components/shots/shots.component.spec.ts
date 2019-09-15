@@ -10,11 +10,18 @@ describe('ShotsComponent', () => {
   let fixture: ComponentFixture<ShotsComponent>;
 
   beforeEach(async(() => {
+    const menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
+    menuServiceStub.getMenuItems.and.returnValue(Promise.resolve());
+
     TestBed.configureTestingModule({
       declarations: [ShotsComponent],
-      imports: [SharedModule, BrowserAnimationsModule],
-      providers: [MenuService]
-
+      imports: [
+        SharedModule,
+        BrowserAnimationsModule,
+      ],
+      providers: [
+        { provide: MenuService, useValue: menuServiceStub }
+      ]
     })
       .compileComponents();
   }));

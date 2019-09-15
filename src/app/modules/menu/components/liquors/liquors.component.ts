@@ -14,8 +14,9 @@ export class LiquorsComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.liquors = this.menuService.getMenuItems('liquors') as LiquorItem[];
-    this.sortLiquors(this.sortSelect);
+    this.menuService.getMenuItems('liquors').then(value => {
+      this.liquors = value as LiquorItem[];
+    });
   }
 
   onSortChange(event: MatRadioChange) {
@@ -27,11 +28,11 @@ export class LiquorsComponent implements OnInit {
     switch (sort) {
       case 'name':
         this.sortSelect = 'name';
-        this.liquors.sort((a, b) => a.name.localeCompare(b.name));
+        this.liquors = this.menuService.sortItems(this.liquors, this.sortSelect);
         break;
       case 'alcohol':
         this.sortSelect = 'type';
-        this.liquors.sort((a, b) => a.type.localeCompare(b.type));
+        this.liquors = this.menuService.sortItems(this.liquors, this.sortSelect);
         break;
       default:
         break;

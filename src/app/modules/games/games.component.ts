@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationModel } from '@shared/models/navigationModel';
-import gameoptions from 'assets/gameoptions.json';
 import { GameSystem, Game } from './models/model';
 import { Title } from '@angular/platform-browser';
+import { GamesService } from './services/games.service';
 
 @Component({
   selector: 'games',
@@ -14,23 +14,20 @@ export class GamesComponent implements OnInit {
   navItems: NavigationModel[] = [
     { text: 'Menu Home', link: 'home' }
   ];
-  constructor(private titleService: Title) { }
+  constructor(private titleService: Title, private dataService: GamesService) { }
 
   ngOnInit() {
     this.setTitle();
-    this.loadSystems();
+    this.dataService.getSystems().then(systems => {
+      this.loadSystems(systems);
+    });
   }
 
   private setTitle() {
     this.titleService.setTitle(this.title);
   }
 
-  private loadSystems() {
-    // let systems = JSON.parse(sessionStorage.getItem('game-menu')) as GameSystem[];
-    // if (!systems) {
-    const systems = gameoptions as GameSystem[];
-    //   sessionStorage.setItem('game-menu', JSON.stringify(systems));
-    // }
+  private loadSystems(systems: GameSystem[]) {
     console.log('systems:', systems);
     // systems = systems.sort();
     for (const element of systems) {
@@ -38,6 +35,7 @@ export class GamesComponent implements OnInit {
       const system = element.system;
       this.navItems = [...this.navItems, { text: system, link: short }];
     }
-
+    // Call a resize so CSS will reevaluate and reposition everything correctly.
+    window.dispatchEvent(new Event('resize'));
   }
 }
