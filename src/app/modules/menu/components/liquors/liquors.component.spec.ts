@@ -10,8 +10,8 @@ describe('LiquorsComponent', () => {
   let fixture: ComponentFixture<LiquorsComponent>;
 
   beforeEach(async(() => {
-    let menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
-    menuServiceStub.getMenuItems.and.returnValue(Promise.resolve())
+    const menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
+    menuServiceStub.getMenuItems.and.returnValue(Promise.resolve());
 
     TestBed.configureTestingModule({
       declarations: [LiquorsComponent],

@@ -44,7 +44,7 @@ export class GamesService {
   }
 
   /**
-   * Gets the games for the system provided. 
+   * Gets the games for the system provided.
    * Will retrieve from the database if they do not exist in memory.
    * @param system The system short name to query
    */

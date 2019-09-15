@@ -10,8 +10,8 @@ describe('TapComponent', () => {
   let fixture: ComponentFixture<TapComponent>;
 
   beforeEach(async(() => {
-    let menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
-    menuServiceStub.getMenuItems.and.returnValue(Promise.resolve())
+    const menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
+    menuServiceStub.getMenuItems.and.returnValue(Promise.resolve());
 
     TestBed.configureTestingModule({
       declarations: [TapComponent],
