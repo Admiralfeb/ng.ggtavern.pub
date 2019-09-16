@@ -23,7 +23,7 @@ export class GamesService {
           reject(false);
         }
       }, 10000);
-    })
+    });
   }
   /**
    * Gets the game systems from the Database if they do not exist in memory.

@@ -24,7 +24,7 @@ export class GameOptionsComponent implements OnInit {
         complete: () => console.log('complete')
       };
       this.route.params.subscribe(locationobserver);
-    })
+    });
   }
 
   async onLocationChange(params: Params) {
