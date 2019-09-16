@@ -10,6 +10,21 @@ export class GamesService {
 
   constructor(private db: DatabaseService) { }
 
+  async systemsLoaded(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      const interval = setInterval(() => {
+        if (this.systems.length > 0) {
+          clearInterval(interval);
+          resolve(true);
+        }
+      }, 1000);
+      setTimeout(() => {
+        if (this.systems.length <= 0) {
+          reject(false);
+        }
+      }, 10000);
+    })
+  }
   /**
    * Gets the game systems from the Database if they do not exist in memory.
    */

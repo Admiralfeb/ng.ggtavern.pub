@@ -9,8 +9,8 @@ import { GamesService } from '../../services/games.service';
 describe('GameOptionsComponent (unit)', () => {
   let component: GameOptionsComponent;
   let fixture: ComponentFixture<GameOptionsComponent>;
-  const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames']);
-
+  const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames', 'systemsLoaded']);
+  mockService.systemsLoaded.and.returnValue(Promise.resolve());
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,7 +38,9 @@ describe('GameOptionsComponent (unit)', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', async (done) => {
+    await fixture.whenStable();
     expect(component).toBeTruthy();
+    done();
   });
 });
