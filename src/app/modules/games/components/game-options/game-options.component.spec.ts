@@ -1,21 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { GameOptionsComponent } from './game-options.component';
 import { SharedModule } from '@shared/shared-module.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ActivatedRouteStub } from '@test/activated-route-stub';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from 'environments/environment';
-import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GamesService } from '../../services/games.service';
 
 describe('GameOptionsComponent (unit)', () => {
   let component: GameOptionsComponent;
   let fixture: ComponentFixture<GameOptionsComponent>;
-  const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames']);
-
+  const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames', 'systemsLoaded']);
+  mockService.systemsLoaded.and.returnValue(Promise.resolve());
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -43,7 +38,9 @@ describe('GameOptionsComponent (unit)', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', async (done) => {
+    await fixture.whenStable();
     expect(component).toBeTruthy();
+    done();
   });
 });

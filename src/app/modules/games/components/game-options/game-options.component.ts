@@ -17,12 +17,14 @@ export class GameOptionsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private dataService: GamesService) { }
 
   ngOnInit() {
-    const locationobserver: Observer<Params> = {
-      next: x => this.onLocationChange(x),
-      error: err => console.error('error reading router params'),
-      complete: () => console.log('complete')
-    };
-    this.route.params.subscribe(locationobserver);
+    this.dataService.systemsLoaded().then(_ => {
+      const locationobserver: Observer<Params> = {
+        next: x => this.onLocationChange(x),
+        error: err => console.error('error reading router params'),
+        complete: () => console.log('complete')
+      };
+      this.route.params.subscribe(locationobserver);
+    });
   }
 
   async onLocationChange(params: Params) {
