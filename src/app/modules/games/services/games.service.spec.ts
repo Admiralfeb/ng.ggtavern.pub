@@ -8,8 +8,8 @@ describe('GamesService', () => {
 
   beforeEach(() => {
     gamesService = new GamesService(mockService);
+    mockService.getItems.calls.reset();
   });
-
 
   it('should be created', () => {
     expect(gamesService).toBeTruthy();
@@ -22,7 +22,7 @@ describe('GamesService', () => {
     done();
   });
 
-  xit('should not call to the database for Systems when systems are loaded', async (done) => {
+  it('should not call to the database for Systems when systems are loaded', async (done) => {
     const testSystem: GameSystem[] = [
       { system: 'really cool system', short: 'rcs' }
     ];
