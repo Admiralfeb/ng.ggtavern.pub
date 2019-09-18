@@ -1,0 +1,31 @@
+@import "~@angular/material/theming";
+@import "variables";
+
+.right {
+  float: right;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.icon {
+  text-align: center;
+  font-size: 64px;
+  margin: auto;
+}
+
+.message {
+  margin: auto;
+}
+
+.warning {
+  color: mat-color($primary);
+  text-align: center;
+}
+
+.error {
+  color: mat-color($warn);
+  text-align: center;
+}

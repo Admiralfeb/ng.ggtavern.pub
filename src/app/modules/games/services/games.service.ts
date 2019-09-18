@@ -30,25 +30,19 @@ export class GamesService {
    */
   async getSystems(): Promise<GameSystem[]> {
     const pathString = `games`;
-    let systems = [];
 
     if (this.systems.length > 0) {
       return this.systems;
     }
 
     try {
-      const collection = await this.db.getItems(pathString);
-      if (!collection.empty) {
-        for (const item of collection.docs) {
-          const data = item.data() as GameSystem;
-          systems = [...systems, data];
-        }
-        systems = this.sortItems(systems, 'system');
-      }
-
+      let systems = [];
+      const itemData = await this.db.getItems(pathString);
+      systems = this.sortItems(itemData, 'system');
       this.systems = systems;
       return systems;
     } catch (err) {
+      throw err;
       console.error(err);
       alert('There was an error getting the Systems.');
     }
@@ -65,8 +59,7 @@ export class GamesService {
    */
   async getGames(system: string): Promise<Game[]> {
     const pathString = `games/${system}/games`;
-    let games = [];
-
+    throw 'oops';
     // If we've loaded this already in this instance, don't go to the database.
     const gamesfromsystem = this.getGamesfromSystems(system);
     if (gamesfromsystem) {
@@ -74,19 +67,15 @@ export class GamesService {
     }
 
     try {
+      let games = [];
       const collection = await this.db.getItems(pathString);
-      if (!collection.empty) {
-        for (const game of collection.docs) {
-          const data = game.data() as Game;
-          games = [...games, data];
-        }
-        games = this.sortItems(games, 'name');
-      }
+      games = this.sortItems(collection, 'name');
 
       this.setGames(system, games);
 
       return games;
     } catch (err) {
+      throw err;
       console.error(err);
       alert('There was an error getting the games.');
     }

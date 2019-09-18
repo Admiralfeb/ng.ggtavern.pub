@@ -1,5 +1,8 @@
 <h2 mat-dialog-title>{{title}}</h2>
-<mat-dialog-content>{{message}}</mat-dialog-content>
-<mat-dialog-actions class="d-flex justify-content-end">
+<mat-dialog-content class="grid">
+    <div *ngIf="icon" [class]="class"><i class="material-icons icon">{{icon}}</i></div>
+    <div class="message">{{message}}</div>
+</mat-dialog-content>
+<mat-dialog-actions class="right">
     <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>

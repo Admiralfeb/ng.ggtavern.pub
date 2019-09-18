@@ -4,11 +4,14 @@ import { GameSystem } from '../models/model';
 describe('GamesService', () => {
   let gamesService: GamesService;
 
-  const mockService = jasmine.createSpyObj('DatabaseService', ['getItems']);
+  const mockDatabaseService = jasmine.createSpyObj('DatabaseService', ['getItems']);
 
   beforeEach(() => {
-    gamesService = new GamesService(mockService);
-    mockService.getItems.calls.reset();
+    gamesService = new GamesService(mockDatabaseService);
+  });
+
+  afterEach(() => {
+    mockDatabaseService.getItems.calls.reset();
   });
 
   it('should be created', () => {
@@ -16,9 +19,9 @@ describe('GamesService', () => {
   });
 
   it('should call to the database for the Systems when no systems are loaded', async (done) => {
-    mockService.getItems.and.returnValue(Promise.resolve());
+    mockDatabaseService.getItems.and.returnValue(Promise.resolve());
     await gamesService.getSystems();
-    expect(mockService.getItems).toHaveBeenCalled();
+    expect(mockDatabaseService.getItems).toHaveBeenCalled();
     done();
   });
 
@@ -30,15 +33,17 @@ describe('GamesService', () => {
     gamesService[str] = testSystem;
 
     await gamesService.getSystems();
-    expect(mockService.getItems).not.toHaveBeenCalled();
+    expect(mockDatabaseService.getItems).not.toHaveBeenCalled();
     done();
   });
 
   it('should show an alert if there is an error in getting Systems or Games', async (done) => {
     spyOn(window, 'alert');
-    mockService.getItems.and.returnValue(Promise.reject());
+    mockDatabaseService.getItems.and.throwError('oops');
     await gamesService.getSystems();
     await gamesService.getGames('asdf');
+    expect(gamesService.getSystems).toThrowError('oops');
+    expect(gamesService.getGames).toThrowError('oops');
     expect(window.alert).toHaveBeenCalledTimes(2);
     done();
   });

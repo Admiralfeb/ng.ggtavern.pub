@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observer } from 'rxjs';
 import { GameSystem, Game } from '../../models/model';
 import { GamesService } from '../../services/games.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MessageDialogComponent, MessageDialogData, MessageType } from '@shared/components';
 
 
 @Component({
@@ -14,10 +16,10 @@ export class GameOptionsComponent implements OnInit {
   note = '';
   games = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private dataService: GamesService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private gamesService: GamesService, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.dataService.systemsLoaded().then(_ => {
+    this.gamesService.systemsLoaded().then(_ => {
       const locationobserver: Observer<Params> = {
         next: x => this.onLocationChange(x),
         error: err => console.error('error reading router params'),
@@ -28,14 +30,21 @@ export class GameOptionsComponent implements OnInit {
   }
 
   async onLocationChange(params: Params) {
-    const system: GameSystem = this.dataService.getSystem(params.id);
+    const system: GameSystem = this.gamesService.getSystem(params.id);
     if (system) {
       if (system.note != null) {
         this.note = system.note;
       } else {
         this.note = '';
       }
-      this.games = await this.dataService.getGames(system.short);
+      try {
+        this.games = await this.gamesService.getGames(system.short);
+      } catch (err) {
+        console.error(err);
+        const errMessage = 'There was an error retrieving the games from the database';
+        const errDialogData: MessageDialogData = { message: errMessage, type: MessageType.error };
+        this.dialog.open(MessageDialogComponent, { data: errDialogData });
+      }
       const contentContainer = document.querySelector('game-options') || window;
       contentContainer.scrollTo(0, 0);
       contentContainer.scroll(0, 0);
