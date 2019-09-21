@@ -12,6 +12,7 @@ describe('GamesService', () => {
 
   afterEach(() => {
     mockDatabaseService.getItems.calls.reset();
+    mockDatabaseService.getItems.and.stub();
   });
 
   it('should be created', () => {
@@ -37,14 +38,15 @@ describe('GamesService', () => {
     done();
   });
 
-  it('should show an alert if there is an error in getting Systems or Games', async (done) => {
-    spyOn(window, 'alert');
+  it('should throw an error if there is an error in getting Systems', async (done) => {
     mockDatabaseService.getItems.and.throwError('oops');
-    await gamesService.getSystems();
-    await gamesService.getGames('asdf');
-    expect(gamesService.getSystems).toThrowError('oops');
-    expect(gamesService.getGames).toThrowError('oops');
-    expect(window.alert).toHaveBeenCalledTimes(2);
+    expectAsync(gamesService.getSystems()).toBeRejectedWith(new Error('oops'));
+    done();
+  });
+
+  it('should throw an error if there is an error in gettingGames', async (done) => {
+    mockDatabaseService.getItems.and.throwError('oops');
+    expectAsync(gamesService.getGames('')).toBeRejectedWith(new Error('oops'));
     done();
   });
 });

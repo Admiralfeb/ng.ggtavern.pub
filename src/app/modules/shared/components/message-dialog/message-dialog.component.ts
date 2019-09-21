@@ -25,8 +25,8 @@ export class MessageDialogComponent {
   icon: string;
   class: string;
   private messageIconsMap = [
-    { type: MessageType.warning, icon: 'error_outline', class: 'error' },
-    { type: MessageType.error, icon: 'warning', class: 'warning' },
+    { type: MessageType.error, icon: 'error_outline', class: 'error' },
+    { type: MessageType.warning, icon: 'warning', class: 'warning' },
     { type: MessageType.information, icon: '', class: '' }
   ];
 
@@ -47,5 +47,3 @@ export class MessageDialogComponent {
     this.dialogRef.close();
   }
 }
-
-

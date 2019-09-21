@@ -14,8 +14,7 @@ export class MenuService {
       items = this.sortItems(itemData, 'name');
       return items;
     } catch (err) {
-      console.error(err);
-      alert('There was an error getting the Menu Items.');
+      throw err;
     }
   }
 

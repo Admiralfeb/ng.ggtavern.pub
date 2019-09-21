@@ -43,8 +43,6 @@ export class GamesService {
       return systems;
     } catch (err) {
       throw err;
-      console.error(err);
-      alert('There was an error getting the Systems.');
     }
   }
 
@@ -59,7 +57,6 @@ export class GamesService {
    */
   async getGames(system: string): Promise<Game[]> {
     const pathString = `games/${system}/games`;
-    throw 'oops';
     // If we've loaded this already in this instance, don't go to the database.
     const gamesfromsystem = this.getGamesfromSystems(system);
     if (gamesfromsystem) {
@@ -76,8 +73,6 @@ export class GamesService {
       return games;
     } catch (err) {
       throw err;
-      console.error(err);
-      alert('There was an error getting the games.');
     }
   }
 
@@ -113,6 +108,10 @@ export class GamesService {
    * @param sortField field to sort upon
    */
   sortItems(items: any[], sortField: string) {
-    return items.sort((a, b) => a[sortField].localeCompare(b[sortField]));
+    try {
+      return items.sort((a, b) => a[sortField].localeCompare(b[sortField]));
+    } catch {
+      return items;
+    }
   }
 }

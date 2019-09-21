@@ -3,8 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observer } from 'rxjs';
 import { GameSystem, Game } from '../../models/model';
 import { GamesService } from '../../services/games.service';
-import { MatDialog } from '@angular/material/dialog';
-import { MessageDialogComponent, MessageDialogData, MessageType } from '@shared/components';
+import { DialogService } from '@core/services/dialog.service';
 
 
 @Component({
@@ -16,7 +15,7 @@ export class GameOptionsComponent implements OnInit {
   note = '';
   games = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private gamesService: GamesService, private dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private router: Router, private gamesService: GamesService, private dialog: DialogService) { }
 
   ngOnInit() {
     this.gamesService.systemsLoaded().then(_ => {
@@ -41,9 +40,8 @@ export class GameOptionsComponent implements OnInit {
         this.games = await this.gamesService.getGames(system.short);
       } catch (err) {
         console.error(err);
-        const errMessage = 'There was an error retrieving the games from the database';
-        const errDialogData: MessageDialogData = { message: errMessage, type: MessageType.error };
-        this.dialog.open(MessageDialogComponent, { data: errDialogData });
+        const errMessage = 'There was an error retrieving the items from the database';
+        this.dialog.showError(errMessage);
       }
       const contentContainer = document.querySelector('game-options') || window;
       contentContainer.scrollTo(0, 0);

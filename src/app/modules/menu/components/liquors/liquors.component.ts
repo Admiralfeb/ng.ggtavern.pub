@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { MenuService } from '../../services/menu.service';
 import { LiquorItem } from '../../menu.models';
+import { DialogService } from '@core/services/dialog.service';
 
 @Component({
   selector: 'liquors',
@@ -11,11 +12,15 @@ import { LiquorItem } from '../../menu.models';
 export class LiquorsComponent implements OnInit {
   liquors: LiquorItem[] = [];
   sortSelect = 'name';
-  constructor(private menuService: MenuService) { }
+  constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
     this.menuService.getMenuItems('liquors').then(value => {
       this.liquors = value as LiquorItem[];
+    }).catch(err => {
+      console.error(err);
+      const errMessage = 'There was an error retrieving the items from the database';
+      this.dialog.showError(errMessage);
     });
   }
 

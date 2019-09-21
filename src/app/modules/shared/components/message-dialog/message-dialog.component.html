@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>{{title}}</h2>
-<mat-dialog-content class="grid">
+<mat-dialog-content [class.grid]="icon">
     <div *ngIf="icon" [class]="class"><i class="material-icons icon">{{icon}}</i></div>
     <div class="message">{{message}}</div>
 </mat-dialog-content>
