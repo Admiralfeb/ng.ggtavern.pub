@@ -1,12 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-import { keys } from './keys';
+import { appkeys } from './keys';
 
 export const environment = {
   production: false,
   firebase: {
-    apiKey: keys.dev,
+    apiKey: appkeys.devFirebase,
     authDomain: 'gg-tavern.firebaseapp.com',
     databaseURL: 'https://gg-tavern.firebaseio.com',
     projectId: 'gg-tavern',
