@@ -22,6 +22,7 @@ stages:
       inputs:
         command: 'install'
 - stage: Test
+  dependsOn: Install
   jobs:
   - job: lint
     displayName: Lint
@@ -86,6 +87,7 @@ stages:
         testResultsFormat: JUnit
         testResultsFiles: '**/junit*.xml'
 - stage: Build
+  dependsOn: Test
   jobs:
   - job:
     displayName: Build
@@ -128,6 +130,7 @@ stages:
         ArtifactName: 'stage'
         publishLocation: 'Container'
 - stage: Deploy
+  dependsOn: Build
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   jobs:
     - deployment:
