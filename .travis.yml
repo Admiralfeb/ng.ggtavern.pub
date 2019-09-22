@@ -10,10 +10,10 @@ jobs:
   include:
     - stage: test
       script: npm run test-chrome-ci
-      script: npm run test-firefox-ci
-      script: npm run e2e-chrome-ci
-      script: npm run e2e-firefox-ci
-      script: npm run lint
+    - script: npm run test-firefox-ci
+    - script: npm run e2e-chrome-ci
+    - script: npm run e2e-firefox-ci
+    - script: npm run lint
     - stage: build
       script: npm run build
     - stage: deploy
