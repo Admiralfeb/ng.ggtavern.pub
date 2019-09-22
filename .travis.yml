@@ -1,0 +1,24 @@
+language: node_js
+dist: trusty
+addons:
+  chrome: stable
+  firefox: latest
+
+jobs:
+  include:
+    - stage: test
+      script: npm run test-chrome-ci
+      script: npm run test-firefox-ci
+      script: npm run e2e-chrome-ci
+      script: npm run e2e-firefox-ci
+      script: npm run lint
+    - stage: build
+      script: npm run build
+    - stage: deploy
+      script: npm run deploy
+
+stages:
+  - test
+  - build
+  - name: deploy
+    if: branch = master
