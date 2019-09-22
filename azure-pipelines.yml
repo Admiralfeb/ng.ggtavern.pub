@@ -10,7 +10,7 @@ variables:
 stages:
 - stage: Install
   jobs:
-  - job:
+  - job: install
     displayName: Install
     pool: Default
     #container: admiralfeb/dev:angular
@@ -21,11 +21,9 @@ stages:
       displayName: Install
       inputs:
         command: 'install'
-- stage: Test
-  dependsOn: Install
-  jobs:
   - job: lint
     displayName: Lint
+    dependsOn: install
     pool: Default
     #container: admiralfeb/dev:angular
     steps:
@@ -38,6 +36,7 @@ stages:
         customCommand: 'run lint'
   - job: spec
     displayName: Unit Test
+    dependsOn: install
     pool: Default
     #container: admiralfeb/dev:angular
     steps:
@@ -61,8 +60,9 @@ stages:
         testRunTitle: Angular
         testResultsFormat: JUnit
         testResultsFiles: '**/TESTS*.xml'
-  - job:
+  - job: e2e
     displayName: e2e Test
+    dependsOn: install
     workspace:
       clean: outputs
     pool: Default
@@ -86,11 +86,12 @@ stages:
         testRunTitle: Angular_e2e
         testResultsFormat: JUnit
         testResultsFiles: '**/junit*.xml'
-- stage: Build
-  dependsOn: Test
-  jobs:
-  - job:
+  - job: Build
     displayName: Build
+    dependsOn:
+    - e2e
+    - spec
+    - lint
     workspace:
       clean: outputs
     pool: Default
@@ -129,24 +130,23 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'stage'
         publishLocation: 'Container'
-- stage: Deploy
-  dependsOn: Build
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  jobs:
-    - deployment:
-      displayName: Deploy to Firebase
-      pool: Default
-      environment: ggtavern-admiralfeb
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            - checkout: self
-              clean: false
-            - task: Npm@1
-              displayName: Deploy
-              inputs:
-                command: 'custom'
-                customCommand: 'run deploy'
-              env:
-                FIREBASE_TOKEN: $(FIREBASE_TOKEN)
+  - deployment:
+    displayName: Deploy to Firebase
+    dependsOn:
+    - Build
+    pool: Default
+    environment: ggtavern-admiralfeb
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+            clean: false
+          - task: Npm@1
+            displayName: Deploy
+            inputs:
+              command: 'custom'
+              customCommand: 'run deploy'
+            env:
+              FIREBASE_TOKEN: $(FIREBASE_TOKEN)
