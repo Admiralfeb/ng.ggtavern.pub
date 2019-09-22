@@ -52,22 +52,4 @@ describe('MessageDialogComponent', () => {
     dialog = TestBed.get(MatDialog);
   });
 
-  it('shows information without details', () => {
-    const config = {
-      data: {
-        title: 'User cannot be saved without an email',
-        details: ''
-      }
-    };
-    dialog.open(MessageDialogComponent, config);
-
-    noop.detectChanges(); // Updates the dialog in the overlay
-
-    const h2 = overlayContainerElement.querySelector('h2');
-    const button = overlayContainerElement.querySelector('button');
-
-    expect(h2.textContent).toBe('User cannot be saved without an email');
-    expect(button.textContent).toBe('Close');
-  });
 });
-

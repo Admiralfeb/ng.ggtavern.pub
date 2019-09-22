@@ -10,19 +10,11 @@ export class MenuService {
     const pathString = `menus/food-and-drink/${itemType}`;
     let items = [];
     try {
-      const collection = await this.db.getItems(pathString);
-      if (!collection.empty) {
-        for (const item of collection.docs) {
-          const data = item.data();
-          items = [...items, data];
-        }
-        items = this.sortItems(items, 'name');
-      }
+      const itemData = await this.db.getItems(pathString);
+      items = this.sortItems(itemData, 'name');
       return items;
-
     } catch (err) {
-      console.error(err);
-      alert('There was an error getting the Menu Items.');
+      throw err;
     }
   }
 

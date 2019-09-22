@@ -45,3 +45,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#secrets
+**/keys.ts
+.gitsecret/keys/random_seed

@@ -4,11 +4,15 @@ import { GameSystem } from '../models/model';
 describe('GamesService', () => {
   let gamesService: GamesService;
 
-  const mockService = jasmine.createSpyObj('DatabaseService', ['getItems']);
+  const mockDatabaseService = jasmine.createSpyObj('DatabaseService', ['getItems']);
 
   beforeEach(() => {
-    gamesService = new GamesService(mockService);
-    mockService.getItems.calls.reset();
+    gamesService = new GamesService(mockDatabaseService);
+  });
+
+  afterEach(() => {
+    mockDatabaseService.getItems.calls.reset();
+    mockDatabaseService.getItems.and.stub();
   });
 
   it('should be created', () => {
@@ -16,9 +20,9 @@ describe('GamesService', () => {
   });
 
   it('should call to the database for the Systems when no systems are loaded', async (done) => {
-    mockService.getItems.and.returnValue(Promise.resolve());
+    mockDatabaseService.getItems.and.returnValue(Promise.resolve());
     await gamesService.getSystems();
-    expect(mockService.getItems).toHaveBeenCalled();
+    expect(mockDatabaseService.getItems).toHaveBeenCalled();
     done();
   });
 
@@ -30,16 +34,19 @@ describe('GamesService', () => {
     gamesService[str] = testSystem;
 
     await gamesService.getSystems();
-    expect(mockService.getItems).not.toHaveBeenCalled();
+    expect(mockDatabaseService.getItems).not.toHaveBeenCalled();
     done();
   });
 
-  it('should show an alert if there is an error in getting Systems or Games', async (done) => {
-    spyOn(window, 'alert');
-    mockService.getItems.and.returnValue(Promise.reject());
-    await gamesService.getSystems();
-    await gamesService.getGames('asdf');
-    expect(window.alert).toHaveBeenCalledTimes(2);
+  it('should throw an error if there is an error in getting Systems', async (done) => {
+    mockDatabaseService.getItems.and.throwError('oops');
+    expectAsync(gamesService.getSystems()).toBeRejectedWith(new Error('oops'));
+    done();
+  });
+
+  it('should throw an error if there is an error in gettingGames', async (done) => {
+    mockDatabaseService.getItems.and.throwError('oops');
+    expectAsync(gamesService.getGames('')).toBeRejectedWith(new Error('oops'));
     done();
   });
 });
