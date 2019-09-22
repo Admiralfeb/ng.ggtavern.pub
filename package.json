@@ -41,7 +41,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/moment-timezone": "^0.5.12",
     "@types/node": "~12.7.5",
-    "codelyzer": "^5.0.0",
+    "codelyzer": "^5.1.1",
     "firebase-tools": "^7.3.2",
     "jasmine-core": "~3.4.0",
     "jasmine-reporters": "^2.3.2",
