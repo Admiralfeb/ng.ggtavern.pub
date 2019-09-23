@@ -1,0 +1,39 @@
+language: node_js
+node_js:
+  - node
+dist: trusty
+addons:
+  chrome: stable
+  firefox: latest
+
+jobs:
+  include:
+    - stage: test
+      #script: npm run test-chrome-ci
+      #name: "Spec Tests - Chrome"
+      script: npm run test-firefox-ci
+      name: "Spec Tests - Firefox"
+    #- script:
+    #    - npm run generate-key-file
+    #    - npm run e2e-chrome-ci
+    #  name: "e2e Tests - Chrome"
+    #- script:
+    #    - npm run generate-key-file
+    #    - npm run e2e-firefox-ci
+    #  name: "e2e Tests - Firefox"
+    - script: npm run lint
+      name: "Lint"
+    - stage: build
+      script:
+        - npm run generate-key-file
+        - npm run build
+      name: "Build"
+    - stage: deploy
+      script: npm run deploy
+      name: "Deploy to Firebase"
+
+stages:
+  - test
+  - build
+  - name: deploy
+    if: branch = master

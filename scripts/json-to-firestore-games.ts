@@ -1,6 +1,7 @@
 import { Game, GameSystem } from './models/gamemodels';
 
-const appKeys = require('../src/environments/keys');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const firebase = require('firebase/app');
 require('firebase/firestore');
@@ -8,7 +9,7 @@ require('firebase/firestore');
 
 // Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
-    apiKey: appKeys.devFirebase,
+    apiKey: process.env.FIREBASEDEVKEY,
     authDomain: 'gg-tavern.firebaseapp.com',
     projectId: 'gg-tavern'
 });

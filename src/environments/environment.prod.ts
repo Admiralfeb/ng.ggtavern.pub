@@ -1,9 +1,9 @@
-import { appkeys } from './keys';
+import { appKeys } from './keys';
 
 export const environment = {
   production: true,
   firebase: {
-    apiKey: appkeys.publicFirebase,
+    apiKey: appKeys.publicFirebase,
     authDomain: 'gg-tavern.firebaseapp.com',
     databaseURL: 'https://gg-tavern.firebaseio.com',
     projectId: 'gg-tavern',

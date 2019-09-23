@@ -47,5 +47,6 @@ testem.log
 Thumbs.db
 
 #secrets
-**/keys.ts
+src/environments/keys.ts
+.env
 .gitsecret/keys/random_seed
