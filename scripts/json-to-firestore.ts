@@ -1,12 +1,12 @@
-
-const appKeys = require('../src/environments/keys');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const firebase = require('firebase/app');
 require('firebase/firestore');
 
 // Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
-    apiKey: appKeys.devFirebase,
+    apiKey: process.env.FIREBASEDEVKEY,
     authDomain: 'gg-tavern.firebaseapp.com',
     projectId: 'gg-tavern'
 });
@@ -147,13 +147,15 @@ const menu = [
 ];
 
 menu.forEach(obj => {
-    db.collection('menus/food-and-drink/bottles').add({
-        name: obj.name,
-        ABV: obj.ABV,
-        price: obj.price
-    }).then(docRef => {
-        console.log('Document written with ID: ', docRef.id);
-    })
+    db.collection('menus/food-and-drink/bottles')
+        .add({
+            name: obj.name,
+            ABV: obj.ABV,
+            price: obj.price
+        })
+        .then(docRef => {
+            console.log('Document written with ID: ', docRef.id);
+        })
         .catch(error => {
             console.error('Error adding document: ', error);
         });
