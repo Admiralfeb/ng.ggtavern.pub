@@ -32,6 +32,9 @@ jobs:
       script: npm run deploy
       name: "Deploy to Firebase"
 
+after_script:
+  - python < $(curl https://report.ci/upload.py)
+
 stages:
   - test
   - build
