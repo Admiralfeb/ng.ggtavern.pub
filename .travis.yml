@@ -17,10 +17,10 @@ jobs:
     #    - npm run generate-key-file
     #    - npm run e2e-chrome-ci
     #  name: "e2e Tests - Chrome"
-    - script:
-        - npm run generate-key-file
-        - npm run e2e-firefox-ci
-      name: "e2e Tests - Firefox"
+    #- script:
+    #    - npm run generate-key-file
+    #    - npm run e2e-firefox-ci
+    #  name: "e2e Tests - Firefox"
     - script: npm run lint
       name: "Lint"
     - stage: build

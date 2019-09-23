@@ -11,8 +11,8 @@ exports.config = {
     ],
     capabilities: {
         browserName: 'firefox',
-        chromeOptions: {
-            args: ['-headless']
+        'moz:firefoxOptions': {
+            args: ['--headless']
         }
     },
     directConnect: true,
