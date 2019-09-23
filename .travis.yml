@@ -9,14 +9,14 @@ addons:
 jobs:
   include:
     - stage: test
-      script: npm run test-chrome-ci
-      name: "Spec Tests - Chrome"
-    - script: npm run test-firefox-ci
+      #script: npm run test-chrome-ci
+      #name: "Spec Tests - Chrome"
+      script: npm run test-firefox-ci
       name: "Spec Tests - Firefox"
-    - script:
-        - npm run generate-key-file
-        - npm run e2e-chrome-ci
-      name: "e2e Tests - Chrome"
+    #- script:
+    #    - npm run generate-key-file
+    #    - npm run e2e-chrome-ci
+    #  name: "e2e Tests - Chrome"
     - script:
         - npm run generate-key-file
         - npm run e2e-firefox-ci
