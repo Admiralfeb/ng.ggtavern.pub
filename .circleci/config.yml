@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  install:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm run build
