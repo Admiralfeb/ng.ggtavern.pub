@@ -2,6 +2,8 @@
 
 This project is a labor of love for the Grinning Goblin Gaming Tavern. One of the best nerd bars in the Wichita, Kansas area.
 
+Develop Branch on TravisCI: [![Build Status](https://travis-ci.com/Admiralfeb/ggtavern.pub.svg?branch=develop)](https://travis-ci.com/Admiralfeb/ggtavern.pub)
+
 ## Install
 
 This project uses NodeJS and Angular v8. `npm install` will allow you to install the project. Required API keys will also be loaded postinstall. See **API Keys** for more information.
