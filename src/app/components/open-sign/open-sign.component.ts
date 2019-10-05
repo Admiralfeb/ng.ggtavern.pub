@@ -15,6 +15,7 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     { day: 0, open: '17:00', close: '00:00', name: 'Sunday' },
     { day: 1, open: '', close: '', name: 'Monday' },
     { day: 2, open: '17:00', close: '00:00', name: 'Tuesday' },
+    { day: 3, open: '11:00', close: '13:00', name: 'Wednesday' },
     { day: 3, open: '17:00', close: '00:00', name: 'Wednesday' },
     { day: 4, open: '17:00', close: '00:00', name: 'Thursday' },
     { day: 5, open: '17:00', close: '02:00', name: 'Friday' },
@@ -23,7 +24,7 @@ export class OpenSignComponent implements OnInit, OnDestroy {
   timeSubscription: Subscription;
   currentDay: number;
   signMessage: string;
-  isOpen = true;
+  isOpen: boolean = null;
 
   constructor(private dialog: DialogService) { }
 
@@ -51,30 +52,32 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     }
     this.currentDay = currentDay;
 
-    const todayHours = this.hours.find(h => h.day === currentDay);
-    if (todayHours.open) {
-      const openHours = todayHours.open.split(':');
-      const closeHours = todayHours.close.split(':');
+    const dayHours = this.hours.filter(h => h.day === currentDay);
+    for (const todayHours of dayHours) {
+      if (todayHours.open) {
+        const openHours = todayHours.open.split(':');
+        const closeHours = todayHours.close.split(':');
 
-      let tempDay = moment().dayOfYear();
-      if (currentTime.tz('America/Chicago').hour() < 5) {
-        tempDay--;
+        let tempDay = moment().dayOfYear();
+        if (currentTime.tz('America/Chicago').hour() < 5) {
+          tempDay--;
+        }
+        const openTime = moment()
+          .dayOfYear(tempDay)
+          .hour(openHours[0] as unknown as number)
+          .minute(openHours[1] as unknown as number);
+        if (closeHours[0] as unknown as number < 5) {
+          tempDay++;
+        }
+        const closeTime = moment()
+          .dayOfYear(tempDay)
+          .hour(closeHours[0] as unknown as number)
+          .minute(closeHours[1] as unknown as number);
+
+        const isOpen = currentTime.tz('America/Chicago').isBetween(openTime, closeTime);
+
+        if (isOpen) { return true; }
       }
-      const openTime = moment()
-        .dayOfYear(tempDay)
-        .hour(openHours[0] as unknown as number)
-        .minute(openHours[1] as unknown as number);
-      if (closeHours[0] as unknown as number < 5) {
-        tempDay++;
-      }
-      const closeTime = moment()
-        .dayOfYear(tempDay)
-        .hour(closeHours[0] as unknown as number)
-        .minute(closeHours[1] as unknown as number);
-
-      const isOpen = currentTime.tz('America/Chicago').isBetween(openTime, closeTime);
-
-      if (isOpen) { return true; }
     }
 
     return false;
