@@ -10,6 +10,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
       require('karma-jasmine-html-reporter'),
+      require('karma-coverage'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma'),
       require('karma-junit-reporter')
@@ -22,7 +23,15 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary', 'cobertura'],
       fixWebpackSourcePaths: true
     },
-    reporters: ['progress', 'kjhtml', 'junit'],
+    coverageReporter: {
+      reporters: [
+        // generates ./coverage/lcov.info
+        { type: 'lcovonly', subdir: '.' },
+        // generates ./coverage/coverage-final.json
+        { type: 'json', subdir: '.' }
+      ]
+    },
+    reporters: ['progress', 'kjhtml', 'junit', 'coverage'],
     junitReporter: {
       outputDir: './tests/spec'
     },
@@ -34,16 +43,11 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadless: {
         base: 'Chrome',
-        flags: [
-          '--headless',
-          '--no-sandbox'
-        ]
+        flags: ['--headless', '--no-sandbox']
       },
       FirefoxHeadless: {
         base: 'Firefox',
-        flags: [
-          '-headless'
-        ]
+        flags: ['-headless']
       }
     },
     singleRun: false,

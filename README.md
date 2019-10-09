@@ -2,7 +2,9 @@
 
 This project is a labor of love for the Grinning Goblin Gaming Tavern. One of the best nerd bars in the Wichita, Kansas area.
 
-Develop Branch on TravisCI: [![Build Status](https://travis-ci.com/Admiralfeb/ggtavern.pub.svg?branch=develop)](https://travis-ci.com/Admiralfeb/ggtavern.pub)
+[![Build Status](https://travis-ci.com/Admiralfeb/ggtavern.pub.svg?branch=develop)](https://travis-ci.com/Admiralfeb/ggtavern.pub)
+[![codecov](https://codecov.io/gh/Admiralfeb/ggtavern.pub/branch/develop/graph/badge.svg)](https://codecov.io/gh/Admiralfeb/ggtavern.pub)
+[![CodeFactor](https://www.codefactor.io/repository/github/admiralfeb/ggtavern.pub/badge)](https://www.codefactor.io/repository/github/admiralfeb/ggtavern.pub)
 
 ## Install
 

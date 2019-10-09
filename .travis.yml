@@ -11,7 +11,9 @@ jobs:
     - stage: test
       #script: npm run test-chrome-ci
       #name: "Spec Tests - Chrome"
-      script: npm run test-firefox-ci
+      script:
+        - npm run test-firefox-ci
+        - npm run report-coverage
       name: "Spec Tests - Firefox"
     #- script:
     #    - npm run generate-key-file
