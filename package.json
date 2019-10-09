@@ -49,7 +49,7 @@
     "codecov": "^3.6.1",
     "codelyzer": "^5.1.1",
     "dotenv": "^8.1.0",
-    "firebase-tools": "^7.3.2",
+    "firebase-tools": "^7.5.0",
     "jasmine-core": "~3.4.0",
     "jasmine-reporters": "^2.3.2",
     "jasmine-spec-reporter": "~4.2.1",
