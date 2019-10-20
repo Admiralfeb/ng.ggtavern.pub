@@ -15,7 +15,7 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     { day: 0, open: '17:00', close: '00:00', name: 'Sunday' },
     { day: 1, open: '', close: '', name: 'Monday' },
     { day: 2, open: '17:00', close: '00:00', name: 'Tuesday' },
-    { day: 3, open: '11:00', close: '13:00', name: 'Wednesday' },
+    // { day: 3, open: '11:00', close: '13:00', name: 'Wednesday' },
     { day: 3, open: '17:00', close: '00:00', name: 'Wednesday' },
     { day: 4, open: '17:00', close: '00:00', name: 'Thursday' },
     { day: 5, open: '17:00', close: '02:00', name: 'Friday' },
