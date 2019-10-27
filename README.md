@@ -1,8 +1,12 @@
 # GGTavern.pub - Grinning Goblin Gaming Tavern Website
+
 <p align="center">
   <img src="https://firebasestorage.googleapis.com/v0/b/gg-tavern.appspot.com/o/public%2Fimg%2Fandroid-chrome-192x192.png?alt=media&token=60f098fd-6b0e-4131-b229-29667d1fb6d2" alt="GGTavern Logo"/>
 </p>
+
 This project is a labor of love for the Grinning Goblin Gaming Tavern. One of the best nerd bars in the Wichita, Kansas area.
+
+The current production version of this site is hosted at https://ggtavern.admiralfeb.net. If the goblins permit, it will switch to https://ggtavern.pub once complete.
 
 ![](https://github.com/Admiralfeb/ggtavern.pub/workflows/Test%20and%20Build/badge.svg)
 [![CircleCI](https://circleci.com/gh/Admiralfeb/ggtavern.pub.svg?style=svg)](https://circleci.com/gh/Admiralfeb/ggtavern.pub)
