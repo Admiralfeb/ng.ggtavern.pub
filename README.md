@@ -6,7 +6,7 @@
 
 This project is a labor of love for the Grinning Goblin Gaming Tavern. One of the best nerd bars in the Wichita, Kansas area.
 
-The current production version of this site is hosted at https://ggtavern.admiralfeb.net. If the goblins permit, it will switch to https://ggtavern.pub once complete.
+The current production version of this site is hosted at https://ggtavern.admiralfeb.net. If the goblins permit, it will switch to http://ggtavern.pub once complete.
 
 ![](https://github.com/Admiralfeb/ggtavern.pub/workflows/Test%20and%20Build/badge.svg)
 [![CircleCI](https://circleci.com/gh/Admiralfeb/ggtavern.pub.svg?style=svg)](https://circleci.com/gh/Admiralfeb/ggtavern.pub)
