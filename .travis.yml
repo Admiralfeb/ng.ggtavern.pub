@@ -3,42 +3,28 @@ node_js:
   - 12
 dist: trusty
 addons:
-  chrome: stable
   firefox: latest
 
 jobs:
   include:
     - stage: test
-      #script: npm run test-chrome-ci
-      #name: "Spec Tests - Chrome"
       script:
         - npm run test-firefox-ci
-        - npm run report-coverage
       name: "Spec Tests - Firefox"
-    #- script:
-    #    - npm run generate-key-file
-    #    - npm run e2e-chrome-ci
-    #  name: "e2e Tests - Chrome"
-    #- script:
-    #    - npm run generate-key-file
-    #    - npm run e2e-firefox-ci
-    #  name: "e2e Tests - Firefox"
-    - script: npm run lint
-      name: "Lint"
+    - script:
+        - ./node_modules/protractor/bin/webdriver-manager update
+        - npm run e2e-firefox-ci
+      name: "e2e Tests - Firefox"
     - stage: build
       script:
-        - npm run generate-key-file
         - npm run build
       name: "Build"
-    - stage: deploy
-      script: npm run deploy
-      name: "Deploy to Firebase"
-
-after_script:
-  - python < $(curl https://report.ci/upload.py)
+    # - stage: deploy
+    #   script: npm run deploy
+    #   name: "Deploy to Firebase"
 
 stages:
   - test
   - build
-  - name: deploy
-    if: branch = master
+  # - name: deploy
+  #   if: branch = master
