@@ -11,9 +11,11 @@ jobs:
       - run:
           name: Run Unit Tests
           command: npm run test-firefox-ci
+      - store_test_results:
+          path: tests/spec
   test-e2e:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:12-browsers
     steps:
       - checkout
       - run:
@@ -25,6 +27,8 @@ jobs:
       - run:
           name: Run e2e Tests
           command: npm run e2e-firefox-ci
+      - store_test_results:
+          path: tests/e2e
   build:
     docker:
       - image: circleci/node:12
