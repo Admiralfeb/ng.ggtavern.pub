@@ -12,8 +12,8 @@
     "report-coverage": "codecov -f coverage/*.json",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "e2e-chrome-ci": "ng e2e --port 0 --protractor-config=e2e/protractor-chrome-ci.conf.js",
-    "e2e-firefox-ci": "ng e2e --port 0 --protractor-config=e2e/protractor-firefox-ci.conf.js",
+    "e2e-chrome-ci": "ng e2e --protractor-config=e2e/protractor-chrome-ci.conf.js",
+    "e2e-firefox-ci": "ng e2e --protractor-config=e2e/protractor-firefox-ci.conf.js",
     "generate-key-file": "ts-node scripts/generateKeyFile.ts",
     "deploy": "firebase deploy"
   },
