@@ -44,6 +44,6 @@ workflows:
       - test-spec
       - test-e2e
       - build:
-        requires:
-          - test-spec
-          - test-e2e
+          requires:
+            - test-spec
+            - test-e2e
