@@ -1,5 +1,5 @@
-@import '~@angular/material/theming';
-@import 'variables';
+@import "~@angular/material/theming";
+@import "variables";
 
 .z-container {
   display: flex;
@@ -43,14 +43,13 @@ button:hover,
   cursor: pointer;
 }
 
-mat-nav-list{
+mat-nav-list {
   margin: 5px;
 }
 a.navItem {
   border-radius: 10px;
   font-size: 14px;
 }
-
 
 mat-sidenav.mobile {
   margin-top: 65px;

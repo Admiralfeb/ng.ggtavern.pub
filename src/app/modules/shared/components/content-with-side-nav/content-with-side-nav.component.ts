@@ -4,6 +4,8 @@ import { NavigationModel } from '../../models/navigationModel';
 import { SelectControlValueAccessor } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 
+// TODO: Fix nav list to where it won't cause a huge scroll for the entire page.
+
 @Component({
   selector: 'content-with-side-nav',
   templateUrl: './content-with-side-nav.component.html',
