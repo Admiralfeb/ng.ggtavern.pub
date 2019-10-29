@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
@@ -35,6 +36,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatListModule,
     MatProgressSpinnerModule,
     MatRadioModule,
+    ScrollingModule,
     MatSidenavModule,
     MatSlideToggleModule,
     MatSortModule,

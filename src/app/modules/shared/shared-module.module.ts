@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgScrollbarModule } from 'ngx-scrollbar';
+
 import { MaterialModule } from './material/material.module';
 
 import {
@@ -13,6 +15,7 @@ import {
   ContentwithSideNavComponent,
   VideoYoutubeComponent
 } from './components';
+import { SideNavWithContentComponent } from './components/side-nav-with-content/side-nav-with-content.component';
 
 @NgModule({
   imports: [
@@ -21,6 +24,7 @@ import {
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    NgScrollbarModule,
   ],
   declarations: [
     CountdownComponent,
@@ -29,6 +33,7 @@ import {
     MessageDialogComponent,
     ContentwithSideNavComponent,
     VideoYoutubeComponent,
+    SideNavWithContentComponent,
   ],
   entryComponents: [
     MessageDialogComponent
@@ -38,11 +43,13 @@ import {
     ReactiveFormsModule,
 
     MaterialModule,
+    NgScrollbarModule,
 
     CountdownComponent,
     ErrorNotFoundComponent,
     UnderConstructionComponent,
     ContentwithSideNavComponent,
+    SideNavWithContentComponent,
     VideoYoutubeComponent,
   ]
 })

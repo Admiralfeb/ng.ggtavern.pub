@@ -1,0 +1,24 @@
+<div class="block">
+    <mat-toolbar color="primary" class="toolbar">
+        <button mat-icon-button id="navBurger" (click)="toggleSidenav()" [matTooltip]="burgerTip"
+            matTooltipPosition="below">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="app-name">{{headerText}}</h1>
+    </mat-toolbar>
+    <div class="block">
+        <div class="grid container block">
+            <ng-scrollbar class="sideNav">
+                <mat-nav-list>
+                    <a class="navItem" mat-list-item [routerLink]="navItem.link" routerLinkActive="active"
+                        *ngFor="let navItem of navItems">{{navItem.text}}</a>
+                </mat-nav-list>
+            </ng-scrollbar>
+            <div class="content">
+                <ng-scrollbar>
+                    <router-outlet></router-outlet>
+                </ng-scrollbar>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,13 +7,16 @@
 html,
 body,
 app-root {
-  height: 100vh;
+  height: 99vh;
   width: 100vw;
   margin: 0;
-  // overflow: hidden;
+  overflow: hidden;
 }
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.box {
+  display: flex;
 }
 
 a {
