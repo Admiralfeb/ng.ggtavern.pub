@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { MaterialModule } from './material/material.module';
 
@@ -24,7 +23,6 @@ import { SideNavWithContentComponent } from './components/side-nav-with-content/
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgScrollbarModule,
   ],
   declarations: [
     CountdownComponent,
@@ -43,7 +41,6 @@ import { SideNavWithContentComponent } from './components/side-nav-with-content/
     ReactiveFormsModule,
 
     MaterialModule,
-    NgScrollbarModule,
 
     CountdownComponent,
     ErrorNotFoundComponent,

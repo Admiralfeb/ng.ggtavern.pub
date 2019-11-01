@@ -16,11 +16,31 @@
   height: 80%;
   width: 150px;
 }
+a.active,
+.active {
+  background-color: mat-color($primary) !important;
+  color: white !important;
+}
+a:hover,
+button:hover,
+[mat-list-item]:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+}
+mat-nav-list {
+  margin: 5px 10px;
+}
+a.navItem {
+  border-radius: 10px;
+  font-size: 14px;
+}
 .content {
   margin-right: 10px;
+  height: 80%;
 }
 ng-scrollbar {
-  --scrollbar-thumb-color: #9d6c33;
+  --scrollbar-thumb-color: #{mat-color($primary)};
 }
 
 @media only screen and (max-width: 768px) {

@@ -34,4 +34,5 @@ export class SideNavWithContentComponent implements OnInit {
       return false;
     }
   }
+
 }

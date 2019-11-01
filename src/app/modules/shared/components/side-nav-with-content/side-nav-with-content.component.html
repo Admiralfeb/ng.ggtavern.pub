@@ -11,11 +11,12 @@
             <ng-scrollbar class="sideNav">
                 <mat-nav-list>
                     <a class="navItem" mat-list-item [routerLink]="navItem.link" routerLinkActive="active"
-                        *ngFor="let navItem of navItems">{{navItem.text}}</a>
+                        *ngFor="let navItem of navItems"
+                        (click)="contentScroll.scrollTo({top: 0, duration: 500})">{{navItem.text}}</a>
                 </mat-nav-list>
             </ng-scrollbar>
             <div class="content">
-                <ng-scrollbar>
+                <ng-scrollbar #contentScroll>
                     <router-outlet></router-outlet>
                 </ng-scrollbar>
             </div>
