@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observer } from 'rxjs';
-import { GameSystem, Game } from '../../models/model';
+import { GameSystem } from '../../models/model';
 import { GamesService } from '../../services/games.service';
 import { DialogService } from '@core/services/dialog.service';
 

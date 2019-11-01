@@ -118,7 +118,7 @@ menu.forEach(system => {
     const games = system.games;
     const note = system.note ? system.note : '';
 
-    // uploadSystem(short, systemName, note);
+    uploadSystem(short, systemName, note);
 
     uploadGame(games, short);
 });
