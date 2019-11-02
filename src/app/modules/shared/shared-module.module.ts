@@ -14,7 +14,6 @@ import {
   ContentwithSideNavComponent,
   VideoYoutubeComponent
 } from './components';
-import { SideNavWithContentComponent } from './components/side-nav-with-content/side-nav-with-content.component';
 
 @NgModule({
   imports: [
@@ -31,7 +30,6 @@ import { SideNavWithContentComponent } from './components/side-nav-with-content/
     MessageDialogComponent,
     ContentwithSideNavComponent,
     VideoYoutubeComponent,
-    SideNavWithContentComponent,
   ],
   entryComponents: [
     MessageDialogComponent
@@ -46,7 +44,6 @@ import { SideNavWithContentComponent } from './components/side-nav-with-content/
     ErrorNotFoundComponent,
     UnderConstructionComponent,
     ContentwithSideNavComponent,
-    SideNavWithContentComponent,
     VideoYoutubeComponent,
   ]
 })

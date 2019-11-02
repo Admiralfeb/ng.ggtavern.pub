@@ -1,35 +1,21 @@
 @import "~@angular/material/theming";
 @import "variables";
 
-.z-container {
-  display: flex;
-  flex-direction: column;
-  position: static;
+#navBurger {
+  display: none;
+}
+.block {
   height: 100%;
 }
-
-.mobile .toolbar {
-  position: fixed;
-  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  z-index: 2;
+.grid {
+  display: grid;
+  grid-template-columns: minmax(100px, max-content) 1fr;
 }
 
-h1.app-name {
-  margin-left: 8px;
+.sideNav {
+  height: 80%;
+  width: 150px;
 }
-
-mat-sidenav-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-  flex: 1;
-}
-
-mat-sidenav-container.is-mobile {
-  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-       `<body>` to be our scrolling element for mobile layouts. */
-  flex: 1 0 auto;
-}
-
 a.active,
 .active {
   background-color: mat-color($primary) !important;
@@ -42,15 +28,29 @@ button:hover,
   color: black;
   cursor: pointer;
 }
-
 mat-nav-list {
-  margin: 5px;
+  margin: 5px 10px;
 }
 a.navItem {
   border-radius: 10px;
   font-size: 14px;
 }
+.content {
+  margin-right: 10px;
+  height: 80%;
+}
+ng-scrollbar {
+  --scrollbar-thumb-color: #{mat-color($primary)};
+}
 
-mat-sidenav.mobile {
-  margin-top: 65px;
+@media only screen and (max-width: 768px) {
+  /* Mobile */
+  #navBurger {
+    display: block;
+  }
+  #navBurger:hover {
+    background-color: #ddd;
+    color: black;
+    cursor: pointer;
+  }
 }

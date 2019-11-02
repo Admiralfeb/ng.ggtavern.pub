@@ -1,8 +1,5 @@
-import { Component, Input, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { NavigationModel } from '../../models/navigationModel';
-import { MatSidenav } from '@angular/material/sidenav';
-
-// TODO: Fix nav list to where it won't cause a huge scroll for the entire page.
 
 @Component({
   selector: 'content-with-side-nav',
@@ -13,31 +10,28 @@ export class ContentwithSideNavComponent implements OnInit {
   @Input() navheaderText = 'Navigation';
   @Input() navItems: NavigationModel = null;
   @Input() headerText = '';
-  @ViewChild('snav', { static: true }) sidenav: MatSidenav;
-  burgerTip = 'Show/Hide the Navigation Pane';
-
   innerWidth = 0;
   minWidth = 768;
+  mobile = false;
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.innerWidth = window.innerWidth;
-
-    if (this.innerWidth > this.minWidth) {
-      this.sidenav.open();
-    }
+  ngOnInit() {
+    this.mobile = this.checkforMobileSize();
   }
 
   @HostListener('window:resize')
   onResize() {
-    this.innerWidth = window.innerWidth;
+    this.mobile = this.checkforMobileSize();
   }
 
-  navClick() {
-    if (this.innerWidth < this.minWidth) {
-      this.sidenav.close();
+  checkforMobileSize(): boolean {
+    this.innerWidth = window.innerWidth;
+
+    if (this.innerWidth > this.minWidth) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
