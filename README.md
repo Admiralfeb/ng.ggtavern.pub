@@ -15,7 +15,6 @@ The current production version of this site is hosted at https://ggtavern.admira
 [![CodeFactor](https://www.codefactor.io/repository/github/admiralfeb/ggtavern.pub/badge)](https://www.codefactor.io/repository/github/admiralfeb/ggtavern.pub)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/Admiralfeb/ggtavern.pub.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Admiralfeb/ggtavern.pub/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Admiralfeb/ggtavern.pub.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Admiralfeb/ggtavern.pub/context:javascript)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Admiralfeb/ggtavern.pub)](https://dependabot.com)
 
 ## Install
 

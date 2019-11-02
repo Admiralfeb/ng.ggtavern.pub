@@ -2,5 +2,13 @@
   "assignees": ["Admiralfeb"],
   "extends": ["config:base"],
   "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@types/"],
+      "groupName": "Types packages",
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ],
   "reviewers": ["Admiralfeb"]
 }
