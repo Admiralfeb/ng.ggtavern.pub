@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "gg-tavern"
+  },
+  "targets": {
+    "gg-tavern": {
+      "hosting": {
+        "ggtavern": [
+          "gg-tavern"
+        ]
+      }
+    }
   }
 }

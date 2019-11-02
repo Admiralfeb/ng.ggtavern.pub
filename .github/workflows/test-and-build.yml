@@ -43,9 +43,24 @@ jobs:
       - name: Run e2e Tests
         run: npm run e2e-firefox-ci
 
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Project
+        run: npm ci
+      - name: Run Lint
+        run: npm run lint
+
   build:
     name: Build
-    needs: [test-spec, test-e2e]
+    needs: [test-spec, test-e2e, lint]
     runs-on: ubuntu-latest
 
     steps:

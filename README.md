@@ -8,12 +8,13 @@ This project is a labor of love for the Grinning Goblin Gaming Tavern. One of th
 
 The current production version of this site is hosted at https://ggtavern.admiralfeb.net. If the goblins permit, it will switch to http://ggtavern.pub once complete.
 
-![](https://github.com/Admiralfeb/ggtavern.pub/workflows/Test%20and%20Build/badge.svg)
+![GitHub](https://github.com/Admiralfeb/ggtavern.pub/workflows/Test%20and%20Build/badge.svg)
 [![CircleCI](https://circleci.com/gh/Admiralfeb/ggtavern.pub.svg?style=svg)](https://circleci.com/gh/Admiralfeb/ggtavern.pub)
 [![Build Status](https://travis-ci.com/Admiralfeb/ggtavern.pub.svg?branch=develop)](https://travis-ci.com/Admiralfeb/ggtavern.pub)
 [![codecov](https://codecov.io/gh/Admiralfeb/ggtavern.pub/branch/develop/graph/badge.svg)](https://codecov.io/gh/Admiralfeb/ggtavern.pub)
 [![CodeFactor](https://www.codefactor.io/repository/github/admiralfeb/ggtavern.pub/badge)](https://www.codefactor.io/repository/github/admiralfeb/ggtavern.pub)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Admiralfeb/ggtavern.pub)](https://dependabot.com)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/Admiralfeb/ggtavern.pub.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Admiralfeb/ggtavern.pub/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Admiralfeb/ggtavern.pub.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Admiralfeb/ggtavern.pub/context:javascript)
 
 ## Install
 

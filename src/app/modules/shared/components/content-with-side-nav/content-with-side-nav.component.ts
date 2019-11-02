@@ -1,7 +1,5 @@
-import { MediaMatcher } from '@angular/cdk/layout';
-import { Component, Input, ChangeDetectorRef, OnDestroy, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NavigationModel } from '../../models/navigationModel';
-import { SelectControlValueAccessor } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 
 // TODO: Fix nav list to where it won't cause a huge scroll for the entire page.

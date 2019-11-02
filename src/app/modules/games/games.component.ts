@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationModel } from '@shared/models/navigationModel';
-import { GameSystem, Game } from './models/model';
+import { GameSystem } from './models/model';
 import { Title } from '@angular/platform-browser';
 import { GamesService } from './services/games.service';
 
