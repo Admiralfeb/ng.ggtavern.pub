@@ -1,0 +1,6 @@
+{
+  "assignees": ["Admiralfeb"],
+  "extends": ["config:base"],
+  "labels": ["dependencies"],
+  "reviewers": ["Admiralfeb"]
+}
