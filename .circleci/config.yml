@@ -29,6 +29,17 @@ jobs:
           command: npm run e2e-firefox-ci
       - store_test_results:
           path: tests
+  lint:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: Install Project
+          command: npm ci
+      - run:
+          name: Run Lint
+          command: npm run lint
   build:
     docker:
       - image: circleci/node:12
@@ -51,3 +62,4 @@ workflows:
           requires:
             - test-spec
             - test-e2e
+            - lint
