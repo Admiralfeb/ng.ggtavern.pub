@@ -34,7 +34,7 @@
     "firebase": "7.3.0",
     "hammerjs": "2.0.8",
     "moment-timezone": "0.5.27",
-    "ngx-scrollbar": "^6.0.0",
+    "ngx-scrollbar": "6.0.0",
     "rxjs": "6.5.3",
     "tslib": "1.10.0",
     "zone.js": "0.10.2"
