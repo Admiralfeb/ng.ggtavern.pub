@@ -19,6 +19,7 @@ export class MenuService {
   }
 
   sortItems(items: any[], sortField: string) {
+    // TODO If price exists, list the highest price first, then sort the rest.
     return items.sort((a, b) => a[sortField].localeCompare(b[sortField]));
   }
 }

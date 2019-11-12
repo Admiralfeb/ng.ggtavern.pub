@@ -12,7 +12,6 @@ jobs:
         - npm run test-firefox-ci
       name: "Spec Tests - Firefox"
     - script:
-        - ./node_modules/protractor/bin/webdriver-manager update
         - npm run e2e-firefox-ci
       name: "e2e Tests - Firefox"
     - stage: build

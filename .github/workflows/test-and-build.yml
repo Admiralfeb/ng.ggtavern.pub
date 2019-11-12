@@ -38,8 +38,6 @@ jobs:
           node-version: 12.x
       - name: Install Project
         run: npm ci
-      - name: Run webdriver update
-        run: ./node_modules/protractor/bin/webdriver-manager update
       - name: Run e2e Tests
         run: npm run e2e-firefox-ci
 

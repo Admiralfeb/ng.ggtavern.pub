@@ -1,6 +1,6 @@
-@import '~@angular/material/theming';
-@import 'palettes';
+@import "~@angular/material/theming";
+@import "palettes";
 
 $primary: mat-palette($md-wood);
 $accent: mat-palette($md-gabbygreen);
-$warn: mat-palette($md-warn, A400);
+$warn: mat-palette($md-warn);

@@ -5,12 +5,18 @@
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
 
 html,
-body {
-  height: 100%;
+body,
+app-root {
+  height: 99vh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
 }
 body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.box {
+  display: flex;
 }
 
 a {
