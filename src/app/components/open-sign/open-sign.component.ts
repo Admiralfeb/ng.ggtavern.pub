@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import moment from 'moment-timezone';
 import { Subscription, interval } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HoursDialogComponent } from '../hours-dialog/hours-dialog.component';
+import { DialogService } from '@core/services/dialog.service';
 
 @Component({
   selector: 'open-sign',
@@ -15,6 +15,7 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     { day: 0, open: '17:00', close: '00:00', name: 'Sunday' },
     { day: 1, open: '', close: '', name: 'Monday' },
     { day: 2, open: '17:00', close: '00:00', name: 'Tuesday' },
+    // { day: 3, open: '11:00', close: '13:00', name: 'Wednesday' },
     { day: 3, open: '17:00', close: '00:00', name: 'Wednesday' },
     { day: 4, open: '17:00', close: '00:00', name: 'Thursday' },
     { day: 5, open: '17:00', close: '02:00', name: 'Friday' },
@@ -23,9 +24,9 @@ export class OpenSignComponent implements OnInit, OnDestroy {
   timeSubscription: Subscription;
   currentDay: number;
   signMessage: string;
-  isOpen = true;
+  isOpen: boolean = null;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: DialogService) { }
 
   ngOnInit() {
     const time$ = interval(1000).pipe(
@@ -51,39 +52,43 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     }
     this.currentDay = currentDay;
 
-    const todayHours = this.hours.find(h => h.day === currentDay);
-    if (todayHours.open) {
-      const openHours = todayHours.open.split(':');
-      const closeHours = todayHours.close.split(':');
+    const dayHours = this.hours.filter(h => h.day === currentDay);
+    for (const todayHours of dayHours) {
+      if (todayHours.open) {
+        const openHours = todayHours.open.split(':');
+        const closeHours = todayHours.close.split(':');
 
-      let tempDay = moment().dayOfYear();
-      if (currentTime.tz('America/Chicago').hour() < 5) {
-        tempDay--;
+        let tempDay = moment().dayOfYear();
+        if (currentTime.tz('America/Chicago').hour() < 5) {
+          tempDay--;
+        }
+        const openTime = moment()
+          .dayOfYear(tempDay)
+          .hour(openHours[0] as unknown as number)
+          .minute(openHours[1] as unknown as number);
+        if (closeHours[0] as unknown as number < 5) {
+          tempDay++;
+        }
+        const closeTime = moment()
+          .dayOfYear(tempDay)
+          .hour(closeHours[0] as unknown as number)
+          .minute(closeHours[1] as unknown as number);
+
+        const isOpen = currentTime.tz('America/Chicago').isBetween(openTime, closeTime);
+
+        if (isOpen) { return true; }
       }
-      const openTime = moment()
-        .dayOfYear(tempDay)
-        .hour(openHours[0] as unknown as number)
-        .minute(openHours[1] as unknown as number);
-      if (closeHours[0] as unknown as number < 5) {
-        tempDay++;
-      }
-      const closeTime = moment()
-        .dayOfYear(tempDay)
-        .hour(closeHours[0] as unknown as number)
-        .minute(closeHours[1] as unknown as number);
-
-      const isOpen = currentTime.tz('America/Chicago').isBetween(openTime, closeTime);
-
-      if (isOpen) { return true; }
     }
 
     return false;
   }
 
   showHours() {
-    const dialogRef = this.dialog.open(HoursDialogComponent, {
+    this.dialog.showCustomInfoDialog(
+      HoursDialogComponent, {
       width: '400px',
       data: this.hours
-    });
+    }
+    );
   }
 }

@@ -1,0 +1,63 @@
+version: 2.1
+jobs:
+  test-spec:
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install Project
+          command: npm ci
+      - run:
+          name: Run Unit Tests
+          command: npm run test-firefox-ci
+      - store_test_results:
+          path: tests
+  test-e2e:
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install Project
+          command: npm ci
+      - run:
+          name: Run e2e Tests
+          command: npm run e2e-firefox-ci
+      - store_test_results:
+          path: tests
+  lint:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: Install Project
+          command: npm ci
+      - run:
+          name: Run Lint
+          command: npm run lint
+  build:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - checkout
+      - run:
+          name: Install Project
+          command: npm ci
+      - run:
+          name: Run Build
+          command: npm run build
+
+workflows:
+  version: 2.1
+  test_and_build:
+    jobs:
+      - test-spec
+      - test-e2e
+      - lint
+      - build:
+          requires:
+            - test-spec
+            - test-e2e
+            - lint

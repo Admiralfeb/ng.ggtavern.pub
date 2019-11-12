@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import { MaterialModule } from './material/material.module';
 
 import {
@@ -10,7 +11,8 @@ import {
   ErrorNotFoundComponent,
   UnderConstructionComponent,
   MessageDialogComponent,
-  ContentwithSideNavComponent
+  ContentwithSideNavComponent,
+  VideoYoutubeComponent
 } from './components';
 
 @NgModule({
@@ -27,6 +29,7 @@ import {
     UnderConstructionComponent,
     MessageDialogComponent,
     ContentwithSideNavComponent,
+    VideoYoutubeComponent,
   ],
   entryComponents: [
     MessageDialogComponent
@@ -41,6 +44,7 @@ import {
     ErrorNotFoundComponent,
     UnderConstructionComponent,
     ContentwithSideNavComponent,
+    VideoYoutubeComponent,
   ]
 })
 export class SharedModule { }

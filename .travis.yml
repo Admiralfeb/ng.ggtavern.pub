@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - 12
+dist: trusty
+addons:
+  firefox: latest
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - npm run test-firefox-ci
+      name: "Spec Tests - Firefox"
+    - script:
+        - npm run e2e-firefox-ci
+      name: "e2e Tests - Firefox"
+    - stage: build
+      script:
+        - npm run build
+      name: "Build"
+    # - stage: deploy
+    #   script: npm run deploy
+    #   name: "Deploy to Firebase"
+
+stages:
+  - test
+  - build
+  # - name: deploy
+  #   if: branch = master

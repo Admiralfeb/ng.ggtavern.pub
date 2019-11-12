@@ -25,8 +25,7 @@ describe('MenuService', () => {
   });
 
   it('should return an empty array if the collection returns empty', async (done) => {
-    const mockCollection = { empty: true };
-    mockService.getItems.and.returnValue(Promise.resolve(mockCollection));
+    mockService.getItems.and.returnValue(Promise.resolve([]));
     const returnValue = await menuService.getMenuItems('');
     expect(returnValue.length).toBe(0);
     done();

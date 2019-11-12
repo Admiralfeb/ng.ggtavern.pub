@@ -2,16 +2,14 @@
 @import "variables";
 
 .rules {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .rule {
-  border: 3px solid mat-color($accent);
-}
-
-@media (max-width: 768px) {
-  .rules {
-    grid-template-columns: 1fr;
-  }
+  flex-grow: 1;
+  border: 5px solid mat-color($accent);
+  border-radius: 30px;
+  margin: 5px;
+  padding: 5px;
 }

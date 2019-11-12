@@ -1,0 +1,106 @@
+name: Test and Build
+
+on: [push]
+
+jobs:
+  test-spec:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Project
+        run: npm ci
+      - name: Run Unit Tests
+        run: npm run test-firefox-ci
+        env:
+          CI: true
+      - name: Upload CodeCoverage
+        uses: codecov/codecov-action@master
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          file: coverage/*.json
+          flags: unittests
+
+  test-e2e:
+    name: e2e Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Project
+        run: npm ci
+      - name: Run e2e Tests
+        run: npm run e2e-firefox-ci
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Project
+        run: npm ci
+      - name: Run Lint
+        run: npm run lint
+
+  build:
+    name: Build
+    needs: [test-spec, test-e2e, lint]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Get Build Version
+        id: vars
+        run: echo ::set-output name=build_version::$(node scripts/getVersion.js)
+      - name: Test Using Build Version
+        run: echo ${{ steps.vars.outputs.build_version }}
+      - name: Install Project
+        run: npm ci
+      - name: Run Build
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    name: Deploy to Firebase
+    needs: [build]
+    runs-on: ubuntu-latest
+    if: github.ref == 'master'
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Build
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+      - name: Get Build Version
+        id: vars
+        run: echo ::set-output name=build_version::$(node scripts/getVersion.js)
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:prod -m ${{ steps.vars.outputs.build_version }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

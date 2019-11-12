@@ -7,6 +7,10 @@
 /out-tsc
 TESTS*.xml
 /tests
+src/environments/keys.ts
+
+#secrets
+.env
 
 # dependencies
 /node_modules

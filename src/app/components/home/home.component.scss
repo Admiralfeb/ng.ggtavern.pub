@@ -16,9 +16,6 @@
 .logo {
   grid-column: 2;
 }
-.logo {
-  width: 300px;
-}
 #item0 {
   grid-row: 1;
 }
@@ -41,6 +38,7 @@
 }
 .logo {
   grid-row: 2 / span 3;
+  //   width: 300px;
 }
 .griditem {
   justify-self: center;
@@ -80,6 +78,6 @@
   .logo {
     grid-column: 1;
     grid-row: 1;
-    width: 200px;
+    // width: 200px;
   }
 }

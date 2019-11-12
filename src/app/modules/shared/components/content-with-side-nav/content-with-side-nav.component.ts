@@ -1,8 +1,5 @@
-import { MediaMatcher } from '@angular/cdk/layout';
-import { Component, Input, ChangeDetectorRef, OnDestroy, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, Input, OnInit, HostListener, ViewChild } from '@angular/core';
 import { NavigationModel } from '../../models/navigationModel';
-import { SelectControlValueAccessor } from '@angular/forms';
-import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'content-with-side-nav',
@@ -13,31 +10,52 @@ export class ContentwithSideNavComponent implements OnInit {
   @Input() navheaderText = 'Navigation';
   @Input() navItems: NavigationModel = null;
   @Input() headerText = '';
-  @ViewChild('snav', { static: true }) sidenav: MatSidenav;
-  burgerTip = 'Show/Hide the Navigation Pane';
-
+  @ViewChild('contentScroll', { static: true }) contentScroll;
+  burgerTip = 'Show the menu';
   innerWidth = 0;
   minWidth = 768;
+  mobile = false;
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.innerWidth = window.innerWidth;
-
-    if (this.innerWidth > this.minWidth) {
-      this.sidenav.open();
-    }
+  ngOnInit() {
+    this.mobile = this.checkforMobileSize();
   }
 
   @HostListener('window:resize')
   onResize() {
-    this.innerWidth = window.innerWidth;
+    this.mobile = this.checkforMobileSize();
   }
 
-  navClick() {
-    if (this.innerWidth < this.minWidth) {
-      this.sidenav.close();
+  checkforMobileSize(): boolean {
+    this.innerWidth = window.innerWidth;
+
+    if (this.innerWidth > this.minWidth) {
+      return false;
+    } else {
+      return true;
     }
+  }
+
+  /**
+   * Close side-nav (if mobile) and scroll to the top of the content
+   */
+  changeContent() {
+    this.closeNav();
+    this.contentScroll.scrollTo({ top: 0, duration: 500 });
+  }
+
+  /**
+   * Open the side-nav when in mobile.
+   */
+  openNav() {
+    document.getElementById('contentsNav').style.width = '100%';
+  }
+
+  /**
+   * Close the side-nav when in mobile.
+   */
+  closeNav() {
+    document.getElementById('contentsNav').style.width = '0%';
   }
 }
