@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, HostListener } from '@angular/core';
+import { Component, Input, OnInit, HostListener, ViewChild } from '@angular/core';
 import { NavigationModel } from '../../models/navigationModel';
 
 @Component({
@@ -10,6 +10,8 @@ export class ContentwithSideNavComponent implements OnInit {
   @Input() navheaderText = 'Navigation';
   @Input() navItems: NavigationModel = null;
   @Input() headerText = '';
+  @ViewChild('contentScroll', { static: true }) contentScroll;
+  burgerTip = 'Show the menu';
   innerWidth = 0;
   minWidth = 768;
   mobile = false;
@@ -29,9 +31,31 @@ export class ContentwithSideNavComponent implements OnInit {
     this.innerWidth = window.innerWidth;
 
     if (this.innerWidth > this.minWidth) {
-      return true;
-    } else {
       return false;
+    } else {
+      return true;
     }
+  }
+
+  /**
+   * Close side-nav (if mobile) and scroll to the top of the content
+   */
+  changeContent() {
+    this.closeNav();
+    this.contentScroll.scrollTo({ top: 0, duration: 500 });
+  }
+
+  /**
+   * Open the side-nav when in mobile.
+   */
+  openNav() {
+    document.getElementById('contentsNav').style.width = '100%';
+  }
+
+  /**
+   * Close the side-nav when in mobile.
+   */
+  closeNav() {
+    document.getElementById('contentsNav').style.width = '0%';
   }
 }
