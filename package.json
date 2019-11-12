@@ -16,7 +16,7 @@
     "e2e-chrome-ci": "ng e2e --protractor-config=e2e/protractor-chrome-ci.conf.js",
     "pree2e-firefox-ci": "npm explore protractor -- node ./node_modules/webdriver-manager update",
     "e2e-firefox-ci": "ng e2e --protractor-config=e2e/protractor-firefox-ci.conf.js",
-    "deploy": "ng run gg-tavern:deploy"
+    "deploy": "ng run ggtavern:deploy"
   },
   "private": true,
   "dependencies": {
