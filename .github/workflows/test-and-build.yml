@@ -9,6 +9,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: Branch
+        run: echo ${{github.ref}}
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
