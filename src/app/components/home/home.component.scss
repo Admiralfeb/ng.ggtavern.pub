@@ -1,3 +1,6 @@
+@import "~@angular/material/theming";
+@import "variables";
+
 .title {
   text-align: center;
 }
@@ -46,6 +49,12 @@
 }
 .mobile {
   display: none;
+}
+.container {
+  height: 80%;
+}
+ng-scrollbar {
+  --scrollbar-thumb-color: #{mat-color($primary)};
 }
 
 // For Mobile devices
