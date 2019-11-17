@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'menu', loadChildren: () => import('./modules/menu/menu.module').then(m => m.MenuModule) },
   { path: 'games', loadChildren: () => import('./modules/games/games.module').then(m => m.GamesModule) },
   { path: 'events', loadChildren: () => import('./modules/calendar/calendar.module').then(m => m.CalendarModule) },
+  { path: 'contact', loadChildren: () => import('./modules/contact/contact.module').then(m => m.ContactModule) },
   { path: '404', component: ErrorNotFoundComponent },
   { path: '**', redirectTo: '404' },
 ];

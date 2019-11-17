@@ -1,0 +1,10 @@
+@import "~@angular/material/theming";
+@import "variables";
+
+mat-card {
+  width: 500px;
+  margin: 20px 0;
+}
+.container {
+  height: 80%;
+}
