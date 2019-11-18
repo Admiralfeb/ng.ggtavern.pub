@@ -1,6 +1,20 @@
-@import './variables';
-@import '~@angular/material/theming';
+@import "./variables";
+@import "./functions";
+@import "~@angular/material/theming";
 @include mat-core();
 
 $z-theme: mat-dark-theme($primary, $accent, $warn);
 @include angular-material-theme($z-theme);
+
+@mixin generateRatios($width, $height, $prefix: "ratio-") {
+  $class-name: $prefix + $width + "x" + $height;
+
+  .#{$class-name} {
+    padding-top: ratio($width, $height);
+  }
+  // Output example: .ratio-16x9 {}
+}
+
+@include generateRatios(16, 9); // 16x9
+@include generateRatios(4, 3); // 4x3
+@include generateRatios(3, 4); // 3x4
