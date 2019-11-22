@@ -6,20 +6,23 @@ export class MenuService {
 
   constructor(private db: DatabaseService) { }
 
-  async getMenuItems(itemType: string): Promise<any[]> {
+  async getMenuItems<T>(itemType: string): Promise<T[]> {
     const pathString = `menus/food-and-drink/${itemType}`;
-    let items = [];
+    let items: T[] = [];
     try {
-      const itemData = await this.db.getItems(pathString);
-      items = this.sortItems(itemData, 'name');
+      items = await this.db.getItems<T>(pathString);
       return items;
     } catch (err) {
       throw err;
     }
   }
 
-  sortItems(items: any[], sortField: string) {
+  sortItems<T, P extends keyof T>(items: T[], sortField: P): T[] {
     // TODO If price exists, list the highest price first, then sort the rest.
-    return items.sort((a, b) => a[sortField].localeCompare(b[sortField]));
+    const sortedItems = this.db.sortItems<T, P>(items, sortField);
+    if (sortedItems[0].hasOwnProperty('price')) {
+
+    }
+    return sortedItems;
   }
 }
