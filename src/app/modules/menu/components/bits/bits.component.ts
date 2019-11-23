@@ -15,7 +15,6 @@ export class BitsComponent implements OnInit {
 
   ngOnInit() {
     this.menuService.getMenuItems<MiscFoodItem>('bits').then(value => {
-
       this.bits = value;
     }).catch(err => {
       console.error(err);

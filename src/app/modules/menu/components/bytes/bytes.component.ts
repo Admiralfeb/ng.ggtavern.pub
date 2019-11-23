@@ -14,8 +14,8 @@ export class BytesComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('bytes').then(value => {
-      this.bytes = value as BytesItem[];
+    this.menuService.getMenuItems<BytesItem>('bytes').then(value => {
+      this.bytes = value
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';

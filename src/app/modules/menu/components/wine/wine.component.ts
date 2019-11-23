@@ -14,8 +14,8 @@ export class WineComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('wines').then(value => {
-      this.wines = value as WineItem[];
+    this.menuService.getMenuItems<WineItem>('wines').then(value => {
+      this.wines = value;
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';

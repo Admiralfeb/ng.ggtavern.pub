@@ -13,8 +13,8 @@ export class BottledComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('bottles').then(value => {
-      this.bottles = value as BottleItem[];
+    this.menuService.getMenuItems<BottleItem>('bottles').then(value => {
+      this.bottles = value
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';

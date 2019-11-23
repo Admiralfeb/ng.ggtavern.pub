@@ -14,8 +14,8 @@ export class SpecialtiesComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('specialties').then(value => {
-      this.specialties = value as SpecialtyItem[];
+    this.menuService.getMenuItems<SpecialtyItem>('specialties').then(value => {
+      this.specialties = value;
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';

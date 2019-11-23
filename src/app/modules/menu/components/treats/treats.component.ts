@@ -14,8 +14,8 @@ export class TreatsComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('treats').then(value => {
-      this.treats = value as MiscFoodItem[];
+    this.menuService.getMenuItems<MiscFoodItem>('treats').then(value => {
+      this.treats = value;
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';

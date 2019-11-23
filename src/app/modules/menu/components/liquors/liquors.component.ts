@@ -15,8 +15,8 @@ export class LiquorsComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('liquors').then(value => {
-      this.liquors = value as LiquorItem[];
+    this.menuService.getMenuItems<LiquorItem>('liquors').then(value => {
+      this.liquors = value;
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';
@@ -33,11 +33,11 @@ export class LiquorsComponent implements OnInit {
     switch (sort) {
       case 'name':
         this.sortSelect = 'name';
-        this.liquors = this.menuService.sortItems(this.liquors, this.sortSelect);
+        this.liquors = this.menuService.sortItems(this.liquors, 'name');
         break;
       case 'alcohol':
         this.sortSelect = 'type';
-        this.liquors = this.menuService.sortItems(this.liquors, this.sortSelect);
+        this.liquors = this.menuService.sortItems(this.liquors, 'type');
         break;
       default:
         break;

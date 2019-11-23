@@ -13,8 +13,8 @@ export class ShotsComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('shots').then(value => {
-      this.shots = value as ShotsItem[];
+    this.menuService.getMenuItems<ShotsItem>('shots').then(value => {
+      this.shots = value;
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';

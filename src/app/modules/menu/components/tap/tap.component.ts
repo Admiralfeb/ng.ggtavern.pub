@@ -13,8 +13,8 @@ export class TapComponent implements OnInit {
   constructor(private menuService: MenuService, private dialog: DialogService) { }
 
   ngOnInit() {
-    this.menuService.getMenuItems('taps').then(value => {
-      this.taps = value as TapItem[];
+    this.menuService.getMenuItems<TapItem>('taps').then(value => {
+      this.taps = value;
     }).catch(err => {
       console.error(err);
       const errMessage = 'There was an error retrieving the items from the database';
