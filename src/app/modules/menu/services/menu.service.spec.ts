@@ -1,9 +1,10 @@
 import { MenuService } from './menu.service';
+import { MiscFoodItem } from '../models';
 
 describe('MenuService', () => {
   let menuService: MenuService;
 
-  const mockService = jasmine.createSpyObj('DatabaseService', ['getItems']);
+  const mockService = jasmine.createSpyObj('DatabaseService', ['getItems', 'sortItems']);
 
   beforeEach(() => {
     menuService = new MenuService(mockService);
@@ -26,7 +27,7 @@ describe('MenuService', () => {
 
   it('should return an empty array if the collection returns empty', async (done) => {
     mockService.getItems.and.returnValue(Promise.resolve([]));
-    const returnValue = await menuService.getMenuItems('');
+    const returnValue = await menuService.getMenuItems<MiscFoodItem>('');
     expect(returnValue.length).toBe(0);
     done();
   });
