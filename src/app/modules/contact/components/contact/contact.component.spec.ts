@@ -1,20 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContactComponent } from './contact.component';
+import { ContactMainComponent } from './contact.component';
+import { SharedModule } from '@shared/shared-module.module';
 
 describe('ContactComponent', () => {
-  let component: ContactComponent;
-  let fixture: ComponentFixture<ContactComponent>;
+  let component: ContactMainComponent;
+  let fixture: ComponentFixture<ContactMainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactComponent ]
+      declarations: [ContactMainComponent],
+      imports: [SharedModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContactComponent);
+    fixture = TestBed.createComponent(ContactMainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
