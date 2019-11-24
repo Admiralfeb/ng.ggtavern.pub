@@ -1,20 +1,32 @@
 {
-  "assignees": ["Admiralfeb"],
-  "extends": ["config:base"],
-  "labels": ["dependencies"],
+  "assignees": [
+    "Admiralfeb"
+  ],
+  "extends": [
+    "config:base"
+  ],
+  "labels": [
+    "dependencies"
+  ],
   "packageRules": [
     {
-      "packagePatterns": ["^@types/"],
+      "packagePatterns": [
+        "^@types/"
+      ],
       "groupName": "Types packages",
       "automerge": true,
       "automergeType": "branch"
     },
     {
-      "packagePatterns": ["tslint"],
+      "packagePatterns": [
+        "tslint"
+      ],
       "groupName": "Linters",
       "automerge": true,
       "automergeType": "branch"
     }
   ],
-  "reviewers": ["Admiralfeb"]
+  "ignoreDeps": [
+    "typescript"
+  ]
 }

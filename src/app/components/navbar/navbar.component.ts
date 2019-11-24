@@ -12,4 +12,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleNavMenu() {
+    const navbar = document.getElementById('app-navbar');
+    if (navbar.className === 'navbar') {
+      navbar.className += ' responsive';
+    } else {
+      navbar.className = 'navbar';
+    }
+  }
+
+  hideNavMenu() {
+    const navbar = document.getElementById('app-navbar');
+    navbar.className = 'navbar';
+
+  }
 }

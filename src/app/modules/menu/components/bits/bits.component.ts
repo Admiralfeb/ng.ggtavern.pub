@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
-import { MiscFoodItem } from '../../menu.models';
+import { MiscFoodItem } from '../../models';
 import { DialogService } from '@core/services/dialog.service';
+import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'menu-bits',
   templateUrl: './bits.component.html',
   styleUrls: ['./bits.component.scss']
 })
-export class BitsComponent implements OnInit {
-  bits: MiscFoodItem[] = [];
+export class BitsComponent extends BaseMenuComponent implements OnInit {
+  items: MiscFoodItem[] = [];
+  itemType = 'bits';
 
-  constructor(private menuService: MenuService, private dialog: DialogService) { }
+  constructor(public menuService: MenuService, public dialog: DialogService) {
+    super(menuService, dialog);
+  }
 
   ngOnInit() {
-    this.menuService.getMenuItems('bits').then(value => {
-      this.bits = value as MiscFoodItem[];
-    }).catch(err => {
-      console.error(err);
-      const errMessage = 'There was an error retrieving the items from the database';
-      this.dialog.showError(errMessage);
-    });
+    this.getItems();
+  }
+
+  async getItems() {
+    this.items = await this.getMenuItems(this.itemType);
   }
 
 }

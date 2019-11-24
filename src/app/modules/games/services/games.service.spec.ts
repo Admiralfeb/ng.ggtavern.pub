@@ -4,7 +4,7 @@ import { GameSystem } from '../models/model';
 describe('GamesService', () => {
   let gamesService: GamesService;
 
-  const mockDatabaseService = jasmine.createSpyObj('DatabaseService', ['getItems']);
+  const mockDatabaseService = jasmine.createSpyObj('DatabaseService', ['getItems', 'sortItems']);
 
   beforeEach(() => {
     gamesService = new GamesService(mockDatabaseService);
