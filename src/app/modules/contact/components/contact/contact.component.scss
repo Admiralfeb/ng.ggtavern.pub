@@ -1,0 +1,22 @@
+@import "~@angular/material/theming";
+@import "variables";
+
+mat-card {
+  width: 500px;
+  margin: 20px 0;
+}
+.container {
+  height: 80%;
+}
+.facebook {
+  width: 500px;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex > * {
+  flex-grow: 1;
+  margin: 5px;
+  padding: 5px;
+}
