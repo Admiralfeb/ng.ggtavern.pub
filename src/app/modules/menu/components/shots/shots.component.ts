@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { ShotsItem } from '../../menu.models';
+import { ShotsItem } from '../../models';
 import { MenuService } from '../../services/menu.service';
 import { DialogService } from '@core/services/dialog.service';
+import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'menu-shots',
   templateUrl: './shots.component.html',
   styleUrls: ['./shots.component.scss']
 })
-export class ShotsComponent implements OnInit {
-  shots: ShotsItem[] = [];
-  constructor(private menuService: MenuService, private dialog: DialogService) { }
+export class ShotsComponent extends BaseMenuComponent implements OnInit {
+  items: ShotsItem[] = [];
+  itemType = 'shots';
+  constructor(public menuService: MenuService, public dialog: DialogService) {
+    super(menuService, dialog);
+  }
 
   ngOnInit() {
-    this.menuService.getMenuItems<ShotsItem>('shots').then(value => {
-      this.shots = value;
-    }).catch(err => {
-      console.error(err);
-      const errMessage = 'There was an error retrieving the items from the database';
-      this.dialog.showError(errMessage);
-    });
+    this.getItems();
+  }
+
+  async getItems() {
+    this.items = await this.getMenuItems(this.itemType);
   }
 
 }

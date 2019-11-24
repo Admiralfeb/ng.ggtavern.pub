@@ -6,19 +6,19 @@
     </mat-radio-group>
 </div>
 <div class="list">
-    <mat-card *ngFor="let liquor of liquors" class="menuoption">
+    <mat-card *ngFor="let item of items" class="menuoption">
         <ng-container *ngIf="sortSelect==='name'; else typeTemplate">
-            <mat-card-title>{{liquor.name | titlecase}} <ng-container *ngIf="liquor.type">- {{liquor.type | titlecase}}
+            <mat-card-title>{{item.name | titlecase}} <ng-container *ngIf="item.type">- {{item.type | titlecase}}
                 </ng-container>
             </mat-card-title>
         </ng-container>
         <ng-template #typeTemplate>
             <mat-card-title>
-                <ng-container *ngIf="liquor.type">{{liquor.type|titlecase}} -</ng-container> {{liquor.name|titlecase}}
+                <ng-container *ngIf="item.type">{{item.type|titlecase}} -</ng-container> {{item.name|titlecase}}
             </mat-card-title>
         </ng-template>
         <mat-card-subtitle>
-            {{liquor.ABV}} <ng-container *ngIf="liquor.description">- {{liquor.description}}</ng-container>
+            {{item.ABV}} <ng-container *ngIf="item.description">- {{item.description}}</ng-container>
         </mat-card-subtitle>
     </mat-card>
 </div>

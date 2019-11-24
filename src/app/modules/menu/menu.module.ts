@@ -15,8 +15,9 @@ import {
   ShotsComponent,
   SpecialtiesComponent,
   TapComponent,
-  WineComponent,
   TreatsComponent,
+  WineComponent,
+  BaseMenuComponent,
 } from './components';
 import { MenuService } from './services/menu.service';
 
@@ -34,6 +35,7 @@ import { MenuService } from './services/menu.service';
     TreatsComponent,
     WineComponent,
     LiquorsComponent,
+    BaseMenuComponent,
   ],
   imports: [
     CommonModule,

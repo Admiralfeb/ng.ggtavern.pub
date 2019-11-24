@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { MenuService } from '../../services/menu.service';
-import { LiquorItem } from '../../menu.models';
+import { LiquorItem } from '../../models';
 import { DialogService } from '@core/services/dialog.service';
+import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'liquors',
   templateUrl: './liquors.component.html',
   styleUrls: ['./liquors.component.scss']
 })
-export class LiquorsComponent implements OnInit {
-  liquors: LiquorItem[] = [];
-  sortSelect = 'name';
-  constructor(private menuService: MenuService, private dialog: DialogService) { }
+export class LiquorsComponent extends BaseMenuComponent implements OnInit {
+  items: LiquorItem[] = [];
+  itemType = 'liquors';
+  sortSelect = 'type';
+  constructor(public menuService: MenuService, public dialog: DialogService) {
+    super(menuService, dialog);
+  }
 
   ngOnInit() {
-    this.menuService.getMenuItems<LiquorItem>('liquors').then(value => {
-      this.liquors = value;
-    }).catch(err => {
-      console.error(err);
-      const errMessage = 'There was an error retrieving the items from the database';
-      this.dialog.showError(errMessage);
-    });
+    this.getItems();
+  }
+
+  async getItems() {
+    this.items = await this.getMenuItems(this.itemType);
   }
 
   onSortChange(event: MatRadioChange) {
@@ -33,11 +35,11 @@ export class LiquorsComponent implements OnInit {
     switch (sort) {
       case 'name':
         this.sortSelect = 'name';
-        this.liquors = this.menuService.sortItems(this.liquors, 'name');
+        this.items = this.menuService.sortItems(this.items, 'name');
         break;
       case 'alcohol':
         this.sortSelect = 'type';
-        this.liquors = this.menuService.sortItems(this.liquors, 'type');
+        this.items = this.menuService.sortItems(this.items, 'type');
         break;
       default:
         break;

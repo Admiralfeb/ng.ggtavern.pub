@@ -1,25 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
-import { BottleItem } from '../../menu.models';
+import { BottleItem } from '../../models';
 import { DialogService } from '@core/services/dialog.service';
+import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'menu-bottled',
   templateUrl: './bottled.component.html',
   styleUrls: ['./bottled.component.scss']
 })
-export class BottledComponent implements OnInit {
-  bottles: BottleItem[] = [];
-  constructor(private menuService: MenuService, private dialog: DialogService) { }
+export class BottledComponent extends BaseMenuComponent implements OnInit {
+  items: BottleItem[] = [];
+  itemType = 'bottles';
+
+  constructor(public menuService: MenuService, public dialog: DialogService) {
+    super(menuService, dialog);
+  }
 
   ngOnInit() {
-    this.menuService.getMenuItems<BottleItem>('bottles').then(value => {
-      this.bottles = value
-    }).catch(err => {
-      console.error(err);
-      const errMessage = 'There was an error retrieving the items from the database';
-      this.dialog.showError(errMessage);
-    });
+    this.getItems();
+  }
+
+  async getItems() {
+    this.items = await this.getMenuItems(this.itemType);
   }
 
 }
