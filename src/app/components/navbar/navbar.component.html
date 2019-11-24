@@ -1,15 +1,22 @@
 <div>
-    <nav class="navbar">
-        <a id="homeImage" routerLink="home" matTooltip="Go to the Home Page" mat-button><img id="Z-img"
-                src="../../../assets/img/android-chrome-512x512.png"></a>
-        <a class="nav-link" routerLink="home" routerLinkActive="active" mat-icon-button matTooltip="Home Page">
+    <nav class="navbar" id="app-navbar">
+        <a id="homeImage" routerLink="home" matTooltip="Go to the Home Page" mat-button (click)="hideNavMenu()"><img
+                id="Z-img" src="../../../assets/img/android-chrome-512x512.png"></a>
+        <a class="nav-link homeButton" routerLink="home" routerLinkActive="active" mat-icon-button
+            matTooltip="Home Page" (click)="hideNavMenu()">
             <mat-icon>home</mat-icon>
         </a>
-        <a class="nav-link" routerLink="menu" routerLinkActive="active" mat-button matTooltip="Food and Drink Menu">Food
+        <a class="nav-link" routerLink="menu" routerLinkActive="active" mat-button matTooltip="Food and Drink Menu"
+            (click)="hideNavMenu()">Food
             and
             Drinks</a>
-        <a class="nav-link" routerLink="games" routerLinkActive="active" mat-button matTooltip="Game Menu">Game Menu</a>
-        <a class="nav-link" routerLink="contact" routerLinkActive="active" mat-button
-            matTooltip="Contact Us">Contact</a>
+        <a class="nav-link" routerLink="games" routerLinkActive="active" mat-button matTooltip="Game Menu"
+            (click)="hideNavMenu()">Game Menu</a>
+        <a class="nav-link" routerLink="contact" routerLinkActive="active" mat-button matTooltip="Contact Us"
+            (click)="hideNavMenu()">Contact</a>
+        <a class="nav-link mobileButton" href="javascript:void(0);" mat-button matTooltip="Show Menu Items"
+            (click)="toggleNavMenu()">
+            <mat-icon>menu</mat-icon>
+        </a>
     </nav>
 </div>
