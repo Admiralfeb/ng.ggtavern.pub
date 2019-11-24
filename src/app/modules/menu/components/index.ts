@@ -8,3 +8,4 @@ export * from './specialties/specialties.component';
 export * from './treats/treats.component';
 export * from './tap/tap.component';
 export * from './wine/wine.component';
+export * from './base.component';

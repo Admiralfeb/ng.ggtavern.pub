@@ -1,14 +1,14 @@
 <mat-accordion>
-    <mat-expansion-panel *ngFor="let shot of shots" class="menuoption">
+    <mat-expansion-panel *ngFor="let item of items" class="menuoption">
         <mat-expansion-panel-header class="mat-expansion-panel-header-description">
-            <mat-panel-title>{{shot.name}}</mat-panel-title>
+            <mat-panel-title>{{item.name}}</mat-panel-title>
             <mat-panel-description>
-                {{shot.price | currency:'USD' }}
+                {{item.price | currency:'USD' }}
             </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-panel-description>
-            <p>{{shot.ingredients}}</p>
-            <p>{{shot.Note}}</p>
+            <p>{{item.ingredients}}</p>
+            <p>{{item.Note}}</p>
         </mat-panel-description>
     </mat-expansion-panel>
 </mat-accordion>

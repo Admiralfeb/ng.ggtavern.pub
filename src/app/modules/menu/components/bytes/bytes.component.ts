@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
-import { BytesItem } from '../../menu.models';
+import { BytesItem } from '../../models';
 import { DialogService } from '@core/services/dialog.service';
+import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'menu-bytes',
   templateUrl: './bytes.component.html',
   styleUrls: ['./bytes.component.scss']
 })
-export class BytesComponent implements OnInit {
-  bytes: BytesItem[] = [];
+export class BytesComponent extends BaseMenuComponent implements OnInit {
+  items: BytesItem[] = [];
+  itemType = 'bytes';
 
-  constructor(private menuService: MenuService, private dialog: DialogService) { }
+  constructor(public menuService: MenuService, public dialog: DialogService) {
+    super(menuService, dialog);
+  }
 
   ngOnInit() {
-    this.menuService.getMenuItems('bytes').then(value => {
-      this.bytes = value as BytesItem[];
-    }).catch(err => {
-      console.error(err);
-      const errMessage = 'There was an error retrieving the items from the database';
-      this.dialog.showError(errMessage);
-    });
+    this.getItems();
+  }
+
+  async getItems() {
+    this.items = await this.getMenuItems(this.itemType);
   }
 
 }

@@ -37,8 +37,8 @@ export class GamesService {
 
     try {
       let systems = [];
-      const itemData = await this.db.getItems(pathString);
-      systems = this.sortItems(itemData, 'system');
+      const itemData = await this.db.getItems<GameSystem>(pathString);
+      systems = this.db.sortItems(itemData, 'system');
       this.systems = systems;
       return systems;
     } catch (err) {
@@ -65,8 +65,8 @@ export class GamesService {
 
     try {
       let games = [];
-      const collection = await this.db.getItems(pathString);
-      games = this.sortItems(collection, 'name');
+      const collection = await this.db.getItems<Game>(pathString);
+      games = this.db.sortItems(collection, 'name');
 
       this.setGames(system, games);
 
@@ -99,19 +99,6 @@ export class GamesService {
     const foundSystem = this.systems.find(s => s.short === system);
     if (foundSystem) {
       foundSystem.games = games;
-    }
-  }
-
-  /**
-   * Sorts the provided array of js objects based upon the field specified, then returns the new array.
-   * @param items Array of items
-   * @param sortField field to sort upon
-   */
-  sortItems(items: any[], sortField: string) {
-    try {
-      return items.sort((a, b) => a[sortField].localeCompare(b[sortField]));
-    } catch {
-      return items;
     }
   }
 }
