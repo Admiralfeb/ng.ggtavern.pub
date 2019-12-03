@@ -1,13 +1,18 @@
 import { MenuService } from './menu.service';
 import { MiscFoodItem } from '../models';
+import { DatabaseService } from '@core/services/database.service';
 
 describe('MenuService', () => {
   let menuService: MenuService;
 
-  const mockService = jasmine.createSpyObj('DatabaseService', ['getItems', 'sortItems']);
+  const mockDatabaseService = jasmine.createSpyObj<DatabaseService>('DatabaseService', ['getItems', 'sortItems']);
 
   beforeEach(() => {
-    menuService = new MenuService(mockService);
+    menuService = new MenuService(mockDatabaseService);
+  });
+  afterEach(() => {
+    mockDatabaseService.getItems.calls.reset();
+    mockDatabaseService.getItems.and.stub();
   });
 
   it('should be created', () => {
@@ -21,12 +26,13 @@ describe('MenuService', () => {
 
   it('should pass information to the database service for query', async (done) => {
     const returnPromise = menuService.getMenuItems('bits');
-    expect(mockService.getItems).toHaveBeenCalledWith('menus/food-and-drink/bits');
+    expect(mockDatabaseService.getItems).toHaveBeenCalledWith('menus/food-and-drink/bits');
     done();
   });
 
   it('should return an empty array if the collection returns empty', async (done) => {
-    mockService.getItems.and.returnValue(Promise.resolve([]));
+    mockDatabaseService.getItems.and.returnValue(Promise.resolve([]));
+    mockDatabaseService.sortItems.and.returnValue([]);
     const returnValue = await menuService.getMenuItems<MiscFoodItem>('');
     expect(returnValue.length).toBe(0);
     done();
