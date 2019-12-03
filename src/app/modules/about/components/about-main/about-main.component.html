@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>About Us</h1>
+    <ng-scrollbar>
+        <div class="positions" *ngFor="let position of positions">
+            <h2 class="position-header old-style">{{position.name}}</h2>
+            <ng-container *ngFor="let worker of position.workers">
+                <img src="../../../../../assets/img/android-chrome-512x512.png">
+                <div>
+                    <h3>{{worker.name}}</h3>
+                </div>
+            </ng-container>
+        </div>
+    </ng-scrollbar>
+</div>
