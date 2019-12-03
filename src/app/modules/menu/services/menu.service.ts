@@ -16,8 +16,8 @@ export class MenuService {
     let items: T[] = [];
     try {
       items = await this.db.getItems<T>(pathString);
-      // return this.sortItems(items, 'name');
-      return items;
+      return this.sortItems(items, 'name');
+      // return items;
     } catch (err) {
       throw err;
     }
@@ -30,8 +30,10 @@ export class MenuService {
    */
   sortItems<T extends MenuItem, P extends keyof T>(items: T[], sortField: P): T[] {
     let sortedItems = this.db.sortItems<T, P>(items, sortField);
-    if (sortedItems[0].hasOwnProperty('price')) {
-      sortedItems = this.movePriciestIteminList(sortedItems);
+    if (sortedItems && sortedItems.length > 0) {
+      if (sortedItems[0].hasOwnProperty('price')) {
+        sortedItems = this.movePriciestIteminList(sortedItems);
+      }
     }
     return sortedItems;
   }
