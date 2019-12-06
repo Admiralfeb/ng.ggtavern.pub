@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LiquorsComponent } from './liquors.component';
-import { SharedModule } from '@shared/shared-module.module';
+import { SharedModule } from '@shared/shared.module';
 import { MenuService } from '../../services/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
