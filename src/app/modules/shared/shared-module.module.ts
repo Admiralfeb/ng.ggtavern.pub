@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './material.module';
 
 import {
   CountdownComponent,
