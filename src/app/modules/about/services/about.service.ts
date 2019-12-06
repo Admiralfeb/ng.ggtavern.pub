@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Position, Worker } from '../models/about.models';
 import { DatabaseService } from '@core/services/database.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AboutService {
 
   constructor(private db: DatabaseService) { }
