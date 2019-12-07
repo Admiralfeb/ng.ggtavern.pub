@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AboutService } from '../../services/about.service';
-import { Position } from '../../models/about.models';
+import { Position } from '../../about.models';
 
 @Component({
   selector: 'about-main',

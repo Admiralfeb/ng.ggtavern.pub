@@ -15,6 +15,7 @@ export class StorageService {
     try {
       url = await storageRef.getDownloadURL();
     } catch (error) {
+      console.error(error.code);
       switch (error.code) {
         case 'storage/object-not-found':
           // File doesn't exist
