@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { GamesRoutingModule } from './games.routing';
 
@@ -16,7 +15,6 @@ import { GameOptionsComponent, MainComponent } from './components';
     MainComponent
   ],
   imports: [
-    CommonModule,
     GamesRoutingModule,
     SharedModule,
   ]

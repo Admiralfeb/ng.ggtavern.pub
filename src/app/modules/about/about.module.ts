@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AboutMainComponent } from './components/about-main/about-main.component';
 import { AboutComponent } from './about.component';
 import { AboutRoutingModule } from './about.routing';
@@ -13,7 +12,6 @@ import { AboutService } from './services/about.service';
     AboutComponent,
     AboutMainComponent],
   imports: [
-    CommonModule,
     AboutRoutingModule,
     SharedModule
   ],
