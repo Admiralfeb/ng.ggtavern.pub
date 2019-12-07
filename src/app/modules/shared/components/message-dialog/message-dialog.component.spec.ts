@@ -5,14 +5,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { By } from '@angular/platform-browser';
 
-import { MaterialModule } from '../../material/material.module';
+import { MaterialModule } from '../../material.module';
 
 import { MessageDialogComponent } from './message-dialog.component';
 
 // Noop component is only a workaround to trigger change detection
-@Component({
-  template: ''
-})
+@Component({})
 class NoopComponent { }
 
 const TEST_DIRECTIVES = [

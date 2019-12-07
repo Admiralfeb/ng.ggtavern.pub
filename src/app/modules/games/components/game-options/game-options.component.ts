@@ -47,7 +47,7 @@ export class GameOptionsComponent implements OnInit {
       contentContainer.scrollTo(0, 0);
       contentContainer.scroll(0, 0);
     } else {
-      this.router.navigate(['games', '404']);
+      this.router.navigate(['404']);
     }
   }
 }

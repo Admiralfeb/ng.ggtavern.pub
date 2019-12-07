@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainComponent } from './main.component';
-import { SharedModule } from '@shared/shared-module.module';
+import { SharedModule } from '@shared/shared.module';
 
 describe('MainComponent', () => {
   let component: MainComponent;

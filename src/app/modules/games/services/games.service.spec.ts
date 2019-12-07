@@ -1,13 +1,14 @@
 import { GamesService } from './games.service';
 import { GameSystem } from '../models/model';
+import { DatabaseService } from '@core/services/database.service';
 
 describe('GamesService', () => {
-  let gamesService: GamesService;
+  let service: GamesService;
 
-  const mockDatabaseService = jasmine.createSpyObj('DatabaseService', ['getItems', 'sortItems']);
+  const mockDatabaseService = jasmine.createSpyObj<DatabaseService>('DatabaseService', ['getItems', 'sortItems']);
 
   beforeEach(() => {
-    gamesService = new GamesService(mockDatabaseService);
+    service = new GamesService(mockDatabaseService);
   });
 
   afterEach(() => {
@@ -16,12 +17,12 @@ describe('GamesService', () => {
   });
 
   it('should be created', () => {
-    expect(gamesService).toBeTruthy();
+    expect(service).toBeTruthy();
   });
 
   it('should call to the database for the Systems when no systems are loaded', async (done) => {
-    mockDatabaseService.getItems.and.returnValue(Promise.resolve());
-    await gamesService.getSystems();
+    mockDatabaseService.getItems.and.returnValue(Promise.resolve([]));
+    await service.getSystems();
     expect(mockDatabaseService.getItems).toHaveBeenCalled();
     done();
   });
@@ -31,22 +32,22 @@ describe('GamesService', () => {
       { system: 'really cool system', short: 'rcs' }
     ];
     const str = 'systems';
-    gamesService[str] = testSystem;
+    service[str] = testSystem;
 
-    await gamesService.getSystems();
+    await service.getSystems();
     expect(mockDatabaseService.getItems).not.toHaveBeenCalled();
     done();
   });
 
   it('should throw an error if there is an error in getting Systems', async (done) => {
     mockDatabaseService.getItems.and.throwError('oops');
-    expectAsync(gamesService.getSystems()).toBeRejectedWith(new Error('oops'));
+    expectAsync(service.getSystems()).toBeRejectedWith(new Error('oops'));
     done();
   });
 
   it('should throw an error if there is an error in gettingGames', async (done) => {
     mockDatabaseService.getItems.and.throwError('oops');
-    expectAsync(gamesService.getGames('')).toBeRejectedWith(new Error('oops'));
+    expectAsync(service.getGames('')).toBeRejectedWith(new Error('oops'));
     done();
   });
 });

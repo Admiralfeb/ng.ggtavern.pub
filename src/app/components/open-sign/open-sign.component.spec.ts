@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OpenSignComponent } from './open-sign.component';
-import { SharedModule } from '@shared/shared-module.module';
+import { SharedModule } from '@shared/shared.module';
 
 describe('OpenSignComponent', () => {
   let component: OpenSignComponent;
