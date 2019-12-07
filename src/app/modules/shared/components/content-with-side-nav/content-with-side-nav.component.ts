@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, HostListener, ViewChild } from '@angular/core';
-import { NavigationModel } from '../../models/navigationModel';
+import { NavigationModel } from '../../navigation.model';
 
 @Component({
   selector: 'content-with-side-nav',

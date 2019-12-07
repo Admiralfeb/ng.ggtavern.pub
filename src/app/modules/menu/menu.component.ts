@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationModel } from '@shared/models/navigationModel';
+import { NavigationModel } from '@shared/navigation.model';
 import { Title } from '@angular/platform-browser';
 
 @Component({
