@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { By } from '@angular/platform-browser';
 
-import { SharedModule } from '@shared/shared-module.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { HoursDialogComponent } from './hours-dialog.component';
 
