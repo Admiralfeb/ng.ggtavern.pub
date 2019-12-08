@@ -13,7 +13,7 @@ const TEST_DIRECTIVES = [
   NoopComponent
 ];
 
-fdescribe('MessageDialogComponent', () => {
+describe('MessageDialogComponent', () => {
   let dialog: MatDialog;
   let overlayContainerElement: HTMLElement;
   let noop: ComponentFixture<NoopComponent>;
