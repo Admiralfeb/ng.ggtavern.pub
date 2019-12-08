@@ -1,17 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-export interface MessageDialogData {
-  title?: string;
-  message: string;
-  type: MessageType;
-}
-
-export enum MessageType {
-  error,
-  warning,
-  information,
-}
+import { MessageDialogData, MessageType } from './message-dialog.model';
 
 @Component({
   selector: 'message-dialog',
@@ -27,7 +16,7 @@ export class MessageDialogComponent {
   private messageIconsMap = [
     { type: MessageType.error, icon: 'error_outline', class: 'error' },
     { type: MessageType.warning, icon: 'warning', class: 'warning' },
-    { type: MessageType.information, icon: '', class: '' }
+    { type: MessageType.information, icon: '', class: 'information' }
   ];
 
   constructor(
@@ -41,9 +30,5 @@ export class MessageDialogComponent {
     const mapping = this.messageIconsMap.find(x => x.type === this.type);
     this.icon = mapping.icon;
     this.class = mapping.class;
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }
