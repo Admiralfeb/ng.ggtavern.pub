@@ -16,7 +16,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run Unit Tests
-        run: npm run test-firefox-ci
+        run: npm run test:ci-firefox
         env:
           CI: true
       - name: Upload CodeCoverage
@@ -39,7 +39,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run e2e Tests
-        run: npm run e2e-firefox-ci
+        run: npm run e2e:ci-firefox
 
   lint:
     name: Lint

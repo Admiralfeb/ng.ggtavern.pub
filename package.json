@@ -8,16 +8,21 @@
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build --prod --aot",
     "test": "ng test --code-coverage",
+    "test:chrome": "ng test --browsers=Chrome --code-coverage",
+    "test:firefox": "ng test --browsers=Firefox --code-coverage",
     "test:ci-chrome": "ng test --no-watch --no-progress --browsers=ChromeHeadless --code-coverage",
     "test:ci-firefox": "ng test --no-watch --no-progress --browsers=FirefoxHeadless --code-coverage",
     "report-coverage": "codecov -f coverage/*.json",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "pree2e": "npm explore protractor -- node ./node_modules/webdriver-manager update",
+    "e2e": "ng e2e",
+    "e2e:chrome": "ng e2e --protractor-config=e2e/chrome.protractor.conf.js",
+    "pree2e:firefox": "npm explore protractor -- node ./node_modules/webdriver-manager update",
+    "e2e:firefox": "ng e2e --protractor-config=e2e/firefox.protractor.conf.js",
     "e2e:ci-chrome": "ng e2e --protractor-config=e2e/ci-chrome.protractor.conf.js",
     "pree2e:ci-firefox": "npm explore protractor -- node ./node_modules/webdriver-manager update",
     "e2e:ci-firefox": "ng e2e --protractor-config=e2e/ci-firefox.protractor.conf.js",
-    "deploy": "ng run ggtavern:deploy"
+    "deploy": "firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
