@@ -10,7 +10,7 @@ jobs:
       matrix:
         # Chrome removed due to issues launching in the pipeline environment
         # browser: ["chrome", "firefox"]
-        browser: [firefox"]
+        browser: ["firefox"]
 
     steps:
       - uses: actions/checkout@v1
