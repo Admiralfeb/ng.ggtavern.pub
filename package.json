@@ -47,7 +47,7 @@
     "@types/jasmine": "3.5.0",
     "@types/jasminewd2": "2.0.8",
     "@types/moment-timezone": "0.5.12",
-    "@types/node": "12.12.15",
+    "@types/node": "12.12.16",
     "codecov": "3.6.1",
     "codelyzer": "5.2.0",
     "dotenv": "8.2.0",
