@@ -24,4 +24,32 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggleNavMenu class', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const navbar = compiled.querySelector('#app-navbar') as HTMLElement;
+
+    expect(navbar.className).toBe('navbar');
+    component.toggleNavMenu();
+    fixture.detectChanges();
+
+    expect(navbar.className).toBe('navbar responsive');
+
+    component.toggleNavMenu();
+    fixture.detectChanges();
+    expect(navbar.className).toBe('navbar');
+  });
+
+
+  it('should apply navbar class when hideNavMenu is called', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const navbar = compiled.querySelector('#app-navbar') as HTMLElement;
+    navbar.className = 'somethingelse';
+    fixture.detectChanges();
+    expect(navbar.className).toBe('somethingelse');
+    component.hideNavMenu();
+    fixture.detectChanges();
+    expect(navbar.className).toBe('navbar');
+  });
+
 });
