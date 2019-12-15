@@ -3,6 +3,9 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MessageDialogComponent, MessageDialogData, MessageType } from '@shared/components';
 import { ComponentType } from '@angular/cdk/portal';
 
+/**
+ * This service creates and displays dialogs.
+ */
 @Injectable({
   providedIn: 'root'
 })

@@ -1,14 +1,23 @@
 import { GamesService } from './games.service';
 import { GameSystem } from '../models/model';
 import { DatabaseService } from '@core/services/database.service';
+import { TestBed } from '@angular/core/testing';
+import { SortService } from '@core/services/sort.service';
 
 describe('GamesService', () => {
   let service: GamesService;
 
-  const mockDatabaseService = jasmine.createSpyObj<DatabaseService>('DatabaseService', ['getItems', 'sortItems']);
+  const mockDatabaseService = jasmine.createSpyObj<DatabaseService>(['getItems']);
 
   beforeEach(() => {
-    service = new GamesService(mockDatabaseService);
+    TestBed.configureTestingModule({
+      providers: [
+        GamesService,
+        { provide: DatabaseService, useValue: mockDatabaseService },
+        SortService
+      ]
+    });
+    service = TestBed.get(GamesService);
   });
 
   afterEach(() => {

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { DatabaseService } from '@core/services/database.service';
 import { MenuItem } from '../models/menuitem.model';
+import { SortService } from '@core/services/sort.service';
 
 @Injectable()
 export class MenuService {
 
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService, private sort: SortService) { }
 
   /**
    * Retrieves menuItems from the database
@@ -29,7 +30,7 @@ export class MenuService {
    * @param sortField field to sort by
    */
   sortItems<T extends MenuItem, P extends keyof T>(items: T[], sortField: P): T[] {
-    let sortedItems = this.db.sortItems<T, P>(items, sortField);
+    let sortedItems = this.sort.sortItems<T, P>(items, sortField);
     if (sortedItems && sortedItems.length > 0) {
       if (sortedItems[0].hasOwnProperty('price')) {
         sortedItems = this.movePriciestIteminList(sortedItems);

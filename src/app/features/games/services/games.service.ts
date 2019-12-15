@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { DatabaseService } from '@core/services/database.service';
 import { GameSystem, Game } from '../models/model';
+import { SortService } from '@core/services/sort.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GamesService {
   private systems: GameSystem[] = [];
 
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService, private sort: SortService) { }
 
   async systemsLoaded(): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
@@ -38,7 +37,7 @@ export class GamesService {
     try {
       let systems = [];
       const itemData = await this.db.getItems<GameSystem>(pathString);
-      systems = this.db.sortItems(itemData, 'system');
+      systems = this.sort.sortItems(itemData, 'system');
       this.systems = systems;
       return systems;
     } catch (err) {
@@ -66,7 +65,7 @@ export class GamesService {
     try {
       let games = [];
       const collection = await this.db.getItems<Game>(pathString);
-      games = this.db.sortItems(collection, 'name');
+      games = this.sort.sortItems(collection, 'name');
 
       this.setGames(system, games);
 
