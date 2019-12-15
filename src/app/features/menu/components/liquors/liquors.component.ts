@@ -37,7 +37,7 @@ export class LiquorsComponent extends BaseMenuComponent implements OnInit {
         this.sortSelect = 'name';
         this.items = this.menuService.sortItems(this.items, 'name');
         break;
-      case 'alcohol':
+      case 'type':
         this.sortSelect = 'type';
         this.items = this.menuService.sortItems(this.items, 'type');
         break;
