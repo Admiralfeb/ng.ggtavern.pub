@@ -5,6 +5,7 @@ import { GameOptionsComponent } from './game-options.component';
 import { SharedModule } from '@shared/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GamesService } from '../../services/games.service';
+import { ErrorNotFoundComponent } from '@shared/components';
 
 describe('GameOptionsComponent (unit)', () => {
   let component: GameOptionsComponent;
@@ -15,17 +16,13 @@ describe('GameOptionsComponent (unit)', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GameOptionsComponent],
-      imports: [SharedModule,
-        RouterTestingModule,
+      imports: [
+        SharedModule,
+        RouterTestingModule.withRoutes([{ path: '404', component: ErrorNotFoundComponent }]),
         BrowserAnimationsModule,
-        // AngularFireModule.initializeApp(environment.firebase),
-        // AngularFirestoreModule,
-        // AngularFireAuthModule
       ],
       providers: [
         { provide: GamesService, useValue: mockService }
-        // GamesService,
-        // AngularFirestore
       ]
     })
       .compileComponents();
