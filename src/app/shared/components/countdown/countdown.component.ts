@@ -12,22 +12,18 @@ export class CountdownComponent implements OnInit, OnDestroy {
   @Output() messageString: string;
   @Output() passed = false;
 
-  private future: Date;
-  private futureString: string;
-  private counter$: Observable<number>;
   private subscription: Subscription;
 
   constructor() { }
 
   ngOnInit() {
-    this.futureString = this.inputDate;
-    this.future = new Date(this.futureString);
-    this.counter$ = interval(1000).pipe(
-      map((x) => {
-        this.passed = (this.future.getTime() < new Date().getTime()) ? true : false;
-        return Math.floor((this.future.getTime() - new Date().getTime()) / 1000);
+    const future = new Date(this.inputDate);
+    const counter$: Observable<number> = interval(1000).pipe(
+      map(_ => {
+        this.passed = (future.getTime() < new Date().getTime()) ? true : false;
+        return Math.floor((future.getTime() - new Date().getTime()) / 1000);
       }));
-    this.subscription = this.counter$.subscribe((x) => {
+    this.subscription = counter$.subscribe((x) => {
       const temp = this.dhms(x);
 
       this.messageString = (temp.search('NaN') === -1) ? temp : `ERR: 'Counter' failed`;
