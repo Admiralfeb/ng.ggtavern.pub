@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from './hours-dialog.model';
 
 @Component({
   selector: 'hours-dialog',
@@ -15,10 +16,6 @@ export class HoursDialogComponent {
     public dialogRef: MatDialogRef<HoursDialogComponent>,
     @Inject(MAT_DIALOG_DATA) dialogData: DialogData[]) {
     this.hours = this.loadHours(dialogData);
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 
   loadHours(data: DialogData[]): DialogData[] {
@@ -44,10 +41,4 @@ export class HoursDialogComponent {
     }
     return time.join(''); // return adjusted time or original string
   }
-}
-
-interface DialogData {
-  name: string;
-  open: string;
-  close: string;
 }

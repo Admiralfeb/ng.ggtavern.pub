@@ -1,0 +1,24 @@
+<div class="radiogroup">
+    <div class="radioLabel">Sort A>Z based upon the following:</div>
+    <mat-radio-group (change)="onSortChange($event)" [value]="sortSelect">
+        <mat-radio-button value="name">Name</mat-radio-button>
+        <mat-radio-button value="type">Alcohol Type</mat-radio-button>
+    </mat-radio-group>
+</div>
+<div class="list">
+    <mat-card *ngFor="let item of items" class="menuoption">
+        <ng-container *ngIf="sortSelect==='name'; else typeTemplate">
+            <mat-card-title>{{item.name | titlecase}} <ng-container *ngIf="item.type">- {{item.type | titlecase}}
+                </ng-container>
+            </mat-card-title>
+        </ng-container>
+        <ng-template #typeTemplate>
+            <mat-card-title>
+                <ng-container *ngIf="item.type">{{item.type|titlecase}} -</ng-container> {{item.name|titlecase}}
+            </mat-card-title>
+        </ng-template>
+        <mat-card-subtitle>
+            {{item.ABV}} <ng-container *ngIf="item.description">- {{item.description}}</ng-container>
+        </mat-card-subtitle>
+    </mat-card>
+</div>

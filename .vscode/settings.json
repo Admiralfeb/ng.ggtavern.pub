@@ -29,6 +29,16 @@
       "extensions": ["component.scss"],
       "format": "svg",
       "disabled": true
+    },
+    {
+      "icon": "protractor",
+      "extensions": [
+        "protractor.conf.js",
+        "protractor.conf.coffee",
+        "protractor.conf.ts"
+      ],
+      "format": "svg",
+      "disabled": false
     }
   ],
   "vsicons.associations.folders": [

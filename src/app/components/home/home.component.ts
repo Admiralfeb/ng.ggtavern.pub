@@ -24,10 +24,17 @@ export class HomeComponent implements OnInit {
     this.setTitle();
   }
 
+  /**
+   * Sets the webpage title.
+   */
   private setTitle() {
     this.titleService.setTitle(this.title);
   }
 
+  /**
+   * Triggers a navigation to the link aligned to the button in offerings object
+   * @param id id of the button clicked
+   */
   navClick(id: string): void {
     const link = this.offerings.find(x => x.id === id).link;
     this.router.navigate([link]);
