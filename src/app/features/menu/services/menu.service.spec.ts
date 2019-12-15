@@ -1,5 +1,5 @@
 import { MenuService } from './menu.service';
-import { MiscFoodItem } from '../models';
+import { MiscFoodItem, MenuItem } from '../models';
 import { DatabaseService } from '@core/services/database.service';
 import { TestBed } from '@angular/core/testing';
 import { SortService } from '@core/services/sort.service';
@@ -45,5 +45,26 @@ describe('MenuService', () => {
     expect(returnValue.length).toBe(0);
     done();
   });
+
+  it('should move the priciest item', async () => {
+    const testItems: MenuItem[] = [
+      { name: 'a', price: '5.00' },
+      { name: 'b', price: '6.00' },
+      { name: 'c', price: '9.00' },
+      { name: 'd', price: '10.00' },
+    ];
+    const expectedItems: MenuItem[] = [
+      { name: 'd', price: '10.00' },
+      { name: 'a', price: '5.00' },
+      { name: 'b', price: '6.00' },
+      { name: 'c', price: '9.00' },
+    ];
+    databaseServiceSpy.getItems.and.returnValue(Promise.resolve<MenuItem[]>(testItems));
+
+    const items = await service.getMenuItems('item');
+
+    expect(items).toEqual(expectedItems);
+  });
+
 
 });
