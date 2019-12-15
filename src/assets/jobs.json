@@ -7,7 +7,7 @@
                 "name": "Jen and Pat",
                 "quote": "Marshmallows have no bones",
                 "info": "",
-                "imgPath": ""
+                "imgPath": "https://ggtavern.pub/hello.png"
             }
         ]
     },
@@ -70,5 +70,9 @@
                 "imgPath": ""
             }
         ]
+    },
+    "random": {
+        "name": "this won't make it in a test",
+        "order": 99
     }
 }
