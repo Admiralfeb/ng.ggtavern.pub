@@ -6,6 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 
 import { GamesComponent } from './games.component';
 import { GameOptionsComponent, MainComponent } from './components';
+import { GamesService } from './services/games.service';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { GameOptionsComponent, MainComponent } from './components';
   imports: [
     GamesRoutingModule,
     SharedModule,
-  ]
+  ],
+  providers: [GamesService]
 })
 export class GamesModule { }

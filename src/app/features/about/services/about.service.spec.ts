@@ -119,7 +119,7 @@ describe('AboutService', () => {
         if (worker.imgPath) {
           worker.imgUrl = sanitizer.bypassSecurityTrustUrl(worker.imgPath);
         } else {
-          worker.imgUrl = sanitizer.bypassSecurityTrustUrl('@assets/img/android-chrome-512x512.png');
+          worker.imgUrl = sanitizer.bypassSecurityTrustUrl('assets/img/android-chrome-512x512.png');
         }
         return worker;
       });

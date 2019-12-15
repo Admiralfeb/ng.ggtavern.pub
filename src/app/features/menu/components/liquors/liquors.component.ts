@@ -24,6 +24,7 @@ export class LiquorsComponent extends BaseMenuComponent implements OnInit {
 
   async getItems() {
     this.items = await this.getMenuItems(this.itemType);
+    this.sortLiquors(this.sortSelect);
   }
 
   onSortChange(event: MatRadioChange) {

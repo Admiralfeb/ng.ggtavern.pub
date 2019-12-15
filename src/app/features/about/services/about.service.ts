@@ -23,7 +23,7 @@ export class AboutService {
             if (worker.imgPath) {
               worker.imgUrl = this.getImageUrl(worker.imgPath);
             } else {
-              worker.imgUrl = this.getImageUrl('@assets/img/android-chrome-512x512.png');
+              worker.imgUrl = this.getImageUrl('assets/img/android-chrome-512x512.png');
             }
             return worker;
           });
