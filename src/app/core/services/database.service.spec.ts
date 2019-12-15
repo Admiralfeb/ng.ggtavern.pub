@@ -14,27 +14,11 @@ describe('DatabaseService', () => {
         { provide: AngularFirestore, useValue: {} },
       ]
     });
-    service = TestBed.get(DatabaseService);
   });
 
   it('should be created', () => {
+    service = TestBed.get(DatabaseService);
     expect(service).toBeTruthy();
-  });
-
-
-
-});
-
-describe('DatabaseService calls to FireStore', () => {
-  let service: DatabaseService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        { provide: AngularFirestore, useValue: {} },
-      ]
-    });
-    // service = TestBed.get(DatabaseService);
   });
 
   it('should get an empty array when collection is empty', async () => {
