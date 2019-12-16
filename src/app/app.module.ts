@@ -14,7 +14,6 @@ import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 
 import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { OpenSignComponent } from './components/open-sign/open-sign.component';
 import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.component';
 
@@ -23,7 +22,6 @@ import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.com
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent,
     OpenSignComponent,
     HoursDialogComponent,
   ],
