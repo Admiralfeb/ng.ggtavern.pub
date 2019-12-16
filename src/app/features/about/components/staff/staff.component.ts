@@ -3,11 +3,11 @@ import { AboutService } from '../../services/about.service';
 import { Position } from '../../about.models';
 
 @Component({
-  selector: 'about-main',
-  templateUrl: './about-main.component.html',
-  styleUrls: ['./about-main.component.scss']
+  selector: 'about-staff',
+  templateUrl: './staff.component.html',
+  styleUrls: ['./staff.component.scss']
 })
-export class AboutMainComponent implements OnInit {
+export class StaffComponent implements OnInit {
   positions: Position[] = [];
 
   constructor(private aboutService: AboutService) { }

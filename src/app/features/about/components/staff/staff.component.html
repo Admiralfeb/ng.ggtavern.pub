@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Staff</h1>
+    <div class="positions" *ngFor="let position of positions">
+        <h2 class="position-header old-style">{{position.name}}</h2>
+        <div class="workers" *ngFor="let worker of position.workers">
+            <img class="workerImage" [src]="worker.imgUrl">
+            <div class="workerInfo">
+                <h3>{{worker.name}}</h3>
+                <p class="workerQuote" *ngIf="worker.quote">{{worker.quote}}</p>
+                <p class="workerInfo" *ngIf="worker.info">{{worker.info}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,18 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AboutMainComponent } from './about-main.component';
+import { StaffComponent } from './staff.component';
 import { SharedModule } from '@shared/shared.module';
 import { AboutService } from '../../services/about.service';
 
-describe('AboutMainComponent', () => {
-  let component: AboutMainComponent;
-  let fixture: ComponentFixture<AboutMainComponent>;
+describe('StaffComponent', () => {
+  let component: StaffComponent;
+  let fixture: ComponentFixture<StaffComponent>;
 
   beforeEach(async(() => {
     const aboutServiceStub = jasmine.createSpyObj<AboutService>('AboutService', ['getPositions']);
 
     TestBed.configureTestingModule({
-      declarations: [AboutMainComponent],
+      declarations: [StaffComponent],
       imports: [SharedModule],
       providers: [
         { provide: AboutService, useValue: aboutServiceStub }
@@ -22,7 +22,7 @@ describe('AboutMainComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AboutMainComponent);
+    fixture = TestBed.createComponent(StaffComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
