@@ -20,4 +20,13 @@ export class CalendarComponent implements OnInit {
   ngOnInit() {
   }
 
+  openModal(): void {
+    const modal = document.getElementsByTagName('img-modal')[0] as HTMLElement;
+    modal.className = '';
+  }
+
+  closeModal(): void {
+    const modal = document.getElementsByTagName('img-modal')[0] as HTMLElement;
+    modal.className = 'hidden';
+  }
 }

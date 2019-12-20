@@ -1,12 +1,35 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+img {
+  width: 1000px;
+}
+img-modal.hidden {
+  display: none;
+}
+img-modal {
+  display: block;
 }
 
-.daysofWeek {
-  align-self: center;
-  text-align: center;
-  padding: 1px auto;
-  border-top: 5px solid white;
-  border-bottom: 5px solid white;
+@media screen and (max-width: 600px) {
+  img {
+    width: 550px;
+  }
+}
+@media screen and (max-width: 500px) {
+  img {
+    width: 450px;
+  }
+}
+@media screen and (max-width: 400px) {
+  img {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 300px) {
+  img {
+    width: 250px;
+  }
 }
