@@ -1,5 +1,25 @@
 <div class="container">
-    <img (click)="openModal()"
-        src="https://firebasestorage.googleapis.com/v0/b/gg-tavern.appspot.com/o/public%2Fcalendar%2FGG%20December.jpg?alt=media&token=2d2e5366-88c5-4b6f-adbc-97ed48ec0a84"
-        alt="calendar">
+    <h1 class="old-style">{{calendarName}}</h1>
+
+    <ng-scrollbar class="scroll">
+        <div class="grid" *ngIf="!mobile;else mobileTemplate">
+            <div class="daysofWeek old-style" *ngFor="let day of weekdays">
+                {{day}}
+            </div>
+            <ng-container *ngFor="let calendarEvent of calendarEvents; first as isFirst">
+                <calendar-day [style.grid-column-start]="isFirst ? startDay: ''" class="calendar-day"
+                    [event]="calendarEvent"></calendar-day>
+            </ng-container>
+        </div>
+    </ng-scrollbar>
+    <ng-template #mobileTemplate>
+        <div class="grid-mobile">
+            <ng-container *ngFor="let calendarEvent of calendarEvents; first as isFirst">
+                <div class="old-style mobile-daysofWeek mobile-row">
+                    {{ weekdaysMobile[getDay(calendarEvent.year,calendarEvent.month,calendarEvent.day)]}}</div>
+                <calendar-day class="mobile-day mobile-row" [event]="calendarEvent"></calendar-day>
+            </ng-container>
+        </div>
+    </ng-template>
+
 </div>
