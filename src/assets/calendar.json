@@ -1,83 +1,107 @@
 {
-    "2019/9 ": {
-        "name": "September 2019",
-        "month": 9,
+    "Sept2019": {
+        "name": "December 2019",
+        "month": 12,
         "year": 2019,
         "weeklies": [
             {
                 "day": 0,
-                "event": "$1 VR and $2 Domestics",
-                "img": ""
+                "eventName": "$1 VR and $2 Domestics",
+                "imgString": ""
             },
             {
                 "day": 1,
-                "event": "Closed",
-                "img": ""
+                "eventName": "Closed for Private Party",
+                "imgString": ""
             },
             {
                 "day": 2,
-                "event": "D&D",
-                "img": ""
+                "eventName": "D&D",
+                "imgString": ""
             },
             {
                 "day": 3,
-                "event": "D&D",
-                "img": ""
+                "eventName": "D&D",
+                "imgString": ""
             },
             {
                 "day": 4,
-                "event": "Critical Roll Stream",
-                "img": ""
+                "eventName": "Critical Roll Stream",
+                "imgString": ""
             }
         ],
         "events": [
             {
-                "day": 6,
-                "event": "Overwatch",
+                "day": 5,
+                "eventName": "Hunt a Killer",
                 "time": "",
-                "img": ""
+                "imgString": ""
+            },
+            {
+                "day": 12,
+                "eventName": "Mini Painting",
+                "time": "",
+                "imgString": ""
             },
             {
                 "day": 13,
-                "event": "Vodka Tasting",
-                "time": "20:00",
-                "img": ""
-            },
-            {
-                "day": 14,
-                "event": "Learn to Play",
-                "time": "20:00",
-                "img": ""
+                "eventName": "Witchmas Party",
+                "time": "",
+                "imgString": ""
             },
             {
                 "day": 19,
-                "event": "$2 off all Rum if you talk like a pirate",
+                "eventName": "Hunt a Killer",
                 "time": "",
-                "img": ""
+                "imgString": ""
             },
             {
                 "day": 20,
-                "event": "Pirate Cocktail Tasting",
-                "time": "20:00",
-                "img": ""
+                "eventName": "Super Smash Bros Ultimate Tournament",
+                "time": "7pm",
+                "imgString": ""
             },
             {
                 "day": 21,
-                "event": "Learn to Play: The Resistance",
-                "time": "20:00",
-                "img": ""
+                "eventName": "Onesie Party",
+                "time": "",
+                "imgString": ""
+            },
+            {
+                "day": 24,
+                "eventName": "Closed for the Holidays",
+                "time": "",
+                "imgString": ""
+            },
+            {
+                "day": 25,
+                "eventName": "Closed for the Holidays",
+                "time": "",
+                "imgString": ""
+            },
+            {
+                "day": 26,
+                "eventName": "Closed for the Holidays",
+                "time": "",
+                "imgString": ""
             },
             {
                 "day": 27,
-                "event": "Pumpkin Beer Tasting",
+                "eventName": "Champagne Tasting",
                 "time": "20:00",
-                "img": ""
+                "imgString": ""
             },
             {
                 "day": 28,
-                "event": "Super Smash Bros Ultimate Tournament",
-                "time": "20:00",
-                "img": ""
+                "eventName": "Stan Lee's Birthday - Marvel Movie Marathon!",
+                "time": "",
+                "imgString": ""
+            },
+            {
+                "day": 31,
+                "eventName": "Goblin New Years!",
+                "time": "5pm - 1am",
+                "imgString": ""
             }
         ]
     }
