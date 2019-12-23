@@ -1,0 +1,20 @@
+<mat-accordion>
+    <ng-container *ngFor="let item of items">
+        <mat-expansion-panel class="menuoption">
+            <mat-expansion-panel-header>
+                <mat-panel-title>{{item.name}}</mat-panel-title>
+                <mat-panel-description>
+                    {{item.price | currency:'USD' }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+                <div>
+                    <p *ngIf="item.types">Choice of: {{item.types}}</p>
+                    <p>{{item.description}}</p>
+                    <p>{{item.note}}</p>
+                    <p *ngIf="item.includesFries">Includes your choice of sweet potato or regular fries</p>
+                </div>
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </ng-container>
+</mat-accordion>

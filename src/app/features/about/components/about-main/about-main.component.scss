@@ -1,0 +1,30 @@
+h1 {
+  text-align: center;
+}
+// .positions {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+// }
+.position-header {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  margin: 5px auto;
+  border-bottom: 5px solid white;
+}
+.container {
+  height: 80%;
+}
+.workers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.workerImage {
+  width: 400px;
+  margin-bottom: 10px;
+}
+.workerInfo {
+  margin-bottom: 10px;
+}
+.workerQuote {
+  font-style: italic;
+}

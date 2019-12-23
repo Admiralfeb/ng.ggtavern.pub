@@ -6,6 +6,11 @@ jobs:
   test-spec:
     name: Unit Tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Chrome removed due to issues launching in the pipeline environment
+        # browser: ["chrome", "firefox"]
+        browser: ["firefox"]
 
     steps:
       - uses: actions/checkout@v1
@@ -16,7 +21,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run Unit Tests
-        run: npm run test-firefox-ci
+        run: npm run test:ci-${{ matrix.browser }}
         env:
           CI: true
       - name: Upload CodeCoverage
@@ -29,6 +34,9 @@ jobs:
   test-e2e:
     name: e2e Tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: ["firefox"]
 
     steps:
       - uses: actions/checkout@v1
@@ -39,7 +47,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run e2e Tests
-        run: npm run e2e-firefox-ci
+        run: npm run e2e:ci-${{ matrix.browser }}
 
   lint:
     name: Lint

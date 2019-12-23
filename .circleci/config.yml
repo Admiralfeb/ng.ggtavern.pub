@@ -10,7 +10,7 @@ jobs:
           command: npm ci
       - run:
           name: Run Unit Tests
-          command: npm run test-firefox-ci
+          command: npm run test:ci-firefox
       - store_test_results:
           path: tests
   test-e2e:
@@ -23,7 +23,7 @@ jobs:
           command: npm ci
       - run:
           name: Run e2e Tests
-          command: npm run e2e-firefox-ci
+          command: npm run e2e:ci-firefox
       - store_test_results:
           path: tests
   lint:

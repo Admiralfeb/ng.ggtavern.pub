@@ -1,0 +1,52 @@
+{
+  "vsicons.associations.files": [
+    {
+      "icon": "ng_component_html",
+      "extensions": ["component.html", "component.htm"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_css",
+      "extensions": ["component.css"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_less",
+      "extensions": ["component.less"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_sass",
+      "extensions": ["component.sass"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "ng_component_scss",
+      "extensions": ["component.scss"],
+      "format": "svg",
+      "disabled": true
+    },
+    {
+      "icon": "protractor",
+      "extensions": [
+        "protractor.conf.js",
+        "protractor.conf.coffee",
+        "protractor.conf.ts"
+      ],
+      "format": "svg",
+      "disabled": false
+    }
+  ],
+  "vsicons.associations.folders": [
+    {
+      "icon": "module",
+      "extensions": ["modules", "features"],
+      "format": "svg",
+      "disabled": false
+    }
+  ]
+}
