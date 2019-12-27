@@ -58,7 +58,7 @@ ng-scrollbar {
 }
 
 // For Mobile devices
-@media (max-width: 768px) {
+@media (max-width: $mobile-size) {
   .doorway {
     display: none;
   }

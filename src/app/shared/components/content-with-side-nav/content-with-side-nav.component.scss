@@ -39,11 +39,8 @@ a.navItem {
   margin-right: 10px;
   height: 80%;
 }
-ng-scrollbar {
-  --scrollbar-thumb-color: #{mat-color($primary)};
-}
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: $mobile-size) {
   /* Mobile */
   #navBurger {
     display: block;
@@ -111,7 +108,7 @@ ng-scrollbar {
   }
 
   /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-  @media screen and (max-height: 450px) {
+  @media screen and (max-height: $mobile-size) {
     .overlay a {
       font-size: 20px;
     }
