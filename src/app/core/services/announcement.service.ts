@@ -23,7 +23,12 @@ export class AnnouncementService {
       return this.announcements;
     } else {
       try {
-        this.announcements = await this.db.getItemswithID<Announcement>('announcement');
+        const ments = await this.db.getItemswithID<Announcement>('announcement');
+        this.announcements = ments.map(x => {
+          x.expiryDate = moment(x.expiry);
+          return x;
+        });
+
         this.hasBannerBeenDisplayed = false;
         return this.announcements;
       } catch (err) {
@@ -42,8 +47,9 @@ export class AnnouncementService {
     await this.getAnnouncements();
     const ments = this.announcements.filter(x => x.id === 'banner');
     if (ments.length > 0) {
-      const expiry = moment(ments[0].expiry);
-      const isExpired = expiry.isAfter(moment.now());
+      const expiry = ments[0].expiryDate;
+      const now = moment();
+      const isExpired = expiry.isBefore(now);
       if (!isExpired) {
         this.hasBannerBeenDisplayed = true;
         const config = new MatSnackBarConfig();
