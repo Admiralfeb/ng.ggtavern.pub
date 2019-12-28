@@ -5,16 +5,18 @@ import { SharedModule } from '@shared/shared.module';
 import { CalendarRoutingModule } from './calendar.routing';
 import { DateService } from './services';
 import { CalendarComponent } from './components/calendar/calendar.component';
-import { EventComponent } from './components/event/event.component';
+import { CalendarService } from './services/calendar.service';
+import { DayComponent } from './components/day/day.component';
 
 @NgModule({
-  declarations: [CalendarComponent, EventComponent],
+  declarations: [CalendarComponent, DayComponent],
   imports: [
     CalendarRoutingModule,
     SharedModule,
   ],
   providers: [
-    DateService
+    DateService,
+    CalendarService,
   ]
 })
 export class CalendarModule { }

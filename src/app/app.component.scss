@@ -1,0 +1,11 @@
+.root-app {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+.routed {
+  flex: 1;
+}
+.scrollable {
+  height: 90%;
+}

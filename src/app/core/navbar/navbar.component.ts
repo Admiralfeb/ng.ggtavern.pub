@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnnouncementService } from '@core/services/announcement.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private announcements: AnnouncementService) { }
 
   ngOnInit() {
+    this.announcements.displayBannerAnnouncement();
   }
 
   toggleNavMenu() {
@@ -24,6 +26,5 @@ export class NavbarComponent implements OnInit {
   hideNavMenu() {
     const navbar = document.getElementById('app-navbar');
     navbar.className = 'navbar';
-
   }
 }
