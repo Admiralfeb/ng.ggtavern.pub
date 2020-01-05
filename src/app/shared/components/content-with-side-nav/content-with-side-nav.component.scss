@@ -1,20 +1,18 @@
 @import "~@angular/material/theming";
 @import "variables";
 
-#navBurger {
-  display: none;
+.container {
+  display: flex;
+  flex-direction: column;
 }
-.block {
-  height: 100%;
-}
-.grid {
+#sideNavandContent {
+  flex-grow: 1;
   display: grid;
   grid-template-columns: minmax(100px, max-content) 1fr;
 }
 
-.sideNav {
-  height: 80%;
-  width: 150px;
+#navBurger {
+  display: none;
 }
 a.active,
 .active {
@@ -30,6 +28,9 @@ button:hover,
 }
 mat-nav-list {
   margin: 5px 10px;
+  padding-right: 5px;
+  border-right: 3px double mat-color($accent);
+  border-bottom: 3px double mat-color($accent);
 }
 a.navItem {
   border-radius: 10px;
@@ -37,7 +38,7 @@ a.navItem {
 }
 .content {
   margin-right: 10px;
-  height: 80%;
+  overflow-y: auto;
 }
 
 @media only screen and (max-width: $mobile-size) {
@@ -55,12 +56,10 @@ a.navItem {
     grid-template-columns: 1fr;
   }
   .sideNav {
-    height: 80%;
     width: 100%;
   }
   /* The Overlay (background) */
   .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 100%;
     width: 0;
     position: fixed; /* Stay in place */
@@ -108,7 +107,7 @@ a.navItem {
   }
 
   /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-  @media screen and (max-height: $mobile-size) {
+  @media screen and (max-height: 450px) {
     .overlay a {
       font-size: 20px;
     }

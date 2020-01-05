@@ -1,31 +1,29 @@
-<div class="container">
-    <div>
-        <div class="old-style title">
-            <h1>{{ title }}</h1>
+<div class="container" cdkScrollable>
+    <div class="old-style title">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="doorway old-style">
+        <open-sign class="opensign"></open-sign>
+        <ng-container *ngFor="let offer of offerings">
+            <a mat-stroked-button [id]="offer.id" class="griditem old-style"
+                (click)="navClick(offer.id)">{{offer.text}}</a>
+        </ng-container>
+        <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
+        <div class="logo griditem">
+            <h3>Countdown to New Years!</h3>
+            <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
         </div>
-        <div class="doorway old-style">
-            <open-sign class="opensign"></open-sign>
-            <ng-container *ngFor="let offer of offerings">
-                <a mat-stroked-button [id]="offer.id" class="griditem old-style"
-                    (click)="navClick(offer.id)">{{offer.text}}</a>
-            </ng-container>
-            <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
-            <div class="logo griditem">
-                <h3>Countdown to New Years!</h3>
-                <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
-            </div>
+    </div>
+    <div class="mobile">
+        <open-sign class="opensign old-style griditem"></open-sign>
+        <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
+        <div class="logo griditem old-style">
+            <h3>Countdown to New Years!</h3>
+            <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
         </div>
-        <div class="mobile">
-            <open-sign class="opensign old-style griditem"></open-sign>
-            <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
-            <div class="logo griditem old-style">
-                <h3>Countdown to New Years!</h3>
-                <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
-            </div>
-            <ng-container *ngFor="let offer of offerings">
-                <a mat-raised-button color="primary" [id]="offer.id" class="griditem old-style"
-                    (click)="navClick(offer.id)">{{offer.text}}</a>
-            </ng-container>
-        </div>
+        <ng-container *ngFor="let offer of offerings">
+            <a mat-raised-button color="primary" [id]="offer.id" class="griditem old-style"
+                (click)="navClick(offer.id)">{{offer.text}}</a>
+        </ng-container>
     </div>
 </div>

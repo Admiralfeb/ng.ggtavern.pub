@@ -1,11 +1,13 @@
-.root-app {
+#root {
+  height: 100vh;
   display: flex;
-  flex-flow: column;
-  height: 100%;
+  flex-direction: column;
 }
-.routed {
-  flex: 1;
-}
-.scrollable {
-  height: 90%;
+#root-content {
+  overflow-y: auto;
+  flex-grow: 1;
+
+  > router-outlet + * {
+    flex-grow: 1;
+  }
 }

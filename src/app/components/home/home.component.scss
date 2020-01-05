@@ -48,7 +48,6 @@ img.logo {
   opacity: 0.5;
   z-index: -1;
 }
-
 .griditem {
   justify-self: center;
   margin: auto 1px;
@@ -57,7 +56,7 @@ img.logo {
   display: none;
 }
 .container {
-  height: 100%;
+  overflow-y: auto;
 }
 
 // For Mobile devices
