@@ -9,18 +9,18 @@
                 <a mat-stroked-button [id]="offer.id" class="griditem old-style"
                     (click)="navClick(offer.id)">{{offer.text}}</a>
             </ng-container>
-            <!-- <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" /> -->
+            <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
             <div class="logo griditem">
-                <p>See our new commercial!</p>
-                <video-youtube src="https://www.youtube.com/embed/_7CRqZ7pbi0"></video-youtube>
+                <h3>Countdown to New Years!</h3>
+                <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
             </div>
         </div>
         <div class="mobile">
             <open-sign class="opensign old-style griditem"></open-sign>
-            <!-- <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" /> -->
-            <div class="logo griditem">
-                <p>See our new commercial!</p>
-                <video-youtube src="https://www.youtube.com/embed/_7CRqZ7pbi0"></video-youtube>
+            <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
+            <div class="logo griditem old-style">
+                <h3>Countdown to New Years!</h3>
+                <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
             </div>
             <ng-container *ngFor="let offer of offerings">
                 <a mat-raised-button color="primary" [id]="offer.id" class="griditem old-style"
