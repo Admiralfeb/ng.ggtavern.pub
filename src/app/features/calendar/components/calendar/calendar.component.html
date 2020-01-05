@@ -1,17 +1,17 @@
 <div class="container">
     <h1 class="old-style">{{calendarName}}</h1>
 
-    <ng-scrollbar class="scroll">
-        <div class="grid" *ngIf="!mobile;else mobileTemplate">
-            <div class="daysofWeek old-style" *ngFor="let day of weekdays">
-                {{day}}
-            </div>
-            <ng-container *ngFor="let calendarEvent of calendarEvents; first as isFirst">
-                <calendar-day [style.grid-column-start]="isFirst ? startDay: ''" class="calendar-day"
-                    [event]="calendarEvent"></calendar-day>
-            </ng-container>
+    <!-- <ng-scrollbar class="scroll"> -->
+    <div class="grid" *ngIf="!mobile;else mobileTemplate">
+        <div class="daysofWeek old-style" *ngFor="let day of weekdays">
+            {{day}}
         </div>
-    </ng-scrollbar>
+        <ng-container *ngFor="let calendarEvent of calendarEvents; first as isFirst">
+            <calendar-day [style.grid-column-start]="isFirst ? startDay: ''" class="calendar-day"
+                [event]="calendarEvent"></calendar-day>
+        </ng-container>
+    </div>
+    <!-- </ng-scrollbar> -->
     <ng-template #mobileTemplate>
         <div class="grid-mobile">
             <ng-container *ngFor="let calendarEvent of calendarEvents; first as isFirst">
