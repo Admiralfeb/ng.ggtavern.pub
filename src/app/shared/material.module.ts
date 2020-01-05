@@ -18,7 +18,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 
-import { NgScrollbarModule } from 'ngx-scrollbar';
 
 @NgModule({
   imports: [
@@ -42,7 +41,6 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    NgScrollbarModule,
   ]
 })
 export class MaterialModule { }

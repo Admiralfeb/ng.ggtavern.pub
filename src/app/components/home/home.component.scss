@@ -58,9 +58,6 @@ img.logo {
 .container {
   overflow-y: auto;
 }
-ng-scrollbar {
-  --scrollbar-thumb-color: #{mat-color($primary)};
-}
 
 // For Mobile devices
 @media (max-width: $mobile-size) {
