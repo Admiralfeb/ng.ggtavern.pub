@@ -10,7 +10,7 @@ export class ContentwithSideNavComponent implements OnInit {
   @Input() navheaderText = 'Navigation';
   @Input() navItems: NavigationModel = null;
   @Input() headerText = '';
-  @ViewChild('contentScroll', { static: true }) contentScroll;
+  // @ViewChild('contentScroll', { static: true }) contentScroll;
   burgerTip = 'Show the menu';
   innerWidth = 0;
   minWidth = 768;
@@ -41,8 +41,10 @@ export class ContentwithSideNavComponent implements OnInit {
    * Close side-nav (if mobile) and scroll to the top of the content
    */
   changeContent() {
-    this.closeNav();
-    this.contentScroll.scrollTo({ top: 0, duration: 500 });
+    if (this.mobile) {
+      this.closeNav();
+    }
+    // this.contentScroll.scrollTo({ top: 0, duration: 500 });
   }
 
   /**

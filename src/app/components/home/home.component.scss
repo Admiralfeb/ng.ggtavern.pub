@@ -43,6 +43,11 @@
   grid-row: 2 / span 3;
   //   width: 300px;
 }
+img.logo {
+  width: 300px;
+  opacity: 0.5;
+  z-index: -1;
+}
 .griditem {
   justify-self: center;
   margin: auto 1px;
@@ -51,14 +56,11 @@
   display: none;
 }
 .container {
-  height: 80%;
-}
-ng-scrollbar {
-  --scrollbar-thumb-color: #{mat-color($primary)};
+  overflow-y: auto;
 }
 
 // For Mobile devices
-@media (max-width: 768px) {
+@media (max-width: $mobile-size) {
   .doorway {
     display: none;
   }

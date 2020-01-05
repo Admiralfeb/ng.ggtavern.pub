@@ -1,10 +1,19 @@
 .menuoption {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 .mat-card-title {
-    font-size: 15px;
-    font-weight: 400;
+  font-size: 15px;
+  font-weight: 400;
 }
 mat-card {
-    padding: 16px 24px;
+  padding: 16px 24px;
+}
+
+.right-aligned-header > .mat-content {
+  justify-content: space-between;
+}
+
+.mat-content > mat-panel-title,
+.mat-content > mat-panel-description {
+  flex: 0 0 auto;
 }

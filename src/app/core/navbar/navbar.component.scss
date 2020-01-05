@@ -68,7 +68,7 @@ button:hover {
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the navbar (.mobileButton) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: $mobile-size) {
   // Navbar when not showing items
   .navbar {
     justify-content: space-between;

@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ErrorNotFoundComponent } from '@shared/components';
 import { AboutComponent } from './about.component';
-import { AboutMainComponent } from './components/about-main/about-main.component';
+import { StaffComponent } from './components/staff/staff.component';
 
 const routes: Routes = [
   {
     path: '', component: AboutComponent, children: [
-      { path: 'home', component: AboutMainComponent },
+      { path: 'staff', component: StaffComponent },
       { path: '404', component: ErrorNotFoundComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: '', redirectTo: 'staff', pathMatch: 'full' },
       { path: '**', redirectTo: '404', pathMatch: 'full' }
     ]
   }

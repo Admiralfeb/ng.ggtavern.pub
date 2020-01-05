@@ -2,15 +2,20 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 import { SharedModule } from '@shared/shared.module';
+import { AnnouncementService } from '@core/services/announcement.service';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
+  const announcementServiceSpy = jasmine.createSpyObj<AnnouncementService>(['displayBannerAnnouncement']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
-      imports: [SharedModule]
+      imports: [SharedModule],
+      providers: [
+        { provide: AnnouncementService, useValue: announcementServiceSpy }
+      ]
     })
       .compileComponents();
   }));

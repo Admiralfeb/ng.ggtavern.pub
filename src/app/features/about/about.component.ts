@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationModel } from '@shared/navigation.model';
 
 @Component({
   selector: 'about-component',
-  template: '<router-outlet></router-outlet>'
+  template: `<content-with-side-nav [headerText]="title" [navItems]="navItems"></content-with-side-nav>`
 })
 export class AboutComponent implements OnInit {
-
+  title = 'About Us';
+  navItems: NavigationModel[] = [
+    { text: 'Staff', link: 'staff' },
+  ];
   constructor() { }
 
   ngOnInit() {
