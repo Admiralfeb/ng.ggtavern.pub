@@ -11,9 +11,9 @@ import moment from 'moment-timezone';
 export class AnnouncementService {
   private hasBannerBeenDisplayed = false;
   private announcements: Announcement[];
-  constructor(private db: DatabaseService, private snackbar: MatSnackBar, private dialog: DialogService) {
+  constructor(private db: DatabaseService, private snackbar: MatSnackBar) {
     this.getAnnouncements().then(x => this.announcements = x).catch(e => {
-      this.dialog.showError('There was an error getting the announcements');
+      this.snackbar.open('There was an error getting the announcements', 'ok');
       console.error(e);
     });
   }
