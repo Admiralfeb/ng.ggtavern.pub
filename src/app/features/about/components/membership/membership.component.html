@@ -1,1 +1,16 @@
-<p>membership works!</p>
+<div>
+    <h2 class="center">Memberships</h2>
+    <p>The goblins like the shinies, so for your continued above and beyond patronage ({{ price | currency }}/month),
+        you receive the following!</p>
+    <ul>
+        <li *ngFor="let perk of perks"> {{perk}} </li>
+    </ul>
+    <div class="box-it">
+        <h3 class="center">How it works</h3>
+        <p>All you need to do is ask the bartender to add a membership to your tab. You'll get the perks that day/night!
+        </p>
+        <p>Your membership card is your photo ID. The small barcode on your ID acts as your membership number. We don't
+            keep any other personally identifiable information.</p>
+        <p>You'll need to remind the bartender when you want to use your membership.</p>
+    </div>
+</div>

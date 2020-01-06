@@ -3,18 +3,11 @@
 h1 {
   text-align: center;
 }
-// .positions {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-// }
 .position-header {
   grid-column-start: 1;
   grid-column-end: -1;
   margin: 5px auto;
   border-bottom: 5px solid white;
-}
-.container {
-  height: 80%;
 }
 .workers {
   display: grid;
@@ -23,9 +16,11 @@ h1 {
 .workerImage {
   width: 400px;
   margin-bottom: 10px;
+  margin-right: 5px;
 }
 .workerInfo {
   margin-bottom: 10px;
+  margin-right: 5px;
 }
 .workerQuote {
   font-style: italic;
@@ -34,5 +29,10 @@ h1 {
 @media only screen and (max-width: $mobile-size) {
   .workers {
     grid-template-columns: 1fr;
+    width: 90%;
+    padding-right: 10px;
+  }
+  .workerImage {
+    width: 300px;
   }
 }

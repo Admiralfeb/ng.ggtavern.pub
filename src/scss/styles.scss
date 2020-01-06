@@ -17,6 +17,10 @@ a {
   color: mat-color($primary);
 }
 
+.box-it {
+  padding: 10px;
+  border: 5px double mat-color($accent);
+}
 .old-style {
   font-family: "Press Start 2P", cursive;
 }
