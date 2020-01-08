@@ -37,7 +37,7 @@ export class CalendarComponent implements OnInit {
   async getCalendar() {
     const calendar = await this.calendar.getCalendar();
     this.calendarName = calendar.name;
-    this.startDay = calendar.startDay;
+    this.startDay = calendar.startDay > 0 ? calendar.startDay + 1 : 0;
     this.calendarEvents = calendar.calendarEvents;
   }
 
