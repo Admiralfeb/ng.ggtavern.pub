@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
+import { CountdownModule } from '@bit/admiralfeb.ng-common-components.countdown';
 
 import { HomeComponent } from './components/home/home.component';
 import { OpenSignComponent } from './components/open-sign/open-sign.component';
@@ -34,6 +35,7 @@ import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.com
     AngularFireAuthModule,
     CoreModule,
     SharedModule,
+    CountdownModule,
   ],
   providers: [Title],
   bootstrap: [AppComponent],
