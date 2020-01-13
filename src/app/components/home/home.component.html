@@ -10,16 +10,20 @@
         </ng-container>
         <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
         <div class="logo griditem">
-            <h3>Countdown to New Years!</h3>
-            <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
+            <h3>Countdown to Goblin's Birthday Bash!</h3>
+            <p>(and you know how much goblins love bashing heads
+                in)</p>
+            <af-countdown inputDate="2020-01-17 17:00:00"></af-countdown>
         </div>
     </div>
     <div class="mobile">
         <open-sign class="opensign old-style griditem"></open-sign>
         <img class="logo griditem" alt="Goblin Logo" src="assets/img/ggTavern.png" />
         <div class="logo griditem old-style">
-            <h3>Countdown to New Years!</h3>
-            <app-countdown inputDate="2020-01-01 00:00:00"></app-countdown>
+            <h3>Countdown to Goblin's Birthday Bash!</h3>
+            <p>(and you know how much goblins love bashing heads
+                in)</p>
+            <af-countdown inputDate="2020-01-17 17:00:00"></af-countdown>
         </div>
         <ng-container *ngFor="let offer of offerings">
             <a mat-raised-button color="primary" [id]="offer.id" class="griditem old-style"

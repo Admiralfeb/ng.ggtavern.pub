@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 
 import {
-  CountdownComponent,
   ErrorNotFoundComponent,
   UnderConstructionComponent,
   MessageDialogComponent,
@@ -23,7 +22,6 @@ import {
     MaterialModule,
   ],
   declarations: [
-    CountdownComponent,
     ErrorNotFoundComponent,
     UnderConstructionComponent,
     MessageDialogComponent,
@@ -40,7 +38,6 @@ import {
 
     MaterialModule,
 
-    CountdownComponent,
     ErrorNotFoundComponent,
     UnderConstructionComponent,
     ContentwithSideNavComponent,

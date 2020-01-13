@@ -2,6 +2,9 @@ name: Test and Build
 
 on: [push]
 
+env:
+  BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
 jobs:
   test-spec:
     name: Unit Tests

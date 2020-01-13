@@ -8,6 +8,8 @@ import { NavigationModel } from '@shared/navigation.model';
 export class AboutComponent implements OnInit {
   title = 'About Us';
   navItems: NavigationModel[] = [
+    { text: 'Manifesto', link: 'manifesto' },
+    { text: 'Memberships', link: 'memberships' },
     { text: 'Staff', link: 'staff' },
   ];
   constructor() { }
