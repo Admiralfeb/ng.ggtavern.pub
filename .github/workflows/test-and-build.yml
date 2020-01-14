@@ -110,8 +110,9 @@ jobs:
         id: vars
         run: echo ::set-output name=build_version::$(node scripts/getVersion.js)
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting:prod -m ${{ steps.vars.outputs.build_version }}
+        # uses: w9jds/firebase-action@master
+        # with:
+        # args: deploy --only hosting:prod -m ${{ steps.vars.outputs.build_version }}
+        run: npm run deploy -- -m ${{ steps.vars.outputs.build_version }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
