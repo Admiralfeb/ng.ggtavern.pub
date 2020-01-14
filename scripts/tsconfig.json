@@ -1,18 +1,9 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/",
-    "typeRoots": [
-      "../node_modules/@types"
-    ],
-    "allowJs": true,
+
     "target": "es6"
   },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+  "include": ["**/*.ts"],
+  "exclude": ["test.ts", "**/*.spec.ts"]
 }
