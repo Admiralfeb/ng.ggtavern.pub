@@ -1,6 +1,6 @@
 {
   "name": "ggtavern",
-  "version": "2020.1.0",
+  "version": "2020.1.1-0",
   "scripts": {
     "postinstall": "npm run generate-key-file && npm explore protractor -- npm update webdriver-manager",
     "generate-key-file": "ts-node scripts/generateKeyFile.ts",
