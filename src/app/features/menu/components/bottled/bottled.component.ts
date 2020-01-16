@@ -1,28 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuService } from '../../services/menu.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { BottleItem } from '../../models';
-import { DialogService } from '@core/services/dialog.service';
-import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'menu-bottled',
   templateUrl: './bottled.component.html',
   styleUrls: ['./bottled.component.scss']
 })
-export class BottledComponent extends BaseMenuComponent implements OnInit {
-  items: BottleItem[] = [];
-  itemType = 'bottles';
+export class BottledComponent implements OnInit {
+  @Input() items: BottleItem[];
 
-  constructor(public menuService: MenuService, public dialog: DialogService) {
-    super(menuService, dialog);
-  }
+  constructor() { }
 
-  ngOnInit() {
-    this.getItems();
-  }
-
-  async getItems() {
-    this.items = await this.getMenuItems(this.itemType);
-  }
+  ngOnInit() { }
 
 }

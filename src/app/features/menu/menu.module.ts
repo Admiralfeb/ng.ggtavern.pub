@@ -7,16 +7,11 @@ import { MenuRoutingModule } from './menu.routing';
 
 import {
   MainComponent,
-  BitsComponent,
   BottledComponent,
-  BytesComponent,
   LiquorsComponent,
-  ShotsComponent,
-  SpecialtiesComponent,
+  DrinkComponent,
   TapComponent,
-  TreatsComponent,
   WineComponent,
-  BaseMenuComponent,
 } from './components';
 import { MenuService } from './services/menu.service';
 
@@ -25,16 +20,11 @@ import { MenuService } from './services/menu.service';
     MenuComponent,
 
     MainComponent,
-    BitsComponent,
     BottledComponent,
-    BytesComponent,
-    ShotsComponent,
-    SpecialtiesComponent,
+    DrinkComponent,
     TapComponent,
-    TreatsComponent,
     WineComponent,
     LiquorsComponent,
-    BaseMenuComponent,
   ],
   imports: [
     SharedModule,

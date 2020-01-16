@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpecialtiesComponent } from './specialties.component';
+import { DrinkComponent } from './drinks.component';
 import { SharedModule } from '@shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuService } from '../../services/menu.service';
 
 describe('MenuComponent', () => {
-  let component: SpecialtiesComponent;
-  let fixture: ComponentFixture<SpecialtiesComponent>;
+  let component: DrinkComponent;
+  let fixture: ComponentFixture<DrinkComponent>;
 
   beforeEach(async(() => {
     const menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
     menuServiceStub.getMenuItems.and.returnValue(Promise.resolve());
 
     TestBed.configureTestingModule({
-      declarations: [SpecialtiesComponent],
+      declarations: [DrinkComponent],
       imports: [
         SharedModule,
         BrowserAnimationsModule,
@@ -27,7 +27,7 @@ describe('MenuComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpecialtiesComponent);
+    fixture = TestBed.createComponent(DrinkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

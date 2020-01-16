@@ -6,7 +6,7 @@ import { MenuService } from '../../services/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LiquorItem } from '../../models';
 import { MatRadioChange } from '@angular/material/radio';
-import { BaseMenuComponent } from '../base.component';
+
 
 describe('LiquorsComponent', () => {
   let component: LiquorsComponent;
@@ -21,7 +21,7 @@ describe('LiquorsComponent', () => {
   beforeEach(async () => {
 
     TestBed.configureTestingModule({
-      declarations: [LiquorsComponent, BaseMenuComponent],
+      declarations: [LiquorsComponent],
       imports: [
         SharedModule,
         BrowserAnimationsModule,
