@@ -13,8 +13,7 @@ export class AboutService {
     const pathString = `positions`;
     let items: Position[] = [];
     try {
-      // items = await this.db.getItems<T>(pathString);
-      items = await this.db.getItemsandSingleSub<Position, Worker>(pathString, 'workers');
+      items = await this.db.getItems<Position>(pathString);
       items = this.sort.sortItems(items, 'order');
       const fullItems = items.map(position => {
         if (position.workers) {

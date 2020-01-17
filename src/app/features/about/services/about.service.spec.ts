@@ -11,7 +11,7 @@ describe('AboutService', () => {
   let sanitizer: DomSanitizer;
 
 
-  const databaseServiceSpy = jasmine.createSpyObj<DatabaseService>(['getItemsandSingleSub']);
+  const databaseServiceSpy = jasmine.createSpyObj<DatabaseService>(['getItems']);
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -38,7 +38,7 @@ describe('AboutService', () => {
   });
 
   it('should return positions and workers', async () => {
-    databaseServiceSpy.getItemsandSingleSub.and
+    databaseServiceSpy.getItems.and
       .returnValue(Promise.resolve<Position[]>([positions.DMs, positions.barstaff, positions.kitchen, positions.owners]));
     let expectedDefault: Position[] = [
       {
