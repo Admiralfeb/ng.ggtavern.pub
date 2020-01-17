@@ -1,5 +1,5 @@
 import { MenuItem } from './menuitem.model';
-export interface BytesItem extends MenuItem {
+export interface FoodItemwFries extends MenuItem {
     description?: string;
     types?: string;
     note?: string;

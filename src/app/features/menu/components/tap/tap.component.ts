@@ -1,28 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TapItem } from '../../models';
-import { MenuService } from '../../services/menu.service';
-import { DialogService } from '@core/services/dialog.service';
-import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'menu-tap',
   templateUrl: './tap.component.html',
   styleUrls: ['./tap.component.scss']
 })
-export class TapComponent extends BaseMenuComponent implements OnInit {
-  items: TapItem[] = [];
-  itemType = 'taps';
+export class TapComponent implements OnInit {
+  @Input() items: TapItem[];
 
-  constructor(public menuService: MenuService, public dialog: DialogService) {
-    super(menuService, dialog);
-  }
+  constructor() { }
 
-  ngOnInit() {
-    this.getItems();
-  }
-
-  async getItems() {
-    this.items = await this.getMenuItems(this.itemType);
-  }
+  ngOnInit() { }
 
 }

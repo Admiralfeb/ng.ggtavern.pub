@@ -1,29 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { MenuService } from '../../services/menu.service';
 import { LiquorItem } from '../../models';
-import { DialogService } from '@core/services/dialog.service';
-import { BaseMenuComponent } from '../base.component';
+
 
 @Component({
-  selector: 'liquors',
+  selector: 'menu-liquors',
   templateUrl: './liquors.component.html',
   styleUrls: ['./liquors.component.scss']
 })
-export class LiquorsComponent extends BaseMenuComponent implements OnInit {
-  items: LiquorItem[] = [];
-  itemType = 'liquors';
+export class LiquorsComponent implements OnInit {
+  @Input() items: LiquorItem[];
   sortSelect = 'type';
-  constructor(public menuService: MenuService, public dialog: DialogService) {
-    super(menuService, dialog);
-  }
+
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.getItems();
-  }
-
-  async getItems() {
-    this.items = await this.getMenuItems(this.itemType);
     this.sortLiquors(this.sortSelect);
   }
 

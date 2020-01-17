@@ -6,22 +6,21 @@ import { MenuService } from '../../services/menu.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LiquorItem } from '../../models';
 import { MatRadioChange } from '@angular/material/radio';
-import { BaseMenuComponent } from '../base.component';
+
 
 describe('LiquorsComponent', () => {
   let component: LiquorsComponent;
   let fixture: ComponentFixture<LiquorsComponent>;
-  const menuServiceStub = jasmine.createSpyObj<MenuService>(['getMenuItems', 'sortItems']);
+  const menuServiceStub = jasmine.createSpyObj<MenuService>(['sortItems']);
   const menuItems: LiquorItem[] = [
     { name: 'Absente Absinthe', type: 'Liqueur', ABV: '55.00%' },
     { name: 'Barton Vodka', type: 'Vodka', ABV: '40.00%' }
   ];
-  menuServiceStub.getMenuItems.and.returnValue(Promise.resolve(menuItems));
 
   beforeEach(async () => {
 
     TestBed.configureTestingModule({
-      declarations: [LiquorsComponent, BaseMenuComponent],
+      declarations: [LiquorsComponent],
       imports: [
         SharedModule,
         BrowserAnimationsModule,

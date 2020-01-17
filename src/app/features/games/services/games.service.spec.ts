@@ -53,10 +53,4 @@ describe('GamesService', () => {
     expectAsync(service.getSystems()).toBeRejectedWith(new Error('oops'));
     done();
   });
-
-  it('should throw an error if there is an error in gettingGames', async (done) => {
-    mockDatabaseService.getItems.and.throwError('oops');
-    expectAsync(service.getGames('')).toBeRejectedWith(new Error('oops'));
-    done();
-  });
 });

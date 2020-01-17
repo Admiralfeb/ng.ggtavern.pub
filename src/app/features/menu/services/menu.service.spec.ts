@@ -3,6 +3,7 @@ import { MiscFoodItem, MenuItem } from '../models';
 import { DatabaseService } from '@core/services/database.service';
 import { TestBed } from '@angular/core/testing';
 import { SortService } from '@core/services/sort.service';
+import { MenuSection } from '../models/menu-section.model';
 
 describe('MenuService', () => {
   let service: MenuService;
@@ -29,39 +30,43 @@ describe('MenuService', () => {
   });
 
   it('should return a promise', () => {
-    const returnValue = service.getMenuItems('bits');
+    const returnValue = service.getMenuSections();
     expect(returnValue).toEqual(jasmine.any(Promise));
-  });
-
-  it('should pass information to the database service for query', async (done) => {
-    const returnPromise = service.getMenuItems('bits');
-    expect(databaseServiceSpy.getItems).toHaveBeenCalledWith('menus/food-and-drink/bits');
-    done();
   });
 
   it('should return an empty array if the collection returns empty', async (done) => {
     databaseServiceSpy.getItems.and.returnValue(Promise.resolve([]));
-    const returnValue = await service.getMenuItems<MiscFoodItem>('');
+    const returnValue = await service.getMenuSections();
     expect(returnValue.length).toBe(0);
     done();
   });
 
   it('should move the priciest item', async () => {
-    const testItems: MenuItem[] = [
-      { name: 'a', price: '5.00' },
-      { name: 'b', price: '6.00' },
-      { name: 'c', price: '9.00' },
-      { name: 'd', price: '10.00' },
-    ];
-    const expectedItems: MenuItem[] = [
-      { name: 'd', price: '10.00' },
-      { name: 'a', price: '5.00' },
-      { name: 'b', price: '6.00' },
-      { name: 'c', price: '9.00' },
-    ];
-    databaseServiceSpy.getItems.and.returnValue(Promise.resolve<MenuItem[]>(testItems));
+    const testItems: MenuSection[] = [{
+      name: 'Items',
+      section: '',
+      type: 'MenuItem',
+      items: [
+        { name: 'a', price: '5.00' },
+        { name: 'b', price: '6.00' },
+        { name: 'c', price: '9.00' },
+        { name: 'd', price: '10.00' },
+      ]
+    }];
+    const expectedItems: MenuSection[] = [{
+      name: 'Items',
+      section: '',
+      type: 'MenuItem',
+      items: [
+        { name: 'd', price: '10.00' },
+        { name: 'a', price: '5.00' },
+        { name: 'b', price: '6.00' },
+        { name: 'c', price: '9.00' },
+      ]
+    }];
+    databaseServiceSpy.getItems.and.returnValue(Promise.resolve<MenuSection[]>(testItems));
 
-    const items = await service.getMenuItems('item');
+    const items = await service.getMenuSections();
 
     expect(items).toEqual(expectedItems);
   });

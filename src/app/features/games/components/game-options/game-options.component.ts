@@ -36,13 +36,12 @@ export class GameOptionsComponent implements OnInit {
       } else {
         this.note = '';
       }
-      try {
-        this.games = await this.gamesService.getGames(system.short);
-      } catch (err) {
-        console.error(err);
-        const errMessage = 'There was an error retrieving the items from the database';
-        this.dialog.showError(errMessage);
+      if (system.games != null) {
+        this.games = system.games;
+      } else {
+        this.note = 'No games listed';
       }
+
       const contentContainer = document.querySelector('game-options') || window;
       contentContainer.scrollTo(0, 0);
       contentContainer.scroll(0, 0);

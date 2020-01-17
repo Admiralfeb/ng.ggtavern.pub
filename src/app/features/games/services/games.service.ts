@@ -35,9 +35,15 @@ export class GamesService {
     }
 
     try {
-      let systems = [];
+      let systems: GameSystem[] = [];
       const itemData = await this.db.getItems<GameSystem>(pathString);
       systems = this.sort.sortItems(itemData, 'system');
+      systems = systems.map(system => {
+        let games = system.games;
+        games = this.sort.sortItems(games, 'name');
+        system.games = games;
+        return system;
+      });
       this.systems = systems;
       return systems;
     } catch (err) {
@@ -47,57 +53,5 @@ export class GamesService {
 
   getSystem(systemShort: string): GameSystem {
     return this.systems.find(x => x.short === systemShort);
-  }
-
-  /**
-   * Gets the games for the system provided.
-   * Will retrieve from the database if they do not exist in memory.
-   * @param system The system short name to query
-   */
-  async getGames(system: string): Promise<Game[]> {
-    const pathString = `games/${system}/games`;
-    // If we've loaded this already in this instance, don't go to the database.
-    const gamesfromsystem = this.getGamesfromSystems(system);
-    if (gamesfromsystem) {
-      return gamesfromsystem;
-    }
-
-    try {
-      let games = [];
-      const collection = await this.db.getItems<Game>(pathString);
-      games = this.sort.sortItems(collection, 'name');
-
-      this.setGames(system, games);
-
-      return games;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Gets the games for the system provided if the system and games are in memory.
-   * @param system The system short name to query
-   */
-  private getGamesfromSystems(system: string): Game[] {
-    const foundSystem = this.systems.find(s => s.short === system);
-    if (foundSystem) {
-      const games = foundSystem.games;
-      if (games) {
-        return games;
-      }
-    }
-  }
-
-  /**
-   * Saves the games to memory to prevent multiple checks of the database in one instance.
-   * @param system The system short name to query
-   * @param games The games to set to the system
-   */
-  private setGames(system: string, games: Game[]): void {
-    const foundSystem = this.systems.find(s => s.short === system);
-    if (foundSystem) {
-      foundSystem.games = games;
-    }
   }
 }

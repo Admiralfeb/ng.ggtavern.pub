@@ -7,34 +7,30 @@ import { MenuRoutingModule } from './menu.routing';
 
 import {
   MainComponent,
-  BitsComponent,
   BottledComponent,
-  BytesComponent,
   LiquorsComponent,
-  ShotsComponent,
-  SpecialtiesComponent,
+  DrinkComponent,
   TapComponent,
-  TreatsComponent,
   WineComponent,
-  BaseMenuComponent,
 } from './components';
 import { MenuService } from './services/menu.service';
+import { MenuSectionComponent } from './components/_menu-section/menu-section.component';
+import { FoodItemwFriesComponent } from './components/foodItemwfries/foodItemwfries.component';
+import { MiscFoodItemComponent } from './components/miscfooditem/miscfooditem.component';
 
 @NgModule({
   declarations: [
     MenuComponent,
 
     MainComponent,
-    BitsComponent,
     BottledComponent,
-    BytesComponent,
-    ShotsComponent,
-    SpecialtiesComponent,
+    DrinkComponent,
+    FoodItemwFriesComponent,
+    MiscFoodItemComponent,
     TapComponent,
-    TreatsComponent,
     WineComponent,
     LiquorsComponent,
-    BaseMenuComponent,
+    MenuSectionComponent,
   ],
   imports: [
     SharedModule,

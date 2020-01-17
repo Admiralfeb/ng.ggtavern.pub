@@ -1,28 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WineItem } from '../../models';
-import { MenuService } from '../../services/menu.service';
-import { DialogService } from '@core/services/dialog.service';
-import { BaseMenuComponent } from '../base.component';
 
 @Component({
   selector: 'menu-wine',
   templateUrl: './wine.component.html',
   styleUrls: ['./wine.component.scss']
 })
-export class WineComponent extends BaseMenuComponent implements OnInit {
-  items: WineItem[] = [];
-  itemType = 'wines';
+export class WineComponent implements OnInit {
+  @Input() items: WineItem[];
 
-  constructor(public menuService: MenuService, public dialog: DialogService) {
-    super(menuService, dialog);
-  }
+  constructor() { }
 
-  ngOnInit() {
-    this.getItems();
-  }
-
-  async getItems() {
-    this.items = await this.getMenuItems(this.itemType);
-  }
+  ngOnInit() { }
 
 }
