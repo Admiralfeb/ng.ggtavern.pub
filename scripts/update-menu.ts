@@ -23,7 +23,7 @@ db.collection('menus').doc('food-and-drink').listCollections().then(collections 
                 const data = item.data();
                 oldDocs = [...oldDocs, data];
             }
-            let newObj = { section: collection.id, items: oldDocs };
+            const newObj = { section: collection.id, items: oldDocs };
             newRef.add(newObj).then(success => {
                 console.log('Successfully wrote', collection.id, 'to', success.id);
             });
