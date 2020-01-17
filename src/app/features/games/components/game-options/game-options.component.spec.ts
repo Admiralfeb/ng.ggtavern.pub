@@ -11,7 +11,7 @@ describe('GameOptionsComponent (unit)', () => {
   let component: GameOptionsComponent;
   let fixture: ComponentFixture<GameOptionsComponent>;
   const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames', 'systemsLoaded']);
-  mockService.systemsLoaded.and.returnValue(Promise.resolve());
+  mockService.systemsLoaded.and.returnValue(Promise.resolve(true));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

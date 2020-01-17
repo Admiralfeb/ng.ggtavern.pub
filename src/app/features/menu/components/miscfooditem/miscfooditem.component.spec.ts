@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TreatsComponent } from './miscfooditem.component';
+import { MiscFoodItemComponent } from './miscfooditem.component';
 import { SharedModule } from '@shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuService } from '../../services/menu.service';
 
-describe('TreatsComponent', () => {
-  let component: TreatsComponent;
-  let fixture: ComponentFixture<TreatsComponent>;
+describe('MiscFoodItemComponent', () => {
+  let component: MiscFoodItemComponent;
+  let fixture: ComponentFixture<MiscFoodItemComponent>;
 
   beforeEach(async(() => {
     const menuServiceStub = jasmine.createSpyObj('MenuService', ['getMenuItems']);
     menuServiceStub.getMenuItems.and.returnValue(Promise.resolve());
 
     TestBed.configureTestingModule({
-      declarations: [TreatsComponent],
+      declarations: [MiscFoodItemComponent],
       imports: [
         SharedModule,
         BrowserAnimationsModule,
@@ -27,7 +27,7 @@ describe('TreatsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TreatsComponent);
+    fixture = TestBed.createComponent(MiscFoodItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
