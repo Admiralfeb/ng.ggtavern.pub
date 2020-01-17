@@ -7,7 +7,7 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-panel-description>
-            <p>{{item.ingredients}}</p>
+            <p *ngIf="item.ingredients">{{item.ingredients}}</p>
             <p>{{item.note}}</p>
         </mat-panel-description>
     </mat-expansion-panel>

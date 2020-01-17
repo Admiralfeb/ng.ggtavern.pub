@@ -5,7 +5,7 @@ import { LiquorItem } from '../../models';
 
 
 @Component({
-  selector: 'liquors',
+  selector: 'menu-liquors',
   templateUrl: './liquors.component.html',
   styleUrls: ['./liquors.component.scss']
 })

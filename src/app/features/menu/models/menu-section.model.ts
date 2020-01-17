@@ -8,6 +8,7 @@ import { WineItem } from './wineitem.model';
 
 export interface MenuSection {
     items: BottleItem[] | FoodItemwFries[] | LiquorItem[] | MiscFoodItem[] | DrinkItem[] | TapItem[] | WineItem[];
+    name: string;
     section: string;
     type: string;
 }
