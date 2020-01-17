@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app.routing';
@@ -33,6 +34,7 @@ import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase),
     CoreModule,
     SharedModule,
     CountdownModule,
