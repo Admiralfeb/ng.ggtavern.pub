@@ -45,7 +45,8 @@
 }
 img.logo {
   width: 300px;
-  opacity: 0.5;
+  // opacity is for when something is displayed over the GGTavern logo.
+  // opacity: 0.5;
   z-index: -1;
 }
 .griditem {
