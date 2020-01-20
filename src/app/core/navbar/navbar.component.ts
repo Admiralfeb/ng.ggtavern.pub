@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementService } from '@core/services/announcement.service';
+import { AuthService } from '@core/services/auth.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +10,14 @@ import { AnnouncementService } from '@core/services/announcement.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private announcements: AnnouncementService) { }
+  isLoggedIn = false;
+  constructor(private announcements: AnnouncementService, private auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.init();
+    this.auth.getLoginState().subscribe((value: boolean) => {
+      this.isLoggedIn = value;
+    });
     this.announcements.displayBannerAnnouncement();
   }
 
@@ -26,5 +33,10 @@ export class NavbarComponent implements OnInit {
   hideNavMenu() {
     const navbar = document.getElementById('app-navbar');
     navbar.className = 'navbar';
+  }
+
+  logout() {
+    this.hideNavMenu();
+    this.auth.logout();
   }
 }

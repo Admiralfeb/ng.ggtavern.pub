@@ -34,7 +34,7 @@ import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    NgxAuthFirebaseUIModule.forRoot(environment.firebase),
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase, null),
     CoreModule,
     SharedModule,
     CountdownModule,
