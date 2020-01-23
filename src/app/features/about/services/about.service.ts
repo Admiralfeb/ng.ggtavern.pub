@@ -9,6 +9,9 @@ export class AboutService {
 
   constructor(private db: DatabaseService, private sort: SortService, private sanitizer: DomSanitizer) { }
 
+  /**
+   * Get Positions from the database
+   */
   async getPositions(): Promise<Position[]> {
     const pathString = `positions`;
     let items: Position[] = [];
@@ -35,6 +38,10 @@ export class AboutService {
     }
   }
 
+  /**
+   * Sanitizes the image string to provide to the template.
+   * @param urlString img Url to sanitize
+   */
   private getImageUrl(urlString: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(urlString);
   }

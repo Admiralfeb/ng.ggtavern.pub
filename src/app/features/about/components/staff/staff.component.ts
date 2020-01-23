@@ -13,11 +13,14 @@ export class StaffComponent implements OnInit {
   constructor(private aboutService: AboutService) { }
 
   ngOnInit() {
-    this.getPositions();
+    this.getPositions().then(positions => this.positions = positions);
   }
 
-  async getPositions() {
-    this.positions = await this.aboutService.getPositions();
+  /**
+   * Get positions from the About Service
+   */
+  async getPositions(): Promise<Position[]> {
+    return await this.aboutService.getPositions();
   }
 
 }

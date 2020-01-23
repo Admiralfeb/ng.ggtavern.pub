@@ -3,6 +3,8 @@
   "version": "2020.1.2",
   "scripts": {
     "postinstall": "npm run generate-key-file && npm explore protractor -- npm update webdriver-manager",
+    "compodoc": "compodoc -p tsconfig.json",
+    "compodoc:ci": "compodoc -p tsconfig.json --coverageTest --coverageMinimumPerFile 25",
     "generate-key-file": "ts-node scripts/generateKeyFile.ts",
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
@@ -53,6 +55,7 @@
     "@angular/cli": "8.3.23",
     "@angular/compiler-cli": "8.2.14",
     "@angular/language-service": "8.2.14",
+    "@compodoc/compodoc": "^1.1.11",
     "@types/firebase": "3.2.1",
     "@types/jasmine": "3.5.1",
     "@types/jasminewd2": "2.0.8",
@@ -77,9 +80,18 @@
     "karma-jasmine": "2.0.1",
     "karma-jasmine-html-reporter": "1.5.1",
     "karma-junit-reporter": "2.0.1",
+    "lint-staged": "^10.0.2",
     "protractor": "5.4.2",
     "ts-node": "8.6.2",
     "tslint": "5.20.1",
     "typescript": "3.5.3"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.ts": [
+        "compodoc --coverageMinimumPerFile 25",
+        "npm run lint"
+      ]
+    }
   }
 }
