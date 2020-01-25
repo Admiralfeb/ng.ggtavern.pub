@@ -57,7 +57,7 @@
     "@types/moment-timezone": "0.5.12",
     "@types/node": "13.5.0",
     "codecov": "3.6.2",
-    "codelyzer": "5.2.0",
+    "codelyzer": "5.2.1",
     "dotenv": "8.2.0",
     "firebase-admin": "8.9.2",
     "firebase-tools": "7.12.1",
