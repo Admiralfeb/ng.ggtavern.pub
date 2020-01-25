@@ -43,7 +43,7 @@
     "moment-timezone": "0.5.27",
     "rxjs": "6.5.4",
     "tslib": "1.10.0",
-    "zone.js": "0.9.1"
+    "zone.js": "0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.803.23",
