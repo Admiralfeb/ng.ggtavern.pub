@@ -2,6 +2,7 @@ import { appKeys } from './keys';
 
 export const environment = {
   production: true,
+  version: '2020.1.1',
   firebase: {
     apiKey: appKeys.publicFirebase,
     authDomain: 'gg-tavern.firebaseapp.com',

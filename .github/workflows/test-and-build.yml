@@ -24,7 +24,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run Unit Tests
-        run: npm run test:ci-${{ matrix.browser }}
+        run: npm run ci:test:${{ matrix.browser }}
         env:
           CI: true
       - name: Upload CodeCoverage
@@ -50,7 +50,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run e2e Tests
-        run: npm run e2e:ci-${{ matrix.browser }}
+        run: npm run ci:e2e:${{ matrix.browser }}
 
   lint:
     name: Lint
