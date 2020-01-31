@@ -24,7 +24,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run Unit Tests
-        run: npm run test:ci-${{ matrix.browser }}
+        run: npm run ci:test:${{ matrix.browser }}
         env:
           CI: true
       - name: Upload CodeCoverage
@@ -50,7 +50,7 @@ jobs:
       - name: Install Project
         run: npm ci
       - name: Run e2e Tests
-        run: npm run e2e:ci-${{ matrix.browser }}
+        run: npm run ci:e2e:${{ matrix.browser }}
 
   lint:
     name: Lint
@@ -102,17 +102,17 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Project
+        run: npm ci
       - name: Download Build
         uses: actions/download-artifact@master
         with:
           name: dist
-      - name: Get Build Version
-        id: vars
-        run: echo ::set-output name=build_version::$(node scripts/getVersion.js)
       - name: Deploy to Firebase
-        # uses: w9jds/firebase-action@master
-        # with:
-        # args: deploy --only hosting:prod -m ${{ steps.vars.outputs.build_version }}
         run: npm run deploy -- -m ${{ steps.vars.outputs.build_version }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
