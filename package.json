@@ -18,8 +18,7 @@
     "e2e:firefox": "gulp e2e:firefox",
     "ci:e2e:chrome": "gulp ci:e2e:chrome",
     "ci:e2e:firefox": "gulp ci:e2e:firefox",
-    "deploy": "firebase deploy --only hosting",
-    "test-deploy": "gulp test-deploy"
+    "deploy": "gulp deploy"
   },
   "private": true,
   "dependencies": {
