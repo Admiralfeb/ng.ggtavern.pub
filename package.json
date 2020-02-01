@@ -5,8 +5,8 @@
     "postinstall": "gulp postInstall",
     "compodoc": "compodoc -p tsconfig.json",
     "compodoc:ci": "compodoc -p tsconfig.json --coverageTest --coverageMinimumPerFile 25",
-        "ng": "ng",
-	    "start": "ng serve --host 0.0.0.0",
+    "ng": "ng",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build --prod --aot",
     "test": "gulp test",
     "test:chrome": "gulp test:chrome",
@@ -86,5 +86,13 @@
     "ts-node": "8.6.2",
     "tslint": "5.20.1",
     "typescript": "3.5.3"
-  }
+  },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 9-11",
+    "not IE_Mob 11"
+  ]
 }
