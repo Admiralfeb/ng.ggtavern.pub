@@ -1,6 +1,7 @@
 import { CalendarEvent } from './calendar-event.model';
+import { ID } from '@shared/id.model';
 
-export interface Calendar {
+export interface Calendar extends ID {
     name: string;
     startDay: number;
     calendarEvents: CalendarEvent[];

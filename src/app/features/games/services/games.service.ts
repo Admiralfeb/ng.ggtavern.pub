@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DatabaseService } from '@core/services/database.service';
-import { GameSystem, Game } from '../models/model';
+import { GameSystem, Game } from '../games.models';
 import { SortService } from '@core/services/sort.service';
 
 @Injectable()

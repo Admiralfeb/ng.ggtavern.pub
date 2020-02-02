@@ -1,6 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SecurityContext } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
+/**
+ * Component that displays a youtube video.
+ */
 @Component({
   selector: 'video-youtube',
   templateUrl: './video-youtube.component.html',
@@ -12,10 +15,6 @@ export class VideoYoutubeComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.videoURL = this.getURL();
-  }
-
-  getURL(): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.src);
+    this.videoURL = this.sanitizer.sanitize(SecurityContext.URL, this.src);
   }
 }

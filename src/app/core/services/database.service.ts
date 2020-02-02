@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { ID } from '@core/id.model';
+import { ID } from '@shared/id.model';
 
 /**
  * This service provides access to the database for the project.

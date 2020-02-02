@@ -3,8 +3,8 @@
   "version": "2020.1.2",
   "scripts": {
     "postinstall": "gulp postInstall",
-    "compodoc": "compodoc -p tsconfig.json",
-    "compodoc:ci": "compodoc -p tsconfig.json --coverageTest --coverageMinimumPerFile 25",
+    "docs": "gulp docs",
+    "ci:docs": "gulp ci:docs",
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build --prod --aot",
@@ -52,6 +52,7 @@
     "@angular/compiler-cli": "8.2.14",
     "@angular/language-service": "8.2.14",
     "@compodoc/compodoc": "^1.1.11",
+    "@compodoc/gulp-compodoc": "0.0.10",
     "@types/firebase": "3.2.1",
     "@types/gulp": "^4.0.6",
     "@types/gulp-replace": "0.0.31",

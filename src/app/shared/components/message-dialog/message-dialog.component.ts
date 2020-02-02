@@ -2,6 +2,9 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MessageDialogData, MessageType } from './message-dialog.model';
 
+/**
+ * Message Dialog Component. Displays a Mat Dialog.
+ */
 @Component({
   selector: 'message-dialog',
   templateUrl: './message-dialog.component.html',

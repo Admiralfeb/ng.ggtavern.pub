@@ -1,4 +1,4 @@
-import { ID } from './id.model';
+import { ID } from '../shared/id.model';
 import { Moment } from 'moment-timezone';
 
 export interface Announcement extends ID {

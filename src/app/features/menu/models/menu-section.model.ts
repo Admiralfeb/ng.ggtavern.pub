@@ -5,8 +5,12 @@ import { MiscFoodItem } from './miscfooditem.model';
 import { DrinkItem } from './drinkitem.model';
 import { TapItem } from './tapitem.model';
 import { WineItem } from './wineitem.model';
+import { ID } from '@shared/id.model';
 
-export interface MenuSection {
+/**
+ * Section of the Menu with items.
+ */
+export interface MenuSection extends ID {
     items: BottleItem[] | FoodItemwFries[] | LiquorItem[] | MiscFoodItem[] | DrinkItem[] | TapItem[] | WineItem[];
     name: string;
     section: string;

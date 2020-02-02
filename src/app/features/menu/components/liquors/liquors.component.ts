@@ -3,7 +3,9 @@ import { MatRadioChange } from '@angular/material/radio';
 import { MenuService } from '../../services/menu.service';
 import { LiquorItem } from '../../models';
 
-
+/**
+ * Liquors available at Goblin
+ */
 @Component({
   selector: 'menu-liquors',
   templateUrl: './liquors.component.html',

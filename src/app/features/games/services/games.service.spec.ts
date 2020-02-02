@@ -1,5 +1,5 @@
 import { GamesService } from './games.service';
-import { GameSystem } from '../models/model';
+import { GameSystem } from '../games.models';
 import { DatabaseService } from '@core/services/database.service';
 import { TestBed } from '@angular/core/testing';
 import { SortService } from '@core/services/sort.service';

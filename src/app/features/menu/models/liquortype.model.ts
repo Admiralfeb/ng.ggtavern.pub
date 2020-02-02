@@ -1,3 +1,6 @@
+/**
+ * Types of liquors
+ */
 export enum LiquorType {
     'brandy',
     'gin',

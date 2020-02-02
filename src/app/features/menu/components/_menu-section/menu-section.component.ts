@@ -4,6 +4,9 @@ import { MenuService } from '../../services/menu.service';
 import { Observer } from 'rxjs';
 import { MenuSection } from '../../models/menu-section.model';
 
+/**
+ * Menu Section
+ */
 @Component({
   selector: 'menu-section',
   templateUrl: './menu-section.component.html',
