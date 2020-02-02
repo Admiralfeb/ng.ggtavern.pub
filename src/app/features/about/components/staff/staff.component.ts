@@ -12,6 +12,7 @@ export class StaffComponent implements OnInit {
 
   constructor(private aboutService: AboutService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.getPositions().then(positions => this.positions = positions);
   }

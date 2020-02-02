@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CalendarEvent } from '../../models/calendar-event.model';
 
+/**
+ * Displays for each day provided.
+ */
 @Component({
   selector: 'calendar-day',
   templateUrl: './day.component.html',
@@ -13,6 +16,7 @@ export class DayComponent implements OnInit {
   time: string;
   constructor() { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.date = this.event.day;
     this.eventName = this.event.eventName;

@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Games home page
+ */
 @Component({
   selector: 'games-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
   rules = [
     'Playing games, unless otherwise stated, is free.',
     'VR costs $10/hour. $1/hr on Sundays',
@@ -17,9 +20,4 @@ export class MainComponent implements OnInit {
     'The lists are not extensive as they are subject to frequent change.',
     'Feel free to donate games to the Tavern!'
   ];
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

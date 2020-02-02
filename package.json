@@ -20,6 +20,7 @@
     "e2e:firefox": "gulp e2e:firefox",
     "ci:e2e:chrome": "gulp ci:e2e:chrome",
     "ci:e2e:firefox": "gulp ci:e2e:firefox",
+    "changelog": "gulp changelog",
     "deploy": "gulp deploy"
   },
   "private": true,
@@ -62,6 +63,8 @@
     "@types/node": "13.7.0",
     "codecov": "3.6.3",
     "codelyzer": "5.2.1",
+    "conventional-changelog": "^3.1.18",
+    "conventional-changelog-cli": "^2.0.31",
     "dotenv": "8.2.0",
     "firebase-admin": "8.9.2",
     "firebase-tools": "7.12.1",
@@ -84,6 +87,7 @@
     "karma-junit-reporter": "2.0.1",
     "minimist": "^1.2.0",
     "protractor": "5.4.3",
+    "standard-changelog": "^2.0.21",
     "ts-node": "8.6.2",
     "tslint": "5.20.1",
     "typescript": "3.5.3"

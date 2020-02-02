@@ -18,6 +18,7 @@ export class ContentwithSideNavComponent implements OnInit {
 
   constructor() { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.mobile = this.checkforMobileSize();
   }

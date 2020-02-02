@@ -1,16 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import moment from 'moment-timezone';
-import { Subscription, interval } from 'rxjs';
+import { Subscription, interval, Observer, PartialObserver } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HoursDialogComponent } from '../hours-dialog/hours-dialog.component';
 import { DialogService } from '@core/services/dialog.service';
 
+/** Open Sign for GGTavern */
 @Component({
   selector: 'open-sign',
   templateUrl: './open-sign.component.html',
   styleUrls: ['./open-sign.component.scss']
 })
 export class OpenSignComponent implements OnInit, OnDestroy {
+  /** Current Hours */
   hours = [
     { day: 0, open: '17:00', close: '00:00', name: 'Sunday' },
     { day: 1, open: '', close: '', name: 'Monday' },
@@ -21,28 +23,39 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     { day: 5, open: '17:00', close: '02:00', name: 'Friday' },
     { day: 6, open: '17:00', close: '02:00', name: 'Saturday' },
   ];
+  /** Subscription that triggers every second */
   timeSubscription: Subscription;
-  currentDay: number;
+  /** Message to display on the sign */
   signMessage: string;
+  /** Used to display colors in the template */
   isOpen: boolean = null;
+  /** Observer that runs for the timeSubscription */
+  private timeObserver: PartialObserver<moment.Moment> = {
+    next: (currentMoment) => {
+      this.isOpen = this.checkIsOpen(currentMoment);
+      this.signMessage = this.isOpen ? 'Open' : 'Closed';
+    }
+  };
 
   constructor(private dialog: DialogService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     const time$ = interval(1000).pipe(
       map(() => moment().utc())
     );
-    this.timeSubscription = time$.subscribe((currentMoment) => {
-      this.isOpen = this.checkIsOpen(currentMoment);
-      this.signMessage = this.isOpen ? 'Open' : 'Closed';
-    });
+    this.timeSubscription = time$.subscribe(this.timeObserver);
   }
 
+  /** runs when the component is destroyed */
   ngOnDestroy() {
     this.timeSubscription.unsubscribe();
   }
 
-  checkIsOpen(currentTime: moment.Moment): boolean {
+  /** Checks to see if the moment is within the hours listed
+   * @returns true/false whether Goblin should be open
+   */
+  private checkIsOpen(currentTime: moment.Moment): boolean {
     let currentDay = currentTime.tz('America/Chicago').day();
     if (currentTime.hour() < 5) {
       currentDay--;
@@ -50,7 +63,6 @@ export class OpenSignComponent implements OnInit, OnDestroy {
         currentDay = 6;
       }
     }
-    this.currentDay = currentDay;
 
     const dayHours = this.hours.filter(h => h.day === currentDay);
     for (const todayHours of dayHours) {
@@ -83,6 +95,9 @@ export class OpenSignComponent implements OnInit, OnDestroy {
     return false;
   }
 
+  /**
+   * Displays the HoursDialog
+   */
   showHours() {
     this.dialog.showCustomInfoDialog(
       HoursDialogComponent, {

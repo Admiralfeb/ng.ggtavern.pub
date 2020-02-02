@@ -1,14 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+/**
+ * Routes to the Contact Components
+ */
 @Component({
   selector: 'contact',
   template: '<router-outlet></router-outlet>'
 })
-export class ContactComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class ContactComponent { }

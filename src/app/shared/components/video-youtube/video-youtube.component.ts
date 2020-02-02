@@ -14,6 +14,7 @@ export class VideoYoutubeComponent implements OnInit {
   videoURL: SafeResourceUrl;
   constructor(private sanitizer: DomSanitizer) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.videoURL = this.sanitizer.sanitize(SecurityContext.URL, this.src);
   }

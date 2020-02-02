@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Displays about the membership
+ */
 @Component({
   selector: 'membership',
   templateUrl: './membership.component.html',
   styleUrls: ['./membership.component.scss']
 })
-export class MembershipComponent implements OnInit {
+export class MembershipComponent {
 
   price = 25.00;
   perks = [
@@ -17,10 +20,4 @@ export class MembershipComponent implements OnInit {
     'Damage waiver only needs to be signed once a year',
     'No need to leave an ID to rent games'
   ];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

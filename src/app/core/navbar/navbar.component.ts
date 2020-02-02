@@ -3,6 +3,9 @@ import { AnnouncementService } from '@core/services/announcement.service';
 import { AuthService } from '@core/services/auth.service';
 import { Observable, Subscription } from 'rxjs';
 
+/**
+ * Navbar of the app
+ */
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -13,6 +16,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   constructor(private announcements: AnnouncementService, private auth: AuthService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.auth.init();
     this.auth.getLoginState().subscribe((value: boolean) => {

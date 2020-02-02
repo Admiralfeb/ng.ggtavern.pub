@@ -2,6 +2,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { CalendarEvent } from '../../models/calendar-event.model';
 import { CalendarService } from '../../services/calendar.service';
 
+/**
+ * Displays the calendar to the user
+ */
 @Component({
   selector: 'calendar',
   templateUrl: './calendar.component.html',
@@ -29,6 +32,7 @@ export class CalendarComponent implements OnInit {
   mobile = false;
   constructor(private calendar: CalendarService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.onResize();
     this.getCalendar();

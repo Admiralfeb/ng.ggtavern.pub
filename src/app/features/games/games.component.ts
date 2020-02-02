@@ -4,6 +4,9 @@ import { GameSystem } from './games.models';
 import { Title } from '@angular/platform-browser';
 import { GamesService } from './services/games.service';
 
+/**
+ * Games landing component
+ */
 @Component({
   selector: 'games',
   template:
@@ -16,6 +19,7 @@ export class GamesComponent implements OnInit {
   ];
   constructor(private titleService: Title, private dataService: GamesService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.setTitle();
     this.dataService.getSystems().then(systems => {

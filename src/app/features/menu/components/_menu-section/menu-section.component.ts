@@ -18,6 +18,7 @@ export class MenuSectionComponent implements OnInit {
   type = '';
   constructor(private route: ActivatedRoute, private router: Router, private menuService: MenuService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.menuService.isMenuLoaded().then(_ => {
       const locationobserver: Observer<Params> = {

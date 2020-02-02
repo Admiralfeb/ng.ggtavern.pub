@@ -14,7 +14,30 @@ gulp.task('postInstall', done => {
     });
 });
 
-gulp.task('docs', _ => {
+gulp.task('changelog', done => {
+    exec('standard-changelog', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+        done();
+    });
+});
+
+gulp.task('docs', () => {
+    return gulp.src('src/**/*.ts').pipe(
+        compodoc({
+            name: 'GGTavern Documentation',
+            output: 'documentation',
+            tsconfig: 'tsconfig.json',
+            watch: false
+        })
+    );
+});
+
+gulp.task('docs:open', () => {
     return gulp.src('src/**/*.ts').pipe(
         compodoc({
             name: 'GGTavern Documentation',
@@ -27,7 +50,7 @@ gulp.task('docs', _ => {
     );
 });
 
-gulp.task('ci:docs', done => {
+gulp.task('ci:docs', () => {
     return gulp.src('src/**/*.ts').pipe(
         compodoc({
             name: 'GGTavern Documentation',

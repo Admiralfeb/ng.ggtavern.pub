@@ -4,6 +4,9 @@ import { Title } from '@angular/platform-browser';
 import { MenuSection } from './models/menu-section.model';
 import { MenuService } from './services/menu.service';
 
+/**
+ * Food/Drink Menu landing component
+ */
 @Component({
   selector: 'menu-main',
   template: `<content-with-side-nav [headerText]="title" [navItems]="navItems"></content-with-side-nav>`
@@ -15,6 +18,7 @@ export class MenuComponent implements OnInit {
   ];
   constructor(private titleService: Title, private menuService: MenuService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.setTitle();
     this.menuService.getMenuSections().then(sections => {

@@ -5,6 +5,9 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { AnnouncementService } from './announcement.service';
 import { DialogService } from './dialog.service';
 
+/**
+ * This service controls authorization state within the application.
+ */
 @Injectable({
   providedIn: 'root'
 })

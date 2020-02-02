@@ -6,6 +6,9 @@ import { GamesService } from '../../services/games.service';
 import { DialogService } from '@core/services/dialog.service';
 
 
+/**
+ * Displays the list of games
+ */
 @Component({
   selector: 'game-options',
   templateUrl: './game-options.component.html',
@@ -17,6 +20,7 @@ export class GameOptionsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private gamesService: GamesService, private dialog: DialogService) { }
 
+  /** runs on initialization */
   ngOnInit() {
     this.gamesService.systemsLoaded().then(_ => {
       const locationobserver: Observer<Params> = {
@@ -28,6 +32,10 @@ export class GameOptionsComponent implements OnInit {
     });
   }
 
+  /**
+   * On location change, gets the correct game system and games.
+   * @param params router parameters
+   */
   async onLocationChange(params: Params) {
     const system: GameSystem = this.gamesService.getSystem(params.id);
     if (system) {
