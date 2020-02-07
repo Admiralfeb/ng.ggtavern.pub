@@ -2,7 +2,7 @@
   "name": "ggtavern",
   "version": "2020.1.2",
   "scripts": {
-    "postinstall": "gulp postInstall",
+    "postpost": "gulp postInstall",
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build --prod --aot",
