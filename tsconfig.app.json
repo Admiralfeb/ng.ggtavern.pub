@@ -2,9 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": [],
-    "module": "esnext"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/test/**", "src/test.ts", "src/**/*.spec.ts"]
+    "types": []
+},
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": ["src/**/*.d.ts"]
 }
