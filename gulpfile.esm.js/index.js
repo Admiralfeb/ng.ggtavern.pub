@@ -7,10 +7,10 @@ require('./gulp.e2e');
 require('./gulp.test');
 require('./gulp.project');
 
-gulp.task('default', done => {
-    console.log('default');
+exports.default = (done) => {
+    console.log('default task run');
     done();
-});
+};
 
 
 gulp.task('bump-version', done => {
