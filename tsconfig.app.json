@@ -3,8 +3,11 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [],
-    "module": "esnext"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/test/**", "src/test.ts", "src/**/*.spec.ts"]
+    "module": "esnext",
+},
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": ["src/**/*.d.ts"]
 }
