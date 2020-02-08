@@ -39,6 +39,14 @@
       ],
       "format": "svg",
       "disabled": false
+    },
+    {
+      "icon": "gulp",
+      "extensions": [],
+      "filenamesGlob": ["gulp.e2e", "gulp.project", "gulp.test", "gulp.*"],
+      "extensionsGlob": ["js", "coffee", "ts"],
+      "filename": true,
+      "format": "svg"
     }
   ],
   "vsicons.associations.folders": [
@@ -47,6 +55,20 @@
       "extensions": ["modules", "features"],
       "format": "svg",
       "disabled": false
+    },
+    {
+      "icon": "gulp",
+      "extensions": [
+        "gulp",
+        "gulpfile.js",
+        "gulpfile.esm.js",
+        "gulpfile.coffee",
+        "gulpfile.ts",
+        "gulpfile.babel.js",
+        "gulpfile.babel.coffee",
+        "gulpfile.babel.ts"
+      ],
+      "format": "svg"
     }
   ]
 }
