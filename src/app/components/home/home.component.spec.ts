@@ -6,7 +6,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HomeComponent } from './home.component';
 import { OpenSignComponent } from '../open-sign/open-sign.component';
 import { SharedModule } from '@shared/shared.module';
-import { CountdownModule } from '@bit/admiralfeb.ng-common-components.countdown';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -31,7 +30,7 @@ describe('HomeComponent', () => {
         HomeComponent,
         OpenSignComponent
       ],
-      imports: [RouterTestingModule, SharedModule, CountdownModule],
+      imports: [RouterTestingModule, SharedModule],
       providers: [
         { provide: Title, useValue: titleSpy },
         { provide: Router, useValue: routerSpy }
