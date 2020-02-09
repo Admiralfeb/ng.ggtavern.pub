@@ -49,7 +49,7 @@ describe('HoursDialogComponent', () => {
     });
 
     noop = TestBed.createComponent(NoopComponent);
-    dialog = TestBed.get(MatDialog);
+    dialog = TestBed.inject(MatDialog);
 
     const config: MatDialogConfig = {
       width: '400px',

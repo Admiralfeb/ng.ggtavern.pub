@@ -11,6 +11,12 @@ import moment from 'moment-timezone';
 export class AnnouncementService {
   private hasBannerBeenDisplayed = false;
   private announcements: Announcement[];
+  private config: MatSnackBarConfig = {
+    verticalPosition: 'top',
+    horizontalPosition: 'right',
+    panelClass: ['background-primary']
+  };
+
   constructor(private db: DatabaseService, private snackbar: MatSnackBar) {
     this.getAnnouncements().then(x => this.announcements = x).catch(e => {
       this.snackbar.open('There was an error getting the announcements', 'ok');
@@ -52,12 +58,17 @@ export class AnnouncementService {
       const isExpired = expiry.isBefore(now);
       if (!isExpired) {
         this.hasBannerBeenDisplayed = true;
-        const config = new MatSnackBarConfig();
-        config.verticalPosition = 'top';
-        config.horizontalPosition = 'right';
-        config.panelClass = ['background-primary'];
-        this.snackbar.open(ments[0].message, ments[0].action, config);
+        this.snackbar.open(ments[0].message, ments[0].action, this.config);
       }
     }
+  }
+
+  displayTempMessage(message: string, duration: number, action?: string) {
+    if (!action) {
+      action = 'OK';
+    }
+    const config = Object.assign({}, this.config);
+    config.duration = duration;
+    this.snackbar.open(message, action, config);
   }
 }

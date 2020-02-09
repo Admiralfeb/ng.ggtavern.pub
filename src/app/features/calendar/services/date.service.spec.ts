@@ -8,7 +8,7 @@ describe('DateService', () => {
   }));
 
   it('should be created', () => {
-    const service: DateService = TestBed.get(DateService);
+    const service: DateService = TestBed.inject(DateService);
     expect(service).toBeTruthy();
   });
 });

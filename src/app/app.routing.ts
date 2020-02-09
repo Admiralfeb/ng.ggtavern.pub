@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorNotFoundComponent } from '@shared/components';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from '@core/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'account', component: LoginComponent },
+  { path: 'login', redirectTo: 'account', pathMatch: 'full' },
   { path: 'menu', loadChildren: () => import('./features/menu/menu.module').then(m => m.MenuModule) },
   { path: 'games', loadChildren: () => import('./features/games/games.module').then(m => m.GamesModule) },
   { path: 'events', loadChildren: () => import('./features/calendar/calendar.module').then(m => m.CalendarModule) },

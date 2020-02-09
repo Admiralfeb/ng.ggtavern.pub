@@ -3,21 +3,26 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavbarComponent } from './navbar.component';
 import { SharedModule } from '@shared/shared.module';
 import { AnnouncementService } from '@core/services/announcement.service';
+import { AuthService } from '@core/services/auth.service';
+import { from, Observable } from 'rxjs';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
   const announcementServiceSpy = jasmine.createSpyObj<AnnouncementService>(['displayBannerAnnouncement']);
+  const authSpy = jasmine.createSpyObj<AuthService>(['init', 'getLoginState', 'logout']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
       imports: [SharedModule],
       providers: [
-        { provide: AnnouncementService, useValue: announcementServiceSpy }
+        { provide: AnnouncementService, useValue: announcementServiceSpy },
+        { provide: AuthService, useValue: authSpy }
       ]
     })
       .compileComponents();
+    authSpy.getLoginState.and.returnValue(new Observable<boolean>());
   }));
 
   beforeEach(() => {

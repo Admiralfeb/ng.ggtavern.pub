@@ -38,7 +38,7 @@ describe('MessageDialogComponent', () => {
     });
 
     noop = TestBed.createComponent(NoopComponent);
-    dialog = TestBed.get(MatDialog);
+    dialog = TestBed.inject(MatDialog);
 
   });
 

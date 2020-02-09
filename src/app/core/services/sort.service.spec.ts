@@ -44,7 +44,7 @@ describe('SortService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.get(SortService);
+    service = TestBed.inject(SortService);
   });
 
   it('should be created', () => {

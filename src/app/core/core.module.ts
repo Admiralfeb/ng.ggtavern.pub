@@ -3,15 +3,17 @@ import { EnsureModuleLoadedOnceGuard } from '@shared/ensureModuleLoadedOnce.guar
 import { SharedModule } from '@shared/shared.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, LoginComponent],
   imports: [
     RouterModule,
     SharedModule,
   ],
   exports: [
     NavbarComponent,
+    LoginComponent,
   ]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {

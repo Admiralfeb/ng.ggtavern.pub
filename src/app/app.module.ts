@@ -16,6 +16,7 @@ import { SharedModule } from '@shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { OpenSignComponent } from './components/open-sign/open-sign.component';
 import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.com
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

@@ -13,7 +13,7 @@ export class AboutService {
     const pathString = `positions`;
     let items: Position[] = [];
     try {
-      items = await this.db.getItems<Position>(pathString);
+      items = await this.db.getItemswithID<Position>(pathString);
       items = this.sort.sortItems(items, 'order');
       const fullItems = items.map(position => {
         if (position.workers) {

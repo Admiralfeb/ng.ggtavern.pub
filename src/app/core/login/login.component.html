@@ -1,0 +1,40 @@
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="Login">
+            <form [formGroup]="loginInformation" (ngSubmit)="login()">
+                <mat-form-field>
+                    <mat-label>email</mat-label>
+                    <input matInput placeholder="gabby@example.com" formControlName="email">
+                    <mat-error ngif="loginInformation.email.invalid && loginInformation.email.touched">
+                        {{fieldIsNotValidEmail()}}</mat-error>
+                    <mat-error ngif="loginInformation.required.invalid && loginInformation.email.touched">
+                        {{fieldIsRequiredMessage()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>password</mat-label>
+                    <input matInput type="password" placeholder="password123! - Don't use that"
+                        formControlName="password">
+                    <mat-error ngif="loginInformation.required.invalid">{{fieldIsRequiredMessage()}}</mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </mat-tab>
+        <mat-tab label="Password Reset">
+            <form [formGroup]="resetInformation" (ngSubmit)="resetPassword()">
+                <mat-form-field>
+                    <mat-label>email</mat-label>
+                    <input matInput placeholder="gabby@example.com" formControlName="email">
+                    <mat-error ngif="resetInformation.email.invalid && resetInformation.email.touched">
+                        {{fieldIsNotValidEmail()}}
+                    </mat-error>
+                    <mat-error ngif="resetInformation.required.invalid && resetInformation.email.touched">
+                        {{fieldIsRequiredMessage()}}
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </mat-tab>
+    </mat-tab-group>
+</div>

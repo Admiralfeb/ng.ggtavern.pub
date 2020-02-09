@@ -13,7 +13,7 @@ mat-card {
   justify-content: space-between;
 }
 
-.mat-content > mat-panel-title,
-.mat-content > mat-panel-description {
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
   flex: 0 0 auto;
 }

@@ -17,7 +17,7 @@ describe('DatabaseService', () => {
   });
 
   it('should be created', () => {
-    service = TestBed.get(DatabaseService);
+    service = TestBed.inject(DatabaseService);
     expect(service).toBeTruthy();
   });
 
@@ -41,7 +41,7 @@ describe('DatabaseService', () => {
     };
 
     TestBed.overrideProvider(AngularFirestore, { useValue: firestoreBlankSpy });
-    service = TestBed.get(DatabaseService);
+    service = TestBed.inject(DatabaseService);
 
     const items = await service.getItems('');
     expect(items).toEqual([]);
@@ -131,7 +131,7 @@ describe('DatabaseService', () => {
     };
 
     TestBed.overrideProvider(AngularFirestore, { useValue: firestoreSomeSpy });
-    service = TestBed.get(DatabaseService);
+    service = TestBed.inject(DatabaseService);
 
     const items = await service.getItems('');
     expect(items).toEqual(singleTestData);
@@ -146,7 +146,7 @@ describe('DatabaseService', () => {
     };
 
     TestBed.overrideProvider(AngularFirestore, { useValue: firestoreErrorSpy });
-    service = TestBed.get(DatabaseService);
+    service = TestBed.inject(DatabaseService);
     await expectAsync(service.getItems<TestData>('')).toBeRejectedWithError('database failed');
   });
 

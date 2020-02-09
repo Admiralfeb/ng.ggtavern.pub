@@ -1,6 +1,7 @@
 import { SafeHtml } from '@angular/platform-browser';
+import { ID } from '@core/id.model';
 
-export interface Position {
+export interface Position extends ID {
     name: string;
     order: number;
     workers?: Worker[];

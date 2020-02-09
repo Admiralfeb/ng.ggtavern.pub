@@ -16,6 +16,9 @@
             (click)="hideNavMenu()">About Us</a>
         <a class="nav-link" routerLink="events" routerLinkActive="active" mat-button matTooltip="Events"
             (click)="hideNavMenu()">Events</a>
+        <ng-container *ngIf="isLoggedIn">
+            <a class="nav-link" mat-button matTooltip="Log Out" (click)="logout()">Log Out</a>
+        </ng-container>
         <a class="nav-link mobileButton" href="javascript:void(0);" mat-button matTooltip="Show Menu Items"
             (click)="toggleNavMenu()">
             <mat-icon>menu</mat-icon>

@@ -32,18 +32,6 @@ a {
   color: white;
 }
 
-/// the mat-content items here are for the food menu.
-/// For some reason, if included in only the menu.module.scss, they will not be used.
-.right-aligned-header > .mat-content {
-  justify-content: space-between;
-}
-/// the mat-content items here are for the food menu.
-/// For some reason, if included in only the menu.module.scss, they will not be used.
-.mat-content > mat-panel-title,
-.mat-content > mat-panel-description {
-  flex: 0 0 auto;
-}
-
 .iframe-container {
   overflow: hidden;
   position: relative;
