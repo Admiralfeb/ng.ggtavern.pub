@@ -1,12 +1,13 @@
-import { Component, Input, OnInit, HostListener, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, HostListener, ViewChild, OnDestroy } from '@angular/core';
 import { NavigationModel } from '../../navigation.model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'content-with-side-nav',
   templateUrl: './content-with-side-nav.component.html',
   styleUrls: ['./content-with-side-nav.component.scss']
 })
-export class ContentwithSideNavComponent implements OnInit {
+export class ContentwithSideNavComponent implements OnInit, OnDestroy {
   @Input() navheaderText = 'Navigation';
   @Input() navItems: NavigationModel = null;
   @Input() headerText = '';
@@ -16,10 +17,13 @@ export class ContentwithSideNavComponent implements OnInit {
   minWidth = 768;
   mobile = false;
 
-  constructor() { }
+  constructor(private title: Title) { }
 
   ngOnInit() {
     this.mobile = this.checkforMobileSize();
+  }
+  ngOnDestroy(): void {
+    this.title.setTitle('Grinning Goblin Gaming Tavern');
   }
 
   @HostListener('window:resize')
