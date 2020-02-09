@@ -4,22 +4,46 @@ import { Month } from '../models/month.model';
 import { CalendarEvent } from '../models/calendar-event.model';
 import { Calendar } from '../models/calendar.model';
 import { DatabaseService } from '@core/services/database.service';
+import { SortService } from '@core/services/sort.service';
 
 @Injectable()
 export class CalendarService {
-
-  constructor(private dateService: DateService, private db: DatabaseService) { }
+  private calendars: Calendar[];
+  constructor(private dateService: DateService, private db: DatabaseService, private sort: SortService) { }
 
   async getCalendar(): Promise<Calendar> {
-    const data = await this.getCalendarData();
-    const name = data[0].name;
-    const events = this.generateCalendar(data[0]);
-    const start = this.getStartDay(data[0]);
-    return { name, startDay: start, calendarEvents: events };
+    if (!this.calendars) {
+      this.calendars = await this.getCalendars();
+    }
+    return this.getCurrentCalendar();
   }
 
-  getDay(year: number, month: number, day: number) {
+  private getCurrentCalendar(): Calendar {
+    const year = this.dateService.getCurrentYear();
+    const month = this.dateService.getCurrentMonth();
+    const monthString: string = (month < 10) ? `0${month}` : month.toString();
+    const currentID = `${year}-${monthString}`;
+    const currentCalendar = this.calendars.filter(calendar => calendar.id === currentID)[0];
+    if (currentCalendar) {
+      return currentCalendar;
+    }
+    return this.calendars[0];
+  }
+
+  getDayofWeek(year: number, month: number, day: number) {
     return this.dateService.getDayofWeek(year, month, day);
+  }
+
+  private async getCalendars(): Promise<Calendar[]> {
+    let months = await this.db.getItemswithID<Month>('calendar');
+    months = this.sort.sortItemsReverse(months, 'id');
+    return months.map((month) => {
+      const id = month.id;
+      const name = month.name;
+      const calendarEvents = this.generateCalendar(month);
+      const startDay = this.getStartDay(month);
+      return { id, name, startDay, calendarEvents };
+    });
   }
 
   private getStartDay(month: Month): number {
@@ -38,34 +62,38 @@ export class CalendarService {
 
       // Set Specific Event
       const specificEvents = monthConfig.events;
-      const specEvent = specificEvents.filter(x => x.day === date);
-      if (specEvent.length > 0) {
-        if (specEvent.length > 1) {
-          console.error(`There are more than 1 specific events on day ${date}. Only using first found event.`);
+      if (specificEvents) {
+        const specEvent = specificEvents.filter(x => x.day === date);
+        if (specEvent.length > 0) {
+          if (specEvent.length > 1) {
+            console.error(`There are more than 1 specific events on day ${date}. Only using first found event.`);
+          }
+          console.log({ specEvent });
+          const eventName = specEvent[0].eventName;
+          const imgString = specEvent[0].imgString;
+          const startTime = specEvent[0].time;
+          event = { year, month, day: date, eventName, imgString, time: startTime };
         }
-        console.log({ specEvent });
-        const eventName = specEvent[0].eventName;
-        const imgString = specEvent[0].imgString;
-        const startTime = specEvent[0].time;
-        event = { year, month, day: date, eventName, imgString, time: startTime };
       }
 
       // Set Weekly Event if specific event has not been set
       if (!event) {
         const dayofWeek = this.dateService.getDayofWeek(year, month, date);
         const weeklyEvents = monthConfig.weeklies;
-        const weeklyEvent = weeklyEvents.filter(x => x.day === dayofWeek);
-        if (weeklyEvent.length > 0) {
-          if (weeklyEvent.length > 1) {
-            console.error(`There are more than 1 weekly events on weekday ${dayofWeek}. Only using first found event.`);
+        if (weeklyEvents) {
+          const weeklyEvent = weeklyEvents.filter(x => x.day === dayofWeek);
+          if (weeklyEvent.length > 0) {
+            if (weeklyEvent.length > 1) {
+              console.error(`There are more than 1 weekly events on weekday ${dayofWeek}. Only using first found event.`);
+            }
+            const eventName = weeklyEvent[0].eventName;
+            const imgString = weeklyEvent[0].imgString;
+            let startTime: string = null;
+            if (weeklyEvent[0].time) {
+              startTime = weeklyEvent[0].time;
+            }
+            event = { year, month, day: date, eventName, imgString, time: startTime };
           }
-          const eventName = weeklyEvent[0].eventName;
-          const imgString = weeklyEvent[0].imgString;
-          let startTime: string = null;
-          if (weeklyEvent[0].time) {
-            startTime = weeklyEvent[0].time;
-          }
-          event = { year, month, day: date, eventName, imgString, time: startTime };
         }
       }
 
@@ -79,7 +107,5 @@ export class CalendarService {
     return events;
   }
 
-  private async getCalendarData(): Promise<Month[]> {
-    return this.db.getItems<Month>('calendar');
-  }
+
 }
