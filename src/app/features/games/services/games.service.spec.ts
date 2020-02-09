@@ -17,7 +17,7 @@ describe('GamesService', () => {
         SortService
       ]
     });
-    service = TestBed.get(GamesService);
+    service = TestBed.inject(GamesService);
   });
 
   afterEach(() => {

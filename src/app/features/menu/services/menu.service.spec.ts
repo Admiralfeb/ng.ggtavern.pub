@@ -18,7 +18,7 @@ describe('MenuService', () => {
         SortService
       ]
     });
-    service = TestBed.get(MenuService);
+    service = TestBed.inject(MenuService);
   });
   afterEach(() => {
     databaseServiceSpy.getItems.calls.reset();
