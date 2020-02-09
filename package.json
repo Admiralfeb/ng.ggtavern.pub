@@ -1,6 +1,6 @@
 {
   "name": "ggtavern",
-  "version": "2020.1.2",
+  "version": "2020.2.1",
   "scripts": {
     "postinstall": "gulp postInstall",
     "ng": "ng",
