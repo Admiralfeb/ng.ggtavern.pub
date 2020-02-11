@@ -1,0 +1,717 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GGTavern Docs</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/readthedocs.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">GGTavern Docs</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NavbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/core/navbar/navbar.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-navbar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./navbar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./navbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isLoggedIn">isLoggedIn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#hideNavMenu">hideNavMenu</a>
+                            </li>
+                            <li>
+                                <a href="#logout">logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleNavMenu">toggleNavMenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(announcements: <a href="../injectables/AnnouncementService.html">AnnouncementService</a>, auth: <a href="../injectables/AuthService.html">AuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/navbar/navbar.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>announcements</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnnouncementService.html" target="_self" >AnnouncementService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideNavMenu"></a>
+                    <span class="name">
+                        <b>
+                            hideNavMenu
+                        </b>
+                        <a href="#hideNavMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hideNavMenu()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/core/navbar/navbar.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <b>
+                            logout
+                        </b>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/core/navbar/navbar.component.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/core/navbar/navbar.component.ts:16</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleNavMenu"></a>
+                    <span class="name">
+                        <b>
+                            toggleNavMenu
+                        </b>
+                        <a href="#toggleNavMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleNavMenu()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/core/navbar/navbar.component.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isLoggedIn"></a>
+                        <span class="name">
+                            <b>
+                            isLoggedIn</b>
+                            <a href="#isLoggedIn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/navbar/navbar.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { AnnouncementService } from &#x27;@core/services/announcement.service&#x27;;
+import { AuthService } from &#x27;@core/services/auth.service&#x27;;
+import { Observable, Subscription } from &#x27;rxjs&#x27;;
+
+@Component({
+  selector: &#x27;app-navbar&#x27;,
+  templateUrl: &#x27;./navbar.component.html&#x27;,
+  styleUrls: [&#x27;./navbar.component.scss&#x27;]
+})
+export class NavbarComponent implements OnInit {
+
+  isLoggedIn &#x3D; false;
+  constructor(private announcements: AnnouncementService, private auth: AuthService) { }
+
+  ngOnInit() {
+    this.auth.init();
+    this.auth.getLoginState().subscribe((value: boolean) &#x3D;&gt; {
+      this.isLoggedIn &#x3D; value;
+    });
+    this.announcements.displayBannerAnnouncement();
+  }
+
+  toggleNavMenu() {
+    const navbar &#x3D; document.getElementById(&#x27;app-navbar&#x27;);
+    if (navbar.className &#x3D;&#x3D;&#x3D; &#x27;navbar&#x27;) {
+      navbar.className +&#x3D; &#x27; responsive&#x27;;
+    } else {
+      navbar.className &#x3D; &#x27;navbar&#x27;;
+    }
+  }
+
+  hideNavMenu() {
+    const navbar &#x3D; document.getElementById(&#x27;app-navbar&#x27;);
+    navbar.className &#x3D; &#x27;navbar&#x27;;
+  }
+
+  logout() {
+    this.hideNavMenu();
+    this.auth.logout();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div&gt;
+    &lt;nav class&#x3D;&quot;navbar&quot; id&#x3D;&quot;app-navbar&quot;&gt;
+        &lt;a id&#x3D;&quot;homeImage&quot; routerLink&#x3D;&quot;home&quot; matTooltip&#x3D;&quot;Go to the Home Page&quot; mat-button (click)&#x3D;&quot;hideNavMenu()&quot;&gt;&lt;img
+                id&#x3D;&quot;Z-img&quot; src&#x3D;&quot;../../../assets/img/android-chrome-512x512.png&quot;&gt;&lt;/a&gt;
+        &lt;a class&#x3D;&quot;nav-link homeButton&quot; routerLink&#x3D;&quot;home&quot; routerLinkActive&#x3D;&quot;active&quot; mat-icon-button
+            matTooltip&#x3D;&quot;Home Page&quot; (click)&#x3D;&quot;hideNavMenu()&quot;&gt;
+            &lt;mat-icon&gt;home&lt;/mat-icon&gt;
+        &lt;/a&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;menu&quot; routerLinkActive&#x3D;&quot;active&quot; mat-button matTooltip&#x3D;&quot;Food and Drink Menu&quot;
+            (click)&#x3D;&quot;hideNavMenu()&quot;&gt;Food and Drinks&lt;/a&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;games&quot; routerLinkActive&#x3D;&quot;active&quot; mat-button matTooltip&#x3D;&quot;Game Menu&quot;
+            (click)&#x3D;&quot;hideNavMenu()&quot;&gt;Game Menu&lt;/a&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;contact&quot; routerLinkActive&#x3D;&quot;active&quot; mat-button matTooltip&#x3D;&quot;Contact Us&quot;
+            (click)&#x3D;&quot;hideNavMenu()&quot;&gt;Contact&lt;/a&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;about&quot; routerLinkActive&#x3D;&quot;active&quot; mat-button matTooltip&#x3D;&quot;About Us&quot;
+            (click)&#x3D;&quot;hideNavMenu()&quot;&gt;About Us&lt;/a&gt;
+        &lt;a class&#x3D;&quot;nav-link&quot; routerLink&#x3D;&quot;events&quot; routerLinkActive&#x3D;&quot;active&quot; mat-button matTooltip&#x3D;&quot;Events&quot;
+            (click)&#x3D;&quot;hideNavMenu()&quot;&gt;Events&lt;/a&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;isLoggedIn&quot;&gt;
+            &lt;a class&#x3D;&quot;nav-link&quot; mat-button matTooltip&#x3D;&quot;Log Out&quot; (click)&#x3D;&quot;logout()&quot;&gt;Log Out&lt;/a&gt;
+        &lt;/ng-container&gt;
+        &lt;a class&#x3D;&quot;nav-link mobileButton&quot; href&#x3D;&quot;javascript:void(0);&quot; mat-button matTooltip&#x3D;&quot;Show Menu Items&quot;
+            (click)&#x3D;&quot;toggleNavMenu()&quot;&gt;
+            &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
+        &lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./navbar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;~@angular/material/theming&quot;;
+@import &quot;variables&quot;;
+
+.navbar {
+  width: 100%;
+  display: flex;
+  padding: 5px 10px;
+  background-color: #333;
+  height: auto;
+  min-height: auto;
+  justify-content: initial;
+}
+
+#homeImage {
+  display: block;
+  height: auto;
+  width: 55px;
+  padding: 0;
+}
+
+.container {
+  justify-content: flex-start;
+}
+
+.navbar img {
+  float: left;
+  display: block;
+  margin-right: 1em;
+  width: 52px;
+}
+
+.navbar .linkImage {
+  width: 52px;
+  height: auto;
+  padding: 0;
+}
+
+.navbar .nav-link {
+  background-color: transparent;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.5em;
+}
+
+center {
+  margin: auto;
+}
+
+.navbar a:hover,
+button:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
+}
+
+.navbar a.active,
+.active {
+  background-color: mat-color($primary);
+  color: white;
+}
+
+.mobileButton {
+  display: none;
+  margin-right: 10px;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one (&quot;Home&quot;). Show the link that contains should open and close the navbar (.mobileButton) */
+@media screen and (max-width: $mobile-size) {
+  // Navbar when not showing items
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .navbar a:not(:first-child) {
+    display: none;
+  }
+  .navbar a.mobileButton {
+    float: right;
+    display: block;
+  }
+
+  // Navbar when showing items
+  .navbar.responsive {
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .navbar.responsive .homeButton {
+    display: none;
+  }
+  .navbar.responsive a.mobileButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  .navbar.responsive a {
+    display: block;
+    margin-right: 25px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div>    <nav class="navbar" id="app-navbar">        <a id="homeImage" routerLink="home" matTooltip="Go to the Home Page" mat-button (click)="hideNavMenu()"><img                id="Z-img" src="../../../assets/img/android-chrome-512x512.png"></a>        <a class="nav-link homeButton" routerLink="home" routerLinkActive="active" mat-icon-button            matTooltip="Home Page" (click)="hideNavMenu()">            <mat-icon>home</mat-icon>        </a>        <a class="nav-link" routerLink="menu" routerLinkActive="active" mat-button matTooltip="Food and Drink Menu"            (click)="hideNavMenu()">Food and Drinks</a>        <a class="nav-link" routerLink="games" routerLinkActive="active" mat-button matTooltip="Game Menu"            (click)="hideNavMenu()">Game Menu</a>        <a class="nav-link" routerLink="contact" routerLinkActive="active" mat-button matTooltip="Contact Us"            (click)="hideNavMenu()">Contact</a>        <a class="nav-link" routerLink="about" routerLinkActive="active" mat-button matTooltip="About Us"            (click)="hideNavMenu()">About Us</a>        <a class="nav-link" routerLink="events" routerLinkActive="active" mat-button matTooltip="Events"            (click)="hideNavMenu()">Events</a>        <ng-container *ngIf="isLoggedIn">            <a class="nav-link" mat-button matTooltip="Log Out" (click)="logout()">Log Out</a>        </ng-container>        <a class="nav-link mobileButton" href="javascript:void(0);" mat-button matTooltip="Show Menu Items"            (click)="toggleNavMenu()">            <mat-icon>menu</mat-icon>        </a>    </nav></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottledComponent', 'selector': 'menu-bottled'},{'name': 'CalendarComponent', 'selector': 'calendar'},{'name': 'ContactComponent', 'selector': 'contact'},{'name': 'ContactMainComponent', 'selector': 'contact-main'},{'name': 'ContentwithSideNavComponent', 'selector': 'content-with-side-nav'},{'name': 'DayComponent', 'selector': 'calendar-day'},{'name': 'DrinkComponent', 'selector': 'menu-drinks'},{'name': 'ErrorNotFoundComponent', 'selector': 'error-not-found'},{'name': 'FoodItemwFriesComponent', 'selector': 'menu-foodItemwfries'},{'name': 'GameOptionsComponent', 'selector': 'game-options'},{'name': 'GamesComponent', 'selector': 'games'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HoursDialogComponent', 'selector': 'hours-dialog'},{'name': 'LiquorsComponent', 'selector': 'menu-liquors'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'MainComponent', 'selector': 'games-main'},{'name': 'MainComponent', 'selector': 'menu-home'},{'name': 'ManifestoComponent', 'selector': 'manifesto'},{'name': 'MembershipComponent', 'selector': 'membership'},{'name': 'MenuComponent', 'selector': 'menu-main'},{'name': 'MenuSectionComponent', 'selector': 'menu-section'},{'name': 'MessageDialogComponent', 'selector': 'message-dialog'},{'name': 'MiscFoodItemComponent', 'selector': 'menu-miscfooditem'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoopComponent', 'selector': ''},{'name': 'OpenSignComponent', 'selector': 'open-sign'},{'name': 'StaffComponent', 'selector': 'about-staff'},{'name': 'TapComponent', 'selector': 'menu-tap'},{'name': 'UnderConstructionComponent', 'selector': 'under-construction'},{'name': 'WineComponent', 'selector': 'menu-wine'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

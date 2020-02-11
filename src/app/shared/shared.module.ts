@@ -10,7 +10,6 @@ import {
   UnderConstructionComponent,
   MessageDialogComponent,
   ContentwithSideNavComponent,
-  VideoYoutubeComponent
 } from './components';
 
 @NgModule({
@@ -26,7 +25,6 @@ import {
     UnderConstructionComponent,
     MessageDialogComponent,
     ContentwithSideNavComponent,
-    VideoYoutubeComponent,
   ],
   entryComponents: [
     MessageDialogComponent
@@ -41,7 +39,6 @@ import {
     ErrorNotFoundComponent,
     UnderConstructionComponent,
     ContentwithSideNavComponent,
-    VideoYoutubeComponent,
   ]
 })
 export class SharedModule { }
