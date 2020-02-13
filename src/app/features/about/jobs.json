@@ -1,5 +1,6 @@
 {
     "owners": {
+        "id": "123654",
         "name": "Owner Goblins",
         "order": 0,
         "workers": [
@@ -12,6 +13,7 @@
         ]
     },
     "barstaff": {
+        "id": "987357",
         "name": "Bar Faeries",
         "order": 1,
         "workers": [
@@ -30,6 +32,7 @@
         ]
     },
     "kitchen": {
+        "id": "6573249841657",
         "name": "Kitchen Dragons",
         "order": 2,
         "workers": [
@@ -54,17 +57,18 @@
         ]
     },
     "DMs": {
+        "id": "357357165",
         "name": "Masters of Dungeons",
         "order": 3,
         "workers": [
             {
-                "name": "Jeff",
+                "name": "Daniel",
                 "quote": "",
                 "info": "",
                 "imgPath": ""
             },
             {
-                "name": "Daniel",
+                "name": "Jeff",
                 "quote": "",
                 "info": "",
                 "imgPath": ""
@@ -72,7 +76,7 @@
         ]
     },
     "random": {
-        "name": "this won't make it in a test",
+        "name": "this wont make it in a test",
         "order": 99
     }
 }
