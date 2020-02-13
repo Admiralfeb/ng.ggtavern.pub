@@ -7,7 +7,6 @@ import { MaterialModule } from './material.module';
 
 import {
   ErrorNotFoundComponent,
-  UnderConstructionComponent,
   MessageDialogComponent,
   ContentwithSideNavComponent,
 } from './components';
@@ -22,7 +21,6 @@ import {
   ],
   declarations: [
     ErrorNotFoundComponent,
-    UnderConstructionComponent,
     MessageDialogComponent,
     ContentwithSideNavComponent,
   ],
@@ -37,7 +35,6 @@ import {
     MaterialModule,
 
     ErrorNotFoundComponent,
-    UnderConstructionComponent,
     ContentwithSideNavComponent,
   ]
 })

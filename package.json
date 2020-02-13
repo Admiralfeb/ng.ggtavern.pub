@@ -26,6 +26,7 @@
     "@angular/common": "9.0.2",
     "@angular/compiler": "9.0.2",
     "@angular/core": "9.0.2",
+    "@admiralfeb/under-construction": "0.0.2",
     "@angular/fire": "5.4.2",
     "@angular/forms": "9.0.2",
     "@angular/material": "9.0.1",
