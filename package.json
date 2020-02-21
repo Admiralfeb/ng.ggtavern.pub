@@ -55,6 +55,7 @@
     "@types/moment-timezone": "0.5.12",
     "@types/node": "^13.7.4",
     "codecov": "3.6.5",
+    "angular-cli-ghpages": "^0.6.2",
     "codelyzer": "^5.1.2",
     "dotenv": "8.2.0",
     "esm": "^3.2.25",

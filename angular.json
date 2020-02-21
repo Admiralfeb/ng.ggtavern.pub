@@ -24,7 +24,6 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -108,7 +107,6 @@
             "karmaConfig": "karma.conf.js",
             "codeCoverage": true,
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -148,8 +146,12 @@
           }
         },
         "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {}
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://admiralfeb.github.io/ggtavern.pub/",
+            "name": "Zachary Bryant",
+            "email": "Zachary@admiralfeb.net"
+          }
         }
       }
     }
