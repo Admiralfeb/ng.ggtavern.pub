@@ -87,11 +87,6 @@ jobs:
         run: npm ci
       - name: Run Build
         run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: dist
 
   deploy:
     name: Deploy to Firebase
@@ -108,10 +103,8 @@ jobs:
           node-version: 12.x
       - name: Install Project
         run: npm ci
-      - name: Download Build
-        uses: actions/download-artifact@master
-        with:
-          name: dist
+      - name: Run Build
+        run: npm run build
       - name: Deploy to Firebase
         run: npm run deploy -- -m ${{ steps.vars.outputs.build_version }}
         env:
