@@ -2,9 +2,6 @@ name: Test and Build
 
 on: [push]
 
-env:
-  BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-
 jobs:
   test-spec:
     name: Unit Tests
@@ -106,6 +103,6 @@ jobs:
       - name: Run Build
         run: npm run build
       - name: Deploy to Firebase
-        run: npm run deploy -- -m ${{ steps.vars.outputs.build_version }}
+        run: npm run deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
