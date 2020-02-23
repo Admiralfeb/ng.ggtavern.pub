@@ -1,19 +1,74 @@
-import gulp from 'gulp';
-import shell from 'gulp-shell';
+import { series } from 'gulp';
+import { exec } from 'child_process';
 
-gulp.task('update-driver', shell.task('npm explore protractor -- node ./bin/webdriver-manager update'));
+function updateDrivers() {
+    return exec('npm explore protractor -- node ./bin/webdriver-manager update', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
 
-// Chrome
-gulp.task('run-e2e-in-chrome', shell.task('ng e2e --protractor-config=e2e/chrome.protractor.conf.js'));
-gulp.task('ci-e2e-in-chrome', shell.task('ng e2e --protractor-config=e2e/ci-chrome.protractor.conf.js'));
-gulp.task('e2e:chrome', gulp.series('update-driver', 'run-e2e-in-chrome'));
-gulp.task('ci:e2e:chrome', gulp.series('update-driver', 'ci-e2e-in-chrome'));
+function rune2e() {
+    return exec('ng e2e', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
 
-// Firefox
-gulp.task('run-e2e-in-firefox', shell.task('ng e2e --protractor-config=e2e/firefox.protractor.conf.js'));
-gulp.task('ci-e2e-in-firefox', shell.task('ng e2e --protractor-config=e2e/ci-firefox.protractor.conf.js'));
-gulp.task('e2e:firefox', gulp.series('update-driver', 'run-e2e-in-firefox'));
-gulp.task('ci:e2e:firefox', gulp.series('update-driver', 'ci-e2e-in-firefox'));
+function rune2eChrome() {
+    return exec('ng e2e --protractor-config=e2e/chrome.protractor.conf.js', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
 
-gulp.task('run-e2e', shell.task('ng e2e'));
-gulp.task('e2e', gulp.series('update-driver', 'run-e2e'));
+function rune2eFirefox() {
+    return exec('ng e2e --protractor-config=e2e/firefox.protractor.conf.js', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
+
+function runcie2eChrome() {
+    return exec('ng e2e --protractor-config=e2e/ci-chrome.protractor.conf.js', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
+
+function runcie2eFirefox() {
+    return exec('ng e2e --protractor-config=e2e/ci-firefox.protractor.conf.js', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
+
+export const e2e = series(updateDrivers, rune2e);
+export const e2eChrome = series(updateDrivers, rune2eChrome);
+export const e2eFirefox = series(updateDrivers, rune2eFirefox);
+export const cie2eChrome = series(updateDrivers, runcie2eChrome);
+export const cie2eFirefox = series(updateDrivers, runcie2eFirefox);

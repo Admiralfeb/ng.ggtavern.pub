@@ -5,17 +5,24 @@ import { MatSnackBarConfig, MatSnackBar } from '@angular/material/snack-bar';
 import { DialogService } from './dialog.service';
 import moment from 'moment-timezone';
 
+/**
+ * This service controls the notification banners.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AnnouncementService {
+  /** if true, won't display the main banner again this session */
   private hasBannerBeenDisplayed = false;
+  /** available announcements */
   private announcements: Announcement[];
+  /** snackbar config for all notifications */
   private config: MatSnackBarConfig = {
     verticalPosition: 'top',
     horizontalPosition: 'right',
     panelClass: ['background-primary']
   };
+
 
   constructor(private db: DatabaseService, private snackbar: MatSnackBar) {
     this.getAnnouncements().then(x => this.announcements = x).catch(e => {
@@ -24,6 +31,9 @@ export class AnnouncementService {
     });
   }
 
+  /**
+   * Gets the announcements from the database
+   */
   private async getAnnouncements() {
     if (this.announcements) {
       return this.announcements;
@@ -63,7 +73,16 @@ export class AnnouncementService {
     }
   }
 
-  displayTempMessage(message: string, duration: number, action?: string) {
+  /**
+   * Displays a temporary notification
+   * @param message message string to display
+   * @param duration duration to display message. Default is 5000 (5 seconds)
+   * @param action action text to display on button. Default is 'OK'
+   */
+  displayTempMessage(message: string, duration?: number, action?: string) {
+    if (!duration) {
+      duration = 5000;
+    }
     if (!action) {
       action = 'OK';
     }

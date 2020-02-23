@@ -1,5 +1,8 @@
 import { appKeys } from './keys';
 
+/**
+ * environment variables for staging environment
+ */
 export const environment = {
     production: false,
     version: '2020.1.1',

@@ -7,10 +7,8 @@ import { MaterialModule } from './material.module';
 
 import {
   ErrorNotFoundComponent,
-  UnderConstructionComponent,
   MessageDialogComponent,
   ContentwithSideNavComponent,
-  VideoYoutubeComponent
 } from './components';
 
 @NgModule({
@@ -23,10 +21,8 @@ import {
   ],
   declarations: [
     ErrorNotFoundComponent,
-    UnderConstructionComponent,
     MessageDialogComponent,
     ContentwithSideNavComponent,
-    VideoYoutubeComponent,
   ],
   entryComponents: [
     MessageDialogComponent
@@ -39,9 +35,7 @@ import {
     MaterialModule,
 
     ErrorNotFoundComponent,
-    UnderConstructionComponent,
     ContentwithSideNavComponent,
-    VideoYoutubeComponent,
   ]
 })
 export class SharedModule { }

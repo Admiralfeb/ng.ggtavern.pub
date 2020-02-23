@@ -4,13 +4,14 @@ import { DomSanitizer, ɵBROWSER_SANITIZATION_PROVIDERS } from '@angular/platfor
 import { TestBed } from '@angular/core/testing';
 import { Position, Worker } from '../about.models';
 import { SortService } from '@core/services/sort.service';
+import positions from '../jobs.json';
 
 describe('AboutService', () => {
   let service: AboutService;
   let sanitizer: DomSanitizer;
 
 
-  const databaseServiceSpy = jasmine.createSpyObj<DatabaseService>(['getItems']);
+  const databaseServiceSpy = jasmine.createSpyObj<DatabaseService>(['getItemswithID']);
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -36,9 +37,9 @@ describe('AboutService', () => {
     expect(service).toBeTruthy();
   });
 
-  xit('should return positions and workers', async () => {
-    // databaseServiceSpy.getItems.and
-    //   .returnValue(Promise.resolve<Position[]>([positions.DMs, positions.barstaff, positions.kitchen, positions.owners]));
+  it('should return positions and workers', async () => {
+    databaseServiceSpy.getItemswithID.and
+      .returnValue(Promise.resolve<Position[]>([positions.DMs, positions.barstaff, positions.kitchen, positions.owners]));
     let expectedDefault: Position[] = [
       {
         id: '123654',

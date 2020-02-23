@@ -1,5 +1,8 @@
 import { appKeys } from './keys';
 
+/**
+ * environment variables for production environment
+ */
 export const environment = {
   production: true,
   version: '2020.1.1',

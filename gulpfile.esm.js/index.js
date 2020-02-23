@@ -1,42 +1,30 @@
-import gulp from 'gulp';
-import replace from 'gulp-replace';
-import path from 'path';
-const argv = require('minimist')(process.argv.slice(2));
-
-require('./gulp.e2e');
-require('./gulp.test');
-require('./gulp.project');
+import { postInstall, deploy, docs, docsserve } from './gulp.project';
+import { lint, coverage, testChrome, testFirefox, citestChrome, citestFirefox, test } from './gulp.test';
+import { e2e, e2eChrome, e2eFirefox, cie2eChrome, cie2eFirefox } from './gulp.e2e';
 
 exports.default = (done) => {
     console.log('default task run');
     done();
 };
 
+// Project
+exports.postInstall = postInstall;
+exports.docs = docs;
+exports.docsserve = docsserve;
+exports.deploy = deploy;
 
-gulp.task('bump-version', done => {
-    const ngEnv = argv.configuration;
-    const envDir = path.resolve(__dirname, `./src/environments`);
-    const envFilePath = path.join(envDir, `environment.${ngEnv}.ts`);
-    return gulp
-        .src([envFilePath])
-        .pipe(
-            replace(/version:\s?"\d+.\d+.\d+.\d+",?/g, (match) => {
-                const matches = /(version:\s?")(\d+.\d+.\d+.\d+)(",?)/g.exec(match);
-                const versionString = matches[2];
-                const versionParts = versionString.split('.').map(v => +v);
-                versionParts[versionParts.length - 1]++;
-                const newVersionString = versionParts.join('.');
-                const replacedVersionString = match.replace(
-                    versionString,
-                    newVersionString
-                );
-                console.log(
-                    `${
-                    this.file.path
-                    } New version to be written: ${replacedVersionString}`
-                );
-                return replacedVersionString;
-            })
-        )
-        .pipe(gulp.dest(envDir));
-});
+// Tests
+exports.lint = lint;
+exports.test = test;
+exports.testChrome = testChrome;
+exports.testFirefox = testFirefox;
+exports.citestChrome = citestChrome;
+exports.citestFirefox = citestFirefox;
+exports.coverage = coverage;
+
+// e2e
+exports.e2e = e2e;
+exports.e2eChrome = e2eChrome;
+exports.e2eFirefox = e2eFirefox;
+exports.cie2eChrome = cie2eChrome;
+exports.cie2eFirefox = cie2eFirefox;

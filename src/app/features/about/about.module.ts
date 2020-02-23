@@ -6,6 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 import { AboutService } from './services/about.service';
 import { MembershipComponent } from './components/membership/membership.component';
 import { ManifestoComponent } from './components/manifesto/manifesto.component';
+import { UnderConstructionModule } from '@admiralfeb/under-construction';
 
 
 
@@ -17,7 +18,8 @@ import { ManifestoComponent } from './components/manifesto/manifesto.component';
     ManifestoComponent],
   imports: [
     AboutRoutingModule,
-    SharedModule
+    SharedModule,
+    UnderConstructionModule,
   ],
   providers: [AboutService]
 })

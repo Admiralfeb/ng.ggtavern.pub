@@ -1,0 +1,82 @@
+{
+    "owners": {
+        "id": "123654",
+        "name": "Owner Goblins",
+        "order": 0,
+        "workers": [
+            {
+                "name": "Jen and Pat",
+                "quote": "Marshmallows have no bones",
+                "info": "",
+                "imgPath": "https://ggtavern.pub/hello.png"
+            }
+        ]
+    },
+    "barstaff": {
+        "id": "987357",
+        "name": "Bar Faeries",
+        "order": 1,
+        "workers": [
+            {
+                "name": "Diana",
+                "quote": "",
+                "info": "",
+                "imgPath": ""
+            },
+            {
+                "name": "Kaitie",
+                "quote": "",
+                "info": "",
+                "imgPath": ""
+            }
+        ]
+    },
+    "kitchen": {
+        "id": "6573249841657",
+        "name": "Kitchen Dragons",
+        "order": 2,
+        "workers": [
+            {
+                "name": "Amarah",
+                "quote": "",
+                "info": "",
+                "imgPath": ""
+            },
+            {
+                "name": "Anthony",
+                "quote": "",
+                "info": "",
+                "imgPath": ""
+            },
+            {
+                "name": "Jane",
+                "quote": "",
+                "info": "",
+                "imgPath": ""
+            }
+        ]
+    },
+    "DMs": {
+        "id": "357357165",
+        "name": "Masters of Dungeons",
+        "order": 3,
+        "workers": [
+            {
+                "name": "Daniel",
+                "quote": "",
+                "info": "",
+                "imgPath": ""
+            },
+            {
+                "name": "Jeff",
+                "quote": "",
+                "info": "",
+                "imgPath": ""
+            }
+        ]
+    },
+    "random": {
+        "name": "this wont make it in a test",
+        "order": 99
+    }
+}
