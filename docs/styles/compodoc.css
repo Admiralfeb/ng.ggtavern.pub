@@ -267,12 +267,12 @@ a[href] {
     box-shadow: none;
     outline: 0;
     line-height: 22px;
-    padding: 7px 7px;
+    padding: 7px;
     color: inherit;
 }
 
 .panel-body {
-    padding: 0px;
+    padding: 0;
 }
 
 .panel-group .panel-heading+.panel-collapse>.list-group,
@@ -285,7 +285,7 @@ a[href] {
 }
 
 .panel-body .table {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .panel-group .panel:first-child {
@@ -503,7 +503,7 @@ a[href] {
 }
 
 pre {
-    padding: 12px 12px;
+    padding: 12px;
     border: none;
     background: #23241f;
 }
@@ -541,7 +541,7 @@ code {
     display: none;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px 15px 40px 15px;
+    padding: 20px 15px 40px;
 }
 
 .search-results .no-results {

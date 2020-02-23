@@ -94,7 +94,7 @@
                     case 5:
                         link = '../'.repeat(COMPODOC_CURRENT_PAGE_DEPTH);
                         break;
-                };
+                }
                 var finalResLabel = res.title.split(' - ')[1].charAt(0).toUpperCase() + res.title.split(' - ')[1].substring(1);
                 var $link = $('<a>', {
                     'href': link + res.url,
