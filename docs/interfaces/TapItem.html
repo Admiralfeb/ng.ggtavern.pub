@@ -65,6 +65,13 @@
             <code>src/app/features/menu/models/tapitem.model.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Item on Tap </p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -132,6 +139,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>alcoholic percentage </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -161,6 +174,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>price for the mug (32oz) size </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -190,6 +209,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>price for the pint (16oz) size </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -198,9 +223,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MenuItem } from &#x27;./menuitem.model&#x27;;
+/** Item on Tap */
 export interface TapItem extends MenuItem {
+    /** price for the pint (16oz) size */
     pricePint: string;
+    /** price for the mug (32oz) size */
     priceMug: string;
+    /** alcoholic percentage */
     ABV: string;
 }
 </code></pre>

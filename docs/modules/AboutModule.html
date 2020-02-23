@@ -261,6 +261,7 @@ import { SharedModule } from &#x27;@shared/shared.module&#x27;;
 import { AboutService } from &#x27;./services/about.service&#x27;;
 import { MembershipComponent } from &#x27;./components/membership/membership.component&#x27;;
 import { ManifestoComponent } from &#x27;./components/manifesto/manifesto.component&#x27;;
+import { UnderConstructionModule } from &#x27;@admiralfeb/under-construction&#x27;;
 
 
 
@@ -272,7 +273,8 @@ import { ManifestoComponent } from &#x27;./components/manifesto/manifesto.compon
     ManifestoComponent],
   imports: [
     AboutRoutingModule,
-    SharedModule
+    SharedModule,
+    UnderConstructionModule,
   ],
   providers: [AboutService]
 })

@@ -59,6 +59,13 @@
     <code>src/app/features/menu/menu.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Menu landing. Displays its content in Content with sidenav </p>
+
+    </p>
 
 
     <p class="comment">
@@ -172,7 +179,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/features/menu/menu.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/menu/menu.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -255,14 +262,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/features/menu/menu.component.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/features/menu/menu.component.ts:38</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>loads the menu sections </p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -325,8 +334,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/features/menu/menu.component.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/features/menu/menu.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -366,14 +375,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/features/menu/menu.component.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/features/menu/menu.component.ts:33</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>set the title </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -416,10 +427,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/features/menu/menu.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/menu/menu.component.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>nav items </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -448,10 +465,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/features/menu/menu.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/menu/menu.component.ts:14</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>title to display for the page </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -467,16 +490,23 @@ import { Title } from &#x27;@angular/platform-browser&#x27;;
 import { MenuSection } from &#x27;./models/menu-section.model&#x27;;
 import { MenuService } from &#x27;./services/menu.service&#x27;;
 
+/** Menu landing. Displays its content in Content with sidenav */
 @Component({
   selector: &#x27;menu-main&#x27;,
   template: &#x60;&lt;content-with-side-nav [headerText]&#x3D;&quot;title&quot; [navItems]&#x3D;&quot;navItems&quot;&gt;&lt;/content-with-side-nav&gt;&#x60;
 })
 export class MenuComponent implements OnInit {
+  /** title to display for the page */
   title &#x3D; &#x27;GG Food Menu&#x27;;
+  /** nav items */
   navItems: NavigationModel[] &#x3D; [
     { text: &#x27;Menu Home&#x27;, link: &#x27;home&#x27; }
   ];
-  constructor(private titleService: Title, private menuService: MenuService) { }
+  constructor(
+    /** reference to title service */
+    private titleService: Title,
+    /** reference to the menu service */
+    private menuService: MenuService) { }
 
   ngOnInit() {
     this.setTitle();
@@ -485,10 +515,12 @@ export class MenuComponent implements OnInit {
     });
   }
 
+  /** set the title */
   private setTitle() {
     this.titleService.setTitle(this.title);
   }
 
+  /** loads the menu sections */
   private loadMenu(menuSections: MenuSection[]) {
     console.log(&#x27;menuSections:&#x27;, menuSections);
     for (const element of menuSections) {
@@ -531,7 +563,7 @@ export class MenuComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><content-with-side-nav [headerText]="title" [navItems]="navItems"></content-with-side-nav></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottledComponent', 'selector': 'menu-bottled'},{'name': 'CalendarComponent', 'selector': 'calendar'},{'name': 'ContactComponent', 'selector': 'contact'},{'name': 'ContactMainComponent', 'selector': 'contact-main'},{'name': 'ContentwithSideNavComponent', 'selector': 'content-with-side-nav'},{'name': 'DayComponent', 'selector': 'calendar-day'},{'name': 'DrinkComponent', 'selector': 'menu-drinks'},{'name': 'ErrorNotFoundComponent', 'selector': 'error-not-found'},{'name': 'FoodItemwFriesComponent', 'selector': 'menu-foodItemwfries'},{'name': 'GameOptionsComponent', 'selector': 'game-options'},{'name': 'GamesComponent', 'selector': 'games'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HoursDialogComponent', 'selector': 'hours-dialog'},{'name': 'LiquorsComponent', 'selector': 'menu-liquors'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'MainComponent', 'selector': 'games-main'},{'name': 'MainComponent', 'selector': 'menu-home'},{'name': 'ManifestoComponent', 'selector': 'manifesto'},{'name': 'MembershipComponent', 'selector': 'membership'},{'name': 'MenuComponent', 'selector': 'menu-main'},{'name': 'MenuSectionComponent', 'selector': 'menu-section'},{'name': 'MessageDialogComponent', 'selector': 'message-dialog'},{'name': 'MiscFoodItemComponent', 'selector': 'menu-miscfooditem'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoopComponent', 'selector': ''},{'name': 'OpenSignComponent', 'selector': 'open-sign'},{'name': 'StaffComponent', 'selector': 'about-staff'},{'name': 'TapComponent', 'selector': 'menu-tap'},{'name': 'UnderConstructionComponent', 'selector': 'under-construction'},{'name': 'WineComponent', 'selector': 'menu-wine'}];
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottledComponent', 'selector': 'menu-bottled'},{'name': 'CalendarComponent', 'selector': 'calendar'},{'name': 'ContactComponent', 'selector': 'contact'},{'name': 'ContactMainComponent', 'selector': 'contact-main'},{'name': 'ContentwithSideNavComponent', 'selector': 'content-with-side-nav'},{'name': 'DayComponent', 'selector': 'calendar-day'},{'name': 'DrinkComponent', 'selector': 'menu-drinks'},{'name': 'ErrorNotFoundComponent', 'selector': 'error-not-found'},{'name': 'FoodItemwFriesComponent', 'selector': 'menu-foodItemwfries'},{'name': 'GameOptionsComponent', 'selector': 'game-options'},{'name': 'GamesComponent', 'selector': 'games'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HoursDialogComponent', 'selector': 'hours-dialog'},{'name': 'LiquorsComponent', 'selector': 'menu-liquors'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'MainComponent', 'selector': 'games-main'},{'name': 'MainComponent', 'selector': 'menu-home'},{'name': 'ManifestoComponent', 'selector': 'manifesto'},{'name': 'MembershipComponent', 'selector': 'membership'},{'name': 'MenuComponent', 'selector': 'menu-main'},{'name': 'MenuSectionComponent', 'selector': 'menu-section'},{'name': 'MessageDialogComponent', 'selector': 'message-dialog'},{'name': 'MiscFoodItemComponent', 'selector': 'menu-miscfooditem'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoopComponent', 'selector': ''},{'name': 'OpenSignComponent', 'selector': 'open-sign'},{'name': 'StaffComponent', 'selector': 'about-staff'},{'name': 'TapComponent', 'selector': 'menu-tap'},{'name': 'WineComponent', 'selector': 'menu-wine'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MenuComponent'};
 </script>

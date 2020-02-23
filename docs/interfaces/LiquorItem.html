@@ -65,6 +65,13 @@
             <code>src/app/features/menu/models/liquoritem.model.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Available Liquors </p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -137,6 +144,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>alcoholic value of liquor </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -171,6 +184,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>description if applicable </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -205,6 +224,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>special notes if applicable </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -234,6 +259,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Type of liquor </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -242,10 +273,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MenuItem } from &#x27;./menuitem.model&#x27;;
+/** Available Liquors */
 export interface LiquorItem extends MenuItem {
+    /** Type of liquor */
     type: string;
+    /** special notes if applicable */
     note?: string;
+    /** alcoholic value of liquor */
     ABV: string;
+    /** description if applicable */
     description?: string;
 }
 </code></pre>

@@ -65,6 +65,13 @@
             <code>src/app/features/menu/models/drinkitem.model.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Drink items, includes shots and specialties </p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -136,6 +143,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>ingredients of the beverage </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -170,6 +183,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>special notes, if applicable </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -178,8 +197,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MenuItem } from &#x27;./menuitem.model&#x27;;
+/** Drink items, includes shots and specialties */
 export interface DrinkItem extends MenuItem {
+    /** ingredients of the beverage */
     ingredients?: string;
+    /** special notes, if applicable */
     note?: string;
 }
 </code></pre>

@@ -65,14 +65,15 @@
     <code>src/app/features/menu/components/foodItemwfries/foodItemwfries.component.ts</code>
 </p>
 
-
-
     <p class="comment">
-        <h3>Implements</h3>
+        <h3>Description</h3>
     </p>
     <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+        <p>Display meal-type food items </p>
+
     </p>
+
+
 
 
 <section>
@@ -123,20 +124,6 @@
     <table class="table table-sm table-bordered index-table">
         <tbody>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#ngOnInit">ngOnInit</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -160,24 +147,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/features/menu/components/foodItemwfries/foodItemwfries.component.ts:11</a></div>
-                            </td>
-                        </tr>
-
-            </tbody>
-        </table>
-</section>
 
     <section>
     <h3 id="inputs">Inputs</h3>
@@ -197,60 +166,22 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/features/menu/components/foodItemwfries/foodItemwfries.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/features/menu/components/foodItemwfries/foodItemwfries.component.ts:12</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Items to display </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
 
 
 
-    <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">src/app/features/menu/components/foodItemwfries/foodItemwfries.component.ts:15</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
 
 </div>
 
@@ -259,19 +190,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
 import { FoodItemwFries } from &#x27;../../models&#x27;;
 
-
+/** Display meal-type food items */
 @Component({
   selector: &#x27;menu-foodItemwfries&#x27;,
   templateUrl: &#x27;./foodItemwfries.component.html&#x27;,
   styleUrls: [&#x27;./foodItemwfries.component.scss&#x27;]
 })
-export class FoodItemwFriesComponent implements OnInit {
+export class FoodItemwFriesComponent {
+  /** Items to display */
   @Input() items: FoodItemwFries[];
-
-  constructor() { }
-
-  ngOnInit() { }
-
 }
 </code></pre>
     </div>
@@ -334,7 +261,7 @@ export class FoodItemwFriesComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><mat-accordion>    <ng-container *ngFor="let item of items">        <mat-expansion-panel class="menuoption">            <mat-expansion-panel-header>                <mat-panel-title>{{item.name}}</mat-panel-title>                <mat-panel-description>                    {{item.price | currency:\'USD\' }}                </mat-panel-description>            </mat-expansion-panel-header>            <mat-panel-description>                <div>                    <p *ngIf="item.types">Choice of: {{item.types}}</p>                    <p>{{item.description}}</p>                    <p>{{item.note}}</p>                    <p *ngIf="item.includesFries">Includes your choice of sweet potato or regular fries</p>                </div>            </mat-panel-description>        </mat-expansion-panel>    </ng-container></mat-accordion></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottledComponent', 'selector': 'menu-bottled'},{'name': 'CalendarComponent', 'selector': 'calendar'},{'name': 'ContactComponent', 'selector': 'contact'},{'name': 'ContactMainComponent', 'selector': 'contact-main'},{'name': 'ContentwithSideNavComponent', 'selector': 'content-with-side-nav'},{'name': 'DayComponent', 'selector': 'calendar-day'},{'name': 'DrinkComponent', 'selector': 'menu-drinks'},{'name': 'ErrorNotFoundComponent', 'selector': 'error-not-found'},{'name': 'FoodItemwFriesComponent', 'selector': 'menu-foodItemwfries'},{'name': 'GameOptionsComponent', 'selector': 'game-options'},{'name': 'GamesComponent', 'selector': 'games'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HoursDialogComponent', 'selector': 'hours-dialog'},{'name': 'LiquorsComponent', 'selector': 'menu-liquors'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'MainComponent', 'selector': 'games-main'},{'name': 'MainComponent', 'selector': 'menu-home'},{'name': 'ManifestoComponent', 'selector': 'manifesto'},{'name': 'MembershipComponent', 'selector': 'membership'},{'name': 'MenuComponent', 'selector': 'menu-main'},{'name': 'MenuSectionComponent', 'selector': 'menu-section'},{'name': 'MessageDialogComponent', 'selector': 'message-dialog'},{'name': 'MiscFoodItemComponent', 'selector': 'menu-miscfooditem'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoopComponent', 'selector': ''},{'name': 'OpenSignComponent', 'selector': 'open-sign'},{'name': 'StaffComponent', 'selector': 'about-staff'},{'name': 'TapComponent', 'selector': 'menu-tap'},{'name': 'UnderConstructionComponent', 'selector': 'under-construction'},{'name': 'WineComponent', 'selector': 'menu-wine'}];
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottledComponent', 'selector': 'menu-bottled'},{'name': 'CalendarComponent', 'selector': 'calendar'},{'name': 'ContactComponent', 'selector': 'contact'},{'name': 'ContactMainComponent', 'selector': 'contact-main'},{'name': 'ContentwithSideNavComponent', 'selector': 'content-with-side-nav'},{'name': 'DayComponent', 'selector': 'calendar-day'},{'name': 'DrinkComponent', 'selector': 'menu-drinks'},{'name': 'ErrorNotFoundComponent', 'selector': 'error-not-found'},{'name': 'FoodItemwFriesComponent', 'selector': 'menu-foodItemwfries'},{'name': 'GameOptionsComponent', 'selector': 'game-options'},{'name': 'GamesComponent', 'selector': 'games'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HoursDialogComponent', 'selector': 'hours-dialog'},{'name': 'LiquorsComponent', 'selector': 'menu-liquors'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'MainComponent', 'selector': 'games-main'},{'name': 'MainComponent', 'selector': 'menu-home'},{'name': 'ManifestoComponent', 'selector': 'manifesto'},{'name': 'MembershipComponent', 'selector': 'membership'},{'name': 'MenuComponent', 'selector': 'menu-main'},{'name': 'MenuSectionComponent', 'selector': 'menu-section'},{'name': 'MessageDialogComponent', 'selector': 'message-dialog'},{'name': 'MiscFoodItemComponent', 'selector': 'menu-miscfooditem'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoopComponent', 'selector': ''},{'name': 'OpenSignComponent', 'selector': 'open-sign'},{'name': 'StaffComponent', 'selector': 'about-staff'},{'name': 'TapComponent', 'selector': 'menu-tap'},{'name': 'WineComponent', 'selector': 'menu-wine'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FoodItemwFriesComponent'};
 </script>

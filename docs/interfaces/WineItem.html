@@ -65,6 +65,13 @@
             <code>src/app/features/menu/models/wineitem.model.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Wine item </p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -132,6 +139,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>types of item </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -140,7 +153,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MenuItem } from &#x27;./menuitem.model&#x27;;
+/** Wine item */
 export interface WineItem extends MenuItem {
+    /** types of item */
     types?: string;
 }
 </code></pre>

@@ -65,6 +65,13 @@
             <code>src/app/features/menu/models/miscfooditem.model.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Misc food items </p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -134,6 +141,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>description of item </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -168,6 +181,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>note about item if applicable </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -202,6 +221,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>types of item if applicable </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -210,9 +235,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MenuItem } from &#x27;./menuitem.model&#x27;;
+/** Misc food items */
 export interface MiscFoodItem extends MenuItem {
+    /** description of item */
     description: string;
+    /** note about item if applicable */
     note?: string;
+    /** types of item if applicable */
     types?: string;
 }
 </code></pre>

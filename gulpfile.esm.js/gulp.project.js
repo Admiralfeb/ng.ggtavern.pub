@@ -37,7 +37,6 @@ export function docsserve() {
             theme: 'readthedocs',
             watch: true,
             serve: true,
-            open: true
         })
     );
 }

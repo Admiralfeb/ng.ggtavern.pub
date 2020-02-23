@@ -65,6 +65,13 @@
     <code>src/app/features/menu/components/liquors/liquors.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Displays Liquor Items </p>
+
+    </p>
 
 
     <p class="comment">
@@ -192,7 +199,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -248,9 +255,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:14</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Items to display </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -284,14 +297,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:23</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>initialize component </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -323,14 +338,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>sort change event. Resorts based upon the event value. </p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -395,14 +412,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:34</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>sorts the liquors </p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -474,10 +493,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/menu/components/liquors/liquors.component.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>sort. Defaults to type </p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -492,27 +517,34 @@ import { MatRadioChange } from &#x27;@angular/material/radio&#x27;;
 import { MenuService } from &#x27;../../services/menu.service&#x27;;
 import { LiquorItem } from &#x27;../../models&#x27;;
 
-
+/** Displays Liquor Items */
 @Component({
   selector: &#x27;menu-liquors&#x27;,
   templateUrl: &#x27;./liquors.component.html&#x27;,
   styleUrls: [&#x27;./liquors.component.scss&#x27;]
 })
 export class LiquorsComponent implements OnInit {
+  /** Items to display */
   @Input() items: LiquorItem[];
+  /** sort. Defaults to type */
   sortSelect &#x3D; &#x27;type&#x27;;
 
-  constructor(private menuService: MenuService) { }
+  constructor(
+    /** menu service reference */
+    private menuService: MenuService) { }
 
+  /** initialize component */
   ngOnInit() {
     this.sortLiquors(this.sortSelect);
   }
 
+  /** sort change event. Resorts based upon the event value. */
   onSortChange(event: MatRadioChange) {
     const newValue &#x3D; event.value as string;
     this.sortLiquors(newValue);
   }
 
+  /** sorts the liquors */
   private sortLiquors(sort: string) {
     switch (sort) {
       case &#x27;name&#x27;:
@@ -605,7 +637,7 @@ mat-radio-button,
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="radiogroup">    <div class="radioLabel">Sort A>Z based upon the following:</div>    <mat-radio-group (change)="onSortChange($event)" [value]="sortSelect">        <mat-radio-button value="name">Name</mat-radio-button>        <mat-radio-button value="type">Alcohol Type</mat-radio-button>    </mat-radio-group></div><div class="list">    <mat-card *ngFor="let item of items" class="menuoption">        <ng-container *ngIf="sortSelect===\'name\'; else typeTemplate">            <mat-card-title>{{item.name | titlecase}} <ng-container *ngIf="item.type">- {{item.type | titlecase}}                </ng-container>            </mat-card-title>        </ng-container>        <ng-template #typeTemplate>            <mat-card-title>                <ng-container *ngIf="item.type">{{item.type|titlecase}} -</ng-container> {{item.name|titlecase}}            </mat-card-title>        </ng-template>        <mat-card-subtitle>            {{item.ABV}} <ng-container *ngIf="item.description">- {{item.description}}</ng-container>        </mat-card-subtitle>    </mat-card></div></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottledComponent', 'selector': 'menu-bottled'},{'name': 'CalendarComponent', 'selector': 'calendar'},{'name': 'ContactComponent', 'selector': 'contact'},{'name': 'ContactMainComponent', 'selector': 'contact-main'},{'name': 'ContentwithSideNavComponent', 'selector': 'content-with-side-nav'},{'name': 'DayComponent', 'selector': 'calendar-day'},{'name': 'DrinkComponent', 'selector': 'menu-drinks'},{'name': 'ErrorNotFoundComponent', 'selector': 'error-not-found'},{'name': 'FoodItemwFriesComponent', 'selector': 'menu-foodItemwfries'},{'name': 'GameOptionsComponent', 'selector': 'game-options'},{'name': 'GamesComponent', 'selector': 'games'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HoursDialogComponent', 'selector': 'hours-dialog'},{'name': 'LiquorsComponent', 'selector': 'menu-liquors'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'MainComponent', 'selector': 'games-main'},{'name': 'MainComponent', 'selector': 'menu-home'},{'name': 'ManifestoComponent', 'selector': 'manifesto'},{'name': 'MembershipComponent', 'selector': 'membership'},{'name': 'MenuComponent', 'selector': 'menu-main'},{'name': 'MenuSectionComponent', 'selector': 'menu-section'},{'name': 'MessageDialogComponent', 'selector': 'message-dialog'},{'name': 'MiscFoodItemComponent', 'selector': 'menu-miscfooditem'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoopComponent', 'selector': ''},{'name': 'OpenSignComponent', 'selector': 'open-sign'},{'name': 'StaffComponent', 'selector': 'about-staff'},{'name': 'TapComponent', 'selector': 'menu-tap'},{'name': 'UnderConstructionComponent', 'selector': 'under-construction'},{'name': 'WineComponent', 'selector': 'menu-wine'}];
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-component'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BottledComponent', 'selector': 'menu-bottled'},{'name': 'CalendarComponent', 'selector': 'calendar'},{'name': 'ContactComponent', 'selector': 'contact'},{'name': 'ContactMainComponent', 'selector': 'contact-main'},{'name': 'ContentwithSideNavComponent', 'selector': 'content-with-side-nav'},{'name': 'DayComponent', 'selector': 'calendar-day'},{'name': 'DrinkComponent', 'selector': 'menu-drinks'},{'name': 'ErrorNotFoundComponent', 'selector': 'error-not-found'},{'name': 'FoodItemwFriesComponent', 'selector': 'menu-foodItemwfries'},{'name': 'GameOptionsComponent', 'selector': 'game-options'},{'name': 'GamesComponent', 'selector': 'games'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HoursDialogComponent', 'selector': 'hours-dialog'},{'name': 'LiquorsComponent', 'selector': 'menu-liquors'},{'name': 'LoginComponent', 'selector': 'login'},{'name': 'MainComponent', 'selector': 'games-main'},{'name': 'MainComponent', 'selector': 'menu-home'},{'name': 'ManifestoComponent', 'selector': 'manifesto'},{'name': 'MembershipComponent', 'selector': 'membership'},{'name': 'MenuComponent', 'selector': 'menu-main'},{'name': 'MenuSectionComponent', 'selector': 'menu-section'},{'name': 'MessageDialogComponent', 'selector': 'message-dialog'},{'name': 'MiscFoodItemComponent', 'selector': 'menu-miscfooditem'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoopComponent', 'selector': ''},{'name': 'OpenSignComponent', 'selector': 'open-sign'},{'name': 'StaffComponent', 'selector': 'about-staff'},{'name': 'TapComponent', 'selector': 'menu-tap'},{'name': 'WineComponent', 'selector': 'menu-wine'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LiquorsComponent'};
 </script>
