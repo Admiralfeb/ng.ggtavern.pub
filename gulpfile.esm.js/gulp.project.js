@@ -1,28 +1,56 @@
-import gulp from 'gulp';
 import { exec } from 'child_process';
+import { src } from 'gulp';
+import compodoc from '@compodoc/gulp-compodoc';
 
-
-
-gulp.task('postInstall', done => {
-    exec('ts-node scripts/generateKeyFile.ts', (err, stdout, stderr) => {
+/**
+ * executes the post install scripts for npm
+ */
+export function postInstall() {
+    return exec('ts-node scripts/generateKeyFile.ts', (err, stdout, stderr) => {
         if (stdout) {
             console.log(stdout.trim());
         }
         if (stderr) {
             console.error(stderr);
         }
-        done();
+        console.log('key file generated');
     });
-});
+};
 
-gulp.task('deploy', done => {
+export function docs() {
+    return src('src/**/*.ts').pipe(
+        compodoc({
+            name: 'GGTavern Docs',
+            output: 'docs',
+            tsconfig: 'tsconfig.json',
+            theme: 'readthedocs'
+        })
+    );
+}
+
+export function docsserve() {
+    return src('src/**/*.ts').pipe(
+        compodoc({
+            name: 'GGTavern Docs',
+            output: 'docs',
+            tsconfig: 'tsconfig.json',
+            theme: 'readthedocs',
+            watch: true,
+            serve: true,
+        })
+    );
+}
+
+/**
+ * executes the deployment to firebase
+ */
+export function deploy() {
     const pjson = require('../package.json');
     const version = pjson.version;
-    exec(`firebase deploy --only hosting -m ${version}`, (err, stdout, stderr) => {
+    return exec(`firebase deploy --only hosting -m ${version}`, (err, stdout, stderr) => {
         console.log(stdout.trim());
         if (stderr) {
             console.error({ stderr });
         }
-        done();
     });
-});
+}

@@ -1,21 +1,79 @@
-import gulp from 'gulp';
-import shell from 'gulp-shell';
+import { exec } from 'child_process';
 
-gulp.task('coverage', shell.task('codecov -f coverage/*.json'));
+export function lint() {
+    return exec('ng lint', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
 
-// Chrome
-gulp.task('run-test-in-chrome', shell.task('ng test --browsers=Chrome'));
-gulp.task('ci-test-in-chrome', shell.task('ng test --no-watch --no-progress --browsers=ChromeHeadless'));
-gulp.task('test:chrome', gulp.series('run-test-in-chrome'));
-gulp.task('ci:test:chrome', gulp.series('ci-test-in-chrome'));
+export function coverage() {
+    return exec('codecov -f coverage/*.json', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
 
-// Firefox
-gulp.task('run-test-in-firefox', shell.task('ng test --browsers=Firefox'));
-gulp.task('ci-test-in-firefox', shell.task('ng test --no-watch --no-progress --browsers=FirefoxHeadless'));
-gulp.task('test:firefox', gulp.series('run-test-in-firefox'));
-gulp.task('ci:test:firefox', gulp.series('ci-test-in-firefox'));
+}
 
-gulp.task('run-test', shell.task('ng test'));
-gulp.task('test', gulp.series('run-test'));
+export function test() {
+    return exec('ng test', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
 
-gulp.task('lint', shell.task('ng lint'));
+export function testChrome() {
+    return exec('ng test --browsers=Chrome', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
+
+export function testFirefox() {
+    return exec('ng test --browsers=Firefox', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
+
+export function citestChrome() {
+    return exec('ng test --no-watch --no-progress --browsers=ChromeHeadless', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}
+
+export function citestFirefox() {
+    return exec('ng test --no-watch --no-progress --browsers=FirefoxHeadless', (err, stdout, stderr) => {
+        if (stdout) {
+            console.log(stdout.trim());
+        }
+        if (stderr) {
+            console.error(stderr);
+        }
+    });
+}

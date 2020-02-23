@@ -2,7 +2,7 @@
     <mat-card-title><span class="title">{{item.name}}</span><span class="price">{{item.price | currency:'USD'}}</span>
     </mat-card-title>
     <mat-card-subtitle>
-        <div>
+        <div *ngIf="item.types">
             Choice of: {{item.types}}
         </div>
     </mat-card-subtitle>
