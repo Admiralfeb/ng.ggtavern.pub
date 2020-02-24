@@ -1,10 +1,23 @@
 <div class="container">
-    <div *ngIf="note">
-        Note: {{note}}
+    <div *ngIf="note||isLoggedIn">
+        Note: {{note}} <button mat-icon-button *ngIf="isLoggedIn" color="accent">
+            <mat-icon>create</mat-icon>
+        </button>
+        <div></div>
     </div>
     <ng-container *ngIf="games">
-        <mat-list *ngFor="let game of games">
-            <mat-list-item>{{game.name}}</mat-list-item>
+        <mat-list>
+            <ng-container *ngFor="let game of games">
+                <mat-list-item>
+                    <button mat-icon-button *ngIf="isLoggedIn" color="accent" (click)="editGame(game)">
+                        <mat-icon>create</mat-icon>
+                    </button>
+                    <button mat-icon-button *ngIf="isLoggedIn" color="warn" (click)="deleteGame(game)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    {{game.name}}
+                </mat-list-item>
+            </ng-container>
         </mat-list>
     </ng-container>
 </div>

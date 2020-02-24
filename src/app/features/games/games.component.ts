@@ -6,8 +6,7 @@ import { GamesService } from './services/games.service';
 
 @Component({
   selector: 'games',
-  template:
-    `<content-with-side-nav [headerText]="title" [navItems]="navItems"></content-with-side-nav>`
+  template: `<content-with-side-nav [headerText]="title" [navItems]="navItems"></content-with-side-nav>`
 })
 export class GamesComponent implements OnInit {
   title = 'GG Game Menu';

@@ -1,14 +1,29 @@
 import { Injectable } from '@angular/core';
-import { DatabaseService } from '@core/services/database.service';
 import { GameSystem, Game } from '../models/model';
-import { SortService } from '@core/services/sort.service';
+import { SortService, AuthService, DatabaseService } from '@core/services';
 
 @Injectable()
 export class GamesService {
+  private isAuthorized = false;
   private systems: GameSystem[] = [];
 
-  constructor(private db: DatabaseService, private sort: SortService) { }
+  constructor(
+    /** Database Service. Used for getting the Systems and Games */
+    private db: DatabaseService,
+    /** Sort service. Used for sorting Systems and Games */
+    private sort: SortService,
+    /** Reference to AuthService. Used for Login state. */
+    private auth: AuthService) {
+    this.auth.getLoginState().subscribe((value: boolean) => {
+      this.isAuthorized = value;
+    });
+  }
 
+  get isLoggedIn(): boolean {
+    return this.isAuthorized;
+  }
+
+  /** Checks that the systems are loaded once every second for 10 seconds. */
   async systemsLoaded(): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       const interval = setInterval(() => {
@@ -24,9 +39,7 @@ export class GamesService {
       }, 10000);
     });
   }
-  /**
-   * Gets the game systems from the Database if they do not exist in memory.
-   */
+  /** Gets the game systems from the Database if they do not exist in memory. */
   async getSystems(): Promise<GameSystem[]> {
     const pathString = `games`;
 
@@ -54,4 +67,9 @@ export class GamesService {
   getSystem(systemShort: string): GameSystem {
     return this.systems.find(x => x.short === systemShort);
   }
+
+  sortGames(games: Game[]): Game[] {
+    return this.sort.sortItems(games, 'name');
+  }
+
 }
