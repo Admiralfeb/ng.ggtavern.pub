@@ -38,7 +38,7 @@ describe('GamesService', () => {
 
   it('should not call to the database for Systems when systems are loaded', async (done) => {
     const testSystem: GameSystem[] = [
-      { system: 'really cool system', short: 'rcs' }
+      { id: 'rcs', system: 'really cool system', short: 'rcs' }
     ];
     const str = 'systems';
     service[str] = testSystem;

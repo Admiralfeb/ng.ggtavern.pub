@@ -85,10 +85,29 @@ export class DatabaseService {
     }
   }
 
+  /**
+   * Creates/Updates an object in the database.
+   * @param queryPath path/to/collection/holding/document
+   * @param document document itself which has its id set in the object
+   */
   async setDocument<T extends ID>(queryPath: string, document: T) {
     try {
       console.log('sending to database', document);
       await this.db.collection(queryPath).doc(document.id).set(document);
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an object from the database.
+   * @param queryPath path/to/collection/holding/document
+   * @param document document itself which has its id set in the object
+   */
+  async deleteDocument<T extends ID>(queryPath: string, document: T) {
+    try {
+      console.log('Deleting from database', document);
+      await this.db.collection(queryPath).doc(document.id).delete();
     } catch (err) {
       throw err;
     }
