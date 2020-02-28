@@ -3,17 +3,20 @@ import { GameSystem } from '../models/model';
 import { DatabaseService } from '@core/services/database.service';
 import { TestBed } from '@angular/core/testing';
 import { SortService } from '@core/services/sort.service';
+import { AuthService } from '@core/services';
 
 describe('GamesService', () => {
   let service: GamesService;
 
-  const mockDatabaseService = jasmine.createSpyObj<DatabaseService>(['getItems']);
+  const mockDatabaseService = jasmine.createSpyObj<DatabaseService>(['getItemswithID']);
+  const mockAuthService = jasmine.createSpyObj<AuthService>(['getLoginState']);
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         GamesService,
         { provide: DatabaseService, useValue: mockDatabaseService },
+        { provide: AuthService, useValue: mockAuthService },
         SortService
       ]
     });
@@ -21,8 +24,8 @@ describe('GamesService', () => {
   });
 
   afterEach(() => {
-    mockDatabaseService.getItems.calls.reset();
-    mockDatabaseService.getItems.and.stub();
+    mockDatabaseService.getItemswithID.calls.reset();
+    mockDatabaseService.getItemswithID.and.stub();
   });
 
   it('should be created', () => {
@@ -30,9 +33,9 @@ describe('GamesService', () => {
   });
 
   it('should call to the database for the Systems when no systems are loaded', async (done) => {
-    mockDatabaseService.getItems.and.returnValue(Promise.resolve([]));
+    mockDatabaseService.getItemswithID.and.returnValue(Promise.resolve([]));
     await service.getSystems();
-    expect(mockDatabaseService.getItems).toHaveBeenCalled();
+    expect(mockDatabaseService.getItemswithID).toHaveBeenCalled();
     done();
   });
 
@@ -44,13 +47,7 @@ describe('GamesService', () => {
     service[str] = testSystem;
 
     await service.getSystems();
-    expect(mockDatabaseService.getItems).not.toHaveBeenCalled();
-    done();
-  });
-
-  it('should throw an error if there is an error in getting Systems', async (done) => {
-    mockDatabaseService.getItems.and.throwError('oops');
-    expectAsync(service.getSystems()).toBeRejectedWith(new Error('oops'));
+    expect(mockDatabaseService.getItemswithID).not.toHaveBeenCalled();
     done();
   });
 });

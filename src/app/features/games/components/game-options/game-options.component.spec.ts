@@ -6,12 +6,14 @@ import { SharedModule } from '@shared/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GamesService } from '../../services/games.service';
 import { ErrorNotFoundComponent } from '@shared/components';
+import { of } from 'rxjs';
 
 describe('GameOptionsComponent (unit)', () => {
   let component: GameOptionsComponent;
   let fixture: ComponentFixture<GameOptionsComponent>;
-  const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames', 'systemsLoaded']);
+  const mockService = jasmine.createSpyObj('GamesService', ['getSystems', 'getSystem', 'getGames', 'systemsLoaded', 'getisLoggedIn']);
   mockService.systemsLoaded.and.returnValue(Promise.resolve(true));
+  mockService.getisLoggedIn.and.returnValue(of(false));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

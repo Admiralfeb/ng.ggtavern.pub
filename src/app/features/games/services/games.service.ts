@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { GameSystem, Game } from '../models/model';
 import { SortService, AuthService, DatabaseService } from '@core/services';
 import { GameSystemDialogData } from '../components/system-dialog/dialog.model';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, from } from 'rxjs';
 
 @Injectable()
 export class GamesService {
-  private isAuthorized = false;
+  private isAuthorized$: Observable<boolean>;
   private systems: GameSystem[] = [];
   private systemSubject = new BehaviorSubject<GameSystem[]>(this.systems);
   private systems$: Observable<GameSystem[]>;
@@ -17,14 +17,12 @@ export class GamesService {
     private sort: SortService,
     /** Reference to AuthService. Used for Login state. */
     private auth: AuthService) {
-    this.auth.getLoginState().subscribe((value: boolean) => {
-      this.isAuthorized = value;
-    });
+    this.isAuthorized$ = this.auth.getLoginState();
     this.systems$ = this.systemSubject.asObservable();
   }
 
-  get isLoggedIn(): boolean {
-    return this.isAuthorized;
+  getisLoggedIn() {
+    return this.isAuthorized$;
   }
 
   async addSystem(data: GameSystemDialogData): Promise<string> {
@@ -49,6 +47,16 @@ export class GamesService {
       }
     }
     return null;
+  }
+
+  editSystem(newName: string) {
+    if (newName) {
+      if (this.systems.find(x => x.system.toUpperCase() === newName.toUpperCase())) {
+        throw new Error('No duplicate system names allowed');
+      }
+
+
+    }
   }
 
   /** Checks that the systems are loaded once every second for 10 seconds. */
@@ -82,7 +90,7 @@ export class GamesService {
         systems = this.sort.sortItems(itemData, 'system');
         systems = systems.map(system => {
           let games = system.games;
-          games = this.sort.sortItems(games, 'name');
+          games = this.sortGames(games);
           system.games = games;
           return system;
         });

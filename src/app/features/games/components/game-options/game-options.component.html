@@ -1,8 +1,9 @@
 <div class="container">
     <div *ngIf="note||isLoggedIn">
-        Note: {{note}} <button mat-icon-button *ngIf="isLoggedIn" color="accent" (click)="editNote()">
-            <mat-icon>create</mat-icon>
+        <button mat-icon-button *ngIf="isLoggedIn" [matMenuTriggerFor]="noteMenu">
+            <mat-icon>more_vert</mat-icon>
         </button>
+        Note: {{note}}
     </div>
     <ng-container *ngIf="games">
         <mat-list>
@@ -19,22 +20,52 @@
     </ng-container>
 </div>
 
+<mat-menu #noteMenu="matMenu">
+    <ng-template matMenuContent>
+        <button mat-menu-item (click)="editNote()">
+            <mat-icon>create</mat-icon>
+            <span>Edit Note</span>
+        </button>
+        <button mat-menu-item (click)="addGame()">
+            <mat-icon>add</mat-icon>
+            <span>Add Game</span>
+        </button>
+        <button mat-menu-item (click)="addSystem()">
+            <mat-icon>add</mat-icon>
+            <span>Add System</span>
+        </button>
+        <button mat-menu-item (click)="deleteSystem()">
+            <mat-icon>delete</mat-icon>
+            <span>Delete System</span>
+        </button>
+        <button mat-menu-item (click)="saveSystem()" [disabled]="!isChanged">
+            <mat-icon>save</mat-icon>
+            <span>Save System</span>
+        </button>
+    </ng-template>
+</mat-menu>
+
 <mat-menu #gameMenu="matMenu">
     <ng-template matMenuContent let-game="game">
         <button mat-menu-item (click)="editGame(game)">
-            <mat-icon>create</mat-icon><span>Edit Game</span>
+            <mat-icon>create</mat-icon>
+            <span>Edit Game</span>
         </button>
         <button mat-menu-item (click)="deleteGame(game)">
-            <mat-icon>delete</mat-icon><span>Delete Game</span>
+            <mat-icon>delete</mat-icon>
+            <span>Delete Game</span>
         </button>
         <button mat-menu-item (click)="addGame()">
-            <mat-icon>add</mat-icon>Add Game
+            <mat-icon>add</mat-icon>
+            <span>Add Game</span>
         </button>
         <button mat-menu-item (click)="addSystem()">
-            <mat-icon>add</mat-icon>Add System
+            <mat-icon>add</mat-icon>
+            <span>Add System</span>
         </button>
-        <button mat-menu-item (click)="saveSystem()">
-            <mat-icon>save</mat-icon>Save System
+        <button mat-menu-item (click)="saveSystem()" [disabled]="!isChanged">
+            <mat-icon>save</mat-icon>
+            <span>Save System</span>
         </button>
     </ng-template>
 </mat-menu>

@@ -28,8 +28,7 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private gamesService: GamesService,
-    private dialog: DialogService,
-    private auth: AuthService,
+    private dialog: DialogService
   ) { }
 
   ngOnInit() {
@@ -41,7 +40,7 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
       };
       this.subs = [...this.subs, this.route.params.subscribe(locationobserver)];
     });
-    this.subs = [...this.subs, this.auth.getLoginState().subscribe((value: boolean) => this.isLoggedIn = value)];
+    this.subs = [...this.subs, this.gamesService.getisLoggedIn().subscribe((value: boolean) => this.isLoggedIn = value)];
   }
 
   ngOnDestroy() {
@@ -89,19 +88,20 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
 
   addSystem() {
     const dialogRef = this.dialog.dialog.open<SystemDialogComponent, GameSystemDialogData>(SystemDialogComponent, {
-      data: { query: 'Enter system name along with a short name separated by a pipe:', name: '', short: '' }
+      data: { query: 'Enter system name along with a short name:', name: '', short: '' }
     });
 
     const dialogRef$ = dialogRef.afterClosed().pipe(take<GameSystemDialogData>(1));
     dialogRef$.subscribe(async (data) => {
-      try {
-        const newShort = await this.gamesService.addSystem(data);
-        this.router.navigate([`/games/${newShort}`]);
-      } catch (err) {
-        this.dialog.showWarning(err.message);
+      if (data.short) {
+        try {
+          const newShort = await this.gamesService.addSystem(data);
+          this.router.navigate([`/games/${newShort}`]);
+        } catch (err) {
+          this.dialog.showWarning(err.message);
+        }
       }
     });
-
   }
 
   addGame(): void {
@@ -156,6 +156,28 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
       this.isChanged = false;
     } catch (error) {
       this.dialog.showError(error);
+    }
+  }
+
+  /**
+   * Enables user to rename a system
+   * @param newName new name of System
+   */
+  editSystem(newName: string) {
+
+  }
+
+  async deleteSystem() {
+    try {
+      if (this.games.length > 0) {
+        this.dialog.showWarning('System still has games. Please delete them before continuing.');
+        return;
+      }
+      this.gamesService.deleteSystem(this.currentSystem);
+      this.isChanged = false;
+      this.router.navigate(['/games/home']);
+    } catch (err) {
+      console.error(err);
     }
   }
 }
