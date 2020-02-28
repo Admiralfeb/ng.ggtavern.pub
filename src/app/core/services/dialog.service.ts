@@ -11,7 +11,7 @@ import { ComponentType } from '@angular/cdk/portal';
 })
 export class DialogService {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   /**
    * Generates and shows an error dialog.

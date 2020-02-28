@@ -85,5 +85,13 @@ export class DatabaseService {
     }
   }
 
+  async setDocument<T extends ID>(queryPath: string, document: T) {
+    try {
+      console.log('sending to database', document);
+      await this.db.collection(queryPath).doc(document.id).set(document);
+    } catch (err) {
+      throw err;
+    }
+  }
 
 }

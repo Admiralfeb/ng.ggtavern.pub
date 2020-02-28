@@ -1,0 +1,9 @@
+<div mat-dialog-content>
+    <p>{{data.query}}</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="value">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="value" cdkFocusInitial>Ok</button>
+</div>

@@ -1,9 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observer, Subscription } from 'rxjs';
+import { first, take } from 'rxjs/operators';
 import { GameSystem, Game } from '../../models/model';
 import { GamesService } from '../../services/games.service';
 import { DialogService, AuthService } from '@core/services';
+import { GameDialogComponent } from '../game-dialog/game-dialog.component';
+import { GameDialogData } from '../game-dialog/dialog.model';
+import { SystemDialogComponent } from '../system-dialog/system-dialog.component';
+import { GameSystemDialogData } from '../system-dialog/dialog.model';
 
 
 @Component({
@@ -17,6 +22,7 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   subs: Subscription[] = [];
   isChanged = false;
+  private currentSystem: GameSystem;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,6 +61,7 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
       } else {
         this.note = 'No games listed';
       }
+      this.currentSystem = system;
 
       const contentContainer = document.querySelector('game-options') || window;
       contentContainer.scrollTo(0, 0);
@@ -66,11 +73,74 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
   }
 
   editNote() {
+    const dialogRef = this.dialog.dialog.open(GameDialogComponent, {
+      width: '300px',
+      data: { query: 'Enter Note for System:', value: this.note }
+    });
+
+    const dialogRef$ = dialogRef.afterClosed().pipe(take<string>(1));
+    dialogRef$.subscribe((value: string) => {
+      if (value) {
+        this.isChanged = true;
+        this.note = value;
+      } else { return; }
+    });
+  }
+
+  addSystem() {
+    const dialogRef = this.dialog.dialog.open<SystemDialogComponent, GameSystemDialogData>(SystemDialogComponent, {
+      data: { query: 'Enter system name along with a short name separated by a pipe:', name: '', short: '' }
+    });
+
+    const dialogRef$ = dialogRef.afterClosed().pipe(take<GameSystemDialogData>(1));
+    dialogRef$.subscribe(async (data) => {
+      try {
+        const newShort = await this.gamesService.addSystem(data);
+        this.router.navigate([`/games/${newShort}`]);
+      } catch (err) {
+        this.dialog.showWarning(err.message);
+      }
+    });
 
   }
 
+  addGame(): void {
+    const dialogRef = this.dialog.dialog.open(GameDialogComponent, { data: { query: 'Enter game name:', value: '' } });
+
+    const dialogRef$ = dialogRef.afterClosed().pipe(take<string>(1));
+    dialogRef$.subscribe((value: string) => {
+      if (value) {
+        if (this.games.find(x => x.name.toUpperCase() === value.toUpperCase())) {
+          this.dialog.showWarning(`The item '${value}' is already in the list. No duplicates allowed`);
+        } else {
+          const newGame: Game = { name: value, players: '' };
+          this.games = [...this.games, newGame];
+          this.games = this.gamesService.sortGames(this.games);
+          this.isChanged = true;
+        }
+      } else {
+        this.dialog.showWarning('Nothing was entered');
+      }
+    });
+  }
+
   editGame(game: Game) {
-    this.isChanged = true;
+    const dialogRef = this.dialog.dialog.open(GameDialogComponent, {
+      width: '300px',
+      data: { query: 'Enter game name:', value: game.name }
+    });
+
+    const dialogRef$ = dialogRef.afterClosed().pipe(take<string>(1));
+    dialogRef$.subscribe((value: string) => {
+      if (value) {
+        this.isChanged = true;
+        const index = this.games.indexOf(game);
+        const newGame: Game = { name: value, players: game.players };
+        this.games[index] = newGame;
+        this.games = this.gamesService.sortGames(this.games);
+      } else { return; }
+    });
+
   }
 
   deleteGame(game: Game) {
@@ -80,7 +150,12 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
     console.log('Deleted:', game);
   }
 
-  saveChanges() {
-
+  async saveSystem() {
+    try {
+      this.gamesService.saveSystem(this.currentSystem, this.note, this.games);
+      this.isChanged = false;
+    } catch (error) {
+      this.dialog.showError(error);
+    }
   }
 }
