@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, SecurityContext } from '@angular/core';
 import { Position, Worker } from '../about.models';
 import { DatabaseService } from '@core/services/database.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
@@ -36,6 +36,6 @@ export class AboutService {
   }
 
   private getImageUrl(urlString: string): SafeUrl {
-    return this.sanitizer.bypassSecurityTrustUrl(urlString);
+    return this.sanitizer.sanitize(SecurityContext.URL, urlString);
   }
 }
