@@ -1,10 +1,11 @@
 import { AboutService } from './about.service';
 import { DatabaseService } from '@core/services/database.service';
-import { DomSanitizer, ɵBROWSER_SANITIZATION_PROVIDERS } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { TestBed } from '@angular/core/testing';
 import { Position, Worker } from '../about.models';
 import { SortService } from '@core/services/sort.service';
 import positions from '../jobs.json';
+import { SecurityContext } from '@angular/core';
 
 describe('AboutService', () => {
   let service: AboutService;
@@ -18,8 +19,6 @@ describe('AboutService', () => {
       providers: [
         AboutService,
         { provide: DatabaseService, useValue: databaseServiceSpy },
-        DomSanitizer,
-        ɵBROWSER_SANITIZATION_PROVIDERS,
         SortService
       ]
     });
@@ -121,9 +120,9 @@ describe('AboutService', () => {
     expectedDefault = expectedDefault.map((position: Position) => {
       position.workers = position.workers.map((worker: Worker) => {
         if (worker.imgPath) {
-          worker.imgUrl = sanitizer.bypassSecurityTrustUrl(worker.imgPath);
+          worker.imgUrl = sanitizer.sanitize(SecurityContext.URL, worker.imgPath);
         } else {
-          worker.imgUrl = sanitizer.bypassSecurityTrustUrl('assets/img/android-chrome-512x512.png');
+          worker.imgUrl = sanitizer.sanitize(SecurityContext.URL, 'assets/img/android-chrome-512x512.png');
         }
         return worker;
       });
