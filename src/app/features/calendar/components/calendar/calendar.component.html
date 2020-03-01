@@ -12,7 +12,7 @@
     </div>
     <ng-template #mobileTemplate>
         <div class="grid-mobile">
-            <ng-container *ngFor="let calendarEvent of calendarEvents; first as isFirst">
+            <ng-container *ngFor="let calendarEvent of calendarEvents">
                 <div class="old-style mobile-daysofWeek mobile-row">
                     {{ weekdaysMobile[getDayofWeek(calendarEvent.year,calendarEvent.month,calendarEvent.day)]}}</div>
                 <calendar-day class="mobile-day mobile-row" [event]="calendarEvent"></calendar-day>
