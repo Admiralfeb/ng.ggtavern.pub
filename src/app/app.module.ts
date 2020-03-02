@@ -1,6 +1,9 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import bugsnag from '@bugsnag/js';
+import { BugsnagErrorHandler } from '@bugsnag/plugin-angular';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -18,6 +21,12 @@ import { OpenSignComponent } from './components/open-sign/open-sign.component';
 import { HoursDialogComponent } from './components/hours-dialog/hours-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+const bugsnagClient = bugsnag('b7991037e1418ed7b82b09a7b8e2d218');
+
+// create a factory which will return the bugsnag error handler
+export function errorHandlerFactory() {
+  return new BugsnagErrorHandler(bugsnagClient);
+}
 
 @NgModule({
   declarations: [
@@ -37,7 +46,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     SharedModule,
   ],
-  providers: [Title],
+  providers: [
+    Title,
+    { provide: ErrorHandler, useFactory: errorHandlerFactory }
+  ],
   bootstrap: [AppComponent],
   entryComponents: [HoursDialogComponent]
 })
