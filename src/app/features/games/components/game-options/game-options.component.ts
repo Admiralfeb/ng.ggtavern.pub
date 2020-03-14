@@ -1,22 +1,22 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observer, Subscription } from 'rxjs';
-import { first, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { GameSystem, Game } from '../../models/model';
 import { GamesService } from '../../services/games.service';
-import { DialogService, AuthService } from '@core/services';
+import { DialogService } from '@core/services';
 import { GameDialogComponent } from '../game-dialog/game-dialog.component';
-import { GameDialogData } from '../game-dialog/dialog.model';
 import { SystemDialogComponent } from '../system-dialog/system-dialog.component';
 import { GameSystemDialogData } from '../system-dialog/dialog.model';
+import { UntilDestroy } from '@ngneat/until-destroy';
 
-
+@UntilDestroy({ arrayName: 'subs' })
 @Component({
   selector: 'game-options',
   templateUrl: './game-options.component.html',
   styleUrls: ['./game-options.component.scss']
 })
-export class GameOptionsComponent implements OnInit, OnDestroy {
+export class GameOptionsComponent implements OnInit {
   note = '';
   games: Game[] = [];
   isLoggedIn = false;
@@ -41,10 +41,6 @@ export class GameOptionsComponent implements OnInit, OnDestroy {
       this.subs = [...this.subs, this.route.params.subscribe(locationobserver)];
     });
     this.subs = [...this.subs, this.gamesService.getisLoggedIn().subscribe((value: boolean) => this.isLoggedIn = value)];
-  }
-
-  ngOnDestroy() {
-    this.subs.forEach(sub => sub.unsubscribe());
   }
 
   async onLocationChange(params: Params) {
