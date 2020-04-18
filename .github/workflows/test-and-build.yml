@@ -112,7 +112,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: dist
-      - name: Deploy to Firebase
-        run: npm run deploy -- -m ${{ steps.vars.outputs.build_version }}
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Azure WebApp
+        uses: Azure/webapps-deploy@v2
+        with:
+          app-name: ggtavern
