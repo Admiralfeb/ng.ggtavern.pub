@@ -2,9 +2,6 @@ name: Test and Build
 
 on: [push]
 
-env:
-  BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-
 jobs:
   test-spec:
     name: Unit Tests
@@ -87,11 +84,6 @@ jobs:
         run: npm ci
       - name: Run Build
         run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: dist
 
   deploy:
     name: Deploy to Firebase
@@ -108,11 +100,9 @@ jobs:
           node-version: 12.x
       - name: Install Project
         run: npm ci
-      - name: Download Build
-        uses: actions/download-artifact@master
-        with:
-          name: dist
-      - name: Azure WebApp
-        uses: Azure/webapps-deploy@v2
-        with:
-          app-name: ggtavern
+      - name: Run Build
+        run: npm run build
+      - name: Deploy to Firebase
+        run: npm run deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
