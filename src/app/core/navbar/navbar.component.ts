@@ -10,14 +10,9 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
 
-  isLoggedIn = false;
-  constructor(private announcements: AnnouncementService, private auth: AuthService) { }
+  constructor(private announcements: AnnouncementService, public auth: AuthService) { }
 
   ngOnInit() {
-    this.auth.init();
-    this.auth.getLoginState().subscribe((value: boolean) => {
-      this.isLoggedIn = value;
-    });
     this.announcements.displayBannerAnnouncement();
   }
 

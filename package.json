@@ -33,6 +33,7 @@
     "@angular/platform-browser": "9.1.2",
     "@angular/platform-browser-dynamic": "9.1.2",
     "@angular/router": "9.1.2",
+    "@auth0/auth0-spa-js": "^1.8.0",
     "firebase": "7.14.1",
     "moment-timezone": "0.5.28",
     "mongodb-stitch-browser-sdk": "^4.8.0",

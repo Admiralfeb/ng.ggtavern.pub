@@ -4,9 +4,10 @@ import { SharedModule } from '@shared/shared.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
-  declarations: [NavbarComponent, LoginComponent],
+  declarations: [NavbarComponent, LoginComponent, PasswordResetComponent],
   imports: [
     RouterModule,
     SharedModule,
