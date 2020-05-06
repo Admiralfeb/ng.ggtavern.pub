@@ -33,7 +33,7 @@
     "@angular/platform-browser": "9.1.4",
     "@angular/platform-browser-dynamic": "9.1.4",
     "@angular/router": "9.1.4",
-    "firebase": "7.14.1",
+    "firebase": "7.14.2",
     "moment-timezone": "0.5.28",
     "rxjs": "6.5.5",
     "tslib": "^1.11.1",
