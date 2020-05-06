@@ -13,6 +13,7 @@
     "ci:test:firefox": "gulp citestFirefox",
     "ci:test:report-coverage": "gulp coverage",
     "lint": "gulp lint",
+    "eslint": "eslint src/**/*.ts",
     "e2e": "gulp e2e",
     "e2e:firefox": "gulp e2eFirefox",
     "ci:e2e:chrome": "gulp cie2eChrome",
@@ -22,6 +23,7 @@
   "private": true,
   "dependencies": {
     "@admiralfeb/under-construction": "0.0.2",
+    "@angular-eslint/schematics": "0.0.1-alpha.29",
     "@angular/animations": "9.1.4",
     "@angular/cdk": "9.2.1",
     "@angular/common": "9.1.4",
@@ -54,10 +56,16 @@
     "@types/jasminewd2": "2.0.8",
     "@types/moment-timezone": "0.5.13",
     "@types/node": "^13.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
     "angular-cli-ghpages": "^0.6.2",
     "codecov": "3.6.5",
     "codelyzer": "^5.1.2",
     "dotenv": "8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
     "esm": "^3.2.25",
     "firebase-admin": "8.10.0",
     "firebase-tools": "8.1.1",
@@ -77,9 +85,14 @@
     "karma-jasmine-html-reporter": "1.5.2",
     "karma-junit-reporter": "2.0.1",
     "minimist": "^1.2.5",
+    "prettier": "^2.0.5",
     "protractor": "5.4.3",
     "ts-node": "8.6.2",
     "tslint": "~6.1.2",
-    "typescript": "3.7.5"
+    "typescript": "3.7.5",
+    "@angular-eslint/builder": "0.0.1-alpha.29",
+    "@angular-eslint/eslint-plugin": "0.0.1-alpha.29",
+    "@angular-eslint/eslint-plugin-template": "0.0.1-alpha.29",
+    "@angular-eslint/template-parser": "0.0.1-alpha.29"
   }
 }
