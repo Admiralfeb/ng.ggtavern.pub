@@ -19,7 +19,7 @@ function postInstall() {
     }
     console.log('key file generated');
   });
-};
+}
 exports.postInstall = postInstall;
 
 function deploy() {
