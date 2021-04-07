@@ -44,7 +44,7 @@
     "@angular-devkit/build-angular": "~0.901.5",
     "@angular/cli": "9.1.5",
     "@angular/compiler-cli": "9.1.6",
-    "@angular/language-service": "9.1.6",
+    "@angular/language-service": "11.2.9",
     "@compodoc/compodoc": "^1.1.11",
     "@compodoc/gulp-compodoc": "0.0.10",
     "@types/firebase": "3.2.1",
